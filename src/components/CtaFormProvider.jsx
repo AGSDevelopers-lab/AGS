@@ -1,0 +1,308 @@
+"use client";
+
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
+import { useRouter } from "next/navigation";
+
+const SERVICE_OPTIONS = [
+  "Web Development",
+  "UI/UX Design",
+  "Branding",
+  "Digital Solutions",
+];
+
+const CtaFormContext = createContext(null);
+
+function getModalCopy(service, lockService) {
+  if (service && lockService) {
+    return {
+      heading: `Let's talk about ${service}`,
+      subtext: "Share your details and we will get back to you shortly.",
+    };
+  }
+
+  return {
+    heading: "Start your next digital project",
+    subtext: "Tell us what you need and our team will reach out soon.",
+  };
+}
+
+function CtaFormModal({ isOpen, config, onClose }) {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    service: config.service || "",
+    message: "",
+  });
+  const router = useRouter();
+
+  const modalCopy = useMemo(
+    () => getModalCopy(config.service, config.lockService),
+    [config.lockService, config.service]
+  );
+
+  useEffect(() => {
+    if (!isOpen) {
+      return undefined;
+    }
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen, onClose]);
+
+  if (!isOpen) {
+    return null;
+  }
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((current) => ({
+      ...current,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    onClose();
+    router.push("/thank-you");
+  };
+
+  return (
+    <div className="fixed inset-0 z-[120] flex items-center justify-center px-4 py-4 sm:px-6">
+      <button
+        type="button"
+        aria-label="Close form overlay"
+        className="absolute inset-0 bg-[rgba(4,6,16,0.76)] backdrop-blur-md"
+        onClick={onClose}
+      />
+
+      <div className="relative w-full max-w-[680px] overflow-hidden rounded-[28px] border border-white/16 bg-[linear-gradient(180deg,rgba(34,39,66,0.84)_0%,rgba(16,20,37,0.86)_100%)] shadow-[0_40px_120px_rgba(0,0,0,0.45)] backdrop-blur-2xl">
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.1),rgba(255,255,255,0.02)_36%,rgba(255,255,255,0)_68%)]" />
+        <div className="pointer-events-none absolute -left-12 top-10 h-40 w-40 rounded-full bg-[#7f9dff]/24 blur-[80px]" />
+        <div className="pointer-events-none absolute right-[-10%] top-[-8%] h-48 w-48 rounded-full bg-[#a383ff]/24 blur-[90px]" />
+
+        <div className="relative border-b border-white/10 px-6 py-4 sm:px-7 sm:py-5">
+          <div className="flex items-start justify-between gap-6">
+            <div className="max-w-[500px]">
+              <p className="text-[0.72rem] uppercase tracking-[0.24em] text-white/45">
+                AGS Project Enquiry
+              </p>
+              <h3 className="mt-2 inline-block pb-2 bg-[linear-gradient(90deg,#9795FF_0%,#FFFFFF_42%,#FFFFFF_59%,#BE9FFF_100%)] bg-clip-text text-[1.25rem] leading-[1.15] font-normal tracking-[-0.05em] text-transparent sm:text-[2rem]">
+                {modalCopy.heading}
+              </h3>
+              <p className="mt-1 max-w-[430px] text-[0.92rem] leading-[1.65] text-white/72">
+                {modalCopy.subtext}
+              </p>
+            </div>
+
+            <button
+              type="button"
+              aria-label="Close form"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/12 bg-white/[0.05] text-white/72 transition hover:border-white/25 hover:bg-white/[0.08] hover:text-white"
+              onClick={onClose}
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+              >
+                <path d="M6 6l12 12M18 6L6 18" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div className="relative px-6 py-4 sm:px-7 sm:py-5">
+          <form className="grid gap-3 sm:grid-cols-2" onSubmit={handleSubmit}>
+              <label className="block">
+                <span className="mb-2 block text-[0.82rem] font-medium text-white/68">
+                  Name
+                </span>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Your full name"
+                  className="w-full rounded-[16px] border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm text-white outline-none transition placeholder:text-white/28 focus:border-[#8a7aff] focus:bg-white/[0.06]"
+                  required
+                />
+              </label>
+
+              <label className="block">
+                <span className="mb-2 block text-[0.82rem] font-medium text-white/68">
+                  Email address
+                </span>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="you@example.com"
+                  className="w-full rounded-[16px] border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm text-white outline-none transition placeholder:text-white/28 focus:border-[#8a7aff] focus:bg-white/[0.06]"
+                  required
+                />
+              </label>
+
+              <label className="block">
+                <span className="mb-2 block text-[0.82rem] font-medium text-white/68">
+                  Phone number
+                </span>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  placeholder="+91 98765 43210"
+                  className="w-full rounded-[16px] border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm text-white outline-none transition placeholder:text-white/28 focus:border-[#8a7aff] focus:bg-white/[0.06]"
+                  required
+                />
+              </label>
+
+              <label className="block">
+                <span className="mb-2 block text-[0.82rem] font-medium text-white/68">
+                  Service needed
+                </span>
+                <select
+                  name="service"
+                  value={formData.service}
+                  onChange={handleChange}
+                  disabled={config.lockService}
+                  className="w-full appearance-none rounded-[16px] border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm text-white outline-none transition focus:border-[#8a7aff] focus:bg-white/[0.06] disabled:cursor-not-allowed disabled:opacity-100"
+                  required
+                >
+                  <option value="" className="bg-[#0f1220] text-white">
+                    Select a service
+                  </option>
+                  {SERVICE_OPTIONS.map((option) => (
+                    <option
+                      key={option}
+                      value={option}
+                      className="bg-[#0f1220] text-white"
+                    >
+                      {option}
+                    </option>
+                  ))}
+                </select>
+                {config.lockService ? (
+                  <span className="mt-2 block text-[0.76rem] text-white/45">
+                    This enquiry is linked to the selected service.
+                  </span>
+                ) : null}
+              </label>
+
+              <label className="block sm:col-span-2">
+                <span className="mb-2 block text-[0.82rem] font-medium text-white/68">
+                  Project details
+                </span>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Tell us about your goals, timeline, budget, or any features you already have in mind."
+                  rows="3"
+                  className="w-full rounded-[16px] border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm text-white outline-none transition placeholder:text-white/28 focus:border-[#8a7aff] focus:bg-white/[0.06]"
+                  required
+                />
+              </label>
+
+              <div className="sm:col-span-2 flex justify-end pt-1">
+                <button
+                  type="submit"
+                  className="inline-flex items-center justify-center gap-3 rounded bg-white px-5 py-3 text-sm font-medium text-black transition hover:bg-white/90"
+                >
+                  <span>Send enquiry</span>
+                  <span className="flex h-4 w-4 items-center justify-center rounded-full border border-black text-[9px]">
+                    <svg
+                      width="9"
+                      height="9"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <path d="M7 17L17 7M17 7H8M17 7v9" />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function CtaFormProvider({ children }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [config, setConfig] = useState({
+    service: "",
+    lockService: false,
+  });
+
+  const openForm = ({ service = "", lockService = false } = {}) => {
+    setConfig({
+      service,
+      lockService,
+    });
+    setIsOpen(true);
+  };
+
+  const closeForm = () => {
+    setIsOpen(false);
+  };
+
+  const value = useMemo(
+    () => ({
+      openForm,
+      closeForm,
+      serviceOptions: SERVICE_OPTIONS,
+    }),
+    []
+  );
+
+  return (
+    <CtaFormContext.Provider value={value}>
+      {children}
+      <CtaFormModal
+        key={`${isOpen}-${config.service}-${config.lockService}`}
+        isOpen={isOpen}
+        config={config}
+        onClose={closeForm}
+      />
+    </CtaFormContext.Provider>
+  );
+}
+
+export function useCtaForm() {
+  const context = useContext(CtaFormContext);
+
+  if (!context) {
+    throw new Error("useCtaForm must be used within a CtaFormProvider");
+  }
+
+  return context;
+}
