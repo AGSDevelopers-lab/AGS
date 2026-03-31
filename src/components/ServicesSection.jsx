@@ -208,10 +208,10 @@ function ServiceCard({ service, className = "" }) {
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="relative z-10 w-full overflow-hidden pb-20 pt-0 scroll-mt-20">
+    <section id="services" className="relative z-10 w-full overflow-hidden pb-12 pt-0 scroll-mt-20 sm:pb-20">
       <div className="relative w-full px-6 sm:px-8 lg:px-26">
-        <div className="relative px-5 py-4 sm:px-8 lg:px-10 lg:py-6">
-        <div className="relative flex flex-col gap-6 pb-5 md:flex-row md:items-start md:justify-between">
+        <div className="relative px-4 py-3 sm:px-8 sm:py-4 lg:px-10 lg:py-6">
+        <div className="relative flex flex-col gap-5 pb-4 sm:gap-6 sm:pb-5 md:flex-row md:items-start md:justify-between">
           <div className="max-w-[760px]">
             <h2 className="max-w-[720px] bg-[linear-gradient(90deg,#9795FF_0%,#FFFFFF_42%,#FFFFFF_59%,#BE9FFF_100%)] bg-clip-text pb-2 pr-2 text-[2.6rem] leading-[1.08] font-normal tracking-[-0.06em] text-transparent sm:text-[3.7rem] lg:text-[4.45rem]">
               Let&apos;s Work Together With Us

@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useCtaForm } from "@/components/CtaFormProvider";
 
 const navItems = [
@@ -15,6 +16,7 @@ const navItems = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
   const { openForm } = useCtaForm();
 
   useEffect(() => {
@@ -44,7 +46,17 @@ export default function Navbar() {
       }`}
     >
       <div className="flex w-full items-center justify-between px-6 sm:px-8 lg:px-26">
-        <Link href="#home" className="inline-flex items-center" onClick={(e) => handleSmoothScroll(e, "#home")}>
+        <Link
+          href="/"
+          className="inline-flex items-center"
+          onClick={(e) => {
+            if (pathname === "/") {
+              handleSmoothScroll(e, "#home");
+            } else {
+              setMobileMenuOpen(false);
+            }
+          }}
+        >
           <Image
             src="/ags_logo.png"
             alt="AGS logo"
@@ -71,11 +83,11 @@ export default function Navbar() {
 
         <button
           type="button"
-          className="hidden md:flex items-center space-x-2 px-5 py-2 border border-[#7B5CFF]/60 hover:border-[#7B5CFF] rounded bg-transparent text-white font-medium text-sm transition-all"
+          className="hidden md:flex items-center space-x-2 rounded border border-[#7B5CFF]/60 bg-transparent px-5 py-2 text-sm font-medium text-white transition-all hover:border-white hover:bg-white hover:text-black"
           onClick={() => openForm()}
         >
           <span>Get Started</span>
-          <div className="w-5 h-5 rounded-full border border-white/50 flex items-center justify-center">
+          <div className="flex h-5 w-5 items-center justify-center rounded-full border border-current/50">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M7 17L17 7M17 7H7M17 7V17" />
             </svg>
@@ -115,14 +127,14 @@ export default function Navbar() {
             ))}
             <button
               type="button"
-              className="mt-2 inline-flex items-center justify-center gap-2 rounded border border-[#7B5CFF]/60 px-4 py-3 text-sm font-medium text-white transition hover:border-[#7B5CFF]"
+              className="mt-2 inline-flex items-center justify-center gap-2 rounded border border-[#7B5CFF]/60 px-4 py-3 text-sm font-medium text-white transition hover:border-white hover:bg-white hover:text-black"
               onClick={() => {
                 setMobileMenuOpen(false);
                 openForm();
               }}
             >
               <span>Get Started</span>
-              <div className="flex h-5 w-5 items-center justify-center rounded-full border border-white/50">
+              <div className="flex h-5 w-5 items-center justify-center rounded-full border border-current/50">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M7 17L17 7M17 7H7M17 7V17" />
                 </svg>

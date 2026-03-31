@@ -8,8 +8,43 @@ import TeamSection from "@/components/TeamSection";
 import Testimonials from "@/components/Testimonials";
 import CTASection from "@/components/CTASection";
 
-// The SVG connector component for the background
-// Removed purple S-line as requested
+function SectionConnector() {
+  return (
+    <div className="pointer-events-none absolute inset-x-0 top-0 hidden h-[760px] lg:block">
+      <svg
+        className="h-full w-full"
+        viewBox="0 0 1440 760"
+        fill="none"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <defs>
+          <linearGradient id="intro-services-line" x1="1140" y1="40" x2="340" y2="730" gradientUnits="userSpaceOnUse">
+            <stop stopColor="rgba(143,107,255,0.95)" />
+            <stop offset="0.48" stopColor="rgba(96,124,255,0.92)" />
+            <stop offset="1" stopColor="rgba(110,71,255,0.88)" />
+          </linearGradient>
+          <filter id="intro-services-glow" x="-10%" y="-10%" width="120%" height="120%">
+            <feGaussianBlur stdDeviation="6" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+
+        <path
+          d="M1120 108H1290C1336 108 1370 142 1370 188V256C1370 302 1336 336 1290 336H184C114 336 58 392 58 462V604C58 650 92 684 138 684H430"
+          stroke="url(#intro-services-line)"
+          strokeWidth="3"
+          strokeLinecap="round"
+          filter="url(#intro-services-glow)"
+          className="opacity-90"
+        />
+      </svg>
+    </div>
+  );
+}
 
 export default function Home() {
   return (
@@ -30,8 +65,11 @@ export default function Home() {
 
       <div className="relative z-10">
         <HeroSlider />
-        <IntroSection />
-        <ServicesSection />
+        <div className="relative">
+          {/* <SectionConnector /> */}
+          <IntroSection />
+          <ServicesSection />
+        </div>
         <ClientsSection />
         <ProductsSection />
         <FeaturedWorks />

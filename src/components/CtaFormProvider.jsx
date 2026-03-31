@@ -1,5 +1,6 @@
 "use client";
 
+import emailjs from "@emailjs/browser";
 import {
   createContext,
   useContext,
@@ -17,6 +18,13 @@ const SERVICE_OPTIONS = [
 ];
 
 const CtaFormContext = createContext(null);
+
+const EMAILJS_SERVICE_ID =
+  process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "YOUR_EMAILJS_SERVICE_ID";
+const EMAILJS_TEMPLATE_ID =
+  process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "YOUR_EMAILJS_TEMPLATE_ID";
+const EMAILJS_PUBLIC_KEY =
+  process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "YOUR_EMAILJS_PUBLIC_KEY";
 
 function getModalCopy(service, lockService) {
   if (service && lockService) {
@@ -40,6 +48,8 @@ function CtaFormModal({ isOpen, config, onClose }) {
     service: config.service || "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
   const router = useRouter();
 
   const modalCopy = useMemo(
@@ -75,16 +85,48 @@ function CtaFormModal({ isOpen, config, onClose }) {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
+
+    if (submitError) {
+      setSubmitError("");
+    }
+
     setFormData((current) => ({
       ...current,
       [name]: value,
     }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    onClose();
-    router.push("/thank-you");
+
+    setSubmitError("");
+    setIsSubmitting(true);
+
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          service: formData.service,
+          message: formData.message,
+        },
+        {
+          publicKey: EMAILJS_PUBLIC_KEY,
+        }
+      );
+
+      onClose();
+      router.push("/thank-you");
+    } catch (error) {
+      setSubmitError(
+        "We could not send your enquiry right now. Please verify your EmailJS keys and template IDs, then try again."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -147,6 +189,7 @@ function CtaFormModal({ isOpen, config, onClose }) {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Your full name"
+                  disabled={isSubmitting}
                   className="w-full rounded-[16px] border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm text-white outline-none transition placeholder:text-white/28 focus:border-[#8a7aff] focus:bg-white/[0.06]"
                   required
                 />
@@ -162,6 +205,7 @@ function CtaFormModal({ isOpen, config, onClose }) {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="you@example.com"
+                  disabled={isSubmitting}
                   className="w-full rounded-[16px] border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm text-white outline-none transition placeholder:text-white/28 focus:border-[#8a7aff] focus:bg-white/[0.06]"
                   required
                 />
@@ -177,6 +221,7 @@ function CtaFormModal({ isOpen, config, onClose }) {
                   value={formData.phone}
                   onChange={handleChange}
                   placeholder="+91 98765 43210"
+                  disabled={isSubmitting}
                   className="w-full rounded-[16px] border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm text-white outline-none transition placeholder:text-white/28 focus:border-[#8a7aff] focus:bg-white/[0.06]"
                   required
                 />
@@ -190,7 +235,7 @@ function CtaFormModal({ isOpen, config, onClose }) {
                   name="service"
                   value={formData.service}
                   onChange={handleChange}
-                  disabled={config.lockService}
+                  disabled={config.lockService || isSubmitting}
                   className="w-full appearance-none rounded-[16px] border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm text-white outline-none transition focus:border-[#8a7aff] focus:bg-white/[0.06] disabled:cursor-not-allowed disabled:opacity-100"
                   required
                 >
@@ -224,18 +269,26 @@ function CtaFormModal({ isOpen, config, onClose }) {
                   onChange={handleChange}
                   placeholder="Tell us about your goals, timeline, budget, or any features you already have in mind."
                   rows="3"
+                  disabled={isSubmitting}
                   className="w-full rounded-[16px] border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm text-white outline-none transition placeholder:text-white/28 focus:border-[#8a7aff] focus:bg-white/[0.06]"
                   required
                 />
               </label>
 
+              {submitError ? (
+                <p className="sm:col-span-2 text-sm leading-[1.6] text-[#ffb0b0]">
+                  {submitError}
+                </p>
+              ) : null}
+
               <div className="sm:col-span-2 flex justify-end pt-1">
                 <button
                   type="submit"
-                  className="inline-flex items-center justify-center gap-3 rounded bg-white px-5 py-3 text-sm font-medium text-black transition hover:bg-white/90"
+                  disabled={isSubmitting}
+                  className="inline-flex items-center justify-center gap-3 rounded border border-white bg-white px-5 py-3 text-sm font-medium text-black transition hover:bg-transparent hover:text-white disabled:hover:bg-white disabled:hover:text-black"
                 >
-                  <span>Send enquiry</span>
-                  <span className="flex h-4 w-4 items-center justify-center rounded-full border border-black text-[9px]">
+                  <span>{isSubmitting ? "Sending..." : "Send enquiry"}</span>
+                  <span className="flex h-4 w-4 items-center justify-center rounded-full border border-current text-[9px]">
                     <svg
                       width="9"
                       height="9"

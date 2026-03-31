@@ -9,8 +9,13 @@ const manrope = Manrope({
 });
 
 export const metadata = {
-  title: "Creative Design Meets Smart Technology",
+  title: "Amrut Global Solutions",
   description: "Innovative digital solutions that transform businesses.",
+  icons: {
+    icon: "/favicon.webp",
+    shortcut: "/favicon.webp",
+    apple: "/favicon.webp",
+  },
 };
 
 export default function RootLayout({ children }) {

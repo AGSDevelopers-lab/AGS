@@ -93,13 +93,13 @@ function TestimonialCard({ item }) {
 
 export default function Testimonials() {
   return (
-    <section className="relative z-10 -mt-4 w-full overflow-hidden pb-0 pt-0">
-      <div className="relative w-full bg-transparent px-6 py-6 sm:px-8 lg:px-26 lg:py-8">
+    <section className="relative z-10 -mt-2 w-full overflow-hidden pb-0 pt-0 sm:-mt-4">
+      <div className="relative w-full bg-transparent px-6 py-4 sm:px-8 sm:py-6 lg:px-26 lg:py-8">
         <div className="pointer-events-none absolute right-[8%] top-[22%] h-[28rem] w-[28rem] text-white/[0.07]">
           <QuoteIcon className="h-full w-full" />
         </div>
 
-        <div className="relative w-full px-0 py-4">
+        <div className="relative w-full px-0 py-3 sm:py-4">
           <div className="max-w-[700px]">
             <h2 className="bg-[linear-gradient(90deg,#9795FF_0%,#FFFFFF_42%,#FFFFFF_59%,#BE9FFF_100%)] bg-clip-text pb-2 pr-2 text-[2.8rem] leading-[1.08] font-normal tracking-[-0.06em] text-transparent sm:text-[4rem] lg:text-[4.9rem]">
               What they say about us
@@ -111,7 +111,7 @@ export default function Testimonials() {
             </p>
           </div>
 
-          <div className="relative mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+          <div className="relative mt-6 grid grid-cols-1 gap-4 sm:mt-8 md:grid-cols-2 xl:grid-cols-3">
             {testimonials.map((item) => (
               <TestimonialCard key={item.name} item={item} />
             ))}

@@ -6,14 +6,16 @@ import { useCtaForm } from "@/components/CtaFormProvider";
 const slides = [
   {
     id: 1,
-    image: "/banner-1.png",
+    image:
+      "https://res.cloudinary.com/dhxgwo5r4/image/upload/v1774940733/banner-1_px28k4.png",
     title: "Creative Solutions That Drive Growth",
     subtitle: "From concept to conversion.",
     cta: "Get Started",
   },
   {
     id: 2,
-    image: "/banner-2.png",
+    image:
+      "https://res.cloudinary.com/dhxgwo5r4/image/upload/v1774940958/banner-2_wuntly.png",
     title: "Digital Growth  for Healthcare Brands",
     subtitle:
       "Helping hospitals and clinics grow online and attract more patients.",
@@ -21,7 +23,8 @@ const slides = [
   },
   {
     id: 3,
-    image: "/banner-3.png",
+    image:
+      "https://res.cloudinary.com/dhxgwo5r4/image/upload/v1774940959/banner-3_ke5feo.png",
     title: "Digital Solutions for Media & News Platforms",
     subtitle:
       "We help media brands build fast, scalable platforms to grow their audience.",
@@ -29,21 +32,24 @@ const slides = [
   },
   {
     id: 4,
-    image: "/banner-4.png",
+    image:
+      "https://res.cloudinary.com/dhxgwo5r4/image/upload/v1774940961/banner-4_icejkz.png",
     title: "eCommerce Solutions for Growing Brands",
     subtitle: "High-converting stores that drive sales.",
     cta: "Start Your Online Store",
   },
   {
     id: 5,
-    image: "/banner-5.png",
+    image:
+      "https://res.cloudinary.com/dhxgwo5r4/image/upload/v1774940960/banner-5_yzrz9r.png",
     title: "Scalable Business Cloud Solutions",
     subtitle: "Build faster and scale smarter with cloud technology.",
     cta: "Get Cloud Consultation",
   },
   {
     id: 6,
-    image: "/banner-6.png",
+    image:
+      "https://res.cloudinary.com/dhxgwo5r4/image/upload/v1774940734/banner-6_d7xzro.png",
     title: "Refined Solutions for eLearning Brands",
     subtitle: "Build and scale your online learning platform faster.",
     cta: "Build Your eLearning Platform",
@@ -97,11 +103,11 @@ export default function HeroSlider() {
           </p>
           <button
             type="button"
-            className="flex items-center space-x-3 px-6 py-3 bg-white text-black font-semibold rounded hover:bg-white/90 transition-all"
+            className="flex items-center space-x-3 rounded border border-white bg-white px-6 py-3 font-semibold text-black transition-all hover:bg-transparent hover:text-white"
             onClick={() => openForm()}
           >
             <span>{activeSlide.cta}</span>
-            <div className="w-5 h-5 rounded-full border border-black flex items-center justify-center">
+            <div className="flex h-5 w-5 items-center justify-center rounded-full border border-current">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M7 17L17 7M17 7H7M17 7V17" />
               </svg>

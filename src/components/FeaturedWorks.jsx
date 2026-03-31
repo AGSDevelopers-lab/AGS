@@ -65,10 +65,10 @@ function WorkCard({ work }) {
   return (
     <article className="group relative overflow-hidden border border-white/8 bg-transparent">
       <div className="grid">
-        <div className="relative grid min-h-[152px] grid-cols-[1.05fr_0.95fr] overflow-hidden transition duration-500">
+        <div className="relative grid min-h-[152px] grid-cols-[1.18fr_0.82fr] overflow-hidden transition duration-500 sm:grid-cols-[1.05fr_0.95fr]">
           <div className="absolute inset-0 bg-[linear-gradient(90deg,#E6DBFF_0%,#F6F6F6_44%,#D8D7FF_100%)] transition duration-500 group-hover:opacity-0" />
           <div className="absolute inset-0 bg-black/0 backdrop-blur-0 transition duration-500 group-hover:bg-black/55 group-hover:backdrop-blur-md" />
-          <div className="relative z-10 flex flex-col justify-between p-2 text-black transition duration-500 group-hover:text-white sm:p-6">
+          <div className="relative z-10 flex flex-col justify-between p-3 text-black transition duration-500 group-hover:text-white sm:p-6">
             <div>
               <span className="inline-flex rounded-full border border-black/10 bg-black/5 px-2.5 py-1 text-[0.5rem] font-medium uppercase tracking-[0.08em] text-black/55 transition duration-500 group-hover:border-white/20 group-hover:bg-white/10 group-hover:text-white/70">
                 {work.label}
@@ -81,13 +81,13 @@ function WorkCard({ work }) {
               >
                 {work.name}
               </a>
-              <p className="mt-3 max-w-[260px] text-[0.68rem] leading-[1.65] text-black/55 transition duration-500 group-hover:text-white/72">
+              <p className="mt-3 max-w-[290px] text-[0.68rem] leading-[1.65] text-black/55 transition duration-500 group-hover:text-white/72 sm:max-w-[260px]">
                 {work.blurb}
               </p>
             </div>
           </div>
 
-          <div className="relative z-10 overflow-hidden border-l border-black/8">
+          <div className="relative z-10 overflow-hidden">
             <div
               className="absolute inset-3 bg-contain bg-right bg-no-repeat transition duration-500 group-hover:scale-[1.03]"
               style={{ backgroundImage: `url(${work.image})` }}
@@ -127,10 +127,10 @@ function WorkCard({ work }) {
 
 export default function FeaturedWorks() {
   return (
-    <section id="portfolio" className="relative z-10 w-full overflow-hidden pb-20 pt-12 scroll-mt-20">
+    <section id="portfolio" className="relative z-10 w-full overflow-hidden pb-12 pt-8 scroll-mt-20 sm:pb-20 sm:pt-12">
       <div className="relative w-full px-6 sm:px-8 lg:px-26">
-        <div className="relative mx-auto max-w-[1280px] overflow-hidden rounded-[28px] px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
-          <div className="relative flex flex-col gap-6 pb-6 md:flex-row md:items-start md:justify-between">
+        <div className="relative mx-auto max-w-[1280px] overflow-hidden rounded-[28px] px-4 py-4 sm:px-6 sm:py-6 lg:px-8 lg:py-8">
+          <div className="relative flex flex-col gap-5 pb-4 sm:gap-6 sm:pb-6 md:flex-row md:items-start md:justify-between">
             <div className="max-w-[720px]">
               <h2 className="bg-[linear-gradient(90deg,#9795FF_0%,#FFFFFF_42%,#FFFFFF_59%,#BE9FFF_100%)] bg-clip-text pb-2 pr-2 text-[2.8rem] leading-[1.08] font-normal tracking-[-0.06em] text-transparent sm:text-[4rem] lg:text-[4.9rem]">
                 Featured Works

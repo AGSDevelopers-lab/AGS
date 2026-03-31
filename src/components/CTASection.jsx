@@ -10,11 +10,11 @@ function CTAButton() {
   return (
     <button
       type="button"
-      className="inline-flex items-center gap-3 bg-white px-5 py-3 text-sm font-medium text-black transition hover:bg-white/90"
+      className="inline-flex items-center gap-3 border border-white bg-white px-5 py-3 text-sm font-medium text-black transition hover:bg-transparent hover:text-white"
       onClick={() => openForm()}
     >
       <span>Create Your Digital Experience</span>
-      <span className="flex h-4 w-4 items-center justify-center rounded-full border border-black text-[9px]">
+      <span className="flex h-4 w-4 items-center justify-center rounded-full border border-current text-[9px]">
         <svg
           width="9"
           height="9"
@@ -79,8 +79,8 @@ export default function CTASection() {
   return (
     <section id="contact" className="relative z-10 w-full overflow-hidden pt-0">
       <div className="relative w-full border-t border-white/10">
-        <div className="border-b border-white/10 px-6 py-12 sm:px-8 lg:px-26 lg:py-14">
-          <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
+        <div className="border-b border-white/10 px-6 py-8 sm:px-8 sm:py-12 lg:px-26 lg:py-14">
+          <div className="flex flex-col gap-6 sm:gap-8 lg:flex-row lg:items-start lg:justify-between">
             <div className="max-w-[720px]">
               <h2 className="bg-[linear-gradient(90deg,#9795FF_0%,#FFFFFF_42%,#FFFFFF_59%,#BE9FFF_100%)] bg-clip-text pb-2 pr-2 text-[2.8rem] leading-[1.08] font-normal tracking-[-0.06em] text-transparent sm:text-[4rem] lg:text-[4.9rem]">
                 Let&apos;s Work With Us
@@ -97,8 +97,8 @@ export default function CTASection() {
           </div>
         </div>
 
-        <div className="px-6 py-10 sm:px-8 lg:px-26 lg:py-12">
-          <div className="grid grid-cols-1 gap-12 md:grid-cols-[1.6fr_0.6fr_1fr]">
+        <div className="px-6 py-8 sm:px-8 sm:py-10 lg:px-26 lg:py-12">
+          <div className="grid grid-cols-1 gap-8 sm:gap-12 md:grid-cols-[1.6fr_0.6fr_1fr]">
             <div className="max-w-[360px]">
               <Link
                 href="/"
@@ -171,7 +171,7 @@ export default function CTASection() {
             </div>
           </div>
 
-          <div className="mt-18 flex flex-col gap-6 border-t border-white/10 pt-8 lg:flex-row lg:items-center lg:justify-between">
+          <div className="mt-10 flex flex-col gap-5 border-t border-white/10 pt-6 sm:mt-18 sm:gap-6 sm:pt-8 lg:flex-row lg:items-center lg:justify-between">
             <div className="flex flex-col gap-4 text-[0.95rem] text-white/76 sm:flex-row sm:flex-wrap sm:items-center sm:gap-6">
               <span>
                 &copy; 2026 Amrut Global Solutions Pvt. Ltd. All rights reserved.
