@@ -8,29 +8,28 @@ function ArrowButton({ label }) {
   return (
     <button
       type="button"
-      className="inline-flex items-center gap-3 border border-white bg-white px-5 py-3 text-[0.95rem] font-medium text-black transition hover:bg-transparent hover:text-white"
+      className="group inline-flex items-center gap-3 border border-white bg-white px-5 py-3 text-[0.95rem] font-medium text-black transition duration-700"
       onClick={() => openForm()}
     >
       <span>{label}</span>
-      <span className="flex h-4 w-4 items-center justify-center rounded-full border border-current text-[9px]">
-        <svg
-          width="9"
-          height="9"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-        >
-          <path d="M7 17L17 7M17 7H8M17 7v9" />
-        </svg>
-      </span>
+      <svg
+        width="29"
+        height="29"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        className="transition-transform duration-700 group-hover:rotate-45"
+      >
+        <path d="M7 17L17 7M17 7H7M17 7V17" />
+      </svg>
     </button>
   );
 }
 
 export default function IntroSection() {
   return (
-    <section id="about" className="relative z-10 w-full overflow-hidden pb-2 pt-6 sm:pb-4 sm:pt-10">
+    <section id="about" className="relative container mx-auto z-10 w-full overflow-hidden pb-2 pt-6 sm:pb-4 sm:pt-10">
       <div className="relative w-full px-6 sm:px-8 lg:px-26">
         <div className="relative px-4 py-4 sm:px-8 sm:py-6 lg:px-10 lg:py-8">
         <div className="relative flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
@@ -44,7 +43,7 @@ export default function IntroSection() {
             </p>
           </div>
 
-          <div className="lg:pt-[1rem]">
+          <div className="lg:pt-4">
             <ArrowButton label="Launch Your Idea" />
           </div>
         </div>

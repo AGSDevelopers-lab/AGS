@@ -93,7 +93,7 @@ function TestimonialCard({ item }) {
 
 export default function Testimonials() {
   return (
-    <section className="relative z-10 -mt-2 w-full overflow-hidden pb-0 pt-0 sm:-mt-4">
+    <section className="relative container mx-auto z-10 -mt-2 w-full overflow-hidden pb-0 pt-0 sm:-mt-4">
       <div className="relative w-full bg-transparent px-6 py-4 sm:px-8 sm:py-6 lg:px-26 lg:py-8">
         <div className="pointer-events-none absolute right-[8%] top-[22%] h-[28rem] w-[28rem] text-white/[0.07]">
           <QuoteIcon className="h-full w-full" />

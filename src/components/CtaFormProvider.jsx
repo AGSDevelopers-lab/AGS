@@ -15,6 +15,15 @@ const SERVICE_OPTIONS = [
   "UI/UX Design",
   "Branding",
   "Digital Solutions",
+  "AI Automation & Business Systems",
+  "AI-Powered Digital Marketing",
+  "Web App Development",
+  "AI Consulting & Training",
+  "Website & Application Security",
+  "Business Security & Data Protection",
+  "Cyber Security Audits",
+  "AI + Cyber Security",
+  "Cyber Security Training",
 ];
 
 const CtaFormContext = createContext(null);
@@ -134,25 +143,32 @@ function CtaFormModal({ isOpen, config, onClose }) {
       <button
         type="button"
         aria-label="Close form overlay"
-        className="absolute inset-0 bg-[rgba(4,6,16,0.76)] backdrop-blur-md"
+        className="absolute inset-0 bg-[rgba(4,6,16,0.82)] backdrop-blur-md"
         onClick={onClose}
       />
 
-      <div className="relative my-auto flex w-full max-w-[680px] flex-col overflow-hidden rounded-[22px] border border-white/16 bg-[linear-gradient(180deg,rgba(34,39,66,0.84)_0%,rgba(16,20,37,0.86)_100%)] shadow-[0_40px_120px_rgba(0,0,0,0.45)] backdrop-blur-2xl max-h-[calc(100vh-1.5rem)] sm:max-h-[calc(100dvh-3rem)] sm:rounded-[28px]">
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.1),rgba(255,255,255,0.02)_36%,rgba(255,255,255,0)_68%)]" />
-        <div className="pointer-events-none absolute -left-12 top-10 h-40 w-40 rounded-full bg-[#7f9dff]/24 blur-[80px]" />
-        <div className="pointer-events-none absolute right-[-10%] top-[-8%] h-48 w-48 rounded-full bg-[#a383ff]/24 blur-[90px]" />
+      <div className="relative my-auto flex w-full max-w-190 flex-col overflow-hidden border border-white/10 bg-[#0b0d1a] shadow-[0_60px_160px_rgba(0,0,0,0.7)] max-h-[calc(100vh-1.5rem)] sm:max-h-[calc(100dvh-3rem)]">
+        {/* Top accent line */}
+        <div className="absolute top-0 left-0 right-0 h-0.5 bg-[linear-gradient(90deg,transparent_0%,#9795FF_30%,#ffffff_50%,#BE9FFF_70%,transparent_100%)]" />
 
-        <div className="relative shrink-0 border-b border-white/10 px-4 py-3 sm:px-7 sm:py-5">
-          <div className="flex items-start justify-between gap-4 sm:gap-6">
-            <div className="max-w-[500px]">
-              <p className="text-[0.72rem] uppercase tracking-[0.24em] text-white/45">
-                AGS Project Enquiry
-              </p>
-              <h3 className="mt-1.5 inline-block pb-1 bg-[linear-gradient(90deg,#9795FF_0%,#FFFFFF_42%,#FFFFFF_59%,#BE9FFF_100%)] bg-clip-text text-[1.05rem] leading-[1.1] font-normal tracking-[-0.05em] text-transparent sm:mt-2 sm:pb-2 sm:text-[2rem]">
+        {/* Ambient glows */}
+        <div className="pointer-events-none absolute -left-20 top-0 h-64 w-64 rounded-full bg-[#7f9dff]/10 blur-[100px]" />
+        <div className="pointer-events-none absolute right-0 bottom-0 h-56 w-56 rounded-full bg-[#a383ff]/10 blur-[90px]" />
+
+        {/* Header */}
+        <div className="relative shrink-0 border-b border-white/8 px-6 pt-8 pb-6 sm:px-10 sm:pt-10 sm:pb-7">
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="h-px w-8 bg-[#9795FF]" />
+                <p className="text-[0.68rem] uppercase tracking-[0.28em] text-[#9795FF]">
+                  AGS Project Enquiry
+                </p>
+              </div>
+              <h3 className="bg-[linear-gradient(90deg,#ffffff_0%,#ffffff_50%,#BE9FFF_100%)] bg-clip-text text-[1.5rem] leading-[1.1] font-light tracking-[-0.04em] text-transparent sm:text-[2.2rem]">
                 {modalCopy.heading}
               </h3>
-              <p className="mt-1 max-w-[430px] text-[0.84rem] leading-[1.5] text-white/72 sm:text-[0.92rem] sm:leading-[1.65]">
+              <p className="mt-3 max-w-105 text-[0.82rem] leading-[1.6] text-white/50 sm:text-[0.88rem]">
                 {modalCopy.subtext}
               </p>
             </div>
@@ -160,16 +176,16 @@ function CtaFormModal({ isOpen, config, onClose }) {
             <button
               type="button"
               aria-label="Close form"
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-white/12 bg-white/[0.05] text-white/72 transition hover:border-white/25 hover:bg-white/[0.08] hover:text-white sm:h-10 sm:w-10"
+              className="group mt-1 flex h-8 w-8 shrink-0 items-center justify-center border border-white/15 text-white/50 transition-all duration-300 hover:border-white/40 hover:text-white sm:h-9 sm:w-9"
               onClick={onClose}
             >
               <svg
-                width="18"
-                height="18"
+                width="14"
+                height="14"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="1.8"
+                strokeWidth="1.5"
               >
                 <path d="M6 6l12 12M18 6L6 18" />
               </svg>
@@ -177,131 +193,144 @@ function CtaFormModal({ isOpen, config, onClose }) {
           </div>
         </div>
 
-        <div className="relative min-h-0 overflow-y-auto px-4 py-3 sm:px-7 sm:py-5">
-          <form className="grid gap-2.5 sm:grid-cols-2 sm:gap-3" onSubmit={handleSubmit}>
-              <label className="block">
-                <span className="mb-1.5 block text-[0.78rem] font-medium text-white/68 sm:mb-2 sm:text-[0.82rem]">
-                  Name
-                </span>
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Your full name"
-                  disabled={isSubmitting}
-                  className="w-full rounded-[14px] border border-white/10 bg-white/[0.04] px-3.5 py-2.5 text-[0.92rem] text-white outline-none transition placeholder:text-white/28 focus:border-[#8a7aff] focus:bg-white/[0.06] sm:rounded-[16px] sm:px-4 sm:text-sm"
-                  required
-                />
-              </label>
+        {/* Form body */}
+        <div className="relative min-h-0 overflow-y-auto px-6 py-6 sm:px-10 sm:py-8">
+          <form className="grid gap-0 sm:grid-cols-2" onSubmit={handleSubmit}>
 
-              <label className="block">
-                <span className="mb-1.5 block text-[0.78rem] font-medium text-white/68 sm:mb-2 sm:text-[0.82rem]">
-                  Email address
-                </span>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="you@example.com"
-                  disabled={isSubmitting}
-                  className="w-full rounded-[14px] border border-white/10 bg-white/[0.04] px-3.5 py-2.5 text-[0.92rem] text-white outline-none transition placeholder:text-white/28 focus:border-[#8a7aff] focus:bg-white/[0.06] sm:rounded-[16px] sm:px-4 sm:text-sm"
-                  required
-                />
-              </label>
-
-              <label className="block">
-                <span className="mb-1.5 block text-[0.78rem] font-medium text-white/68 sm:mb-2 sm:text-[0.82rem]">
-                  Phone number
-                </span>
-                <input
-                  type="tel"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  placeholder="+91 98765 43210"
-                  disabled={isSubmitting}
-                  className="w-full rounded-[14px] border border-white/10 bg-white/[0.04] px-3.5 py-2.5 text-[0.92rem] text-white outline-none transition placeholder:text-white/28 focus:border-[#8a7aff] focus:bg-white/[0.06] sm:rounded-[16px] sm:px-4 sm:text-sm"
-                  required
-                />
-              </label>
-
-              <label className="block">
-                <span className="mb-1.5 block text-[0.78rem] font-medium text-white/68 sm:mb-2 sm:text-[0.82rem]">
-                  Service needed
-                </span>
-                <select
-                  name="service"
-                  value={formData.service}
-                  onChange={handleChange}
-                  disabled={config.lockService || isSubmitting}
-                  className="w-full appearance-none rounded-[14px] border border-white/10 bg-white/[0.04] px-3.5 py-2.5 text-[0.92rem] text-white outline-none transition focus:border-[#8a7aff] focus:bg-white/[0.06] disabled:cursor-not-allowed disabled:opacity-100 sm:rounded-[16px] sm:px-4 sm:text-sm"
-                  required
-                >
-                  <option value="" className="bg-[#0f1220] text-white">
-                    Select a service
-                  </option>
-                  {SERVICE_OPTIONS.map((option) => (
-                    <option
-                      key={option}
-                      value={option}
-                      className="bg-[#0f1220] text-white"
-                    >
-                      {option}
-                    </option>
-                  ))}
-                </select>
-                {config.lockService ? (
-                  <span className="mt-1.5 block text-[0.72rem] text-white/45 sm:mt-2 sm:text-[0.76rem]">
-                    This enquiry is linked to the selected service.
-                  </span>
-                ) : null}
-              </label>
-
-              <label className="block sm:col-span-2">
-                <span className="mb-1.5 block text-[0.78rem] font-medium text-white/68 sm:mb-2 sm:text-[0.82rem]">
-                  Project details
-                </span>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Tell us about your goals, timeline, budget, or any features you already have in mind."
-                  rows="2"
-                  disabled={isSubmitting}
-                  className="min-h-[88px] w-full rounded-[14px] border border-white/10 bg-white/[0.04] px-3.5 py-2.5 text-[0.92rem] text-white outline-none transition placeholder:text-white/28 focus:border-[#8a7aff] focus:bg-white/[0.06] sm:min-h-[112px] sm:rounded-[16px] sm:px-4 sm:text-sm"
-                  required
-                />
-              </label>
-
-              {submitError ? (
-                <p className="sm:col-span-2 text-sm leading-[1.6] text-[#ffb0b0]">
-                  {submitError}
-                </p>
-              ) : null}
-
-              <div className="sm:col-span-2 flex justify-end pt-0.5 sm:pt-1">
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="inline-flex items-center justify-center gap-2.5 rounded border border-white bg-white px-4 py-2.5 text-[0.92rem] font-medium text-black transition hover:bg-transparent hover:text-white disabled:hover:bg-white disabled:hover:text-black sm:gap-3 sm:px-5 sm:py-3 sm:text-sm"
-                >
-                  <span>{isSubmitting ? "Sending..." : "Send enquiry"}</span>
-                  <span className="flex h-4 w-4 items-center justify-center rounded-full border border-current text-[9px]">
-                    <svg
-                      width="9"
-                      height="9"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
-                      <path d="M7 17L17 7M17 7H8M17 7v9" />
-                    </svg>
-                  </span>
-                </button>
+            {/* Name */}
+            <label className="group block border-b border-white/8 pb-5 pt-1 sm:border-r sm:border-b-0 sm:pr-8 sm:pb-8">
+              <div className="flex items-baseline gap-2 mb-2">
+                <span className="text-[0.6rem] font-medium tracking-[0.2em] text-white/25">01</span>
+                <span className="text-[0.72rem] uppercase tracking-[0.18em] text-white/45">Name</span>
               </div>
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Your full name"
+                disabled={isSubmitting}
+                className="w-full bg-transparent py-1 text-[1rem] text-white outline-none transition-all duration-300 placeholder:text-white/20 focus:placeholder:text-white/10 sm:text-[1.05rem]"
+                required
+              />
+              <div className="mt-3 h-px w-full bg-white/10 transition-all duration-300 group-focus-within:bg-[#9795FF]" />
+            </label>
+
+            {/* Email */}
+            <label className="group block border-b border-white/8 pb-5 pt-1 sm:border-b-0 sm:pl-8 sm:pb-8">
+              <div className="flex items-baseline gap-2 mb-2">
+                <span className="text-[0.6rem] font-medium tracking-[0.2em] text-white/25">02</span>
+                <span className="text-[0.72rem] uppercase tracking-[0.18em] text-white/45">Email address</span>
+              </div>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="you@example.com"
+                disabled={isSubmitting}
+                className="w-full bg-transparent py-1 text-[1rem] text-white outline-none transition-all duration-300 placeholder:text-white/20 focus:placeholder:text-white/10 sm:text-[1.05rem]"
+                required
+              />
+              <div className="mt-3 h-px w-full bg-white/10 transition-all duration-300 group-focus-within:bg-[#9795FF]" />
+            </label>
+
+            {/* Phone */}
+            <label className="group block border-b border-white/8 py-5 sm:border-r sm:border-b-0 sm:pr-8 sm:py-8">
+              <div className="flex items-baseline gap-2 mb-2">
+                <span className="text-[0.6rem] font-medium tracking-[0.2em] text-white/25">03</span>
+                <span className="text-[0.72rem] uppercase tracking-[0.18em] text-white/45">Phone number</span>
+              </div>
+              <input
+                type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                placeholder="+91 98765 43210"
+                disabled={isSubmitting}
+                className="w-full bg-transparent py-1 text-[1rem] text-white outline-none transition-all duration-300 placeholder:text-white/20 focus:placeholder:text-white/10 sm:text-[1.05rem]"
+                required
+              />
+              <div className="mt-3 h-px w-full bg-white/10 transition-all duration-300 group-focus-within:bg-[#9795FF]" />
+            </label>
+
+            {/* Service */}
+            <label className="group block border-b border-white/8 py-5 sm:border-b-0 sm:pl-8 sm:py-8">
+              <div className="flex items-baseline gap-2 mb-2">
+                <span className="text-[0.6rem] font-medium tracking-[0.2em] text-white/25">04</span>
+                <span className="text-[0.72rem] uppercase tracking-[0.18em] text-white/45">Service needed</span>
+              </div>
+              <select
+                name="service"
+                value={formData.service}
+                onChange={handleChange}
+                disabled={config.lockService || isSubmitting}
+                className="w-full appearance-none bg-transparent py-1 text-[1rem] text-white outline-none transition-all duration-300 disabled:cursor-not-allowed sm:text-[1.05rem] [&>option]:bg-[#0b0d1a] [&>option]:text-white"
+                required
+              >
+                <option value="" className="text-white/40">Select a service</option>
+                {SERVICE_OPTIONS.map((option) => (
+                  <option key={option} value={option}>{option}</option>
+                ))}
+              </select>
+              <div className="mt-3 h-px w-full bg-white/10 transition-all duration-300 group-focus-within:bg-[#9795FF]" />
+              {config.lockService ? (
+                <span className="mt-2 block text-[0.68rem] tracking-wide text-[#9795FF]/60">
+                  Linked to selected service
+                </span>
+              ) : null}
+            </label>
+
+            {/* Message */}
+            <label className="group block border-b border-white/8 py-5 sm:col-span-2 sm:border-b-0 sm:py-8">
+              <div className="flex items-baseline gap-2 mb-2">
+                <span className="text-[0.6rem] font-medium tracking-[0.2em] text-white/25">05</span>
+                <span className="text-[0.72rem] uppercase tracking-[0.18em] text-white/45">Project details</span>
+              </div>
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                placeholder="Tell us about your goals, timeline, budget, or any features you have in mind."
+                rows="2"
+                disabled={isSubmitting}
+                className="min-h-18 w-full resize-none bg-transparent py-1 text-[1rem] leading-relaxed text-white outline-none transition-all duration-300 placeholder:text-white/20 focus:placeholder:text-white/10 sm:min-h-22 sm:text-[1.05rem]"
+                required
+              />
+              <div className="mt-3 h-px w-full bg-white/10 transition-all duration-300 group-focus-within:bg-[#9795FF]" />
+            </label>
+
+            {submitError ? (
+              <p className="sm:col-span-2 pt-2 text-[0.82rem] leading-[1.6] text-[#ffb0b0]">
+                {submitError}
+              </p>
+            ) : null}
+
+            {/* Submit */}
+            <div className="sm:col-span-2 flex items-center justify-between pt-6 sm:pt-8">
+              <p className="text-[0.7rem] tracking-wide text-white/25 max-w-50 sm:max-w-none">
+                We&apos;ll respond within 24 hours.
+              </p>
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="group flex items-center space-x-3 border border-white bg-white px-6 py-3 font-semibold text-black transition-all duration-700 hover:bg-transparent hover:text-white disabled:opacity-60 disabled:hover:bg-white disabled:hover:text-black"
+              >
+                <span>{isSubmitting ? "Sending..." : "Send Enquiry"}</span>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  className="transition-transform duration-700 group-hover:rotate-45"
+                >
+                  <path d="M7 17L17 7M17 7H7M17 7V17" />
+                </svg>
+              </button>
+            </div>
+
           </form>
         </div>
       </div>

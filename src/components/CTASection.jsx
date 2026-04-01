@@ -10,22 +10,21 @@ function CTAButton() {
   return (
     <button
       type="button"
-      className="inline-flex items-center gap-3 border border-white bg-white px-5 py-3 text-sm font-medium text-black transition hover:bg-transparent hover:text-white"
+      className="group inline-flex items-center gap-3 border border-white bg-white px-5 py-3 text-sm font-medium text-black transition-all duration-700 hover:bg-transparent hover:text-white"
       onClick={() => openForm()}
     >
       <span>Create Your Digital Experience</span>
-      <span className="flex h-4 w-4 items-center justify-center rounded-full border border-current text-[9px]">
-        <svg
-          width="9"
-          height="9"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-        >
-          <path d="M7 17L17 7M17 7H8M17 7v9" />
-        </svg>
-      </span>
+      <svg
+        width="29"
+        height="29"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        className="transition-transform duration-700 group-hover:rotate-45"
+      >
+        <path d="M7 17L17 7M17 7H7M17 7V17" />
+      </svg>
     </button>
   );
 }
@@ -122,7 +121,7 @@ export default function CTASection() {
               <h3 className="text-[1.2rem] font-medium text-white">Services</h3>
               <ul className="mt-5 space-y-3 text-[1rem] text-white/85">
                 <li>Web Development</li>
-                <li>UI/UX Designer</li>
+                <li>UI/UX Design</li>
                 <li>Branding</li>
                 <li>Digital Marketing</li>
               </ul>

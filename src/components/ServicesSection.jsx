@@ -2,38 +2,131 @@
 
 import { useCtaForm } from "@/components/CtaFormProvider";
 
-const services = [
+const serviceCategories = [
   {
-    title: "Website Dev",
-    formService: "Web Development",
-    description:
-      "We build fast, responsive, and scalable websites tailored to your business goals.",
-    theme: "violet",
-    type: "browser",
+    id: "web-design",
+    number: "01",
+    label: "Web & Design",
+    services: [
+      {
+        title: "Website Dev",
+        formService: "Web Development",
+        description:
+          "We build fast, responsive, and scalable websites tailored to your business goals.",
+        theme: "violet",
+        type: "browser",
+      },
+      {
+        title: "UI/UX Design",
+        formService: "UI/UX Design",
+        description:
+          "Creating intuitive and engaging user experiences that make digital products simple and enjoyable to use.",
+        theme: "slate",
+        type: "wireframe",
+      },
+      {
+        title: "Branding",
+        formService: "Branding",
+        description:
+          "We craft strong brand identities that help your business stand out and connect with your audience.",
+        theme: "graphite",
+        type: "device",
+      },
+      {
+        title: "Web App Development",
+        formService: "Web App Development",
+        description:
+          "From marketing sites to complex web applications, we engineer performant, scalable solutions built for real-world growth.",
+        theme: "lavender",
+        type: "browser",
+      },
+    ],
   },
   {
-    title: "UI/UX Design",
-    formService: "UI/UX Design",
-    description:
-      "Creating intuitive and engaging user experiences that make digital products simple and enjoyable to use.",
-    theme: "slate",
-    type: "wireframe",
+    id: "ai-services",
+    number: "02",
+    label: "AI Services",
+    services: [
+      {
+        title: "Digital Solutions",
+        formService: "Digital Solutions",
+        description:
+          "Smart technology and digital strategies designed to streamline operations and accelerate business growth.",
+        theme: "violet",
+        type: "bag",
+      },
+      {
+        title: "AI Automation & Business Systems",
+        formService: "AI Automation & Business Systems",
+        description:
+          "Automate repetitive workflows and optimise business operations with intelligent AI-powered systems tailored to your processes.",
+        theme: "slate",
+        type: "robot",
+      },
+      {
+        title: "AI-Powered Digital Marketing",
+        formService: "AI-Powered Digital Marketing",
+        description:
+          "Leverage AI to create hyper-targeted campaigns, generate content, and maximise your marketing ROI across every channel.",
+        theme: "lavender",
+        type: "chart",
+      },
+      {
+        title: "AI Consulting & Training",
+        formService: "AI Consulting & Training",
+        description:
+          "Strategic AI advisory and hands-on training to help your team adopt, integrate, and maximise AI tools effectively.",
+        theme: "graphite",
+        type: "book",
+      },
+    ],
   },
   {
-    title: "Branding",
-    formService: "Branding",
-    description:
-      "We craft strong brand identities that help your business stand out and connect with your audience.",
-    theme: "graphite",
-    type: "device",
-  },
-  {
-    title: "Digital Solutions",
-    formService: "Digital Solutions",
-    description:
-      "Smart technology and digital strategies designed to streamline operations and accelerate business growth.",
-    theme: "lavender",
-    type: "bag",
+    id: "cyber-security",
+    number: "03",
+    label: "Cyber Security",
+    services: [
+      {
+        title: "Website & Application Security",
+        formService: "Website & Application Security",
+        description:
+          "Comprehensive security assessments and hardening for your web properties, protecting against modern attack vectors.",
+        theme: "violet",
+        type: "shield",
+      },
+      {
+        title: "Business Security & Data Protection",
+        formService: "Business Security & Data Protection",
+        description:
+          "End-to-end data security strategies that protect sensitive business assets and ensure regulatory compliance.",
+        theme: "slate",
+        type: "shield",
+      },
+      {
+        title: "Cyber Security Audits",
+        formService: "Cyber Security Audits",
+        description:
+          "In-depth security audits that identify vulnerabilities, assess risk exposure, and deliver a clear remediation roadmap.",
+        theme: "graphite",
+        type: "shield",
+      },
+      {
+        title: "AI + Cyber Security",
+        formService: "AI + Cyber Security",
+        description:
+          "Combining artificial intelligence with cybersecurity to detect threats faster, respond smarter, and stay ahead of attackers.",
+        theme: "lavender",
+        type: "robot",
+      },
+      {
+        title: "Cyber Security Training",
+        formService: "Cyber Security Training",
+        description:
+          "Practical security training programmes that empower your team to recognise threats and maintain a security-first culture.",
+        theme: "violet",
+        type: "book",
+      },
+    ],
   },
 ];
 
@@ -74,7 +167,7 @@ function ServiceArt({ type }) {
             <span className="h-1.5 w-1.5 rounded-full bg-white/20" />
           </div>
           <div className="mx-4 mt-3 h-3 rounded-full bg-white/10" />
-          <div className="mx-4 mt-5 h-24 rounded-[12px] bg-white/14" />
+          <div className="mx-4 mt-5 h-24 rounded-xl bg-white/14" />
           <div className="mx-4 mt-4 h-2 w-28 rounded-full bg-white/10" />
           <div className="mx-4 mt-2 h-2 w-20 rounded-full bg-white/10" />
         </div>
@@ -90,8 +183,8 @@ function ServiceArt({ type }) {
           <div className="mx-4 mt-4 h-2 rounded-full bg-white/12" />
           <div className="mx-4 mt-2 h-2 w-3/4 rounded-full bg-white/12" />
           <div className="mx-4 mt-4 grid grid-cols-2 gap-2">
-            <div className="h-8 rounded-[8px] bg-white/10" />
-            <div className="h-8 rounded-[8px] bg-white/10" />
+            <div className="h-8 rounded-lg bg-white/10" />
+            <div className="h-8 rounded-lg bg-white/10" />
           </div>
           <div className="mx-4 mt-4 h-10 rounded-[10px] bg-white/10" />
         </div>
@@ -104,6 +197,64 @@ function ServiceArt({ type }) {
       <div className="absolute inset-y-0 right-0 w-[46%] overflow-hidden">
         <div className="absolute -bottom-5 right-4 h-40 w-32 rounded-[28px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.18),rgba(255,255,255,0.04))] rotate-[18deg]" />
         <div className="absolute bottom-0 right-14 h-36 w-24 rounded-t-[120px] bg-white/8 blur-[1px]" />
+      </div>
+    );
+  }
+
+  if (type === "robot") {
+    return (
+      <div className="absolute inset-y-0 right-0 w-[50%] overflow-hidden">
+        <div className="absolute right-6 top-6 h-20 w-20 rounded-[18px] border border-white/15 bg-white/10">
+          <div className="mx-3 mt-3 grid grid-cols-3 gap-1">
+            {[...Array(9)].map((_, i) => (
+              <span key={i} className="h-2 w-2 rounded-full bg-white/20" />
+            ))}
+          </div>
+        </div>
+        <div className="absolute bottom-8 right-4 h-2 w-20 rounded-full bg-white/10" />
+        <div className="absolute bottom-4 right-8 h-2 w-14 rounded-full bg-white/10" />
+        <div className="absolute right-12 top-28 h-12 w-12 rounded-full border border-white/10 bg-white/8" />
+      </div>
+    );
+  }
+
+  if (type === "chart") {
+    return (
+      <div className="absolute inset-y-0 right-0 w-[50%] overflow-hidden">
+        <div className="absolute bottom-6 right-4 flex items-end gap-2">
+          <div className="h-10 w-5 rounded-t bg-white/12" />
+          <div className="h-16 w-5 rounded-t bg-white/18" />
+          <div className="h-8 w-5 rounded-t bg-white/10" />
+          <div className="h-20 w-5 rounded-t bg-white/15" />
+          <div className="h-12 w-5 rounded-t bg-white/12" />
+        </div>
+        <div className="absolute right-5 top-5 h-2 w-16 rounded-full bg-white/10" />
+        <div className="absolute right-8 top-10 h-2 w-10 rounded-full bg-white/10" />
+      </div>
+    );
+  }
+
+  if (type === "shield") {
+    return (
+      <div className="absolute inset-y-0 right-0 w-[50%] overflow-hidden">
+        <div className="absolute right-8 top-5 h-24 w-20 rounded-t-[40px] border border-white/15 bg-white/10" />
+        <div className="absolute right-11 top-10 h-14 w-14 rounded-t-[28px] border border-white/10 bg-white/8" />
+        <div className="absolute bottom-6 right-6 h-2 w-18 rounded-full bg-white/10" />
+        <div className="absolute bottom-3 right-9 h-2 w-12 rounded-full bg-white/10" />
+      </div>
+    );
+  }
+
+  if (type === "book") {
+    return (
+      <div className="absolute inset-y-0 right-0 w-[50%] overflow-hidden">
+        <div className="absolute right-6 top-5 h-[72%] w-20 rounded-[10px] border border-white/15 bg-white/10">
+          <div className="mx-3 mt-4 h-2 rounded-full bg-white/18" />
+          <div className="mx-3 mt-2 h-2 rounded-full bg-white/12" />
+          <div className="mx-3 mt-2 h-2 w-3/4 rounded-full bg-white/12" />
+          <div className="mx-3 mt-4 h-2 rounded-full bg-white/10" />
+          <div className="mx-3 mt-2 h-2 w-2/3 rounded-full bg-white/10" />
+        </div>
       </div>
     );
   }
@@ -140,6 +291,46 @@ function ServiceIcon({ type }) {
       <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
         <path d="M10 4.5h4l6 6-8.5 8.5-7-7z" />
         <circle cx="14" cy="8.5" r="1.1" />
+      </svg>
+    );
+  }
+
+  if (type === "robot") {
+    return (
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
+        <rect x="7" y="8" width="10" height="9" rx="2" />
+        <path d="M12 4v4M4 13h3M17 13h3" />
+        <circle cx="10" cy="12.5" r="1" />
+        <circle cx="14" cy="12.5" r="1" />
+        <path d="M10 17h4" />
+      </svg>
+    );
+  }
+
+  if (type === "chart") {
+    return (
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
+        <path d="M4 20h16M4 20V4" />
+        <path d="M7 16v-4M11 16V9M15 16v-7M19 16v-10" />
+      </svg>
+    );
+  }
+
+  if (type === "shield") {
+    return (
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
+        <path d="M12 3L5 6.5v5c0 4.4 3 7.9 7 9 4-1.1 7-4.6 7-9v-5L12 3z" />
+        <path d="M9 12l2 2 4-4" />
+      </svg>
+    );
+  }
+
+  if (type === "book") {
+    return (
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
+        <path d="M4 4.5C4 3.7 4.7 3 5.5 3h14v18h-14A1.5 1.5 0 0 1 4 19.5v-15z" />
+        <path d="M4 19.5A1.5 1.5 0 0 0 5.5 21H19" />
+        <path d="M8 7h8M8 11h6" />
       </svg>
     );
   }
@@ -185,7 +376,7 @@ function ServiceCard({ service, className = "" }) {
         </p>
         <a
           href="#"
-          className="mt-auto inline-flex items-center gap-2 pt-8 text-[0.95rem] font-medium tracking-[0.01em] text-white underline underline-offset-3"
+          className="group mt-auto inline-flex items-center gap-2 pt-8 text-[0.95rem] font-medium tracking-[0.01em] text-white underline underline-offset-3"
           onClick={(event) => {
             event.preventDefault();
             openForm({
@@ -195,11 +386,17 @@ function ServiceCard({ service, className = "" }) {
           }}
         >
           <span>Start with us</span>
-          <span className="text-[0.95rem]">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M7 17L17 7M17 7H9M17 7v8" />
-            </svg>
-          </span>
+          <svg
+            width="19"
+            height="19"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            className="transition-transform duration-700 group-hover:rotate-45"
+          >
+            <path d="M7 17L17 7M17 7H9M17 7v8" />
+          </svg>
         </a>
       </div>
     </article>
@@ -208,9 +405,9 @@ function ServiceCard({ service, className = "" }) {
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="relative z-10 w-full overflow-hidden pb-12 pt-0 scroll-mt-20 sm:pb-20">
+    <section id="services" className="relative container mx-auto z-10 w-full overflow-hidden pb-12 pt-0 scroll-mt-20 sm:pb-20">
       <div className="relative w-full px-6 sm:px-8 lg:px-26">
-        <div className="relative px-4 py-3 sm:px-8 sm:py-4 lg:px-10 lg:py-6">
+        <div className="relative py-3 sm:py-4 lg:py-6">
         <div className="relative flex flex-col gap-5 pb-4 sm:gap-6 sm:pb-5 md:flex-row md:items-start md:justify-between">
           <div className="max-w-[760px]">
             <h2 className="max-w-[720px] bg-[linear-gradient(90deg,#9795FF_0%,#FFFFFF_42%,#FFFFFF_59%,#BE9FFF_100%)] bg-clip-text pb-2 pr-2 text-[2.6rem] leading-[1.08] font-normal tracking-[-0.06em] text-transparent sm:text-[3.7rem] lg:text-[4.45rem]">
@@ -227,15 +424,39 @@ export default function ServicesSection() {
           </div>
         </div>
 
-        <div className="relative space-y-3">
-          <div className="grid grid-cols-1 gap-3 lg:grid-cols-[1.32fr_0.88fr]">
-            <ServiceCard service={services[0]} />
-            <ServiceCard service={services[1]} />
-          </div>
-          <div className="grid grid-cols-1 gap-3 lg:grid-cols-[0.88fr_1.32fr]">
-            <ServiceCard service={services[2]} />
-            <ServiceCard service={services[3]} />
-          </div>
+        <div className="relative space-y-10 sm:space-y-14">
+          {serviceCategories.map((category) => (
+            <div key={category.id}>
+              {/* Category header */}
+              <div className="flex items-center gap-3 mb-4">
+                <span className="shrink-0 text-[0.6rem] font-medium tracking-[0.22em] text-white/30">
+                  {category.number}
+                </span>
+                <span className="shrink-0 text-[0.7rem] uppercase tracking-[0.22em] text-white/50">
+                  {category.label}
+                </span>
+                <div className="h-px flex-1 bg-white/10" />
+              </div>
+              {/* Cards */}
+              <div
+                className={`grid grid-cols-1 gap-3 sm:grid-cols-2 ${
+                  category.services.length === 5 ? "lg:grid-cols-3" : "lg:grid-cols-2"
+                }`}
+              >
+                {category.services.map((service, i) => (
+                  <ServiceCard
+                    key={service.formService}
+                    service={service}
+                    className={
+                      category.services.length === 5 && i === 4
+                        ? "sm:col-span-2 lg:col-span-1"
+                        : ""
+                    }
+                  />
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
         </div>
       </div>

@@ -9,7 +9,7 @@ const manrope = Manrope({
 });
 
 export const metadata = {
-  title: "Amrut Global Solutions",
+  title: "AGS - A Digital Transformation & Growth Consultant Company",
   description: "Innovative digital solutions that transform businesses.",
   icons: {
     icon: "/favicon.webp",

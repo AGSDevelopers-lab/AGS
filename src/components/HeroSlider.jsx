@@ -10,7 +10,7 @@ const slides = [
       "https://res.cloudinary.com/dhxgwo5r4/image/upload/v1775027627/Branding_pgdxad.png",
     title: "Creative Solutions That Drive Growth",
     subtitle: "From concept to conversion.",
-    cta: "Get Started",
+    cta: "Learn More",
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ const slides = [
     title: "Digital Growth  for Healthcare Brands",
     subtitle:
       "Helping hospitals and clinics grow online and attract more patients.",
-    cta: "Get Free Consultation",
+    cta: "Learn More",
   },
   {
     id: 3,
@@ -28,7 +28,7 @@ const slides = [
     title: "Digital Solutions for Media & News Platforms",
     subtitle:
       "We help media brands build fast, scalable platforms to grow their audience.",
-    cta: "Grow Your Platform",
+    cta: "Learn More",
   },
   {
     id: 4,
@@ -36,7 +36,7 @@ const slides = [
       "https://res.cloudinary.com/dhxgwo5r4/image/upload/v1775027628/ecommerce_gn6mja.png",
     title: "eCommerce Solutions for Growing Brands",
     subtitle: "High-converting stores that drive sales.",
-    cta: "Start Your Online Store",
+    cta: "Learn More",
   },
   {
     id: 5,
@@ -44,7 +44,7 @@ const slides = [
       "https://res.cloudinary.com/dhxgwo5r4/image/upload/v1775027624/aws_vo4uvs.png",
     title: "Scalable Business Cloud Solutions",
     subtitle: "Build faster and scale smarter with cloud technology.",
-    cta: "Get Cloud Consultation",
+    cta: "Learn More",
   },
   {
     id: 6,
@@ -52,7 +52,7 @@ const slides = [
       "https://res.cloudinary.com/dhxgwo5r4/image/upload/v1775027627/edtech_maj3bn.png",
     title: "Refined Solutions for eLearning Brands",
     subtitle: "Build and scale your online learning platform faster.",
-    cta: "Build Your eLearning Platform",
+    cta: "Learn More",
   },
 ];
 
@@ -69,7 +69,7 @@ export default function HeroSlider() {
   }, []);
 
   return (
-    <section id="home" className="relative h-screen min-h-[600px] w-full flex items-center overflow-hidden">
+    <section id="home" className="relative h-screen min-h-150 w-full flex items-center overflow-hidden">
       {/* Slides */}
       {slides.map((slide, index) => (
         <div
@@ -94,7 +94,7 @@ export default function HeroSlider() {
 
       {/* Content */}
       <div className="relative z-20 w-full px-6 sm:px-8 lg:px-16 xl:px-24">
-        <div className="w-full mt-20 max-w-[800px] md:w-3/5 lg:max-w-[760px]">
+        <div className="w-full mt-20 max-w-200 md:w-3/5 lg:max-w-190">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-normal leading-tight mb-6 text-transparent bg-clip-text bg-gradient-to-r from-[#EAE1FF] via-white to-[#c4a8fa] tracking-wide">
             {activeSlide.title}
           </h1>
@@ -103,15 +103,21 @@ export default function HeroSlider() {
           </p>
           <button
             type="button"
-            className="flex items-center space-x-3 rounded border border-white bg-white px-6 py-3 font-semibold text-black transition-all hover:bg-transparent hover:text-white"
+            className="group flex items-center space-x-3 border border-white bg-white px-6 py-3 font-semibold text-black transition-all duration-700 hover:bg-transparent hover:text-white"
             onClick={() => openForm()}
           >
             <span>{activeSlide.cta}</span>
-            <div className="flex h-5 w-5 items-center justify-center rounded-full border border-current">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M7 17L17 7M17 7H7M17 7V17" />
-              </svg>
-            </div>
+            <svg
+              width="29"
+              height="29"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              className="transition-transform duration-700 group-hover:rotate-45"
+            >
+              <path d="M7 17L17 7M17 7H7M17 7V17" />
+            </svg>
           </button>
         </div>
       </div>
