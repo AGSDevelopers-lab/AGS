@@ -8,12 +8,12 @@ const testimonials = [
       "AGS gave our brand a much stronger digital identity. The website feels premium, performs smoothly, and finally reflects the quality of our business.",
   },
   {
-    name: "Nikhil Sharma",
+    name: "Pronoy Sarkar",
     role: "Marketing Lead, Healthcare Brand",
     avatar:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&q=80",
+      "https://res.cloudinary.com/dhxgwo5r4/image/upload/v1775033545/PRANAY_c2qj3y.png",
     quote:
-      "From design to execution, the AGS team understood exactly how to position our healthcare services online and helped us improve enquiry quality.",
+      "AGS is the most trusted website development and digital marketing platform. I took their services. They provide services at a very affordable price and work hard to provide the customer with the best possible service. Highly recommended.",
   },
   {
     name: "Madhumita Roy",
@@ -84,7 +84,7 @@ function TestimonialCard({ item }) {
         <QuoteIcon className="h-7 w-7 text-white/28" />
       </div>
 
-      <p className="relative z-10 mt-6 max-w-[255px] text-[0.82rem] leading-[1.75] text-white/62">
+      <p className="relative z-10 mt-6 max-w-[320px] text-[0.82rem] leading-[1.75] text-white/62">
         {item.quote}
       </p>
     </article>

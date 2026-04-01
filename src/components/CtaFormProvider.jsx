@@ -130,7 +130,7 @@ function CtaFormModal({ isOpen, config, onClose }) {
   };
 
   return (
-    <div className="fixed inset-0 z-[120] flex items-center justify-center px-4 py-4 sm:px-6">
+    <div className="fixed inset-0 z-[120] flex items-start justify-center overflow-y-auto px-3 py-3 sm:items-center sm:px-6 sm:py-4">
       <button
         type="button"
         aria-label="Close form overlay"
@@ -138,21 +138,21 @@ function CtaFormModal({ isOpen, config, onClose }) {
         onClick={onClose}
       />
 
-      <div className="relative w-full max-w-[680px] overflow-hidden rounded-[28px] border border-white/16 bg-[linear-gradient(180deg,rgba(34,39,66,0.84)_0%,rgba(16,20,37,0.86)_100%)] shadow-[0_40px_120px_rgba(0,0,0,0.45)] backdrop-blur-2xl">
+      <div className="relative my-auto flex w-full max-w-[680px] flex-col overflow-hidden rounded-[22px] border border-white/16 bg-[linear-gradient(180deg,rgba(34,39,66,0.84)_0%,rgba(16,20,37,0.86)_100%)] shadow-[0_40px_120px_rgba(0,0,0,0.45)] backdrop-blur-2xl max-h-[calc(100vh-1.5rem)] sm:max-h-[calc(100dvh-3rem)] sm:rounded-[28px]">
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.1),rgba(255,255,255,0.02)_36%,rgba(255,255,255,0)_68%)]" />
         <div className="pointer-events-none absolute -left-12 top-10 h-40 w-40 rounded-full bg-[#7f9dff]/24 blur-[80px]" />
         <div className="pointer-events-none absolute right-[-10%] top-[-8%] h-48 w-48 rounded-full bg-[#a383ff]/24 blur-[90px]" />
 
-        <div className="relative border-b border-white/10 px-6 py-4 sm:px-7 sm:py-5">
-          <div className="flex items-start justify-between gap-6">
+        <div className="relative shrink-0 border-b border-white/10 px-4 py-3 sm:px-7 sm:py-5">
+          <div className="flex items-start justify-between gap-4 sm:gap-6">
             <div className="max-w-[500px]">
               <p className="text-[0.72rem] uppercase tracking-[0.24em] text-white/45">
                 AGS Project Enquiry
               </p>
-              <h3 className="mt-2 inline-block pb-2 bg-[linear-gradient(90deg,#9795FF_0%,#FFFFFF_42%,#FFFFFF_59%,#BE9FFF_100%)] bg-clip-text text-[1.25rem] leading-[1.15] font-normal tracking-[-0.05em] text-transparent sm:text-[2rem]">
+              <h3 className="mt-1.5 inline-block pb-1 bg-[linear-gradient(90deg,#9795FF_0%,#FFFFFF_42%,#FFFFFF_59%,#BE9FFF_100%)] bg-clip-text text-[1.05rem] leading-[1.1] font-normal tracking-[-0.05em] text-transparent sm:mt-2 sm:pb-2 sm:text-[2rem]">
                 {modalCopy.heading}
               </h3>
-              <p className="mt-1 max-w-[430px] text-[0.92rem] leading-[1.65] text-white/72">
+              <p className="mt-1 max-w-[430px] text-[0.84rem] leading-[1.5] text-white/72 sm:text-[0.92rem] sm:leading-[1.65]">
                 {modalCopy.subtext}
               </p>
             </div>
@@ -160,7 +160,7 @@ function CtaFormModal({ isOpen, config, onClose }) {
             <button
               type="button"
               aria-label="Close form"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/12 bg-white/[0.05] text-white/72 transition hover:border-white/25 hover:bg-white/[0.08] hover:text-white"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-white/12 bg-white/[0.05] text-white/72 transition hover:border-white/25 hover:bg-white/[0.08] hover:text-white sm:h-10 sm:w-10"
               onClick={onClose}
             >
               <svg
@@ -177,10 +177,10 @@ function CtaFormModal({ isOpen, config, onClose }) {
           </div>
         </div>
 
-        <div className="relative px-6 py-4 sm:px-7 sm:py-5">
-          <form className="grid gap-3 sm:grid-cols-2" onSubmit={handleSubmit}>
+        <div className="relative min-h-0 overflow-y-auto px-4 py-3 sm:px-7 sm:py-5">
+          <form className="grid gap-2.5 sm:grid-cols-2 sm:gap-3" onSubmit={handleSubmit}>
               <label className="block">
-                <span className="mb-2 block text-[0.82rem] font-medium text-white/68">
+                <span className="mb-1.5 block text-[0.78rem] font-medium text-white/68 sm:mb-2 sm:text-[0.82rem]">
                   Name
                 </span>
                 <input
@@ -190,13 +190,13 @@ function CtaFormModal({ isOpen, config, onClose }) {
                   onChange={handleChange}
                   placeholder="Your full name"
                   disabled={isSubmitting}
-                  className="w-full rounded-[16px] border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm text-white outline-none transition placeholder:text-white/28 focus:border-[#8a7aff] focus:bg-white/[0.06]"
+                  className="w-full rounded-[14px] border border-white/10 bg-white/[0.04] px-3.5 py-2.5 text-[0.92rem] text-white outline-none transition placeholder:text-white/28 focus:border-[#8a7aff] focus:bg-white/[0.06] sm:rounded-[16px] sm:px-4 sm:text-sm"
                   required
                 />
               </label>
 
               <label className="block">
-                <span className="mb-2 block text-[0.82rem] font-medium text-white/68">
+                <span className="mb-1.5 block text-[0.78rem] font-medium text-white/68 sm:mb-2 sm:text-[0.82rem]">
                   Email address
                 </span>
                 <input
@@ -206,13 +206,13 @@ function CtaFormModal({ isOpen, config, onClose }) {
                   onChange={handleChange}
                   placeholder="you@example.com"
                   disabled={isSubmitting}
-                  className="w-full rounded-[16px] border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm text-white outline-none transition placeholder:text-white/28 focus:border-[#8a7aff] focus:bg-white/[0.06]"
+                  className="w-full rounded-[14px] border border-white/10 bg-white/[0.04] px-3.5 py-2.5 text-[0.92rem] text-white outline-none transition placeholder:text-white/28 focus:border-[#8a7aff] focus:bg-white/[0.06] sm:rounded-[16px] sm:px-4 sm:text-sm"
                   required
                 />
               </label>
 
               <label className="block">
-                <span className="mb-2 block text-[0.82rem] font-medium text-white/68">
+                <span className="mb-1.5 block text-[0.78rem] font-medium text-white/68 sm:mb-2 sm:text-[0.82rem]">
                   Phone number
                 </span>
                 <input
@@ -222,13 +222,13 @@ function CtaFormModal({ isOpen, config, onClose }) {
                   onChange={handleChange}
                   placeholder="+91 98765 43210"
                   disabled={isSubmitting}
-                  className="w-full rounded-[16px] border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm text-white outline-none transition placeholder:text-white/28 focus:border-[#8a7aff] focus:bg-white/[0.06]"
+                  className="w-full rounded-[14px] border border-white/10 bg-white/[0.04] px-3.5 py-2.5 text-[0.92rem] text-white outline-none transition placeholder:text-white/28 focus:border-[#8a7aff] focus:bg-white/[0.06] sm:rounded-[16px] sm:px-4 sm:text-sm"
                   required
                 />
               </label>
 
               <label className="block">
-                <span className="mb-2 block text-[0.82rem] font-medium text-white/68">
+                <span className="mb-1.5 block text-[0.78rem] font-medium text-white/68 sm:mb-2 sm:text-[0.82rem]">
                   Service needed
                 </span>
                 <select
@@ -236,7 +236,7 @@ function CtaFormModal({ isOpen, config, onClose }) {
                   value={formData.service}
                   onChange={handleChange}
                   disabled={config.lockService || isSubmitting}
-                  className="w-full appearance-none rounded-[16px] border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm text-white outline-none transition focus:border-[#8a7aff] focus:bg-white/[0.06] disabled:cursor-not-allowed disabled:opacity-100"
+                  className="w-full appearance-none rounded-[14px] border border-white/10 bg-white/[0.04] px-3.5 py-2.5 text-[0.92rem] text-white outline-none transition focus:border-[#8a7aff] focus:bg-white/[0.06] disabled:cursor-not-allowed disabled:opacity-100 sm:rounded-[16px] sm:px-4 sm:text-sm"
                   required
                 >
                   <option value="" className="bg-[#0f1220] text-white">
@@ -253,14 +253,14 @@ function CtaFormModal({ isOpen, config, onClose }) {
                   ))}
                 </select>
                 {config.lockService ? (
-                  <span className="mt-2 block text-[0.76rem] text-white/45">
+                  <span className="mt-1.5 block text-[0.72rem] text-white/45 sm:mt-2 sm:text-[0.76rem]">
                     This enquiry is linked to the selected service.
                   </span>
                 ) : null}
               </label>
 
               <label className="block sm:col-span-2">
-                <span className="mb-2 block text-[0.82rem] font-medium text-white/68">
+                <span className="mb-1.5 block text-[0.78rem] font-medium text-white/68 sm:mb-2 sm:text-[0.82rem]">
                   Project details
                 </span>
                 <textarea
@@ -268,9 +268,9 @@ function CtaFormModal({ isOpen, config, onClose }) {
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Tell us about your goals, timeline, budget, or any features you already have in mind."
-                  rows="3"
+                  rows="2"
                   disabled={isSubmitting}
-                  className="w-full rounded-[16px] border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm text-white outline-none transition placeholder:text-white/28 focus:border-[#8a7aff] focus:bg-white/[0.06]"
+                  className="min-h-[88px] w-full rounded-[14px] border border-white/10 bg-white/[0.04] px-3.5 py-2.5 text-[0.92rem] text-white outline-none transition placeholder:text-white/28 focus:border-[#8a7aff] focus:bg-white/[0.06] sm:min-h-[112px] sm:rounded-[16px] sm:px-4 sm:text-sm"
                   required
                 />
               </label>
@@ -281,11 +281,11 @@ function CtaFormModal({ isOpen, config, onClose }) {
                 </p>
               ) : null}
 
-              <div className="sm:col-span-2 flex justify-end pt-1">
+              <div className="sm:col-span-2 flex justify-end pt-0.5 sm:pt-1">
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="inline-flex items-center justify-center gap-3 rounded border border-white bg-white px-5 py-3 text-sm font-medium text-black transition hover:bg-transparent hover:text-white disabled:hover:bg-white disabled:hover:text-black"
+                  className="inline-flex items-center justify-center gap-2.5 rounded border border-white bg-white px-4 py-2.5 text-[0.92rem] font-medium text-black transition hover:bg-transparent hover:text-white disabled:hover:bg-white disabled:hover:text-black sm:gap-3 sm:px-5 sm:py-3 sm:text-sm"
                 >
                   <span>{isSubmitting ? "Sending..." : "Send enquiry"}</span>
                   <span className="flex h-4 w-4 items-center justify-center rounded-full border border-current text-[9px]">

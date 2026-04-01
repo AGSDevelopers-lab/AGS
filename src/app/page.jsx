@@ -2,6 +2,7 @@ import HeroSlider from "@/components/HeroSlider";
 import IntroSection from "@/components/IntroSection";
 import ServicesSection from "@/components/ServicesSection";
 import ClientsSection from "@/components/ClientsSection";
+import AwsSection from "@/components/aws";
 import ProductsSection from "@/components/ProductsSection";
 import FeaturedWorks from "@/components/FeaturedWorks";
 import TeamSection from "@/components/TeamSection";
@@ -66,11 +67,12 @@ export default function Home() {
       <div className="relative z-10">
         <HeroSlider />
         <div className="relative">
-          {/* <SectionConnector /> */}
+          <SectionConnector />
           <IntroSection />
           <ServicesSection />
         </div>
         <ClientsSection />
+        <AwsSection />
         <ProductsSection />
         <FeaturedWorks />
         <TeamSection />

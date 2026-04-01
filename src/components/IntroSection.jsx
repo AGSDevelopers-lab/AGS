@@ -44,7 +44,7 @@ export default function IntroSection() {
             </p>
           </div>
 
-          <div className="lg:pt-[6rem]">
+          <div className="lg:pt-[1rem]">
             <ArrowButton label="Launch Your Idea" />
           </div>
         </div>

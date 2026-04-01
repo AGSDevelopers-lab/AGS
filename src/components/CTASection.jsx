@@ -124,7 +124,7 @@ export default function CTASection() {
                 <li>Web Development</li>
                 <li>UI/UX Designer</li>
                 <li>Branding</li>
-                <li>Shopify</li>
+                <li>Digital Marketing</li>
               </ul>
             </div>
 

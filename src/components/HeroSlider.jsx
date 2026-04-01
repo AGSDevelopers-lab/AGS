@@ -7,7 +7,7 @@ const slides = [
   {
     id: 1,
     image:
-      "https://res.cloudinary.com/dhxgwo5r4/image/upload/v1774940733/banner-1_px28k4.png",
+      "https://res.cloudinary.com/dhxgwo5r4/image/upload/v1775027627/Branding_pgdxad.png",
     title: "Creative Solutions That Drive Growth",
     subtitle: "From concept to conversion.",
     cta: "Get Started",
@@ -33,7 +33,7 @@ const slides = [
   {
     id: 4,
     image:
-      "https://res.cloudinary.com/dhxgwo5r4/image/upload/v1774940961/banner-4_icejkz.png",
+      "https://res.cloudinary.com/dhxgwo5r4/image/upload/v1775027628/ecommerce_gn6mja.png",
     title: "eCommerce Solutions for Growing Brands",
     subtitle: "High-converting stores that drive sales.",
     cta: "Start Your Online Store",
@@ -41,7 +41,7 @@ const slides = [
   {
     id: 5,
     image:
-      "https://res.cloudinary.com/dhxgwo5r4/image/upload/v1774940960/banner-5_yzrz9r.png",
+      "https://res.cloudinary.com/dhxgwo5r4/image/upload/v1775027624/aws_vo4uvs.png",
     title: "Scalable Business Cloud Solutions",
     subtitle: "Build faster and scale smarter with cloud technology.",
     cta: "Get Cloud Consultation",
@@ -49,7 +49,7 @@ const slides = [
   {
     id: 6,
     image:
-      "https://res.cloudinary.com/dhxgwo5r4/image/upload/v1774940734/banner-6_d7xzro.png",
+      "https://res.cloudinary.com/dhxgwo5r4/image/upload/v1775027627/edtech_maj3bn.png",
     title: "Refined Solutions for eLearning Brands",
     subtitle: "Build and scale your online learning platform faster.",
     cta: "Build Your eLearning Platform",
@@ -84,10 +84,10 @@ export default function HeroSlider() {
             style={{ backgroundImage: `url(${slide.image})` }}
           />
           <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-100 mix-blend-screen"
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-80 mix-blend-screen"
             style={{ backgroundImage: "url(/overlay.png)" }}
           />
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(10,10,24,0.92)_0%,rgba(18,18,42,0.82)_28%,rgba(18,18,42,0.34)_48%,rgba(18,18,42,0.08)_68%,rgba(18,18,42,0)_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(10,10,24,0.9)_0%,rgba(18,18,42,0.72)_28%,rgba(18,18,42,0.26)_48%,rgba(18,18,42,0.05)_68%,rgba(18,18,42,0)_100%)]" />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,7,16,0.14)_0%,rgba(6,7,16,0.28)_100%)]" />
         </div>
       ))}
