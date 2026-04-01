@@ -7,7 +7,7 @@ const directors = [
     name: "Tushar De",
     role: "Director, CEO",
     image: "tushar-de.png",
-    linkedin: "www.linkedin.com/in/0xtd",
+    linkedin: "https://www.linkedin.com/in/0xtd",
   },
   {
     name: "Sharmistha Chatterjee",
