@@ -12,9 +12,9 @@ export const metadata = {
   title: "AGS - A Digital Transformation & Growth Consultant Company",
   description: "Innovative digital solutions that transform businesses.",
   icons: {
-    icon: "/favicon.webp",
-    shortcut: "/favicon.webp",
-    apple: "/favicon.webp",
+    icon: "/ags_favicon.png",
+    shortcut: "/ags_favicon.png",
+    apple: "/ags_favicon.png",
   },
 };
 

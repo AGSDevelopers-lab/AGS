@@ -81,7 +81,7 @@ function WorkCard({ work }) {
               >
                 {work.name}
               </a>
-              <p className="mt-3 max-w-[290px] text-[0.68rem] leading-[1.65] text-black/55 transition duration-500 group-hover:text-white/72 sm:max-w-[260px]">
+              <p className="mt-3 max-w-[290px] text-[0.78rem] leading-[1.65] text-black/80 transition duration-500 group-hover:text-white/72 sm:max-w-[260px]">
                 {work.blurb}
               </p>
             </div>
@@ -116,7 +116,7 @@ function WorkCard({ work }) {
           <h4 className="text-[1.45rem] leading-none font-medium tracking-[-0.04em] text-white">
             {work.name}
           </h4>
-          <p className="mt-3 max-w-[340px] text-[0.72rem] leading-[1.72] text-white/56">
+          <p className="mt-3 max-w-[400px] text-[0.85rem] leading-[1.72] text-white/70">
             {work.description}
           </p>
         </div>

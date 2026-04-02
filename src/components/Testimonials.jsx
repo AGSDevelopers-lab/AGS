@@ -24,28 +24,28 @@ const testimonials = [
       "They created a clean and conversion-focused experience for our brand. The final output was not only beautiful but also practical for business growth.",
   },
   {
-    name: "Sayan Dutta",
+    name: "Sathi Ghosh Hazra",
     role: "Product Manager, Digital Platform",
     avatar:
       "https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=400&q=80",
     quote:
-      "AGS brought together strategy, UI thinking, and development in a way that made the whole launch process faster and far less stressful for our team.",
+      "Professional company with prompt and efficient service. Wish them all the best.",
   },
   {
-    name: "Piyal Sen",
+    name: "Priya Chatterjee",
     role: "Director, Education Venture",
     avatar:
       "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=400&q=80",
     quote:
-      "We needed a smarter digital presence for our education offering, and AGS delivered a polished experience that felt clear, modern, and scalable.",
+      "Really happy and satisfied with the behaviour and pattern they work and extend their minds and hands towards professional prosperity of a specific client",
   },
   {
-    name: "Rizwan Mondal",
+    name: "Ranadip Nandy",
     role: "Operations Head, Growth Team",
     avatar:
       "https://images.unsplash.com/photo-1504257432389-52343af06ae3?auto=format&fit=crop&w=400&q=80",
     quote:
-      "What stood out most was their balance of creativity and business thinking. Every suggestion was aligned with growth, usability, and long-term value.",
+      "Very professional company. Assisted my channel with utmost care and support. I recommend wholeheartedly.",
   },
 ];
 
