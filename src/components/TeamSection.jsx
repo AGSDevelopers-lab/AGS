@@ -6,20 +6,20 @@ const directors = [
   {
     name: "Tushar De",
     role: "Director, CEO",
-    image: "tushar-de.png",
+    image: "https://res.cloudinary.com/dhxgwo5r4/image/upload/q_auto/f_auto/v1775113907/Tushar_Sir_ub2mop.png",
     linkedin: "https://www.linkedin.com/in/0xtd",
   },
   {
     name: "Sharmistha Chatterjee",
     role: "Director, COO",
     image:
-      "https://res.cloudinary.com/dhxgwo5r4/image/upload/v1774940494/Sharmistha_Chatterjee_e8fxwo.jpg",
+      "https://res.cloudinary.com/dhxgwo5r4/image/upload/q_auto/f_auto/v1775113883/Sharmistha_Ma_am_gtmxsq.png",
     linkedin: "https://www.linkedin.com/in/c-sharmistha/",
   },
   {
     name: "Atish Roy",
     role: "Chief Growth Officer",
-    image: "atishhhh.jpg",
+    image: "https://res.cloudinary.com/dhxgwo5r4/image/upload/q_auto/f_auto/v1775113883/Atish_Sir_qcjmrn.png",
     linkedin: "https://www.linkedin.com/in/atishroy/",
   },
 ];
@@ -29,7 +29,7 @@ const teamMembers = [
     name: "Piyali Das",
     role: "Project Manager",
     image:
-      "https://res.cloudinary.com/dhxgwo5r4/image/upload/v1775032384/Piyali_woxsla.png",
+      "https://res.cloudinary.com/dhxgwo5r4/image/upload/q_auto/f_auto/v1775113883/piyali_hkbkvt.png",
   },
   {
     name: "Sayan Bhattacharjee",
@@ -41,7 +41,7 @@ const teamMembers = [
     name: "Sristi Bhattacharyya",
     role: "Web Developer",
     image:
-      "https://res.cloudinary.com/dhxgwo5r4/image/upload/v1775032385/Sristi_ytoekh.png",
+      "https://res.cloudinary.com/dhxgwo5r4/image/upload/q_auto/f_auto/v1775113890/sristi_alxrvr.png",
   },
   {
     name: "Pradip Mondal",
@@ -53,13 +53,13 @@ const teamMembers = [
     name: "Shrestha Samadder",
     role: "Video Editor",
     image:
-      "https://res.cloudinary.com/dhxgwo5r4/image/upload/v1775033648/Shrestha_ctdswp.png",
+      "https://res.cloudinary.com/dhxgwo5r4/image/upload/q_auto/f_auto/v1775113889/shrestha_jixev8.png",
   },
   {
     name: "Abhijit Manna",
     role: "SEO Executive",
     image:
-      "https://res.cloudinary.com/dhxgwo5r4/image/upload/v1775032384/Abhijit_b6g3h4.png",
+      "https://res.cloudinary.com/dhxgwo5r4/image/upload/q_auto/f_auto/v1775113883/abhijit_vork62.png",
   },
 ];
 

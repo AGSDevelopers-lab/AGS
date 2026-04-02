@@ -10,14 +10,14 @@ const works = [
     href: "https://www.figma.com/proto/TC6Mlja9pb7gmhu7izyDvc/Influencer-Case-study?node-id=1-92&p=f&t=v7tYnM8ubREWLcyK-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
   },
   {
-    name: "Dhuno Beats",
-    label: "App Development",
+    name: "Mangal Materials",
+    label: "App Redesign",
     blurb:
       "It is your one-stop destination for all essential items for every spiritual ritual.",
     description:
-      "Dhuno Beats provides goddess idols and all essential items for every spiritual ritual.",
+      "Mangal Materials provides goddess idols and all essential items for every spiritual ritual.",
     image: "/product-2.png",
-    href: "https://www.figma.com/proto/xNnhifFuOzwF3uouIYKQWC/Dhuno-Beats-Case-study?node-id=11-17&t=E8d7MFtljkOqnimw-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
+    href: "https://www.figma.com/proto/xNnhifFuOzwF3uouIYKQWC/Mangal-Materials-Case-study?node-id=11-17&t=a8hh5O46d2GbS3ju-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
   },
   {
     name: "TotoJan",
@@ -31,7 +31,7 @@ const works = [
   },
   {
     name: "Dhunseri",
-    label: "Website Development",
+    label: "Website Redesign",
     blurb:
       "It is engaged in the manufacturing and sale of premium tea.",
     description:

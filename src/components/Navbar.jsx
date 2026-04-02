@@ -18,6 +18,7 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   const { openForm } = useCtaForm();
+  const isHomePage = pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,6 +38,8 @@ export default function Navbar() {
     }
   };
 
+  const getNavHref = (href) => (isHomePage ? href : `/${href}`);
+
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled
@@ -51,7 +54,7 @@ export default function Navbar() {
           href="/"
           className="inline-flex items-center gap-3 sm:gap-4"
           onClick={(e) => {
-            if (pathname === "/") {
+            if (isHomePage) {
               handleSmoothScroll(e, "#home");
             } else {
               setMobileMenuOpen(false);
@@ -100,14 +103,20 @@ export default function Navbar() {
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-12 items-center">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.name}
-              href={item.href}
-              onClick={(e) => handleSmoothScroll(e, item.href)}
+              href={getNavHref(item.href)}
+              onClick={(e) => {
+                if (isHomePage) {
+                  handleSmoothScroll(e, item.href);
+                } else {
+                  setMobileMenuOpen(false);
+                }
+              }}
               className="text-white hover:text-white/80 transition-colors text-xl tracking-wide font-medium"
             >
               {item.name}
-            </a>
+            </Link>
           ))}
         </div>
 
@@ -154,14 +163,20 @@ export default function Navbar() {
         <div className="mx-6 mt-4 rounded-[22px] border border-white/10 bg-[rgba(10,12,24,0.9)] p-5 backdrop-blur-xl md:hidden sm:mx-8">
           <div className="flex flex-col gap-4">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.name}
-                href={item.href}
-                onClick={(e) => handleSmoothScroll(e, item.href)}
+                href={getNavHref(item.href)}
+                onClick={(e) => {
+                  if (isHomePage) {
+                    handleSmoothScroll(e, item.href);
+                  } else {
+                    setMobileMenuOpen(false);
+                  }
+                }}
                 className="text-white/88 transition-colors hover:text-white"
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
 
             <button
