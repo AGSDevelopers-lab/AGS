@@ -6,7 +6,7 @@ const directors = [
   {
     name: "Tushar De",
     role: "Director, CEO",
-    image: "https://res.cloudinary.com/dhxgwo5r4/image/upload/q_auto/f_auto/v1775113907/Tushar_Sir_ub2mop.png",
+    image: "tushar.jpeg",
     linkedin: "https://www.linkedin.com/in/0xtd",
   },
   {
@@ -27,37 +27,37 @@ const directors = [
 const teamMembers = [
   {
     name: "Piyali Das",
-    role: "Project Manager",
+    department: "Operations",
     image:
       "https://res.cloudinary.com/dhxgwo5r4/image/upload/q_auto/f_auto/v1775113883/piyali_hkbkvt.png",
   },
   {
     name: "Sayan Bhattacharjee",
-    role: "UI/UX Designer",
+    department: "Design",
     image:
       "https://res.cloudinary.com/dhxgwo5r4/image/upload/v1775032385/Sayan_qrbnma.png",
   },
   {
     name: "Sristi Bhattacharyya",
-    role: "Web Developer",
+    department: "Development",
     image:
       "https://res.cloudinary.com/dhxgwo5r4/image/upload/q_auto/f_auto/v1775113890/sristi_alxrvr.png",
   },
   {
     name: "Pradip Mondal",
-    role: "Graphic Designer",
+    department: "Design",
     image:
       "https://res.cloudinary.com/dhxgwo5r4/image/upload/v1775032384/Pradip_parqg3.png",
   },
   {
     name: "Shrestha Samadder",
-    role: "Video Editor",
+    department: "Creative",
     image:
       "https://res.cloudinary.com/dhxgwo5r4/image/upload/q_auto/f_auto/v1775113889/shrestha_jixev8.png",
   },
   {
     name: "Abhijit Manna",
-    role: "SEO Executive",
+    department: "Marketing",
     image:
       "https://res.cloudinary.com/dhxgwo5r4/image/upload/q_auto/f_auto/v1775113883/abhijit_vork62.png",
   },
@@ -77,23 +77,19 @@ function LinkedInIcon() {
 
 function DirectorCard({ director }) {
   return (
-    <article className="group relative overflow-hidden border border-white/10 bg-white/4 backdrop-blur-sm">
-      <div className="relative min-h-130 overflow-hidden sm:min-h-20 lg:min-h-90">
+    <article className="group relative mx-auto w-full max-w-xs overflow-hidden border border-white/10 bg-white/4 backdrop-blur-sm">
+      {/* Top accent line that animates in on hover */}
+      <div className="absolute left-0 top-0 z-30 h-0.5 w-0 bg-linear-to-r from-[#9795FF] to-[#BE9FFF] transition-all duration-500 group-hover:w-full" />
 
+      <div className="relative aspect-4/5 overflow-hidden">
         {/* Background image */}
         <div
-          className="absolute inset-0 bg-cover bg-top grayscale transition-all duration-700 group-hover:scale-[1.04] group-hover:grayscale-0"
+          className="absolute inset-0 bg-cover bg-top grayscale transition-all duration-700 group-hover:scale-[1.05] group-hover:grayscale-0"
           style={{ backgroundImage: `url(${director.image})` }}
         />
 
         {/* Base gradient */}
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,6,14,0.08)_0%,rgba(6,6,14,0.16)_38%,rgba(5,5,12,0.92)_100%)]" />
-
-        {/* Hover backdrop — scoped to this card only */}
-        <div className="absolute inset-0 bg-[rgba(8,8,18,0.50)] opacity-0 backdrop-blur-[2px] transition-opacity duration-500 group-hover:opacity-100" />
-
-        {/* Decorative glow */}
-        <div className="pointer-events-none absolute left-6 top-6 h-20 w-20 rounded-full bg-[#6977ff]/18 blur-3xl" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/20 to-transparent" />
 
         {/* LinkedIn button */}
         <Link
@@ -101,22 +97,20 @@ function DirectorCard({ director }) {
           target="_blank"
           rel="noopener noreferrer"
           onClick={(e) => e.stopPropagation()}
-          className="absolute right-4 top-4 z-20 flex h-9 w-9 -translate-y-1.5 items-center justify-center rounded-md border border-white/20 bg-[rgba(10,102,194,0.85)] opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 hover:bg-[rgba(10,102,194,1)]"
+          className="absolute right-4 top-4 z-20 flex h-9 w-9 -translate-y-1.5 items-center justify-center rounded border border-white/15 bg-[rgba(10,102,194,0.85)] opacity-0 shadow-lg transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 hover:bg-[rgba(10,102,194,1)]"
         >
           <LinkedInIcon />
         </Link>
 
         {/* Name / role block */}
-        <div className="absolute inset-x-0 -bottom-4 z-10 p-6 transition-all duration-500 group-hover:bottom-0 sm:p-5 lg:p-8">
-          <span className="inline-flex rounded-full border border-white/16 bg-white/8 px-3 py-1 text-[0.5rem] uppercase tracking-[0.14em] text-white/68">
-            AGS Leadership
-          </span>
-          <h3 className="mt-5 text-[2rem] font-medium leading-[0.96] tracking-[-0.05em] text-white sm:mt-3 sm:text-[1.45rem] lg:text-[1.5rem]">
-            {director.name}
-          </h3>
-          <p className="mt-3 text-[1rem] leading-[1.7] text-white/82 sm:mt-1.5 sm:text-[0.92rem] lg:text-[0.8rem]">
+        <div className="absolute inset-x-0 bottom-0 z-10 translate-y-2 p-6 transition-transform duration-500 group-hover:translate-y-0">
+          <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-[#9795FF]">
             {director.role}
           </p>
+          <h3 className="mt-1.5 text-[1.35rem] font-medium leading-tight tracking-[-0.04em] text-white lg:text-[1.25rem]">
+            {director.name}
+          </h3>
+          <div className="mt-3 h-px w-0 bg-white/20 transition-all duration-500 delay-75 group-hover:w-full" />
         </div>
       </div>
     </article>
@@ -125,25 +119,24 @@ function DirectorCard({ director }) {
 
 function TeamMemberCard({ member }) {
   return (
-    <article className="group relative aspect-[0.76] overflow-hidden border border-white/10 bg-white/4">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_24%,rgba(246,244,248,0.96)_0%,rgba(232,230,236,0.92)_34%,rgba(206,203,212,0.88)_68%,rgba(184,180,192,0.82)_100%)] transition duration-500 group-hover:opacity-35" />
+    <article className="group relative aspect-3/4 overflow-hidden border border-white/10 bg-white/4">
+      {/* Photo */}
       <div
-        className="absolute inset-0 bg-cover bg-top transition duration-700 group-hover:scale-[1.04]"
+        className="absolute inset-0 bg-cover bg-top grayscale transition-all duration-600 group-hover:scale-[1.05] group-hover:grayscale-0"
         style={{ backgroundImage: `url(${member.image})` }}
       />
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,6,14,0.04)_0%,rgba(6,6,14,0.14)_48%,rgba(4,4,10,0.92)_100%)]" />
-      <div className="absolute left-2 top-2 z-10 sm:left-2 sm:top-1">
-        <span className="inline-flex bg-[rgba(20,20,28,0.06)] px-1 py-0.5 text-[0.52rem] uppercase tracking-[0.14em] text-white">
-          Team Lead
-        </span>
-      </div>
+
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 bg-linear-to-t from-black/88 via-black/15 to-transparent" />
+
+      {/* Bottom info */}
       <div className="absolute inset-x-0 bottom-0 z-10 p-4">
-        <h3 className="mt-3 text-[1.05rem] font-medium leading-[1.02] tracking-[-0.04em] text-white sm:text-[1.2rem]">
+        <h3 className="text-[0.95rem] font-medium leading-tight tracking-[-0.03em] text-white sm:text-[1.05rem]">
           {member.name}
         </h3>
-        <p className="mt-1.5 text-[0.78rem] leading-normal text-white/76 sm:text-[0.86rem]">
-          {member.role}
-        </p>
+        <span className="mt-2 inline-flex items-center rounded-full border border-white/20 bg-white/10 px-2.5 py-0.5 text-[0.58rem] font-semibold uppercase tracking-[0.18em] text-white/85 backdrop-blur-sm">
+          {member.department}
+        </span>
       </div>
     </article>
   );

@@ -4,6 +4,32 @@ import { useCtaForm } from "@/components/CtaFormProvider";
 import Image from "next/image";
 import Link from "next/link";
 
+const SERVICE_LINKS = [
+  { label: "Web Development", service: "Web Development" },
+  { label: "UI/UX Design", service: "UI/UX Design" },
+  { label: "Branding", service: "Branding" },
+  { label: "Digital Marketing", service: "AI-Powered Digital Marketing" },
+];
+
+function ServiceList() {
+  const { openForm } = useCtaForm();
+  return (
+    <ul className="mt-5 space-y-3 text-[1rem] text-white/85">
+      {SERVICE_LINKS.map(({ label, service }) => (
+        <li key={label}>
+          <button
+            type="button"
+            onClick={() => openForm({ service, lockService: true })}
+            className="transition hover:text-white hover:underline underline-offset-4"
+          >
+            {label}
+          </button>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 function CTAButton() {
   const { openForm } = useCtaForm();
 
@@ -119,12 +145,7 @@ export default function CTASection() {
 
             <div>
               <h3 className="text-[1.2rem] font-medium text-white">Services</h3>
-              <ul className="mt-5 space-y-3 text-[1rem] text-white/85">
-                <li>Web Development</li>
-                <li>UI/UX Design</li>
-                <li>Branding</li>
-                <li>Digital Marketing</li>
-              </ul>
+              <ServiceList />
             </div>
 
             <div>

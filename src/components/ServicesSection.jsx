@@ -392,23 +392,23 @@ function CategoryButton({ label }) {
   return (
     <div className="mt-5 flex justify-end">
       <button
-            type="button"
-            className="group flex items-center space-x-3 border border-white bg-white px-6 py-3 font-semibold text-black transition-all duration-700 hover:bg-transparent hover:text-white"
-            onClick={() => openForm()}
-          >
-            <span>Learn More</span>
-            <svg
-              width="29"
-              height="29"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              className="transition-transform duration-700 group-hover:rotate-45"
-            >
-              <path d="M7 17L17 7M17 7H7M17 7V17" />
-            </svg>
-          </button>
+        type="button"
+        className="group flex items-center space-x-3 border-b border-white py-3 font-semibold text-white transition-all duration-700"
+        onClick={() => openForm()}
+      >
+        <span>Reach Out</span>
+        <svg
+          width="29"
+          height="29"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          className="transition-transform duration-700 group-hover:rotate-45"
+        >
+          <path d="M7 17L17 7M17 7H7M17 7V17" />
+        </svg>
+      </button>
     </div>
   );
 }
@@ -418,57 +418,56 @@ export default function ServicesSection() {
     <section id="services" className="relative container mx-auto z-10 w-full overflow-hidden pb-12 pt-0 scroll-mt-20 sm:pb-20">
       <div className="relative w-full px-6 sm:px-8 lg:px-26">
         <div className="relative py-3 sm:py-4 lg:py-6">
-        <div className="relative flex flex-col gap-5 pb-4 sm:gap-6 sm:pb-5 md:flex-row md:items-start md:justify-between">
-          <div className="max-w-[760px]">
-            <h2 className="max-w-[720px] bg-[linear-gradient(90deg,#9795FF_0%,#FFFFFF_42%,#FFFFFF_59%,#BE9FFF_100%)] bg-clip-text pb-2 pr-2 text-[2.6rem] leading-[1.08] font-normal tracking-[-0.06em] text-transparent sm:text-[3.7rem] lg:text-[4.45rem]">
-              Let&apos;s Work Together With Us
-            </h2>
-            <p className="mt-5 w-full text-[1rem] leading-[1.75] text-white/78">
-              Together, we can transform your vision into impactful digital
-              products.
-            </p>
-          </div>
-
-          <div className="lg:pt-[5.9rem]">
-            <ArrowButton label="Get Started" />
-          </div>
-        </div>
-
-        <div className="relative space-y-10 sm:space-y-14">
-          {serviceCategories.map((category) => (
-            <div key={category.id}>
-              {/* Category header */}
-              <div className="flex items-center gap-3 mb-4">
-                <span className="shrink-0 text-[0.6rem] font-medium tracking-[0.22em] text-white/30">
-                  {category.number}
-                </span>
-                <span className="shrink-0 text-[0.7rem] uppercase tracking-[0.22em] text-white/50">
-                  {category.label}
-                </span>
-                <div className="h-px flex-1 bg-white/10" />
-              </div>
-              {/* Cards */}
-              <div
-                className={`grid grid-cols-1 gap-4 sm:grid-cols-2 ${
-                  category.services.length === 5 ? "lg:grid-cols-3" : "lg:grid-cols-2"
-                }`}
-              >
-                {category.services.map((service, i) => (
-                  <ServiceCard
-                    key={service.formService}
-                    service={service}
-                    className={
-                      category.services.length === 5 && i === 4
-                        ? "sm:col-span-2 lg:col-span-1"
-                        : ""
-                    }
-                  />
-                ))}
-              </div>
-              <CategoryButton label={category.label} />
+          <div className="relative flex flex-col gap-5 pb-4 sm:gap-6 sm:pb-5 md:flex-row md:items-start md:justify-between">
+            <div className="max-w-[760px]">
+              <h2 className="max-w-[720px] bg-[linear-gradient(90deg,#9795FF_0%,#FFFFFF_42%,#FFFFFF_59%,#BE9FFF_100%)] bg-clip-text pb-2 pr-2 text-[2.6rem] leading-[1.08] font-normal tracking-[-0.06em] text-transparent sm:text-[3.7rem] lg:text-[4.45rem]">
+                Let&apos;s Work Together With Us
+              </h2>
+              <p className="mt-5 w-full text-[1rem] leading-[1.75] text-white/78">
+                Together, we can transform your vision into impactful digital
+                products.
+              </p>
             </div>
-          ))}
-        </div>
+
+            <div className="lg:pt-[5.9rem]">
+              <ArrowButton label="Get Started" />
+            </div>
+          </div>
+
+          <div className="relative space-y-10 sm:space-y-14">
+            {serviceCategories.map((category) => (
+              <div key={category.id}>
+                {/* Category header */}
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="shrink-0 text-[0.6rem] font-medium tracking-[0.22em] text-white/30">
+                    {category.number}
+                  </span>
+                  <span className="shrink-0 text-[0.7rem] uppercase tracking-[0.22em] text-white/50">
+                    {category.label}
+                  </span>
+                  <div className="h-px flex-1 bg-white/10" />
+                </div>
+                {/* Cards */}
+                <div
+                  className={`grid grid-cols-1 gap-4 sm:grid-cols-2 ${category.services.length === 5 ? "lg:grid-cols-3" : "lg:grid-cols-2"
+                    }`}
+                >
+                  {category.services.map((service, i) => (
+                    <ServiceCard
+                      key={service.formService}
+                      service={service}
+                      className={
+                        category.services.length === 5 && i === 4
+                          ? "sm:col-span-2 lg:col-span-1"
+                          : ""
+                      }
+                    />
+                  ))}
+                </div>
+                <CategoryButton label={category.label} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

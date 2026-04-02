@@ -71,7 +71,7 @@ export default function AwsSection() {
               {/* Heading */}
               <h2 className="bg-[linear-gradient(90deg,#9795FF_0%,#FFFFFF_42%,#FFFFFF_59%,#BE9FFF_100%)] bg-clip-text pb-2 text-[2.2rem] leading-none font-normal tracking-[-0.05em] text-transparent sm:text-[3rem] lg:text-[3.8rem]">
                 Built on{" "}
-                <span className="relative inline-flex translate-y-[0.15em] w-24 sm:w-32 lg:w-40 h-10 sm:h-14">
+                <span className="relative inline-flex translate-y-[0.15em] w-24 sm:w-32 lg:w-30.25 h-15.5 sm:h-14">
                   <Image
                     src="/aws.png"
                     alt="AWS"
