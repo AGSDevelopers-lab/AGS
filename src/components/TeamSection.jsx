@@ -125,7 +125,7 @@ function DirectorCard({ director }) {
 
 function TeamMemberCard({ member }) {
   return (
-    <article className="group relative aspect-[0.76] overflow-hidden border border-white/10 bg-white/[0.04]">
+    <article className="group relative aspect-[0.76] overflow-hidden border border-white/10 bg-white/4">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_24%,rgba(246,244,248,0.96)_0%,rgba(232,230,236,0.92)_34%,rgba(206,203,212,0.88)_68%,rgba(184,180,192,0.82)_100%)] transition duration-500 group-hover:opacity-35" />
       <div
         className="absolute inset-0 bg-cover bg-top transition duration-700 group-hover:scale-[1.04]"
@@ -141,7 +141,7 @@ function TeamMemberCard({ member }) {
         <h3 className="mt-3 text-[1.05rem] font-medium leading-[1.02] tracking-[-0.04em] text-white sm:text-[1.2rem]">
           {member.name}
         </h3>
-        <p className="mt-1.5 text-[0.78rem] leading-[1.5] text-white/[0.76] sm:text-[0.86rem]">
+        <p className="mt-1.5 text-[0.78rem] leading-normal text-white/76 sm:text-[0.86rem]">
           {member.role}
         </p>
       </div>

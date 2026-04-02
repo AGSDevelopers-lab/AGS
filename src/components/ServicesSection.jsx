@@ -6,7 +6,7 @@ const serviceCategories = [
   {
     id: "web-design",
     number: "01",
-    label: "Web & Design",
+    label: "Web and App Design",
     services: [
       {
         title: "Website Dev",
@@ -17,7 +17,7 @@ const serviceCategories = [
         type: "browser",
       },
       {
-        title: "UI/UX Design",
+        title: "UI/UX and Product Design",
         formService: "UI/UX Design",
         description:
           "Creating intuitive and engaging user experiences that make digital products simple and enjoyable to use.",
@@ -125,6 +125,14 @@ const serviceCategories = [
           "Practical security training programmes that empower your team to recognise threats and maintain a security-first culture.",
         theme: "violet",
         type: "book",
+      },
+      {
+        title: "VAPT Services",
+        formService: "VAPT Services",
+        description:
+          "Combining artificial intelligence with cybersecurity to test threats faster, respond smarter, and stay ahead of attackers.",
+        theme: "graphite",
+        type: "robot",
       },
     ],
   },
@@ -345,7 +353,6 @@ function ServiceIcon({ type }) {
 }
 
 function ServiceCard({ service, className = "" }) {
-  const { openForm } = useCtaForm();
   const themeClasses = {
     violet:
       "bg-[linear-gradient(135deg,#4f46ff_0%,#5d52ff_45%,#4155e9_100%)] text-white",
@@ -359,47 +366,50 @@ function ServiceCard({ service, className = "" }) {
 
   return (
     <article
-      className={`relative min-h-[240px] overflow-hidden rounded-[2px] border border-white/6 px-5 py-5 sm:px-6 sm:py-6 ${themeClasses[service.theme]} ${className}`}
+      className={`relative min-h-70 overflow-hidden rounded-xs border border-white/6 px-5 py-6 transition-all duration-300 hover:border-white/10 hover:shadow-[0_0_30px_rgba(255,255,255,0.05)] sm:px-6 sm:py-7 ${themeClasses[service.theme]} ${className}`}
     >
       <div className="pointer-events-none absolute -left-8 top-10 h-24 w-24 rounded-full bg-[#5f8cff]/20 blur-[50px]" />
       <ServiceArt type={service.type} />
 
       <div className="relative z-10 flex h-full max-w-[48%] flex-col">
-        <div className="flex h-12 w-12 items-center justify-center rounded-full border border-white/18 bg-white/12 text-white/90">
+        <div className="flex h-14 w-14 items-center justify-center rounded-full border border-white/20 bg-white/12 text-white/90">
           <ServiceIcon type={service.type} />
         </div>
-        <h3 className="mt-5 text-[1.35rem] leading-[1.05] font-medium tracking-[-0.03em]">
+        <h3 className="mt-6 text-[1.35rem] leading-[1.1] font-semibold tracking-[-0.03em]">
           {service.title}
         </h3>
-        <p className="mt-3 text-[11px] leading-[1.55] text-white/65">
+        <p className="mt-3 text-[0.8125rem] leading-[1.6] text-white/70">
           {service.description}
         </p>
-        <a
-          href="#"
-          className="group mt-auto inline-flex items-center gap-2 pt-8 text-[0.95rem] font-medium tracking-[0.01em] text-white underline underline-offset-3"
-          onClick={(event) => {
-            event.preventDefault();
-            openForm({
-              service: service.formService,
-              lockService: true,
-            });
-          }}
-        >
-          <span>Start with us</span>
-          <svg
-            width="19"
-            height="19"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            className="transition-transform duration-700 group-hover:rotate-45"
-          >
-            <path d="M7 17L17 7M17 7H9M17 7v8" />
-          </svg>
-        </a>
       </div>
     </article>
+  );
+}
+
+function CategoryButton({ label }) {
+  const { openForm } = useCtaForm();
+
+  return (
+    <div className="mt-5 flex justify-end">
+      <button
+            type="button"
+            className="group flex items-center space-x-3 border border-white bg-white px-6 py-3 font-semibold text-black transition-all duration-700 hover:bg-transparent hover:text-white"
+            onClick={() => openForm()}
+          >
+            <span>Learn More</span>
+            <svg
+              width="29"
+              height="29"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              className="transition-transform duration-700 group-hover:rotate-45"
+            >
+              <path d="M7 17L17 7M17 7H7M17 7V17" />
+            </svg>
+          </button>
+    </div>
   );
 }
 
@@ -439,7 +449,7 @@ export default function ServicesSection() {
               </div>
               {/* Cards */}
               <div
-                className={`grid grid-cols-1 gap-3 sm:grid-cols-2 ${
+                className={`grid grid-cols-1 gap-4 sm:grid-cols-2 ${
                   category.services.length === 5 ? "lg:grid-cols-3" : "lg:grid-cols-2"
                 }`}
               >
@@ -455,6 +465,7 @@ export default function ServicesSection() {
                   />
                 ))}
               </div>
+              <CategoryButton label={category.label} />
             </div>
           ))}
         </div>

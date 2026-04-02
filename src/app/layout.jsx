@@ -21,7 +21,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={manrope.variable}>
-      <body className="antialiased bg-[#0A0A14] text-white">
+      <body className="antialiased bg-background text-white">
         <CtaFormProvider>
           <Navbar />
           {children}
