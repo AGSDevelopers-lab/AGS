@@ -386,6 +386,22 @@ function ServiceCard({ service, className = "" }) {
   );
 }
 
+function getServiceSpanClass(index, total) {
+  const isDesktopRowStart = index % 2 === 0;
+  const isEvenRow = Math.floor(index / 2) % 2 === 0;
+  const isLastOddCard = total % 2 === 1 && index === total - 1;
+
+  if (isLastOddCard) {
+    return "lg:col-span-6";
+  }
+
+  if (isDesktopRowStart) {
+    return isEvenRow ? "lg:col-span-4" : "lg:col-span-3";
+  }
+
+  return isEvenRow ? "lg:col-span-3" : "lg:col-span-4";
+}
+
 function CategoryButton({ label }) {
   const { openForm } = useCtaForm();
 
@@ -415,12 +431,12 @@ function CategoryButton({ label }) {
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="relative container mx-auto z-10 w-full overflow-hidden pb-12 pt-0 scroll-mt-20 sm:pb-20">
+    <section id="services" className="relative container mx-auto z-10 w-full overflow-hidden pb-12 pt-4 scroll-mt-20 sm:pb-20">
       <div className="relative w-full px-6 sm:px-8 lg:px-26">
-        <div className="relative py-3 sm:py-4 lg:py-6">
+        <div className="relative px-4 py-3 sm:px-8 sm:py-4 lg:px-10 lg:py-6">
           <div className="relative flex flex-col gap-5 pb-4 sm:gap-6 sm:pb-5 md:flex-row md:items-start md:justify-between">
             <div className="max-w-[760px]">
-              <h2 className="max-w-[720px] bg-[linear-gradient(90deg,#9795FF_0%,#FFFFFF_42%,#FFFFFF_59%,#BE9FFF_100%)] bg-clip-text pb-2 pr-2 text-[2.6rem] leading-[1.08] font-normal tracking-[-0.06em] text-transparent sm:text-[3.7rem] lg:text-[4.45rem]">
+              <h2 className="max-w-[720px] bg-[linear-gradient(90deg,#9795FF_0%,#FFFFFF_42%,#FFFFFF_59%,#BE9FFF_100%)] bg-clip-text pb-2 pr-2 text-[2.6rem] leading-[1.08] font-normal tracking-[-0.06em] text-transparent sm:text-[3.7rem] lg:text-[4rem]">
                 Let&apos;s Work Together With Us
               </h2>
               <p className="mt-5 w-full text-[1rem] leading-[1.75] text-white/78">
@@ -448,19 +464,12 @@ export default function ServicesSection() {
                   <div className="h-px flex-1 bg-white/10" />
                 </div>
                 {/* Cards */}
-                <div
-                  className={`grid grid-cols-1 gap-4 sm:grid-cols-2 ${category.services.length === 5 ? "lg:grid-cols-3" : "lg:grid-cols-2"
-                    }`}
-                >
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-7">
                   {category.services.map((service, i) => (
                     <ServiceCard
                       key={service.formService}
                       service={service}
-                      className={
-                        category.services.length === 5 && i === 4
-                          ? "sm:col-span-2 lg:col-span-1"
-                          : ""
-                      }
+                      className={getServiceSpanClass(i, category.services.length)}
                     />
                   ))}
                 </div>

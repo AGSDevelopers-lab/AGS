@@ -35,10 +35,11 @@ function SectionConnector() {
         </defs>
 
         <path
-          d="M1120 108H1290C1336 108 1370 142 1370 188V256C1370 302 1336 336 1290 336H184C114 336 58 392 58 462V604C58 650 92 684 138 684H430"
+          d="M1120 108H1306C1336 108 1358 130 1358 160V284C1358 314 1336 336 1306 336H206C158 336 122 372 122 420V604C122 632 142 652 170 652H430"
           stroke="url(#intro-services-line)"
           strokeWidth="3"
           strokeLinecap="round"
+          strokeLinejoin="round"
           filter="url(#intro-services-glow)"
           className="opacity-90"
         />
