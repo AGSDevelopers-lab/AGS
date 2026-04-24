@@ -168,7 +168,7 @@ export default function TeamSection() {
             </div>
           </div>
 
-          <div className="mt-10 sm:mt-14">
+          {/* <div className="mt-10 sm:mt-14">
             <h3 className="bg-[linear-gradient(90deg,#9795FF_0%,#FFFFFF_42%,#FFFFFF_59%,#BE9FFF_100%)] bg-clip-text pb-2 text-[2.1rem] font-normal leading-[1.03] tracking-[-0.06em] text-transparent sm:text-[2.8rem] lg:text-[3.9rem]">
               Meet the Driving Force
             </h3>
@@ -178,7 +178,7 @@ export default function TeamSection() {
                 <TeamMemberCard key={member.name} member={member} />
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
