@@ -22,8 +22,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={manrope.variable}>
-      <GoogleAnalytics />
       <body className="antialiased bg-background text-white">
+        <GoogleAnalytics />
         <CtaFormProvider>
           <Navbar />
           {children}
