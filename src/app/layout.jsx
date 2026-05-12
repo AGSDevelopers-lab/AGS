@@ -1,6 +1,7 @@
 import { Manrope } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import { CtaFormProvider } from "@/components/CtaFormProvider";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -21,6 +22,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={manrope.variable}>
+      <GoogleAnalytics />
       <body className="antialiased bg-background text-white">
         <CtaFormProvider>
           <Navbar />
