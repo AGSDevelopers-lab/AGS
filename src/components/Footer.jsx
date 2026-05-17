@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer id="contact" className="bg-[#0A0A14] pt-20 pb-10 border-t border-white/10 relative overflow-hidden">
       {/* Decorative glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-[200px] bg-primary/20 blur-[100px] rounded-full pointer-events-none"></div>
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-50 bg-primary/20 blur-[100px] rounded-full pointer-events-none"></div>
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
@@ -52,7 +52,17 @@ export default function Footer() {
         </div>
 
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-500 text-sm">© {new Date().getFullYear()} AGS. All rights reserved.</p>
+          <div className="flex flex-col sm:flex-row items-center gap-4">
+            <p className="text-gray-500 text-sm">© {new Date().getFullYear()} AGS. All rights reserved.</p>
+            <span className="hidden sm:block text-white/10">|</span>
+            <div className="flex items-center gap-1.5 rounded-full border border-purple-500/25 bg-purple-500/10 px-3 py-1">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" className="text-purple-400 shrink-0">
+                <path d="M12 2L4 5.5V11C4 15.418 7.582 19.418 12 21C16.418 19.418 20 15.418 20 11V5.5L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
+                <path d="M9 12L11 14L15 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+              <span className="text-xs text-purple-300 font-medium">MSME Certified · Govt. of India</span>
+            </div>
+          </div>
           <div className="flex space-x-6 text-sm">
             <Link href="#" className="text-gray-500 hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="#" className="text-gray-500 hover:text-white transition-colors">Terms of Service</Link>

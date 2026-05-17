@@ -8,6 +8,7 @@ import FeaturedWorks from "@/components/FeaturedWorks";
 import TeamSection from "@/components/TeamSection";
 import Testimonials from "@/components/Testimonials";
 import CTASection from "@/components/CTASection";
+import CertificationsSection from "@/components/CertificationsSection";
 
 function SectionConnector() {
   return (
@@ -73,6 +74,7 @@ export default function Home() {
           <ServicesSection />
         </div>
         <ClientsSection />
+        <CertificationsSection />
         <AwsSection />
         <ProductsSection />
         <FeaturedWorks />

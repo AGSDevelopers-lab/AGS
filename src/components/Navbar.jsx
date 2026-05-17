@@ -113,7 +113,7 @@ export default function Navbar() {
                   setMobileMenuOpen(false);
                 }
               }}
-              className="text-white hover:text-white/80 transition-colors text-xl tracking-wide font-medium"
+              className="text-white hover:text-white/80 transition-colors text-[16px] tracking-wide font-medium"
             >
               {item.name}
             </Link>
@@ -123,7 +123,7 @@ export default function Navbar() {
         {/* CTA Button */}
         <button
           type="button"
-          className="group hidden md:flex items-center space-x-2 border-b border-white hover:border-blue-500 bg-transparent py-2 text-xl font-medium text-white hover:text-blue-500 transition-all duration-700"
+          className="group hidden md:flex items-center space-x-2 border-b border-white hover:border-blue-500 bg-transparent py-2 text-[16px] font-medium text-white hover:text-blue-500 transition-all duration-700"
           onClick={() => openForm()}
         >
           <span>Get Started</span>

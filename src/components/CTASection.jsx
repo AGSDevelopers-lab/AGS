@@ -192,7 +192,7 @@ export default function CTASection() {
           </div>
 
           <div className="mt-10 flex flex-col gap-5 border-t border-white/10 pt-6 sm:mt-18 sm:gap-6 sm:pt-8 lg:flex-row lg:items-center lg:justify-between">
-            <div className="flex flex-col gap-4 text-[0.95rem] text-white/76 sm:flex-row sm:flex-wrap sm:items-center sm:gap-6">
+            <div className="flex flex-col gap-4 text-[10px] text-white/76 sm:flex-row sm:flex-wrap sm:items-center sm:gap-6">
               <span>
                 &copy; 2026 Amrut Global Solutions Pvt. Ltd. All rights reserved.
               </span>
