@@ -78,6 +78,7 @@ export default function AboutPage() {
                      src="https://res.cloudinary.com/dhxgwo5r4/image/upload/q_auto/f_auto/v1776329447/65a1e52cdd501c0325014c6ed34c72a4fdd6dfaf_uvtase.jpg"
                      alt="City building"
                      fill
+                     sizes="100vw"
                      className="object-cover select-none"
                   />
                   {/* Blackish on left fading to transparent to show image's real color */}
@@ -117,6 +118,7 @@ export default function AboutPage() {
                         src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop"
                         alt="Team working"
                         fill
+                        sizes="100vw"
                         className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-90"
                      />
                   </div>
@@ -129,6 +131,7 @@ export default function AboutPage() {
                            src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?q=80&w=2070&auto=format&fit=crop"
                            alt="Wireframes"
                            fill
+                           sizes="100vw"
                            className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 mix-blend-luminosity"
                         />
                      </div>
@@ -163,6 +166,7 @@ export default function AboutPage() {
                            src="https://images.unsplash.com/photo-1616423640778-28d1b53229bd?q=80&w=1974&auto=format&fit=crop"
                            alt="Mobile design"
                            fill
+                           sizes="100vw"
                            className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-90"
                         />
                      </div>
@@ -237,6 +241,7 @@ export default function AboutPage() {
                                  src={storyData[activeStoryIndex].image}
                                  alt="Abstract mesh"
                                  fill
+                                 sizes="100vw"
                                  className="object-cover opacity-60 mix-blend-screen z-0 animate-in fade-in duration-700"
                               />
                               <div className="relative z-10 text-center animate-in zoom-in-95 duration-700">
@@ -252,6 +257,7 @@ export default function AboutPage() {
                               src={storyData[activeStoryIndex].image}
                               alt={storyData[activeStoryIndex].title}
                               fill
+                              sizes="100vw"
                               className="object-cover z-0 animate-in fade-in duration-700 rounded-none shadow-2xl"
                            />
                         )}
@@ -308,6 +314,7 @@ export default function AboutPage() {
                         src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop"
                         alt="Team meeting"
                         fill
+                        sizes="100vw"
                         className="object-cover"
                      />
                   </div>
@@ -373,7 +380,7 @@ export default function AboutPage() {
                   <div className="flex gap-6 flex-shrink-0">
                      {carouselImages.map((src, index) => (
                         <div key={index} className="relative w-[300px] md:w-[350px] lg:w-[420px] aspect-[4/3] rounded-md overflow-hidden flex-shrink-0">
-                           <Image src={src} alt={`Culture image ${index + 1}`} fill className="object-cover" />
+                           <Image src={src} alt={`Culture image ${index + 1}`} fill sizes="(max-width:768px) 300px, (max-width:1024px) 350px, 420px" className="object-cover" />
                         </div>
                      ))}
                   </div>
@@ -381,7 +388,7 @@ export default function AboutPage() {
                   <div className="flex gap-6 flex-shrink-0">
                      {carouselImages.map((src, index) => (
                         <div key={index} className="relative w-[300px] md:w-[350px] lg:w-[420px] aspect-[4/3] rounded-md overflow-hidden flex-shrink-0">
-                           <Image src={src} alt={`Culture image ${index + 1} clone`} fill className="object-cover" />
+                           <Image src={src} alt={`Culture image ${index + 1} clone`} fill sizes="(max-width:768px) 300px, (max-width:1024px) 350px, 420px" className="object-cover" />
                         </div>
                      ))}
                   </div>

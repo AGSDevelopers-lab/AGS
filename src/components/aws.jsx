@@ -76,6 +76,7 @@ export default function AwsSection() {
                     src="/aws.png"
                     alt="AWS"
                     fill
+                    sizes="96px"
                     className="object-contain"
                   />
                 </span>

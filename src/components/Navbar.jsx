@@ -66,6 +66,7 @@ export default function Navbar() {
               src="/ags_logo.png"
               alt="AGS logo"
               fill
+              sizes="(max-width:640px) 92px, 104px"
               className={`object-contain transition-all duration-500 ${scrolled ? "opacity-0" : "opacity-100"}`}
               priority
             />
@@ -73,6 +74,7 @@ export default function Navbar() {
               src="/favicon.png"
               alt="AGS logo"
               fill
+              sizes="(max-width:640px) 92px, 104px"
               className={`object-contain transition-all duration-500 ${scrolled ? "opacity-100" : "opacity-0"}`}
               priority
             />

@@ -77,6 +77,7 @@ export default function ContactPage() {
                      src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"
                      alt="Global network"
                      fill
+                     sizes="100vw"
                      className="object-cover select-none opacity-40 mix-blend-screen"
                   />
                   <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a1f]/80 via-black/50 to-[#020205] transition-opacity" />
