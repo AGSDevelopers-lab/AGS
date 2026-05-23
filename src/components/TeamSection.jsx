@@ -37,12 +37,12 @@ const teamMembers = [
     image:
       "https://res.cloudinary.com/dhxgwo5r4/image/upload/v1775032385/Sayan_qrbnma.png",
   },
-  {
-    name: "Sristi Bhattacharyya",
-    department: "Development",
-    image:
-      "https://res.cloudinary.com/dhxgwo5r4/image/upload/q_auto/f_auto/v1775113890/sristi_alxrvr.png",
-  },
+  // {
+  //   name: "Sristi Bhattacharyya",
+  //   department: "Development",
+  //   image:
+  //     "https://res.cloudinary.com/dhxgwo5r4/image/upload/q_auto/f_auto/v1775113890/sristi_alxrvr.png",
+  // },
   {
     name: "Pradip Mondal",
     department: "Design",
@@ -173,7 +173,7 @@ export default function TeamSection() {
               Meet the Driving Force
             </h3>
 
-            <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-6">
+            <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-5">
               {teamMembers.map((member) => (
                 <TeamMemberCard key={member.name} member={member} />
               ))}
