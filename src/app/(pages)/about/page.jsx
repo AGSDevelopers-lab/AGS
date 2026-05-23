@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import CTASection from "@/components/CTASection";
 
 const storyData = [
@@ -78,6 +78,7 @@ export default function AboutPage() {
                      src="https://res.cloudinary.com/dhxgwo5r4/image/upload/q_auto/f_auto/v1776329447/65a1e52cdd501c0325014c6ed34c72a4fdd6dfaf_uvtase.jpg"
                      alt="City building"
                      fill
+                     sizes="100vw"
                      className="object-cover select-none"
                   />
                   {/* Blackish on left fading to transparent to show image's real color */}
@@ -89,7 +90,7 @@ export default function AboutPage() {
                      About Us
                   </h1>
                   <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed">
-                     As an intensely curious, diverse team of innovators, we find the most effective solutions that need to be delivered with our intelligent.
+                     A diverse team of innovators finding the most effective solutions, delivered with intelligence and precision.
                   </p>
                   <button className="mx-auto group flex items-center space-x-3 border border-white bg-white px-6 py-3 font-semibold text-black transition-all duration-700 hover:bg-transparent hover:text-white">
                      <span>Get Started</span>
@@ -117,6 +118,7 @@ export default function AboutPage() {
                         src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop"
                         alt="Team working"
                         fill
+                        sizes="100vw"
                         className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-90"
                      />
                   </div>
@@ -129,6 +131,7 @@ export default function AboutPage() {
                            src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?q=80&w=2070&auto=format&fit=crop"
                            alt="Wireframes"
                            fill
+                           sizes="100vw"
                            className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 mix-blend-luminosity"
                         />
                      </div>
@@ -163,6 +166,7 @@ export default function AboutPage() {
                            src="https://images.unsplash.com/photo-1616423640778-28d1b53229bd?q=80&w=1974&auto=format&fit=crop"
                            alt="Mobile design"
                            fill
+                           sizes="100vw"
                            className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-90"
                         />
                      </div>
@@ -237,6 +241,7 @@ export default function AboutPage() {
                                  src={storyData[activeStoryIndex].image}
                                  alt="Abstract mesh"
                                  fill
+                                 sizes="100vw"
                                  className="object-cover opacity-60 mix-blend-screen z-0 animate-in fade-in duration-700"
                               />
                               <div className="relative z-10 text-center animate-in zoom-in-95 duration-700">
@@ -252,6 +257,7 @@ export default function AboutPage() {
                               src={storyData[activeStoryIndex].image}
                               alt={storyData[activeStoryIndex].title}
                               fill
+                              sizes="100vw"
                               className="object-cover z-0 animate-in fade-in duration-700 rounded-none shadow-2xl"
                            />
                         )}
@@ -308,6 +314,7 @@ export default function AboutPage() {
                         src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop"
                         alt="Team meeting"
                         fill
+                        sizes="100vw"
                         className="object-cover"
                      />
                   </div>
@@ -344,7 +351,7 @@ export default function AboutPage() {
                      </h2>
                   </div>
                   <div className="text-[0.85rem] text-white/80 leading-[1.8] font-light pt-2 pl-0 md:pl-2">
-                     <p>AGS is more than an IT hub for creating, sharing, and shaping digital ideas. It is the second home of Sisyphus&apos;ers who have been working together for years. It a closely knit family who share more than just codes, designs, marketing, & sales ideas. We are a bunch of moms, dads, believers, creators, and a whole lot more. AGS is an entire community filled with free and open-minded people.</p>
+                     <p>AGS is more than an IT hub for creating, sharing, and shaping digital ideas. It is the second home of our team members who have been working together for years. We are a closely knit family who share more than just codes, designs, marketing, & sales ideas. We are a bunch of moms, dads, believers, creators, and a whole lot more. AGS is an entire community filled with free and open-minded people.</p>
                   </div>
                </div>
 
@@ -354,26 +361,13 @@ export default function AboutPage() {
             <div className="relative w-full overflow-hidden group pb-20 pt-4">
 
 
-               <style dangerouslySetInnerHTML={{
-                  __html: `
-                  @keyframes autoScrollCulture {
-                     0% { transform: translateX(0); }
-                     100% { transform: translateX(calc(-50% - 12px)); }
-                  }
-                  .animate-auto-scroll {
-                     animation: autoScrollCulture 35s linear infinite;
-                  }
-                  .group:hover .animate-auto-scroll {
-                     animation-play-state: paused;
-                  }
-               `}} />
 
                <div className="flex gap-6 w-max animate-auto-scroll px-6">
                   {/* Group 1 */}
                   <div className="flex gap-6 flex-shrink-0">
                      {carouselImages.map((src, index) => (
                         <div key={index} className="relative w-[300px] md:w-[350px] lg:w-[420px] aspect-[4/3] rounded-md overflow-hidden flex-shrink-0">
-                           <Image src={src} alt={`Culture image ${index + 1}`} fill className="object-cover" />
+                           <Image src={src} alt={`Culture image ${index + 1}`} fill sizes="(max-width:768px) 300px, (max-width:1024px) 350px, 420px" className="object-cover" />
                         </div>
                      ))}
                   </div>
@@ -381,7 +375,7 @@ export default function AboutPage() {
                   <div className="flex gap-6 flex-shrink-0">
                      {carouselImages.map((src, index) => (
                         <div key={index} className="relative w-[300px] md:w-[350px] lg:w-[420px] aspect-[4/3] rounded-md overflow-hidden flex-shrink-0">
-                           <Image src={src} alt={`Culture image ${index + 1} clone`} fill className="object-cover" />
+                           <Image src={src} alt={`Culture image ${index + 1} clone`} fill sizes="(max-width:768px) 300px, (max-width:1024px) 350px, 420px" className="object-cover" />
                         </div>
                      ))}
                   </div>

@@ -22,7 +22,7 @@ export default function CertificationsSection() {
                 </p>
               </div>
               <h2 className="bg-[linear-gradient(90deg,#9795FF_0%,#FFFFFF_42%,#FFFFFF_59%,#BE9FFF_100%)] bg-clip-text pb-1 text-[2rem] leading-tight font-normal tracking-[-0.05em] text-transparent sm:text-[2.6rem]">
-                Certified &amp; Recognised
+                Certified & Recognised
               </h2>
               <p className="mt-3 max-w-[38ch] text-[0.9rem] leading-[1.7] text-white/55">
                 AGS is an officially registered MSME under the Government of India — a mark of credibility, compliance, and commitment.

@@ -9,6 +9,7 @@ import TeamSection from "@/components/TeamSection";
 import Testimonials from "@/components/Testimonials";
 import CTASection from "@/components/CTASection";
 import CertificationsSection from "@/components/CertificationsSection";
+import ScrollReveal from "@/components/ScrollReveal";
 
 function SectionConnector() {
   return (
@@ -70,17 +71,37 @@ export default function Home() {
         <HeroSlider />
         <div className="relative">
           <SectionConnector />
-          <IntroSection />
-          <ServicesSection />
+          <ScrollReveal direction="up" delay={100}>
+            <IntroSection />
+          </ScrollReveal>
+          <ScrollReveal direction="up" delay={200}>
+            <ServicesSection />
+          </ScrollReveal>
         </div>
-        <ClientsSection />
-        <CertificationsSection />
-        <AwsSection />
-        <ProductsSection />
-        <FeaturedWorks />
-        <TeamSection />
-        <Testimonials />
-        <CTASection />
+        <ScrollReveal direction="fade" delay={150}>
+          <ClientsSection />
+        </ScrollReveal>
+        <ScrollReveal direction="fade" delay={150}>
+          <CertificationsSection />
+        </ScrollReveal>
+        <ScrollReveal direction="up" delay={150}>
+          <AwsSection />
+        </ScrollReveal>
+        <ScrollReveal direction="up" delay={150}>
+          <ProductsSection />
+        </ScrollReveal>
+        <ScrollReveal direction="up" delay={150}>
+          <FeaturedWorks />
+        </ScrollReveal>
+        <ScrollReveal direction="up" delay={150}>
+          <TeamSection />
+        </ScrollReveal>
+        <ScrollReveal direction="fade" delay={200}>
+          <Testimonials />
+        </ScrollReveal>
+        <ScrollReveal direction="up" delay={100}>
+          <CTASection />
+        </ScrollReveal>
       </div>
     </main>
   );

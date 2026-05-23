@@ -7,10 +7,10 @@ import { usePathname } from "next/navigation";
 import { useCtaForm } from "@/components/CtaFormProvider";
 
 const navItems = [
-  { name: "About", href: "#about" },
-  { name: "Services", href: "#services" },
-  { name: "Portfolio", href: "#portfolio" },
-  { name: "Contact Us", href: "#contact" },
+  { name: "About", href: "/about" },
+  { name: "Services", href: "/services" },
+  { name: "Portfolio", href: "/portfolio" },
+  { name: "Contact Us", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -38,7 +38,7 @@ export default function Navbar() {
     }
   };
 
-  const getNavHref = (href) => (isHomePage ? href : `/${href}`);
+  const getNavHref = (href) => href;
 
   return (
     <nav
@@ -66,6 +66,7 @@ export default function Navbar() {
               src="/ags_logo.png"
               alt="AGS logo"
               fill
+              sizes="(max-width:640px) 92px, 104px"
               className={`object-contain transition-all duration-500 ${scrolled ? "opacity-0" : "opacity-100"}`}
               priority
             />
@@ -73,6 +74,7 @@ export default function Navbar() {
               src="/favicon.png"
               alt="AGS logo"
               fill
+              sizes="(max-width:640px) 92px, 104px"
               className={`object-contain transition-all duration-500 ${scrolled ? "opacity-100" : "opacity-0"}`}
               priority
             />
@@ -106,14 +108,8 @@ export default function Navbar() {
             <Link
               key={item.name}
               href={getNavHref(item.href)}
-              onClick={(e) => {
-                if (isHomePage) {
-                  handleSmoothScroll(e, item.href);
-                } else {
-                  setMobileMenuOpen(false);
-                }
-              }}
-              className="text-white hover:text-white/80 transition-colors text-[16px] tracking-wide font-medium"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-white hover:text-white/80 transition-colors text-[15px] tracking-[0.04em] font-medium"
             >
               {item.name}
             </Link>
@@ -123,18 +119,18 @@ export default function Navbar() {
         {/* CTA Button */}
         <button
           type="button"
-          className="group hidden md:flex items-center space-x-2 border-b border-white hover:border-blue-500 bg-transparent py-2 text-[16px] font-medium text-white hover:text-blue-500 transition-all duration-700"
+          className="group hidden md:flex items-center gap-2 rounded-full border border-white/30 bg-transparent px-5 py-2.5 text-[14px] font-medium tracking-[0.02em] text-white transition-all duration-500 hover:border-white hover:bg-white hover:text-black"
           onClick={() => openForm()}
         >
           <span>Get Started</span>
           <svg
-            width="29"
-            height="29"
+            width="16"
+            height="16"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
             strokeWidth="2"
-            className="transition-transform duration-700 group-hover:rotate-45"
+            className="transition-transform duration-500 group-hover:rotate-45"
           >
             <path d="M7 17L17 7M17 7H7M17 7V17" />
           </svg>
@@ -166,14 +162,8 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 href={getNavHref(item.href)}
-                onClick={(e) => {
-                  if (isHomePage) {
-                    handleSmoothScroll(e, item.href);
-                  } else {
-                    setMobileMenuOpen(false);
-                  }
-                }}
-                className="text-white/88 transition-colors hover:text-white"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-white/88 transition-colors hover:text-white tracking-[0.02em]"
               >
                 {item.name}
               </Link>

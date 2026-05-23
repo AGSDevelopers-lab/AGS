@@ -111,27 +111,65 @@ function CtaFormModal({ isOpen, config, onClose }) {
     setSubmitError("");
     setIsSubmitting(true);
 
+    const useEmailJS =
+      EMAILJS_SERVICE_ID &&
+      EMAILJS_SERVICE_ID !== "YOUR_EMAILJS_SERVICE_ID" &&
+      EMAILJS_TEMPLATE_ID &&
+      EMAILJS_TEMPLATE_ID !== "YOUR_EMAILJS_TEMPLATE_ID" &&
+      EMAILJS_PUBLIC_KEY &&
+      EMAILJS_PUBLIC_KEY !== "YOUR_EMAILJS_PUBLIC_KEY";
+
+    if (useEmailJS) {
+      try {
+        await emailjs.send(
+          EMAILJS_SERVICE_ID,
+          EMAILJS_TEMPLATE_ID,
+          {
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            service: formData.service,
+            message: formData.message,
+          },
+          {
+            publicKey: EMAILJS_PUBLIC_KEY,
+          }
+        );
+
+        onClose();
+        router.push("/thank-you");
+        return;
+      } catch (emailjsError) {
+        console.warn("EmailJS direct send failed, trying API route fallback...", emailjsError);
+      }
+    }
+
+    // Direct API route call (fallback or primary when EmailJS is not configured)
     try {
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
           service: formData.service,
           message: formData.message,
-        },
-        {
-          publicKey: EMAILJS_PUBLIC_KEY,
-        }
-      );
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to submit form.");
+      }
 
       onClose();
       router.push("/thank-you");
-    } catch (error) {
+    } catch (apiError) {
+      console.error("Submission error:", apiError);
       setSubmitError(
-        "We could not send your enquiry right now. Please verify your EmailJS keys and template IDs, then try again."
+        apiError.message || "We could not send your enquiry right now. Please try again later."
       );
     } finally {
       setIsSubmitting(false);

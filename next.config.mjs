@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Allow HMR from local hosts used during development (fixes blocked cross-origin dev requests)
+  allowedDevOrigins: ["127.0.0.1"],
   images: {
     remotePatterns: [
       {
