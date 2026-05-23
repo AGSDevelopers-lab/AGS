@@ -1,11 +1,13 @@
 "use client";
 
+import Link from "next/link";
 import { useCtaForm } from "@/components/CtaFormProvider";
 import CTASection from "@/components/CTASection";
 
 const projects = [
   {
     name: "Bhairal",
+    slug: "bhairal",
     label: "Website Development",
     description:
       "Hire the right influencers to grow your brand faster.",
@@ -15,6 +17,7 @@ const projects = [
   },
   {
     name: "Mangal Materials",
+    slug: "mangal-materials",
     label: "App Redesign",
     description:
       "Your one-stop destination for all essential items for every spiritual ritual.",
@@ -24,6 +27,7 @@ const projects = [
   },
   {
     name: "TotoJan",
+    slug: "totojan",
     label: "App Development",
     description:
       "TotoJan makes taxi rides simple. Book your ride anytime, anywhere.",
@@ -33,6 +37,7 @@ const projects = [
   },
   {
     name: "Dhunseri",
+    slug: "dhunseri",
     label: "Website Redesign",
     description:
       "A trusted name in premium tea manufacturing and distribution.",
@@ -79,14 +84,12 @@ function ProjectCard({ project }) {
               <span className="inline-flex rounded-full border border-black/10 bg-black/5 px-2.5 py-1 text-[0.5rem] font-medium uppercase tracking-[0.08em] text-black/55 transition duration-500 group-hover:border-white/20 group-hover:bg-white/10 group-hover:text-white/70">
                 {project.label}
               </span>
-              <a
-                href={project.href}
-                target="_blank"
-                rel="noreferrer"
+              <Link
+                href={`/portfolio/${project.slug}`}
                 className="mt-3 block text-[1.7rem] leading-none font-medium tracking-[-0.05em]"
               >
                 {project.name}
-              </a>
+              </Link>
               <p className="mt-3 max-w-[290px] text-[0.78rem] leading-[1.65] text-black/80 transition duration-500 group-hover:text-white/72 sm:max-w-[260px]">
                 {project.description}
               </p>
@@ -94,7 +97,8 @@ function ProjectCard({ project }) {
           </div>
 
           <div className="relative z-10 overflow-hidden">
-            <div
+            <Link
+              href={`/portfolio/${project.slug}`}
               className="absolute inset-3 bg-contain bg-right bg-no-repeat transition duration-500 group-hover:scale-[1.03]"
               style={{ backgroundImage: `url(${project.image})` }}
             />
@@ -102,15 +106,16 @@ function ProjectCard({ project }) {
               href={project.href}
               target="_blank"
               rel="noreferrer"
-              className="absolute right-3 top-3 flex h-5 w-5 items-center justify-center rounded-full bg-white text-black"
+              title="View Figma Prototype"
+              className="absolute right-3 top-3 flex h-6 w-6 items-center justify-center rounded-full bg-white text-black hover:bg-white/80 transition-colors shadow-md"
             >
               <svg
-                width="9"
-                height="9"
+                width="11"
+                height="11"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="2"
+                strokeWidth="2.5"
               >
                 <path d="M7 17L17 7M17 7H8M17 7v9" />
               </svg>
@@ -119,9 +124,12 @@ function ProjectCard({ project }) {
         </div>
 
         <div className="min-h-[88px] bg-transparent px-5 py-4 sm:px-6">
-          <h4 className="text-[1.45rem] leading-none font-medium tracking-[-0.04em] text-white">
+          <Link
+            href={`/portfolio/${project.slug}`}
+            className="text-[1.45rem] leading-none font-medium tracking-[-0.04em] text-white hover:text-white/80 transition-colors"
+          >
             {project.name}
-          </h4>
+          </Link>
           <p className="mt-3 max-w-[400px] text-[0.85rem] leading-[1.72] text-white/70">
             {project.description}
           </p>
