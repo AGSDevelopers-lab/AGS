@@ -1,6 +1,9 @@
+import Link from "next/link";
+
 const works = [
   {
     name: "Bhairal",
+    slug: "bhairal",
     label: "Website Development",
     blurb:
       "Hire the right influencers to grow your brand faster.",
@@ -11,6 +14,7 @@ const works = [
   },
   {
     name: "Mangal Materials",
+    slug: "mangal-materials",
     label: "App Redesign",
     blurb:
       "It is your one-stop destination for all essential items for every spiritual ritual.",
@@ -21,6 +25,7 @@ const works = [
   },
   {
     name: "TotoJan",
+    slug: "totojan",
     label: "App Development",
     blurb:
       "TotoJan makes taxi rides simple. Book your ride anytime, anywhere.",
@@ -31,6 +36,7 @@ const works = [
   },
   {
     name: "Dhunseri",
+    slug: "dhunseri",
     label: "Website Redesign",
     blurb:
       "It is engaged in the manufacturing and sale of premium tea.",
@@ -43,9 +49,12 @@ const works = [
 
 function PortfolioButton() {
   return (
-    <button className="!hidden items-center gap-3 bg-white px-5 py-3 text-sm font-medium text-black transition hover:bg-white/90">
+    <Link 
+      href="/portfolio"
+      className="group inline-flex items-center gap-3 bg-white px-5 py-3 text-sm font-medium text-black transition hover:bg-white/90"
+    >
       <span>All Portfolio</span>
-      <span className="flex h-4 w-4 items-center justify-center rounded-full border border-black text-[9px]">
+      <span className="flex h-4 w-4 items-center justify-center rounded-full border border-black text-[9px] transition-transform duration-500 group-hover:rotate-45">
         <svg
           width="9"
           height="9"
@@ -57,7 +66,7 @@ function PortfolioButton() {
           <path d="M7 17L17 7M17 7H8M17 7v9" />
         </svg>
       </span>
-    </button>
+    </Link>
   );
 }
 
@@ -73,14 +82,12 @@ function WorkCard({ work }) {
               <span className="inline-flex rounded-full border border-black/10 bg-black/5 px-2.5 py-1 text-[0.5rem] font-medium uppercase tracking-[0.08em] text-black/55 transition duration-500 group-hover:border-white/20 group-hover:bg-white/10 group-hover:text-white/70">
                 {work.label}
               </span>
-              <a
-                href={work.href}
-                target="_blank"
-                rel="noreferrer"
+              <Link
+                href={`/portfolio/${work.slug}`}
                 className="mt-3 block text-[1.7rem] leading-none font-medium tracking-[-0.05em]"
               >
                 {work.name}
-              </a>
+              </Link>
               <p className="mt-3 max-w-[290px] text-[0.78rem] leading-[1.65] text-black/80 transition duration-500 group-hover:text-white/72 sm:max-w-[260px]">
                 {work.blurb}
               </p>
@@ -88,7 +95,8 @@ function WorkCard({ work }) {
           </div>
 
           <div className="relative z-10 overflow-hidden">
-            <div
+            <Link
+              href={`/portfolio/${work.slug}`}
               className="absolute inset-3 bg-contain bg-right bg-no-repeat transition duration-500 group-hover:scale-[1.03]"
               style={{ backgroundImage: `url(${work.image})` }}
             />
@@ -96,15 +104,16 @@ function WorkCard({ work }) {
               href={work.href}
               target="_blank"
               rel="noreferrer"
-              className="absolute right-3 top-3 flex h-5 w-5 items-center justify-center rounded-full bg-white text-black"
+              title="View Figma Prototype"
+              className="absolute right-3 top-3 flex h-6 w-6 items-center justify-center rounded-full bg-white text-black hover:bg-white/80 transition-colors shadow-md"
             >
               <svg
-                width="9"
-                height="9"
+                width="11"
+                height="11"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="2"
+                strokeWidth="2.5"
               >
                 <path d="M7 17L17 7M17 7H8M17 7v9" />
               </svg>
@@ -113,9 +122,12 @@ function WorkCard({ work }) {
         </div>
 
         <div className="min-h-[88px] bg-transparent px-5 py-4 sm:px-6">
-          <h4 className="text-[1.45rem] leading-none font-medium tracking-[-0.04em] text-white">
+          <Link
+            href={`/portfolio/${work.slug}`}
+            className="text-[1.45rem] leading-none font-medium tracking-[-0.04em] text-white hover:text-white/80 transition-colors"
+          >
             {work.name}
-          </h4>
+          </Link>
           <p className="mt-3 max-w-[400px] text-[0.85rem] leading-[1.72] text-white/70">
             {work.description}
           </p>
