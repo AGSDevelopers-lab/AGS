@@ -29,27 +29,71 @@ export default function ContactPage() {
          return;
       }
 
+      const emailjsServiceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "YOUR_EMAILJS_SERVICE_ID";
+      const emailjsTemplateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "YOUR_EMAILJS_TEMPLATE_ID";
+      const emailjsPublicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "YOUR_EMAILJS_PUBLIC_KEY";
+
+      const useEmailJS =
+         emailjsServiceId &&
+         emailjsServiceId !== "YOUR_EMAILJS_SERVICE_ID" &&
+         emailjsTemplateId &&
+         emailjsTemplateId !== "YOUR_EMAILJS_TEMPLATE_ID" &&
+         emailjsPublicKey &&
+         emailjsPublicKey !== "YOUR_EMAILJS_PUBLIC_KEY";
+
+      if (useEmailJS) {
+         try {
+            await emailjs.send(
+               emailjsServiceId,
+               emailjsTemplateId,
+               {
+                  name: formData.name,
+                  email: formData.email,
+                  phone: "N/A",
+                  service: formData.subject,
+                  message: formData.message,
+               },
+               {
+                  publicKey: emailjsPublicKey,
+               }
+            );
+
+            setFormData({ name: "", email: "", subject: "", message: "" });
+            router.push("/thank-you");
+            return;
+         } catch (emailjsError) {
+            console.warn("EmailJS direct send failed, trying API route fallback...", emailjsError);
+         }
+      }
+
+      // API route fallback / primary call
       try {
-         await emailjs.send(
-            process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "YOUR_EMAILJS_SERVICE_ID",
-            process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "YOUR_EMAILJS_TEMPLATE_ID",
-            {
+         const response = await fetch("/api/contact", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
                name: formData.name,
                email: formData.email,
-               phone: "N/A", // Not in this form
-               service: formData.subject, // Map subject to service variable in template
+               phone: "N/A",
+               service: formData.subject,
                message: formData.message,
-            },
-            {
-               publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "YOUR_EMAILJS_PUBLIC_KEY",
-            }
-         );
+            }),
+         });
+
+         const data = await response.json();
+
+         if (!response.ok) {
+            throw new Error(data.error || "Failed to submit contact enquiry.");
+         }
 
          setFormData({ name: "", email: "", subject: "", message: "" });
          router.push("/thank-you");
-      } catch (error) {
-         console.error("EmailJS Error:", error);
-         setSubmitMessage({ type: "error", text: "Something went wrong. Please try again later." });
+      } catch (apiError) {
+         console.error("Standalone form API error:", apiError);
+         setSubmitMessage({
+            type: "error",
+            text: apiError.message || "Something went wrong. Please try again later.",
+         });
       } finally {
          setIsSubmitting(false);
       }

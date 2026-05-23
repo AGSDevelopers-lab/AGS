@@ -58,7 +58,7 @@ function TestimonialCard({ item }) {
       <div className="pointer-events-none absolute inset-x-5 bottom-0 h-8 rounded-full bg-white/0 blur-2xl transition duration-500 group-hover:bg-white/30" />
       <div className="relative z-10 flex items-start justify-between gap-4">
         <div>
-          <h3 className="text-24 font-medium text-white">{item.name}</h3>
+          <h3 className="text-[1.5rem] font-medium text-white">{item.name}</h3>
           <p className="mt-0.5 text-[0.52rem] uppercase tracking-[0.08em] text-white/45">
             {item.role}
           </p>

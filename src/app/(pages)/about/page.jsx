@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import CTASection from "@/components/CTASection";
 
 const storyData = [
@@ -90,7 +90,7 @@ export default function AboutPage() {
                      About Us
                   </h1>
                   <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed">
-                     As an intensely curious, diverse team of innovators, we find the most effective solutions that need to be delivered with our intelligent.
+                     A diverse team of innovators finding the most effective solutions, delivered with intelligence and precision.
                   </p>
                   <button className="mx-auto group flex items-center space-x-3 border border-white bg-white px-6 py-3 font-semibold text-black transition-all duration-700 hover:bg-transparent hover:text-white">
                      <span>Get Started</span>
@@ -351,7 +351,7 @@ export default function AboutPage() {
                      </h2>
                   </div>
                   <div className="text-[0.85rem] text-white/80 leading-[1.8] font-light pt-2 pl-0 md:pl-2">
-                     <p>AGS is more than an IT hub for creating, sharing, and shaping digital ideas. It is the second home of Sisyphus&apos;ers who have been working together for years. It a closely knit family who share more than just codes, designs, marketing, & sales ideas. We are a bunch of moms, dads, believers, creators, and a whole lot more. AGS is an entire community filled with free and open-minded people.</p>
+                     <p>AGS is more than an IT hub for creating, sharing, and shaping digital ideas. It is the second home of our team members who have been working together for years. We are a closely knit family who share more than just codes, designs, marketing, & sales ideas. We are a bunch of moms, dads, believers, creators, and a whole lot more. AGS is an entire community filled with free and open-minded people.</p>
                   </div>
                </div>
 
@@ -361,19 +361,6 @@ export default function AboutPage() {
             <div className="relative w-full overflow-hidden group pb-20 pt-4">
 
 
-               <style dangerouslySetInnerHTML={{
-                  __html: `
-                  @keyframes autoScrollCulture {
-                     0% { transform: translateX(0); }
-                     100% { transform: translateX(calc(-50% - 12px)); }
-                  }
-                  .animate-auto-scroll {
-                     animation: autoScrollCulture 35s linear infinite;
-                  }
-                  .group:hover .animate-auto-scroll {
-                     animation-play-state: paused;
-                  }
-               `}} />
 
                <div className="flex gap-6 w-max animate-auto-scroll px-6">
                   {/* Group 1 */}
