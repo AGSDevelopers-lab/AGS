@@ -106,6 +106,21 @@ export default function ServicesPage() {
       <div className="relative z-10 w-full pt-16 lg:pt-24">
         {/* HERO SECTION */}
         <section className="relative w-full flex flex-col items-center justify-center px-6 pt-24 pb-20 sm:pt-32 sm:pb-28 lg:pt-40 lg:pb-32 overflow-hidden border-b border-white/10">
+          {/* Hero background image */}
+          <Image
+            src="/frame1.png"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+            aria-hidden="true"
+          />
+          {/* Dark overlay for text readability */}
+          <div className="absolute inset-0 bg-black/60" />
+          {/* Bottom gradient fade into page */}
+          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black to-transparent" />
+
           <div className="relative z-10 max-w-4xl text-center">
             <h1 className="bg-[linear-gradient(90deg,#9795FF_0%,#FFFFFF_42%,#FFFFFF_59%,#BE9FFF_100%)] bg-clip-text pb-2 text-5xl md:text-7xl font-light tracking-tight text-transparent">
               Our Services

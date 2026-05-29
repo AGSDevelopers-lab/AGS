@@ -3,34 +3,34 @@ import PortfolioDetailClient from "./PortfolioDetailClient";
 import CTASection from "@/components/CTASection";
 
 const PORTFOLIO_DETAIL_DATA = {
-  "bhairal": {
-    name: "Bhairal",
+  "molifera-media": {
+    name: "Molifera Media",
     label: "Website Development",
-    tags: ["React", "Next.js", "Node.js", "GraphQL"],
+    tags: ["React", "Next.js", "Node.js", "SEO"],
     bgTheme: "from-[#080711] via-[#0d0a21] to-[#080711]",
     accentColor: "#7B5CFF",
-    heroImage: "/product-5.png",
-    figmaUrl: "https://www.figma.com/proto/TC6Mlja9pb7gmhu7izyDvc/Influencer-Case-study?node-id=1-92&p=f&t=v7tYnM8ubREWLcyK-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
-    tagline: "Bridging Brands and Verified Creators at Scale",
-    about: "Bhairal is a premium influencer marketplace engineered to let brands search, audit, hire, and track social media creators globally. By integrating multi-platform social APIs and custom campaign pipelines, Bhairal simplifies marketing attribution and accelerates verified influencer campaigns.",
-    challenge: "Traditional influencer networks rely on manual agency negotiations, leading to high processing friction, untrusted engagement rates, and opaque invoicing structures. Bhairal required a central, lightning-fast dashboard that automates campaign pipelines and verifies creator statistics in real time.",
+    heroImage: "/Portfolio.png",
+    figmaUrl: "https://www.moliferamedia.com/",
+    tagline: "Your 360° Partner for Strategy, Marketing, and Brand Growth",
+    about: "Molifera Media is a full-service digital agency website crafted to showcase innovative design, strategic marketing, and creative storytelling. The platform transforms brands through captivating visual experiences, data-driven campaigns, and measurable growth strategies across all digital channels.",
+    challenge: "Digital agencies often struggle to present their diverse capabilities in a cohesive, engaging format. Molifera Media needed a website that not only demonstrated their creative expertise but also functioned as a high-performance lead generation engine with seamless UX across all devices.",
     research: [
-      { metric: "84%", label: "Marketers struggle to track ROI on influencer campaigns." },
-      { metric: "3.2x", label: "Increase in engagement efficiency using automated matching." },
-      { metric: "65%", label: "Reduction in campaign launch latency via direct smart contracts." }
+      { metric: "92%", label: "Visitor engagement rate increase after the brand-first redesign launch." },
+      { metric: "4.1x", label: "Lead conversion improvement through strategic CTA placements and funnel optimization." },
+      { metric: "100%", label: "Lighthouse performance and accessibility scores across all core pages." }
     ],
     sitemap: [
-      { node: "Brand Portal", children: ["Campaign Planner", "Creator Analytics Search", "Invoicing Logs"] },
-      { node: "Creator Dashboard", children: ["Media Kit Builder", "Offers Hub", "Earnings Wallet"] },
-      { node: "Admin System", children: ["Escrow Management", "API Diagnostics", "Verification Engine"] }
+      { node: "Brand Showcase", children: ["Service Offerings", "Case Studies Gallery", "Client Testimonials"] },
+      { node: "Growth Engine", children: ["Strategy Consultation", "Campaign Analytics", "ROI Dashboard"] },
+      { node: "Creative Hub", children: ["Design Portfolio", "Content Studio", "Brand Guidelines"] }
     ],
     wireframes: [
-      { name: "Creator Search Grid", desc: "Advanced filter grid allowing instant keyword indexing, follower count ranges, and average engagement index checks." },
-      { name: "Live Campaign Tracker", desc: "Interactive timeline tracking content drafts submission, client approval flags, live URL posting, and attribution data logs." }
+      { name: "Service Showcase Grid", desc: "Dynamic card-based layout presenting core services with hover-activated detail panels and smooth micro-animations." },
+      { name: "Lead Capture Funnel", desc: "Multi-step consultation request form with progress indicators, smart validation, and instant response confirmation." }
     ],
     finalUi: [
-      { title: "Smart Campaign Planner", desc: "A sleek, dark dashboard designed with modern gradients. Centralizes media spend widgets and active campaign metrics." },
-      { title: "Real-time Creator Analytics", desc: "Visual interactive charts summarizing subscriber demographics, click rates, and verified channel data." }
+      { title: "Immersive Brand Experience", desc: "A bold, modern interface featuring dynamic gradients, glassmorphism elements, and cinematic scroll-driven animations." },
+      { title: "Results-Driven Dashboard", desc: "Interactive data visualizations showcasing campaign performance metrics, client growth charts, and ROI tracking." }
     ],
     palette: [
       { name: "Deep Violet", hex: "#7B5CFF", desc: "Primary brand accent conveying premium technical innovation." },
@@ -195,7 +195,7 @@ export default async function PortfolioDetailSubPage({ params }) {
 // Generate static parameters for portfolio projects
 export async function generateStaticParams() {
   return [
-    { slug: "bhairal" },
+    { slug: "molifera-media" },
     { slug: "mangal-materials" },
     { slug: "totojan" },
     { slug: "dhunseri" }

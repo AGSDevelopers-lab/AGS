@@ -2,15 +2,15 @@ import Link from "next/link";
 
 const works = [
   {
-    name: "Bhairal",
-    slug: "bhairal",
+    name: "Molifera Media",
+    slug: "molifera-media",
     label: "Website Development",
     blurb:
-      "Hire the right influencers to grow your brand faster.",
+      "Your 360° partner for strategy, marketing, and brand growth.",
     description:
-      "Connect with verified creators, launch campaigns, and drive real engagement across social platforms.",
-    image: "/product-5.png",
-    href: "https://www.figma.com/proto/TC6Mlja9pb7gmhu7izyDvc/Influencer-Case-study?node-id=1-92&p=f&t=v7tYnM8ubREWLcyK-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
+      "We transform brands through innovative design, strategic marketing, and creative storytelling that captivate audiences and drive measurable results.",
+    image: "/Portfolio.png",
+    href: "https://www.moliferamedia.com/",
   },
   {
     name: "Mangal Materials",
