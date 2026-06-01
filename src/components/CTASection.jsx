@@ -122,7 +122,7 @@ export default function CTASection() {
           </div>
         </div>
 
-        <div className="px-6 py-8 sm:px-8 sm:py-10 lg:px-26 lg:py-12">
+        {/* <div className="px-6 py-8 sm:px-8 sm:py-10 lg:px-26 lg:py-12">
           <div className="grid grid-cols-1 gap-8 sm:gap-12 md:grid-cols-[1.6fr_0.6fr_1fr]">
             <div className="max-w-[360px]">
               <Link
@@ -208,7 +208,7 @@ export default function CTASection() {
               <SocialLink label="facebook" />
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
