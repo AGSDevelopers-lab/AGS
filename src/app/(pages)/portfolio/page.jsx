@@ -1,19 +1,20 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useCtaForm } from "@/components/CtaFormProvider";
 import CTASection from "@/components/CTASection";
 
 const projects = [
   {
-    name: "Bhairal",
-    slug: "bhairal",
+    name: "Molifera Media",
+    slug: "molifera-media",
     label: "Website Development",
     description:
-      "Hire the right influencers to grow your brand faster.",
+      "Your 360° partner for strategy, marketing, and brand growth.",
     tags: ["React", "Next.js", "Node.js"],
-    image: "/product-5.png",
-    href: "https://www.figma.com/proto/TC6Mlja9pb7gmhu7izyDvc/Influencer-Case-study?node-id=1-92&p=f&t=v7tYnM8ubREWLcyK-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
+    image: "/Portfolio.png",
+    href: "https://www.moliferamedia.com/",
   },
   {
     name: "Mangal Materials",
@@ -167,15 +168,30 @@ export default function PortfolioPage() {
       </div>
 
       <div className="relative z-10 w-full pt-16 lg:pt-24">
-        <section className="relative flex w-full flex-col items-center justify-center px-6 pb-16 pt-20 text-center sm:pb-24 sm:pt-28">
-          <h1 className="bg-[linear-gradient(90deg,#9795FF_0%,#FFFFFF_42%,#FFFFFF_59%,#BE9FFF_100%)] bg-clip-text pb-2 pr-2 text-[2.8rem] leading-[1.08] font-normal tracking-[-0.06em] text-transparent sm:text-[4rem] lg:text-[4.9rem]">
+        <section className="relative flex w-full flex-col items-center justify-center px-6 pb-16 pt-20 text-center overflow-hidden sm:pb-24 sm:pt-28">
+          {/* Hero background image */}
+          <Image
+            src="/frame2.png"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+            aria-hidden="true"
+          />
+          {/* Dark overlay for text readability */}
+          <div className="absolute inset-0 bg-black/60" />
+          {/* Bottom gradient fade into page */}
+          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black to-transparent" />
+
+          <h1 className="relative z-10 bg-[linear-gradient(90deg,#9795FF_0%,#FFFFFF_42%,#FFFFFF_59%,#BE9FFF_100%)] bg-clip-text pb-2 pr-2 text-[2.8rem] leading-[1.08] font-normal tracking-[-0.06em] text-transparent sm:text-[4rem] lg:text-[4.9rem]">
             Featured Works
           </h1>
-          <p className="mx-auto mt-5 max-w-[620px] text-[1rem] leading-[1.75] text-white/78">
+          <p className="relative z-10 mx-auto mt-5 max-w-[620px] text-[1rem] leading-[1.75] text-white/78">
             Explore our portfolio of digital products crafted with precision and
             purpose.
           </p>
-          <div className="mt-8">
+          <div className="relative z-10 mt-8">
             <HeroCTA />
           </div>
         </section>

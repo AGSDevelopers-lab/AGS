@@ -9,6 +9,7 @@ import TeamSection from "@/components/TeamSection";
 import Testimonials from "@/components/Testimonials";
 import CTASection from "@/components/CTASection";
 import CertificationsSection from "@/components/CertificationsSection";
+import CertifiedExcellence from "@/components/CertifiedExcellence";
 import ScrollReveal from "@/components/ScrollReveal";
 
 function SectionConnector() {
@@ -86,6 +87,9 @@ export default function Home() {
         </ScrollReveal>
         <ScrollReveal direction="up" delay={150}>
           <AwsSection />
+        </ScrollReveal>
+        <ScrollReveal direction="up" delay={150}>
+          <CertifiedExcellence />
         </ScrollReveal>
         <ScrollReveal direction="up" delay={150}>
           <ProductsSection />

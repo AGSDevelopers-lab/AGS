@@ -1,54 +1,94 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
+import { useCtaForm } from "@/components/CtaFormProvider";
+
+function CaseStudyCTA({ accentColor }) {
+  const { openForm } = useCtaForm();
+  return (
+    <button
+      type="button"
+      onClick={() => openForm()}
+      className="group inline-flex items-center gap-3 border border-white bg-white px-6 py-3 text-sm font-semibold text-black transition-all duration-700 hover:bg-transparent hover:text-white mt-8"
+    >
+      <span>Start Your Project</span>
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        className="transition-transform duration-700 group-hover:rotate-45"
+      >
+        <path d="M7 17L17 7M17 7H7M17 7V17" />
+      </svg>
+    </button>
+  );
+}
 
 export default function PortfolioDetailClient({ project }) {
   return (
-    <main className={`relative min-h-screen overflow-hidden bg-black pb-0 bg-gradient-to-b ${project.bgTheme} text-white`}>
-      {/* Background grids */}
-      <div className="pointer-events-none absolute inset-0 z-0 opacity-[0.04] bg-[linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-size-[80px_80px]" />
-      
-      {/* Visual Ambient Glows */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-[100vh] z-0 opacity-20">
-        <div className={`absolute top-[10%] left-[20%] w-144 h-144 rounded-full bg-[radial-gradient(circle,${project.accentColor}_0%,transparent_70%)] blur-[96px]`} />
-        <div className={`absolute top-[30%] right-[10%] w-152 h-152 rounded-full bg-[radial-gradient(circle,${project.accentColor}_0%,transparent_70%)] blur-[104px]`} />
+    <main className="relative min-h-screen overflow-hidden bg-black pb-0 text-white">
+      {/* Background */}
+      <div className="pointer-events-none absolute inset-0 z-0">
+        <div className={`absolute inset-0 bg-gradient-to-b ${project.bgTheme}`} />
+        <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-size-[80px_80px]" />
+        <div
+          className="absolute top-[5%] left-[15%] w-[500px] h-[500px] rounded-full blur-[120px] opacity-15"
+          style={{ backgroundColor: project.accentColor }}
+        />
+        <div
+          className="absolute top-[25%] right-[10%] w-[400px] h-[400px] rounded-full blur-[110px] opacity-10"
+          style={{ backgroundColor: project.accentColor }}
+        />
       </div>
 
       <div className="relative z-10 w-full pt-20 lg:pt-28">
-        
-        {/* CASE STUDY HERO */}
-        <section className="relative px-6 pt-20 pb-20 sm:px-8 lg:px-26 max-w-[1400px] mx-auto border-b border-white/10">
+
+        {/* ── HERO ── */}
+        <section className="relative px-6 pt-20 pb-16 sm:px-8 lg:px-26 max-w-[1400px] mx-auto">
           <Link
             href="/portfolio"
-            className="group inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] uppercase mb-8 transition-colors text-white/50 hover:text-white"
+            className="group inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] uppercase mb-10 transition-colors text-white/50 hover:text-white"
           >
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="transition-transform group-hover:-translate-x-1">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="transition-transform group-hover:-translate-x-1">
               <path d="M19 12H5M12 19l-7-7 7-7" />
             </svg>
-            <span>Portfolio</span>
+            <span>Back to Portfolio</span>
           </Link>
 
-          <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Left: text */}
             <div>
-              <span 
-                className="inline-flex rounded-full border px-3.5 py-1 text-xs font-medium uppercase tracking-[0.08em]"
-                style={{ borderColor: `${project.accentColor}35`, backgroundColor: `${project.accentColor}12`, color: project.accentColor }}
+              <span
+                className="inline-flex rounded-full border px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.1em]"
+                style={{
+                  borderColor: `${project.accentColor}40`,
+                  backgroundColor: `${project.accentColor}15`,
+                  color: project.accentColor,
+                }}
               >
-                {project.label} Case Study
+                {project.label}
               </span>
-              <h1 className="bg-[linear-gradient(90deg,#FFFFFF_0%,#FFFFFF_45%,#E0E0E0_70%,#B3B3B3_100%)] bg-clip-text pb-3 mt-4 text-4xl sm:text-6xl font-light tracking-tight text-transparent leading-[1.1]">
-                {project.name}
+
+              <h1 className="mt-5 text-5xl sm:text-6xl lg:text-7xl font-light tracking-tight leading-[1.05]">
+                <span className="bg-[linear-gradient(90deg,#FFFFFF_0%,#FFFFFF_50%,#B3B3B3_100%)] bg-clip-text text-transparent">
+                  {project.name}
+                </span>
               </h1>
-              <p className="mt-4 text-lg sm:text-[1.35rem] font-light leading-relaxed text-white/70">
+
+              <p className="mt-5 text-lg sm:text-xl font-light leading-relaxed text-white/65 max-w-lg">
                 {project.tagline}
               </p>
-              
+
               <div className="mt-8 flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="border border-white/10 bg-white/[0.03] px-3.5 py-1.5 text-xs text-white/80 rounded-sm font-medium"
+                    className="border border-white/10 bg-white/[0.04] px-4 py-1.5 text-xs text-white/75 font-medium tracking-wide"
                   >
                     {tag}
                   </span>
@@ -56,81 +96,84 @@ export default function PortfolioDetailClient({ project }) {
               </div>
             </div>
 
-            {/* Laptop Mockup Wrapper using custom CSS (Matches attached case study layout) */}
-            <div className="w-full flex justify-center">
-              <div className="relative w-full max-w-160 aspect-[16/10] bg-[#1a1a2e] border-[8px] border-white/10 rounded-t-[18px] shadow-[0_25px_60px_rgba(0,0,0,0.8)] overflow-hidden">
-                {/* Glossy Reflection layer */}
-                <div className="absolute top-0 left-0 right-0 h-[60%] bg-gradient-to-tr from-transparent via-white/[0.04] to-transparent pointer-events-none z-20" />
-                
-                {/* Custom app layout rendering inside screen matching accent color theme */}
-                <div className="absolute inset-0 bg-[#0A0A14] p-4 flex flex-col justify-between">
-                  <div className="flex items-center justify-between border-b border-white/8 pb-2">
-                    <span className="text-[10px] font-bold tracking-[0.1em]" style={{ color: project.accentColor }}>{project.name.toUpperCase()} HUB</span>
-                    <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: project.accentColor }} />
-                  </div>
-                  
-                  <div className="grid grid-cols-3 gap-2 my-2 flex-1">
-                    <div className="col-span-2 rounded bg-white/4 border border-white/6 p-3 flex flex-col justify-between">
-                      <div className="h-1.5 w-1/2 rounded bg-white/15" />
-                      <div className="h-8 rounded mt-2" style={{ backgroundColor: `${project.accentColor}15`, border: `1px solid ${project.accentColor}30` }} />
-                      <div className="flex gap-2 mt-2">
-                        <div className="h-1.5 w-8 rounded bg-white/10" />
-                        <div className="h-1.5 w-12 rounded bg-white/10" />
-                      </div>
-                    </div>
-                    <div className="rounded bg-white/4 border border-white/6 p-3 flex flex-col justify-between">
-                      <div className="h-4 w-4 rounded-full mx-auto" style={{ backgroundColor: project.accentColor }} />
-                      <div className="h-1 w-full rounded bg-white/12 mt-2" />
-                      <div className="h-1 w-2/3 rounded bg-white/12 mx-auto" />
-                      <div className="h-1 w-1/2 rounded bg-white/12 mx-auto" />
-                    </div>
-                  </div>
-
-                  <div className="flex items-center justify-between border-t border-white/8 pt-2 text-[8px] text-white/45">
-                    <span>SYSTEM ONLINE // V1.0.4</span>
-                    <span>100% SECURE SSL</span>
-                  </div>
-                </div>
+            {/* Right: hero image */}
+            {project.heroImage && (
+              <div className="relative w-full aspect-[4/3] rounded-sm overflow-hidden border border-white/8 shadow-[0_30px_80px_rgba(0,0,0,0.6)]">
+                <Image
+                  src={project.heroImage}
+                  alt={`${project.name} showcase`}
+                  fill
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
               </div>
-            </div>
+            )}
           </div>
+
+          {/* Divider */}
+          <div className="mt-16 h-px w-full bg-white/8" />
         </section>
 
-        {/* ABOUT & THE CHALLENGE */}
-        <section className="py-20 border-b border-white/5">
+        {/* ── ABOUT & CHALLENGE ── */}
+        <section className="py-16 sm:py-20">
           <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-26">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-              
-              <ScrollReveal direction="left">
-                <h2 className="text-2xl sm:text-3xl font-light text-white mb-6 uppercase tracking-wider">
-                  About the Project
-                </h2>
-                <p className="text-[1rem] leading-[1.8] text-white/70 font-light pr-0 lg:pr-8">
-                  {project.about}
-                </p>
-                
-                <h2 className="text-2xl sm:text-3xl font-light text-white mt-12 mb-6 uppercase tracking-wider">
-                  The Core Challenge
-                </h2>
-                <p className="text-[1rem] leading-[1.8] text-white/70 font-light pr-0 lg:pr-8">
-                  {project.challenge}
-                </p>
+            <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-16 items-start">
+
+              <ScrollReveal direction="up">
+                <div>
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="h-px w-8" style={{ backgroundColor: project.accentColor }} />
+                    <span className="text-[0.68rem] uppercase tracking-[0.25em] font-semibold" style={{ color: project.accentColor }}>
+                      Overview
+                    </span>
+                  </div>
+                  <h2 className="text-3xl sm:text-4xl font-light text-white mb-6 tracking-tight">
+                    About the Project
+                  </h2>
+                  <p className="text-[1rem] leading-[1.85] text-white/65 font-light">
+                    {project.about}
+                  </p>
+
+                  <div className="mt-14">
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="h-px w-8" style={{ backgroundColor: project.accentColor }} />
+                      <span className="text-[0.68rem] uppercase tracking-[0.25em] font-semibold" style={{ color: project.accentColor }}>
+                        The Challenge
+                      </span>
+                    </div>
+                    <h2 className="text-3xl sm:text-4xl font-light text-white mb-6 tracking-tight">
+                      Core Problem Statement
+                    </h2>
+                    <p className="text-[1rem] leading-[1.85] text-white/65 font-light">
+                      {project.challenge}
+                    </p>
+                  </div>
+                </div>
               </ScrollReveal>
 
-              {/* Research Metrics Cards */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-6">
+              {/* Research Metrics */}
+              <div className="space-y-5">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="h-px w-8" style={{ backgroundColor: project.accentColor }} />
+                  <span className="text-[0.68rem] uppercase tracking-[0.25em] font-semibold" style={{ color: project.accentColor }}>
+                    Key Metrics
+                  </span>
+                </div>
                 {project.research.map((res, i) => (
-                  <ScrollReveal key={i} direction="right" delay={i * 100}>
-                    <div className="bg-white/[0.02] border border-white/5 p-6 rounded-sm flex flex-col lg:flex-row items-center gap-6">
-                      <div 
-                        className="text-4xl sm:text-5xl font-light tracking-tight shrink-0" 
+                  <ScrollReveal key={i} direction="right" delay={i * 120}>
+                    <div className="border border-white/6 bg-white/[0.02] p-6 sm:p-7 flex items-center gap-6">
+                      <div
+                        className="text-4xl sm:text-5xl font-light tracking-tight shrink-0 min-w-[100px]"
                         style={{ color: project.accentColor }}
                       >
                         {res.metric}
                       </div>
-                      <div className="text-sm text-white/60 font-light leading-relaxed text-center lg:text-left">
+                      <div className="h-10 w-px bg-white/10 shrink-0" />
+                      <p className="text-sm text-white/55 font-light leading-relaxed">
                         {res.label}
-                      </div>
+                      </p>
                     </div>
                   </ScrollReveal>
                 ))}
@@ -140,31 +183,36 @@ export default function PortfolioDetailClient({ project }) {
           </div>
         </section>
 
-        {/* BRAINSTORMING & SITEMAP */}
-        <section className="py-20 border-b border-white/5 bg-white/[0.01]">
-          <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-26 text-center">
+        {/* ── INFORMATION ARCHITECTURE / SITEMAP ── */}
+        <section className="py-16 sm:py-20 border-y border-white/5 bg-white/[0.01]">
+          <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-26">
             <ScrollReveal direction="up">
-              <span className="text-[0.68rem] uppercase tracking-[0.25em] font-semibold" style={{ color: project.accentColor }}>
-                Information Architecture
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-light text-white mt-2 mb-14">
-                Structured Sitemap tree
-              </h2>
+              <div className="text-center mb-14">
+                <div className="flex items-center justify-center gap-3 mb-4">
+                  <div className="h-px w-8" style={{ backgroundColor: project.accentColor }} />
+                  <span className="text-[0.68rem] uppercase tracking-[0.25em] font-semibold" style={{ color: project.accentColor }}>
+                    Information Architecture
+                  </span>
+                  <div className="h-px w-8" style={{ backgroundColor: project.accentColor }} />
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-light text-white tracking-tight">
+                  Structured Sitemap
+                </h2>
+              </div>
             </ScrollReveal>
 
-            {/* Sitemap Visualizer Diagram */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch max-w-5xl mx-auto text-left">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
               {project.sitemap.map((tree, i) => (
                 <ScrollReveal key={tree.node} direction="up" delay={i * 100}>
-                  <div className="bg-[#121225]/45 border border-white/6 p-6 rounded-sm h-full flex flex-col">
-                    <div className="flex items-center gap-3 border-b border-white/8 pb-4 mb-4">
-                      <span className="h-2 w-2 rounded-full" style={{ backgroundColor: project.accentColor }} />
+                  <div className="border border-white/6 bg-white/[0.015] p-6 sm:p-7 h-full flex flex-col">
+                    <div className="flex items-center gap-3 border-b border-white/8 pb-4 mb-5">
+                      <span className="h-2.5 w-2.5 rounded-full shrink-0" style={{ backgroundColor: project.accentColor }} />
                       <h3 className="text-base font-semibold text-white tracking-wide">{tree.node}</h3>
                     </div>
-                    <ul className="space-y-3 flex-1">
+                    <ul className="space-y-3.5 flex-1">
                       {tree.children.map((child, idx) => (
                         <li key={idx} className="flex items-center gap-3 text-sm text-white/50 font-light">
-                          <span className="h-1 w-3 rounded-full bg-white/20" />
+                          <span className="h-px w-4 rounded-full shrink-0" style={{ backgroundColor: `${project.accentColor}50` }} />
                           <span>{child}</span>
                         </li>
                       ))}
@@ -176,118 +224,52 @@ export default function PortfolioDetailClient({ project }) {
           </div>
         </section>
 
-        {/* WIREFRAME BLUEPRINTS */}
-        <section className="py-20 border-b border-white/5">
+        {/* ── WIREFRAMES & USER FLOW ── */}
+        <section className="py-16 sm:py-20">
           <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-26">
             <ScrollReveal direction="up">
-              <span className="text-[0.68rem] uppercase tracking-[0.25em] font-semibold" style={{ color: project.accentColor }}>
-                Interaction Blueprint
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-light text-white mt-2 mb-14">
-                User Flow & Wireframe layout
+              <div className="flex items-center gap-3 mb-4">
+                <div className="h-px w-8" style={{ backgroundColor: project.accentColor }} />
+                <span className="text-[0.68rem] uppercase tracking-[0.25em] font-semibold" style={{ color: project.accentColor }}>
+                  Interaction Blueprint
+                </span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-light text-white mb-14 tracking-tight">
+                User Flow & Wireframes
               </h2>
             </ScrollReveal>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {project.wireframes.map((wf, i) => (
                 <ScrollReveal key={wf.name} direction="up" delay={i * 150}>
-                  <div className="bg-transparent border border-white/8 p-6 sm:p-8 rounded-sm">
-                    <h3 className="text-[1.2rem] font-semibold tracking-wide text-white mb-3">{wf.name}</h3>
-                    <p className="text-sm text-white/50 font-light leading-relaxed mb-6">{wf.desc}</p>
-                    
-                    {/* Schematic CSS Wireframe Grid representing mock interface */}
-                    <div className="border border-white/10 rounded bg-white/[0.01] p-4 flex flex-col gap-3">
-                      <div className="h-6 w-1/4 rounded bg-white/10" />
-                      <div className="grid grid-cols-4 gap-2">
-                        <div className="h-12 rounded bg-white/5 border border-white/8" />
-                        <div className="h-12 rounded bg-white/5 border border-white/8" />
-                        <div className="h-12 rounded bg-white/5 border border-white/8" />
-                        <div className="h-12 rounded bg-white/5 border border-white/8" />
-                      </div>
-                      <div className="h-24 rounded bg-white/5 border border-white/8 flex items-center justify-center text-[10px] uppercase font-mono tracking-widest text-white/20">
-                        Content Canvas Placeholder
-                      </div>
-                    </div>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* VIRTUAL WHITEBOARDING */}
-        <section className="py-20 border-b border-white/5 bg-white/[0.01] overflow-hidden">
-          <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-26 text-center">
-            <ScrollReveal direction="up">
-              <span className="text-[0.68rem] uppercase tracking-[0.25em] font-semibold" style={{ color: project.accentColor }}>
-                Collaborative Ideation
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-light text-white mt-2 mb-14">
-                Virtual Whiteboard & Retrospectives
-              </h2>
-            </ScrollReveal>
-
-            {/* Glowing Post-It Board representation */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto text-left">
-              <ScrollReveal direction="up" delay={50}>
-                <div className="bg-[#fbbf24]/12 border border-[#fbbf24]/30 p-6 rounded shadow-[0_0_15px_rgba(251,191,36,0.06)] transform rotate-1 flex flex-col justify-between h-44">
-                  <p className="text-sm font-medium text-[#fbbf24]/90 leading-relaxed font-sans">Verify API queries latency & structure offline fallback sync.</p>
-                  <span className="text-[9px] uppercase tracking-[0.1em] text-white/35 font-semibold">@tech_lead</span>
-                </div>
-              </ScrollReveal>
-              <ScrollReveal direction="up" delay={150}>
-                <div className="bg-[#ec4899]/12 border border-[#ec4899]/30 p-6 rounded shadow-[0_0_15px_rgba(236,72,153,0.06)] transform -rotate-2 flex flex-col justify-between h-44">
-                  <p className="text-sm font-medium text-[#ec4899]/90 leading-relaxed font-sans">Maximize font contrast score to WCAG 2.1 AA parameters.</p>
-                  <span className="text-[9px] uppercase tracking-[0.1em] text-white/35 font-semibold">@ux_designer</span>
-                </div>
-              </ScrollReveal>
-              <ScrollReveal direction="up" delay={250}>
-                <div className="bg-[#3b82f6]/12 border border-[#3b82f6]/30 p-6 rounded shadow-[0_0_15px_rgba(59,130,246,0.06)] transform rotate-2 flex flex-col justify-between h-44">
-                  <p className="text-sm font-medium text-[#3b82f6]/90 leading-relaxed font-sans">Simplify ritual configs down to direct 1-click packages.</p>
-                  <span className="text-[9px] uppercase tracking-[0.1em] text-white/35 font-semibold">@product_owner</span>
-                </div>
-              </ScrollReveal>
-              <ScrollReveal direction="up" delay={350}>
-                <div className="bg-[#10b981]/12 border border-[#10b981]/30 p-6 rounded shadow-[0_0_15px_rgba(16,185,129,0.06)] transform -rotate-1 flex flex-col justify-between h-44">
-                  <p className="text-sm font-medium text-[#10b981]/90 leading-relaxed font-sans">Test responsive layouts on physical mobile targets first.</p>
-                  <span className="text-[9px] uppercase tracking-[0.1em] text-white/35 font-semibold">@qa_tester</span>
-                </div>
-              </ScrollReveal>
-            </div>
-          </div>
-        </section>
-
-        {/* FINAL UI DESIGNS */}
-        <section className="py-20 border-b border-white/5">
-          <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-26">
-            <ScrollReveal direction="up">
-              <span className="text-[0.68rem] uppercase tracking-[0.25em] font-semibold" style={{ color: project.accentColor }}>
-                Premium Aesthetics
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-light text-white mt-2 mb-14">
-                High-fidelity final UI designs
-              </h2>
-            </ScrollReveal>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {project.finalUi.map((ui, i) => (
-                <ScrollReveal key={ui.title} direction="up" delay={i * 100}>
-                  <div className="bg-white/[0.01] border border-white/5 p-6 rounded-sm">
-                    <div 
-                      className="aspect-[16/9] w-full rounded relative overflow-hidden mb-6 flex items-center justify-center"
-                      style={{ background: `linear-gradient(135deg, ${project.accentColor}12 0%, #121225 100%)`, border: `1px solid ${project.accentColor}20` }}
+                  <div className="border border-white/6 bg-white/[0.015] overflow-hidden h-full flex flex-col">
+                    {/* Wireframe visual — clean abstract representation */}
+                    <div
+                      className="relative aspect-[16/9] w-full p-6 flex flex-col justify-between"
+                      style={{ background: `linear-gradient(135deg, ${project.accentColor}08 0%, #0a0a1a 100%)` }}
                     >
-                      <div className="absolute inset-x-8 top-8 bottom-0 bg-[#08080f] rounded-t border border-white/8 p-4 flex flex-col gap-2">
-                        <div className="flex items-center gap-1">
-                          <span className="h-1 w-1 rounded-full bg-white/30" />
-                          <span className="h-1 w-1 rounded-full bg-white/20" />
+                      <div className="flex items-center gap-2">
+                        <span className="h-2 w-2 rounded-full" style={{ backgroundColor: `${project.accentColor}60` }} />
+                        <span className="h-2 w-2 rounded-full bg-white/15" />
+                        <span className="h-2 w-2 rounded-full bg-white/10" />
+                        <span className="ml-auto h-1.5 w-20 rounded bg-white/8" />
+                      </div>
+                      <div className="grid grid-cols-3 gap-3 mt-4 flex-1 items-end">
+                        <div className="h-full min-h-[40px] rounded border border-white/8 bg-white/[0.03]" />
+                        <div className="col-span-2 h-full min-h-[40px] rounded border border-white/8 bg-white/[0.03] flex items-center justify-center">
+                          <div className="w-2/3 space-y-2">
+                            <div className="h-1.5 w-full rounded bg-white/10" />
+                            <div className="h-1.5 w-3/4 rounded bg-white/7" />
+                            <div className="h-6 w-1/2 rounded mt-3" style={{ backgroundColor: `${project.accentColor}20`, border: `1px solid ${project.accentColor}30` }} />
+                          </div>
                         </div>
-                        <div className="h-2 w-1/3 rounded bg-white/10 mt-1" />
-                        <div className="h-12 rounded mt-2" style={{ backgroundColor: `${project.accentColor}15` }} />
                       </div>
                     </div>
-                    <h3 className="text-lg font-semibold text-white mb-2">{ui.title}</h3>
-                    <p className="text-sm text-white/50 font-light leading-relaxed">{ui.desc}</p>
+                    {/* Text content */}
+                    <div className="p-6 sm:p-7 flex-1 flex flex-col">
+                      <h3 className="text-lg font-semibold text-white mb-2 tracking-wide">{wf.name}</h3>
+                      <p className="text-sm text-white/50 font-light leading-relaxed flex-1">{wf.desc}</p>
+                    </div>
                   </div>
                 </ScrollReveal>
               ))}
@@ -295,57 +277,164 @@ export default function PortfolioDetailClient({ project }) {
           </div>
         </section>
 
-        {/* ACCESSIBILITY & STYLESHEET */}
-        <section className="py-20 border-b border-white/5 bg-white/[0.01]">
+        {/* ── FINAL UI DESIGNS ── */}
+        <section className="py-16 sm:py-20 border-y border-white/5 bg-white/[0.01]">
           <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-26">
             <ScrollReveal direction="up">
-              <span className="text-[0.68rem] uppercase tracking-[0.25em] font-semibold" style={{ color: project.accentColor }}>
-                Visual Identity
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-light text-white mt-2 mb-14">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="h-px w-8" style={{ backgroundColor: project.accentColor }} />
+                <span className="text-[0.68rem] uppercase tracking-[0.25em] font-semibold" style={{ color: project.accentColor }}>
+                  Final Deliverables
+                </span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-light text-white mb-14 tracking-tight">
+                High-Fidelity UI Designs
+              </h2>
+            </ScrollReveal>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {project.finalUi.map((ui, i) => (
+                <ScrollReveal key={ui.title} direction="up" delay={i * 120}>
+                  <div className="border border-white/6 bg-white/[0.015] overflow-hidden h-full flex flex-col">
+                    {/* UI mockup visual */}
+                    <div
+                      className="relative aspect-[16/9] w-full overflow-hidden"
+                      style={{ background: `linear-gradient(135deg, ${project.accentColor}10 0%, #0a0a14 60%, #121225 100%)` }}
+                    >
+                      {/* Laptop frame */}
+                      <div className="absolute inset-x-[12%] top-[14%] bottom-[8%] bg-[#08080f] rounded-t-lg border border-white/10 overflow-hidden shadow-2xl">
+                        {/* Browser chrome */}
+                        <div className="flex items-center gap-1.5 px-3 py-2 border-b border-white/8">
+                          <span className="h-1.5 w-1.5 rounded-full bg-white/25" />
+                          <span className="h-1.5 w-1.5 rounded-full bg-white/15" />
+                          <span className="h-1.5 w-1.5 rounded-full bg-white/15" />
+                          <div className="ml-3 h-1.5 w-24 rounded bg-white/8" />
+                        </div>
+                        {/* Screen content */}
+                        <div className="p-3 space-y-2">
+                          <div className="h-2 w-1/3 rounded bg-white/12" />
+                          <div className="h-14 rounded" style={{ backgroundColor: `${project.accentColor}12`, border: `1px solid ${project.accentColor}20` }} />
+                          <div className="grid grid-cols-3 gap-2">
+                            <div className="h-6 rounded bg-white/5" />
+                            <div className="h-6 rounded bg-white/5" />
+                            <div className="h-6 rounded bg-white/5" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    {/* Card text */}
+                    <div className="p-6 sm:p-7 flex-1 flex flex-col">
+                      <h3 className="text-lg font-semibold text-white mb-2">{ui.title}</h3>
+                      <p className="text-sm text-white/50 font-light leading-relaxed flex-1">{ui.desc}</p>
+                    </div>
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── COLOR PALETTE & TYPOGRAPHY ── */}
+        <section className="py-16 sm:py-20">
+          <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-26">
+            <ScrollReveal direction="up">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="h-px w-8" style={{ backgroundColor: project.accentColor }} />
+                <span className="text-[0.68rem] uppercase tracking-[0.25em] font-semibold" style={{ color: project.accentColor }}>
+                  Visual Identity
+                </span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-light text-white mb-14 tracking-tight">
                 Color Palette & Typography
               </h2>
             </ScrollReveal>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-10 items-start">
               {/* Color swatches */}
               <div className="space-y-4">
-                <h3 className="text-xs uppercase tracking-[0.2em] text-white/40 font-semibold mb-6">Unified Color Palette</h3>
                 {project.palette.map((color) => (
                   <ScrollReveal key={color.name} direction="up">
-                    <div className="bg-[#121225]/30 border border-white/6 p-4 rounded-sm flex items-center justify-between">
-                      <div className="flex items-center gap-4">
-                        <div className="h-10 w-10 rounded border border-white/10" style={{ backgroundColor: color.hex }} />
-                        <div>
+                    <div className="border border-white/6 bg-white/[0.015] p-5 flex items-center gap-5">
+                      <div
+                        className="h-14 w-14 rounded shrink-0 border border-white/10 shadow-lg"
+                        style={{ backgroundColor: color.hex }}
+                      />
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-baseline gap-3">
                           <h4 className="text-sm font-semibold text-white">{color.name}</h4>
-                          <p className="text-xs text-white/45">{color.hex}</p>
+                          <span className="text-xs font-mono text-white/35">{color.hex}</span>
                         </div>
+                        <p className="mt-1 text-xs text-white/45 font-light leading-relaxed">{color.desc}</p>
                       </div>
-                      <div className="text-[0.8rem] text-white/50 font-light max-w-[60%] text-right">{color.desc}</div>
                     </div>
                   </ScrollReveal>
                 ))}
               </div>
 
-              {/* Typography specs */}
-              <div className="bg-white/[0.02] border border-white/5 p-8 rounded-sm">
-                <h3 className="text-xs uppercase tracking-[0.2em] text-white/40 font-semibold mb-6">Typography scale</h3>
-                <div className="space-y-6">
+              {/* Typography */}
+              <div className="border border-white/6 bg-white/[0.015] p-7 sm:p-8">
+                <h3 className="text-xs uppercase tracking-[0.2em] text-white/40 font-semibold mb-8">Typography Scale</h3>
+                <div className="space-y-8">
                   <div>
-                    <span className="text-xs uppercase tracking-[0.1em] text-white/35 font-mono">H1 / Heading Light</span>
-                    <p className="text-2xl sm:text-3xl font-light text-white mt-2 font-sans tracking-tight">Manrope Light - 45px / 1.1</p>
+                    <span className="text-[10px] uppercase tracking-[0.15em] text-white/30 font-mono">H1 / Display</span>
+                    <p className="text-3xl font-light text-white mt-2 tracking-tight">Manrope Light 48px</p>
                   </div>
+                  <div className="h-px bg-white/6" />
                   <div>
-                    <span className="text-xs uppercase tracking-[0.1em] text-white/35 font-mono">H3 / Subtitle Regular</span>
-                    <p className="text-lg font-normal text-white mt-2 font-sans">Manrope Regular - 18px / 1.5</p>
+                    <span className="text-[10px] uppercase tracking-[0.15em] text-white/30 font-mono">H3 / Subtitle</span>
+                    <p className="text-lg font-normal text-white mt-2">Manrope Regular 18px</p>
                   </div>
+                  <div className="h-px bg-white/6" />
                   <div>
-                    <span className="text-xs uppercase tracking-[0.1em] text-white/35 font-mono">Body / Description Light</span>
-                    <p className="text-sm font-light text-white/70 mt-2 leading-[1.8] font-sans">Manrope Light - 14px / 1.8</p>
+                    <span className="text-[10px] uppercase tracking-[0.15em] text-white/30 font-mono">Body / Paragraph</span>
+                    <p className="text-sm font-light text-white/60 mt-2 leading-[1.8]">Manrope Light 14px / 1.8 line-height</p>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* ── FIGMA PROTOTYPE CTA ── */}
+        {project.figmaUrl && (
+          <section className="py-16 sm:py-20 border-t border-white/5">
+            <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-26 text-center">
+              <ScrollReveal direction="up">
+                <h2 className="text-2xl sm:text-3xl font-light text-white mb-4 tracking-tight">
+                  Explore the Full Prototype
+                </h2>
+                <p className="text-sm text-white/50 font-light mb-8 max-w-lg mx-auto">
+                  View the interactive Figma prototype to experience the complete design system and user flows.
+                </p>
+                <a
+                  href={project.figmaUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group inline-flex items-center gap-3 border bg-white px-6 py-3 text-sm font-semibold text-black transition-all duration-500 hover:bg-transparent hover:text-white hover:border-white"
+                  style={{ borderColor: project.accentColor }}
+                >
+                  <span>View Figma Prototype</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                    <path d="M7 17L17 7M17 7H8M17 7v9" />
+                  </svg>
+                </a>
+              </ScrollReveal>
+            </div>
+          </section>
+        )}
+
+        {/* ── START YOUR PROJECT CTA ── */}
+        <section className="py-16 sm:py-20 border-t border-white/5 bg-white/[0.01]">
+          <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-26 text-center">
+            <ScrollReveal direction="up">
+              <h2 className="text-3xl sm:text-4xl font-light text-white mb-4 tracking-tight">
+                Have a similar project in mind?
+              </h2>
+              <p className="text-base text-white/55 font-light mb-2 max-w-xl mx-auto leading-relaxed">
+                Let&apos;s discuss how we can bring your vision to life with the same level of precision and care.
+              </p>
+              <CaseStudyCTA accentColor={project.accentColor} />
+            </ScrollReveal>
           </div>
         </section>
 

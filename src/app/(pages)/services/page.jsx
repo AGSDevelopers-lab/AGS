@@ -11,7 +11,7 @@ const servicesData = [
     slug: "website-development",
     description:
       "We craft high-performance websites tailored to your brand identity and business goals. From sleek corporate sites to complex e-commerce platforms, our development team delivers pixel-perfect, lightning-fast experiences that convert visitors into customers.",
-    image: "/services/Website.png",
+    image: "/Website.png",
     bullets: [
       "Custom Website Design",
       "E-Commerce Development",
@@ -26,7 +26,7 @@ const servicesData = [
     slug: "ui-ux-design",
     description:
       "Great design is more than aesthetics — it's about creating intuitive, accessible experiences that delight users. Our design team combines user research with creative excellence to deliver interfaces and visuals that elevate your brand.",
-    image: "/services/UX.png",
+    image: "/image 1.png",
     bullets: [
       "User Research & Wireframing",
       "Interactive Prototyping",
@@ -41,7 +41,7 @@ const servicesData = [
     slug: "digital-solutions",
     description:
       "Navigate the digital landscape with confidence. We provide end-to-end digital strategy and marketing solutions that drive measurable growth, helping you reach the right audience with the right message at the right time.",
-    image: "/services/Frame 1597884173.png",
+    image: "/image 3.png",
     bullets: [
       "Digital Strategy Consulting",
       "Marketing Automation",
@@ -56,7 +56,7 @@ const servicesData = [
     slug: "mobile-app-development",
     description:
       "Bring your ideas to life on every screen. We build robust, scalable mobile applications for iOS and Android that deliver seamless experiences — from concept and design through launch and ongoing support.",
-    image: "/services/Frame 1597884174.png",
+    image: "/image 5.png",
     bullets: [
       "iOS & Android Development",
       "Cross-Platform Apps",
@@ -71,7 +71,7 @@ const servicesData = [
     slug: "ai-solutions",
     description:
       "Unlock the power of artificial intelligence to automate processes, uncover insights, and create competitive advantages. Our AI experts design and deploy intelligent systems that transform how your business operates.",
-    image: "/services/Frame 1597884175.png",
+    image: "/image 6.png",
     bullets: [
       "AI Strategy & Consulting",
       "Machine Learning Models",
@@ -106,6 +106,21 @@ export default function ServicesPage() {
       <div className="relative z-10 w-full pt-16 lg:pt-24">
         {/* HERO SECTION */}
         <section className="relative w-full flex flex-col items-center justify-center px-6 pt-24 pb-20 sm:pt-32 sm:pb-28 lg:pt-40 lg:pb-32 overflow-hidden border-b border-white/10">
+          {/* Hero background image */}
+          <Image
+            src="/frame1.png"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+            aria-hidden="true"
+          />
+          {/* Dark overlay for text readability */}
+          <div className="absolute inset-0 bg-black/60" />
+          {/* Bottom gradient fade into page */}
+          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black to-transparent" />
+
           <div className="relative z-10 max-w-4xl text-center">
             <h1 className="bg-[linear-gradient(90deg,#9795FF_0%,#FFFFFF_42%,#FFFFFF_59%,#BE9FFF_100%)] bg-clip-text pb-2 text-5xl md:text-7xl font-light tracking-tight text-transparent">
               Our Services
@@ -158,6 +173,7 @@ export default function ServicesPage() {
                       alt={service.title}
                       fill
                       sizes="(max-width: 1024px) 100vw, 50vw"
+                      loading={index < 2 ? "eager" : "lazy"}
                       className="object-cover"
                     />
                   </div>

@@ -1,6 +1,5 @@
 import { Manrope } from "next/font/google";
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import { CtaFormProvider } from "@/components/CtaFormProvider";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import "./globals.css";
@@ -57,7 +56,6 @@ export default function RootLayout({ children }) {
         <CtaFormProvider>
           <Navbar />
           {children}
-          <Footer />
         </CtaFormProvider>
       </body>
     </html>

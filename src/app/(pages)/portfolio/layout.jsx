@@ -1,7 +1,7 @@
 export const metadata = {
   title: "Our Portfolio — Premium Web & Mobile Case Studies by AGS",
   description:
-    "Explore our featured digital works: Bhairal Influencer Platforms, Mangal Materials apps, TotoJan taxi ride bookers, and Dhunseri redesigns. Premium craftsmanship by AGS.",
+    "Explore our featured digital works: Molifera Media brand strategy, Mangal Materials apps, TotoJan taxi ride bookers, and Dhunseri redesigns. Premium craftsmanship by AGS.",
   keywords: [
     "AGS Portfolio",
     "Amrut Global Solutions Case Studies",

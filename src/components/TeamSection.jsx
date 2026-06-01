@@ -28,38 +28,26 @@ const teamMembers = [
   {
     name: "Piyali Das",
     department: "Operations",
-    image:
-      "https://res.cloudinary.com/dhxgwo5r4/image/upload/q_auto/f_auto/v1775113883/piyali_hkbkvt.png",
   },
   {
     name: "Sayan Bhattacharjee",
     department: "Design",
-    image:
-      "https://res.cloudinary.com/dhxgwo5r4/image/upload/v1775032385/Sayan_qrbnma.png",
   },
-  // {
-  //   name: "Sristi Bhattacharyya",
-  //   department: "Development",
-  //   image:
-  //     "https://res.cloudinary.com/dhxgwo5r4/image/upload/q_auto/f_auto/v1775113890/sristi_alxrvr.png",
-  // },
+  {
+    name: "Sristi Bhattacharyya",
+    department: "Development",
+  },
   {
     name: "Pradip Mondal",
     department: "Design",
-    image:
-      "https://res.cloudinary.com/dhxgwo5r4/image/upload/v1775032384/Pradip_parqg3.png",
   },
   {
     name: "Shrestha Samadder",
     department: "Creative",
-    image:
-      "https://res.cloudinary.com/dhxgwo5r4/image/upload/q_auto/f_auto/v1775113889/shrestha_jixev8.png",
   },
   {
     name: "Abhijit Manna",
     department: "Marketing",
-    image:
-      "https://res.cloudinary.com/dhxgwo5r4/image/upload/q_auto/f_auto/v1775113883/abhijit_vork62.png",
   },
 ];
 
@@ -119,22 +107,12 @@ function DirectorCard({ director }) {
 
 function TeamMemberCard({ member }) {
   return (
-    <article className="group relative aspect-3/4 overflow-hidden border border-white/10 bg-white/4">
-      {/* Photo */}
-      <div
-        className="absolute inset-0 bg-cover bg-top grayscale transition-all duration-600 group-hover:scale-[1.05] group-hover:grayscale-0"
-        style={{ backgroundImage: `url(${member.image})` }}
-      />
-
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-linear-to-t from-black/88 via-black/15 to-transparent" />
-
-      {/* Bottom info */}
-      <div className="absolute inset-x-0 bottom-0 z-10 p-4">
+    <article className="group relative overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-[#0b0f1a] to-[#141023] flex flex-col items-center justify-center p-6 sm:p-8 hover:border-white/20 transition-colors">
+      <div className="text-center">
         <h3 className="text-[0.95rem] font-medium leading-tight tracking-[-0.03em] text-white sm:text-[1.05rem]">
           {member.name}
         </h3>
-        <span className="mt-2 inline-flex items-center rounded-full border border-white/20 bg-white/10 px-2.5 py-0.5 text-[0.58rem] font-semibold uppercase tracking-[0.18em] text-white/85 backdrop-blur-sm">
+        <span className="mt-2 inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-white/85 backdrop-blur-sm">
           {member.department}
         </span>
       </div>
