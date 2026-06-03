@@ -8,7 +8,7 @@ export const metadata = {
     "Hire Next.js Developers",
     "Hire AI Engineers",
     "AGS Office Location",
-    "Request project quote",
+    "Request projectquote",
   ],
   openGraph: {
     title: "Contact Us — Connect with AGS Digital Consultants",
