@@ -242,7 +242,7 @@ export default function AboutPage() {
                                  alt="Abstract mesh"
                                  fill
                                  sizes="100vw"
-                                 className="object-cover opacity-60 mix-blend-screen z-0 animate-in fade-in duration-700"
+                                 className="object-contain opacity-60 mix-blend-screen z-0 animate-in fade-in duration-700"
                               />
                               <div className="relative z-10 text-center animate-in zoom-in-95 duration-700">
                                  <div className="text-6xl font-black italic tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/50 mb-2">
