@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import CTASection from "@/components/CTASection";
+import TeamSection from "@/components/TeamSection";
 
 const storyData = [
    {
@@ -118,7 +119,7 @@ export default function AboutPage() {
                         src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop"
                         alt="Team working"
                         fill
-                        sizes="100vw"
+                        sizes="(max-width: 1024px) 100vw, 50vw"
                         className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-90"
                      />
                   </div>
@@ -131,7 +132,7 @@ export default function AboutPage() {
                            src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?q=80&w=2070&auto=format&fit=crop"
                            alt="Wireframes"
                            fill
-                           sizes="100vw"
+                           sizes="(max-width: 1024px) 50vw, 25vw"
                            className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 mix-blend-luminosity"
                         />
                      </div>
@@ -166,7 +167,7 @@ export default function AboutPage() {
                            src="https://images.unsplash.com/photo-1616423640778-28d1b53229bd?q=80&w=1974&auto=format&fit=crop"
                            alt="Mobile design"
                            fill
-                           sizes="100vw"
+                           sizes="(max-width: 1024px) 50vw, 25vw"
                            className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-90"
                         />
                      </div>
@@ -241,7 +242,7 @@ export default function AboutPage() {
                                  src={storyData[activeStoryIndex].image}
                                  alt="Abstract mesh"
                                  fill
-                                 sizes="100vw"
+                                 sizes="(max-width: 1024px) 100vw, 400px"
                                  className="object-contain opacity-60 mix-blend-screen z-0 animate-in fade-in duration-700"
                               />
                               <div className="relative z-10 text-center animate-in zoom-in-95 duration-700">
@@ -257,7 +258,7 @@ export default function AboutPage() {
                               src={storyData[activeStoryIndex].image}
                               alt={storyData[activeStoryIndex].title}
                               fill
-                              sizes="100vw"
+                              sizes="(max-width: 1024px) 100vw, 400px"
                               className="object-cover z-0 animate-in fade-in duration-700 rounded-none shadow-2xl"
                            />
                         )}
@@ -314,7 +315,7 @@ export default function AboutPage() {
                         src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop"
                         alt="Team meeting"
                         fill
-                        sizes="100vw"
+                        sizes="(max-width: 1024px) 100vw, 50vw"
                         className="object-cover"
                      />
                   </div>
@@ -356,6 +357,8 @@ export default function AboutPage() {
                </div>
 
             </section>
+
+            <TeamSection />
 
             {/* Auto Image Carousel (Full Width) */}
             <div className="relative w-full overflow-hidden group pb-20 pt-4">
