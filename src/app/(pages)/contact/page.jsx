@@ -160,7 +160,7 @@ export default function ContactPage() {
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#40386e" strokeWidth="1.5"><path d="M4 7.00005L10.2 11.65C11.2667 12.45 12.7333 12.45 13.8 11.65L20 7" /><rect x="3" y="5" width="18" height="14" rx="2" /></svg>
                      </div>
                      <h3 className="text-[1.2rem] font-medium mb-3 tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-[#EAE1FF] via-[#ffffff] to-[#a890e6]">Email Us</h3>
-                     <p className="text-white/90 font-light text-[0.95rem] mb-1">hello@ags.digital</p>
+                     <p className="text-white/90 font-light text-[0.95rem] mb-1">hello@amrutglobalsolutions.com</p>
                      <p className="text-white/50 text-[0.75rem] font-light">We reply within 24 hours</p>
                   </div>
                   {/* Card 2 */}
@@ -168,8 +168,8 @@ export default function ContactPage() {
                      <div className="w-14 h-14 rounded-full flex items-center justify-center mb-6 bg-[#e3e3eb] shadow-sm">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#40386e" strokeWidth="1.5"><path d="M20 21V19C20 16.7909 18.2091 15 16 15H8C5.79086 15 4 16.7909 4 19V21" /><circle cx="12" cy="7" r="4" /></svg>
                      </div>
-                     <h3 className="text-[1.2rem] font-medium mb-3 tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-[#EAE1FF] via-[#ffffff] to-[#a890e6]">Contact Us</h3>
-                     <p className="text-white/90 font-light text-[0.95rem] mb-1">+91 98785 43210</p>
+                     <h3 className="text-[1.2rem] font-medium mb-3 tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-[#EAE1FF] via-[#ffffff] to-[#a890e6]">Get in touch</h3>
+                     <p className="text-white/90 font-light text-[0.95rem] mb-1">+91 90381 30595</p>
                      <p className="text-white/50 text-[0.75rem] font-light">Mon-Fri, 10am-7pm IST</p>
                   </div>
                   {/* Card 3 */}
@@ -178,7 +178,7 @@ export default function ContactPage() {
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#40386e" strokeWidth="1.5"><path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 5.02944 7.02944 1 12 1C16.9706 1 21 5.02944 21 10Z" /><circle cx="12" cy="10" r="3" /></svg>
                      </div>
                      <h3 className="text-[1.2rem] font-medium mb-3 tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-[#EAE1FF] via-[#ffffff] to-[#a890e6]">Visit Us</h3>
-                     <p className="text-white/90 font-light text-[0.95rem] mb-1">Kolkata, India</p>
+                     <p className="text-white/90 font-light text-[0.95rem] mb-1">1119A, PS QUBE, Newtown, Kolkata, West Bengal 700161</p>
                      <p className="text-white/50 text-[0.75rem] font-light">Available for remote clients</p>
                   </div>
                   {/* Card 4 */}
@@ -187,7 +187,7 @@ export default function ContactPage() {
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#40386e" strokeWidth="1.5"><circle cx="12" cy="12" r="10" /><path d="M12 6V12L16 14" /></svg>
                      </div>
                      <h3 className="text-[1.2rem] font-medium mb-3 tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-[#EAE1FF] via-[#ffffff] to-[#a890e6]">Working Hours</h3>
-                     <p className="text-white/90 font-light text-[0.95rem] mb-1">Mon &ndash; Fri, 10:00 &ndash; 19:00</p>
+                     <p className="text-white/90 font-light text-[0.95rem] mb-1">10 am to 6 pm</p>
                      <p className="text-white/50 text-[0.75rem] font-light">Weekend support active projects</p>
                   </div>
                </div>
