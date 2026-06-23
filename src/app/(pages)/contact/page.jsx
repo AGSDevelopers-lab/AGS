@@ -170,7 +170,7 @@ export default function ContactPage() {
                      </div>
                      <h3 className="text-[1.2rem] font-medium mb-3 tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-[#EAE1FF] via-[#ffffff] to-[#a890e6]">Get in touch</h3>
                      <p className="text-white/90 font-light text-[0.95rem] mb-1">+91 90381 30595</p>
-                     <p className="text-white/50 text-[0.75rem] font-light">Mon-Fri, 10am-7pm IST</p>
+                     <p className="text-white/50 text-[0.75rem] font-light">Mon-Fri, 10am-6pm IST</p>
                   </div>
                   {/* Card 3 */}
                   <div className="bg-[#1a1a24]/80 border border-white/5 backdrop-blur-md p-8 flex flex-col items-center text-center transition-transform hover:-translate-y-1 duration-500 rounded-sm">
@@ -187,8 +187,7 @@ export default function ContactPage() {
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#40386e" strokeWidth="1.5"><circle cx="12" cy="12" r="10" /><path d="M12 6V12L16 14" /></svg>
                      </div>
                      <h3 className="text-[1.2rem] font-medium mb-3 tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-[#EAE1FF] via-[#ffffff] to-[#a890e6]">Working Hours</h3>
-                     <p className="text-white/90 font-light text-[0.95rem] mb-1">10 am to 6 pm</p>
-                     <p className="text-white/50 text-[0.75rem] font-light">Weekend support active projects</p>
+                     <p className="text-white/90 font-light text-[0.95rem] mb-1">Mon - Fri 10 am to 6 pm</p>
                   </div>
                </div>
             </section>
@@ -244,7 +243,7 @@ export default function ContactPage() {
                      <h3 className="text-[1.75rem] md:text-[2rem] font-normal mb-8 text-transparent bg-clip-text bg-gradient-to-r from-[#9795ff] to-[#c4a8fa] tracking-wide">
                         Why Work With AGS?
                      </h3>
-                     
+
                      <ul className="space-y-5 text-white/80 font-light text-[0.95rem]">
                         <li className="flex items-start">
                            <span className="mr-3.5 mt-2 w-1 h-1 bg-white/70 rounded-full flex-shrink-0"></span>
