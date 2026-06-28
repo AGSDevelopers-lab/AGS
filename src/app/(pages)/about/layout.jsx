@@ -1,7 +1,7 @@
 export const metadata = {
   title: "About Us — AGS | Transparent & Honest Digital Partners",
   description:
-    "Learn about AGS (Amrut Global Solutions). We are a diverse team of digital transformation consultants and engineers built on honesty, transparency, and high-performance delivery.",
+    "Learn about AGS (Amrut Global Solutions). A diverse team of digital consultants and engineers — AWS Ecosystem Partner and Google Cloud Member — built on honesty, transparency, and high-performance delivery.",
   keywords: [
     "AGS About",
     "Amrut Global Solutions Team",

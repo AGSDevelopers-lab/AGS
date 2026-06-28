@@ -1,21 +1,63 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
+import { useCtaForm } from "@/components/CtaFormProvider";
+import AwsSection from "@/components/aws";
+import GcpSection from "@/components/gcp";
 import CTASection from "@/components/CTASection";
+
+function GetStartedButton({ className, compact = false }) {
+   const { openForm } = useCtaForm();
+
+   if (compact) {
+      return (
+         <button
+            type="button"
+            onClick={() => openForm()}
+            className={className ?? "flex items-center space-x-2 bg-white text-black px-5 py-2.5 rounded-sm text-[0.8rem] font-semibold hover:bg-gray-200 transition"}
+         >
+            <span>Get Started</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="12" cy="12" r="10" /><path d="M10 8l4 4-4 4" /></svg>
+         </button>
+      );
+   }
+
+   return (
+      <button
+         type="button"
+         onClick={() => openForm()}
+         className={className ?? "mx-auto group flex items-center space-x-3 border border-white bg-white px-6 py-3 font-semibold text-black transition-all duration-700 hover:bg-transparent hover:text-white"}
+      >
+         <span>Get Started</span>
+         <svg
+            width="29"
+            height="29"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            className="transition-transform duration-700 group-hover:rotate-45"
+         >
+            <path d="M7 17L17 7M17 7H7M17 7V17" />
+         </svg>
+      </button>
+   );
+}
 
 const storyData = [
    {
       label: "2026",
       title: "Building What Scales Without You",
-      description: "Now the focus is different. Less about doing more work, more about building systems that do the work. Cloud, AI, automation — not trends, but leverage.\nAmrut Global Solutions Pvt Ltd is no longer trying to \"get clients\" — it's building an ecosystem that attracts them.\nFrom working in the business -> to building something bigger than it.",
+      description: "The focus has shifted. Less about doing more work — more about building systems that do the work. Cloud, AI, and automation are not trends for us; they are leverage.\nAmrut Global Solutions Pvt. Ltd. is building an ecosystem that attracts clients, not just chasing them.\nFrom working in the business to building something bigger than ourselves.",
       image: "https://res.cloudinary.com/dhxgwo5r4/image/upload/q_auto/f_auto/v1776329452/a1979363c047062ed0a24d75c7d1677c5143a142_xbksul.png",
       isAGSLogo: true
    },
    {
       label: "Late 2025",
       title: "Accelerating Global Reach",
-      description: "We started pushing boundaries and expanding to more global clients. Our infrastructure got a major overhaul, introducing more robust enterprise applications, moving to an agile delivery model, and building meaningful partnerships.",
+      description: "We expanded our reach to more global clients and strengthened our cloud partnerships — including AWS and Google Cloud. Our infrastructure underwent a major overhaul, with more robust enterprise applications, an agile delivery model, and deeper technology partnerships.",
       image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop",
       isAGSLogo: false
    },
@@ -90,22 +132,9 @@ export default function AboutPage() {
                      About Us
                   </h1>
                   <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed">
-                     A diverse team of innovators finding the most effective solutions, delivered with intelligence and precision.
+                     A diverse team of innovators building scalable digital solutions — delivered with intelligence, precision, and honesty.
                   </p>
-                  <button className="mx-auto group flex items-center space-x-3 border border-white bg-white px-6 py-3 font-semibold text-black transition-all duration-700 hover:bg-transparent hover:text-white">
-                     <span>Get Started</span>
-                     <svg
-                        width="29"
-                        height="29"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        className="transition-transform duration-700 group-hover:rotate-45"
-                     >
-                        <path d="M7 17L17 7M17 7H7M17 7V17" />
-                     </svg>
-                  </button>
+                  <GetStartedButton />
                </div>
             </section>
 
@@ -178,7 +207,7 @@ export default function AboutPage() {
             <section className="px-6 py-20 sm:px-8 lg:px-26 w-full mx-auto border-t border-white/5 flex flex-col items-center">
                <div className="text-center mb-16">
                   <h2 className="text-sm font-medium text-white/60 uppercase tracking-widest mb-4">Our Story</h2>
-                  <h3 className="text-3xl md:text-4xl font-light text-white">How we came this far</h3>
+                  <h3 className="text-3xl md:text-4xl font-light text-white">How we got here</h3>
                </div>
 
                <div className="grid grid-cols-1 md:grid-cols-[150px_1fr] lg:grid-cols-[200px_1fr] gap-8 lg:gap-16 items-center max-w-5xl w-full">
@@ -275,11 +304,11 @@ export default function AboutPage() {
 
                <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-8 lg:gap-20 items-start mb-20">
                   <p className="text-[1.05rem] lg:text-[1.1rem] text-[#b6a2ff] leading-[1.8] font-light md:pr-4">
-                     The whole model of our business revolves around these two terms. We believe in driving digital solutions by leveraging the power of Technology and Innovative minds. But, the solution must be transparent to our clients and the quotes must be honest.
+                     Our business is built on two principles: honesty and transparency. We deliver digital solutions powered by technology and innovation — but every step must be clear to our clients, and every quote must be fair.
                   </p>
                   <div className="flex flex-col space-y-6 text-[0.85rem] text-white/70 leading-relaxed font-light mt-1">
-                     <p>We perform a proper breakdown analysis of our client&apos;s visions and requirements and decide the precise time requires for the completion of the entire project. Based on that, the price rate is determined (NOTHING MORE, NOTHING LESS) which is fully shared and explained to our clients.</p>
-                     <p>Our aim is to change people&apos;s lives with digital solutions while remaining honest and transparent.</p>
+                     <p>We break down each client&apos;s vision and requirements, estimate the precise time required to complete the project, and determine pricing accordingly — nothing more, nothing less. Everything is shared and explained upfront.</p>
+                     <p>Our aim is to improve people&apos;s lives through digital solutions while staying honest and transparent at every stage.</p>
                   </div>
                </div>
 
@@ -288,23 +317,23 @@ export default function AboutPage() {
                   <div className="p-8 md:p-14 space-y-8 bg-[#1a1a24]">
                      <div className="flex items-start gap-4">
                         <div className="mt-2 w-3 h-3 rounded-full bg-[radial-gradient(circle_at_30%_30%,#ffffff,#a8a8bf)] shadow-sm flex-shrink-0"></div>
-                        <p className="text-white/80 text-[0.85rem] leading-[1.6]">If a client&apos;s project idea does not match with his/her other crucial requirements, i.e. the budget and deadline, we discuss that upfront!</p>
+                        <p className="text-white/80 text-[0.85rem] leading-[1.6]">If a client&apos;s project idea doesn&apos;t align with their budget or deadline, we say so upfront.</p>
                      </div>
                      <div className="flex items-start gap-4">
                         <div className="mt-2 w-3 h-3 rounded-full bg-[radial-gradient(circle_at_30%_30%,#ffffff,#a8a8bf)] shadow-sm flex-shrink-0"></div>
-                        <p className="text-white/80 text-[0.85rem] leading-[1.6]">If we lack anything like workforce or project-specific knowledge and need some time to gather these elements, we discuss that upfront.</p>
+                        <p className="text-white/80 text-[0.85rem] leading-[1.6]">If we need time to assemble the right team or expertise, we communicate that clearly before starting.</p>
                      </div>
                      <div className="flex items-start gap-4">
                         <div className="mt-2 w-3 h-3 rounded-full bg-[radial-gradient(circle_at_30%_30%,#ffffff,#a8a8bf)] shadow-sm flex-shrink-0"></div>
-                        <p className="text-white/80 text-[0.85rem] leading-[1.6]">Only after the mutual acceptance of both parties, we begin our journey!</p>
+                        <p className="text-white/80 text-[0.85rem] leading-[1.6]">We only begin once both sides agree on scope, timeline, and expectations.</p>
                      </div>
                      <div className="flex items-start gap-4">
                         <div className="mt-2 w-3 h-3 rounded-full bg-[radial-gradient(circle_at_30%_30%,#ffffff,#a8a8bf)] shadow-sm flex-shrink-0"></div>
-                        <p className="text-white/80 text-[0.85rem] leading-[1.6]">Our motto is to work as your digital partner and our vision is to serve you with the best without compromising the quality.</p>
+                        <p className="text-white/80 text-[0.85rem] leading-[1.6]">We work as your digital partner — committed to quality without compromise.</p>
                      </div>
                      <div className="flex items-start gap-4">
                         <div className="mt-2 w-3 h-3 rounded-full bg-[radial-gradient(circle_at_30%_30%,#ffffff,#a8a8bf)] shadow-sm flex-shrink-0"></div>
-                        <p className="text-white/80 text-[0.85rem] leading-[1.6]">That&apos;s why our clients say; AGS shape dreams with Honesty and Transparency!</p>
+                        <p className="text-white/80 text-[0.85rem] leading-[1.6]">That&apos;s why our clients say AGS shapes dreams with honesty and transparency.</p>
                      </div>
                   </div>
 
@@ -321,6 +350,9 @@ export default function AboutPage() {
                </div>
             </section>
 
+            <AwsSection />
+            <GcpSection />
+
             {/* CULTURE / PEOPLE SECTION */}
             <section className="px-6 pb-20 sm:px-8 lg:px-26 max-w-[1400px] mx-auto overflow-hidden">
                {/* What we do best */}
@@ -331,14 +363,17 @@ export default function AboutPage() {
                      </h2>
                   </div>
                   <div className="flex flex-col space-y-8 text-[0.85rem] text-white/80 leading-[1.8] font-light pt-2 pl-0 md:pl-2">
-                     <p>We begin the journey by listening to all your ideas, issues, and requirements. The entire vision is processed and a breakdown analysis is performed to give you the precise value for the entire project. A proper competitor and market research are performed to give your mobile or web application the touch of uniqueness. We follow the agile methodology and keep the entire service transparent to you.</p>
-                     <p>To know about the entire process, you can check out the &quot;Our Process&quot; Section</p>
+                     <p>We start by listening — to your ideas, challenges, and requirements. We then break down the vision, research the market, and design a solution that stands out. We follow agile methodology and keep you informed at every step.</p>
+                     <p>
+                        To learn more about how we work, visit our{" "}
+                        <Link href="/services" className="text-white underline underline-offset-4 transition hover:text-white/80">
+                           Services
+                        </Link>{" "}
+                        page.
+                     </p>
 
                      <div>
-                        <button className="flex items-center space-x-2 bg-white text-black px-5 py-2.5 rounded-sm text-[0.8rem] font-semibold hover:bg-gray-200 transition">
-                           <span>Get Started</span>
-                           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="12" cy="12" r="10" /><path d="M10 8l4 4-4 4" /></svg>
-                        </button>
+                        <GetStartedButton compact />
                      </div>
                   </div>
                </div>
@@ -351,7 +386,7 @@ export default function AboutPage() {
                      </h2>
                   </div>
                   <div className="text-[0.85rem] text-white/80 leading-[1.8] font-light pt-2 pl-0 md:pl-2">
-                     <p>AGS is more than an IT hub for creating, sharing, and shaping digital ideas. It is the second home of our team members who have been working together for years. We are a closely knit family who share more than just codes, designs, marketing, & sales ideas. We are a bunch of moms, dads, believers, creators, and a whole lot more. AGS is an entire community filled with free and open-minded people.</p>
+                     <p>AGS is more than an IT company. It&apos;s a team that has grown together over years — sharing ideas in code, design, marketing, and strategy. We&apos;re creators, problem-solvers, and a community of open-minded people who care about the work and each other.</p>
                   </div>
                </div>
 

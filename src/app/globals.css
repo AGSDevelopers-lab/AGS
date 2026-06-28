@@ -299,6 +299,156 @@
     animation: autoScrollCulture 35s linear infinite;
   }
 
+  @keyframes serviceOrbit {
+    0% { transform: rotate(0deg) translateX(8px) rotate(0deg); }
+    100% { transform: rotate(360deg) translateX(8px) rotate(-360deg); }
+  }
+
+  @keyframes serviceLayerFloat {
+    0%, 100% { opacity: 0.85; transform: translate(var(--tx, 0), var(--ty, 0)); }
+    50% { opacity: 1; transform: translate(calc(var(--tx, 0px) + 4px), calc(var(--ty, 0px) - 6px)); }
+  }
+
+  @keyframes serviceDashFlow {
+    0% { stroke-dashoffset: 24; opacity: 0.3; }
+    50% { opacity: 0.7; }
+    100% { stroke-dashoffset: 0; opacity: 0.3; }
+  }
+
+  @keyframes serviceShimmer {
+    0%, 100% { opacity: 0.45; }
+    50% { opacity: 0.9; }
+  }
+
+  @keyframes servicePulseSoft {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.08); opacity: 0.95; }
+  }
+
+  @keyframes serviceRadar {
+    0% { transform: scale(0.85); opacity: 0.5; }
+    100% { transform: scale(1.15); opacity: 0; }
+  }
+
+  @keyframes serviceSignal {
+    0% { transform: translate(-50%, -50%) scale(0.6); opacity: 0.5; }
+    100% { transform: translate(-50%, -50%) scale(1.2); opacity: 0; }
+  }
+
+  @keyframes serviceFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+
+  @keyframes serviceGlow {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.75; }
+  }
+
+  @keyframes serviceScan {
+    0% { top: 0; opacity: 0; }
+    10% { opacity: 0.6; }
+    90% { opacity: 0.6; }
+    100% { top: 100%; opacity: 0; }
+  }
+
+  @keyframes serviceParticle {
+    0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.2; }
+    50% { transform: translate(8px, -14px) scale(1.4); opacity: 0.7; }
+  }
+
+  @keyframes serviceShine {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(200%); }
+  }
+
+  @keyframes serviceCursor {
+    0%, 45% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+  }
+
+  @keyframes serviceType {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 0.65; }
+  }
+
+  @keyframes serviceDraw {
+    0% { stroke-dashoffset: 120; opacity: 0.2; }
+    50% { opacity: 0.6; }
+    100% { stroke-dashoffset: 0; opacity: 0.35; }
+  }
+
+  .service-visual-glow {
+    background: radial-gradient(circle at 50% 50%, rgba(151, 149, 255, 0.08), transparent 65%);
+    animation: serviceGlow 4s ease-in-out infinite;
+  }
+
+  .service-visual-scan {
+    animation: serviceScan 5s ease-in-out infinite;
+  }
+
+  .service-visual-particle {
+    animation: serviceParticle ease-in-out infinite;
+  }
+
+  .service-visual-shine {
+    animation: serviceShine 3s ease-in-out infinite;
+  }
+
+  .service-visual-cursor {
+    animation: serviceCursor 1s step-end infinite;
+  }
+
+  .service-visual-type {
+    animation: serviceType 3s ease-in-out infinite;
+  }
+
+  .service-visual-draw {
+    stroke-dasharray: 120;
+    animation: serviceDraw 4s ease-in-out infinite;
+  }
+
+  .service-visual-float {
+    animation: serviceFloat 5s ease-in-out infinite;
+  }
+
+  .service-visual-orbit {
+    animation: serviceOrbit 10s linear infinite;
+  }
+
+  .service-visual-orbit-reverse {
+    animation: serviceOrbit 12s linear infinite reverse;
+  }
+
+  .service-visual-layer {
+    animation: serviceLayerFloat 4s ease-in-out infinite;
+  }
+
+  .service-visual-dash {
+    stroke-dasharray: 6 4;
+    animation: serviceDashFlow 2.5s ease-in-out infinite;
+  }
+
+  .service-visual-shimmer {
+    animation: serviceShimmer 2.2s ease-in-out infinite;
+  }
+
+  .service-visual-pulse {
+    animation: servicePulseSoft 2.8s ease-in-out infinite;
+    transform-origin: center;
+    transform-box: fill-box;
+  }
+
+  .service-visual-radar {
+    animation: serviceRadar 3s ease-out infinite;
+    transform-origin: center;
+    transform-box: fill-box;
+  }
+
+  .service-visual-signal {
+    animation: serviceSignal 3s ease-out infinite;
+  }
+
   .group:hover .animate-auto-scroll {
     animation-play-state: paused;
   }

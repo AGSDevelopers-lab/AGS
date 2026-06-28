@@ -7,6 +7,15 @@ const SERVICES_DETAIL_DATA = {
     title: "Website Development",
     subtitle: "High-Performance Web Platforms Engineered for Real Growth",
     heroImage: "/services/Website.png",
+    visual: "web",
+    stats: [
+      { value: "< 1.2s", label: "Average Load Time" },
+      { value: "95+", label: "Lighthouse Performance" },
+      { value: "< 2.5s", label: "LCP Target" },
+      { value: "< 0.1", label: "Cumulative Layout Shift" },
+      { value: "99.9%", label: "Uptime SLA" },
+      { value: "Pass", label: "Core Web Vitals" },
+    ],
     statValue: "< 1.2s",
     statLabel: "Average Load Time",
     intro:
@@ -37,7 +46,23 @@ const SERVICES_DETAIL_DATA = {
         desc: "Deploying high-availability architectures with CloudFront CDN, serverless APIs, global edge functions, and secure firewalls.",
       },
     ],
-    techStack: ["Next.js 16", "React 19", "Tailwind CSS", "Node.js", "GraphQL", "AWS CloudFront", "Sanity CMS", "PostgreSQL"],
+    techStack: [
+      { name: "Next.js", image: "/services/tech/nextjs.png" },
+      { name: "React", image: "/services/tech/reactjs.png" },
+      { name: "Wordpress", image: "/services/tech/wordpress.png" },
+      { name: "Angular", image: "/services/tech/angular.png" },
+      { name: "NodeJS", image: "/services/tech/nodejs.png" },
+      { name: "WooCommerce", image: "/services/tech/woocommerce.png" },
+      { name: "Shopify", image: "/services/tech/shopify-logo.png" },
+      { name: "PHP", image: "/services/tech/php.png" },
+      { name: "Laravel", image: "/services/tech/laravel.png" },
+      { name: "Squarespace", image: "/services/tech/squarespace.png" },
+      { name: "Magento", image: "/services/tech/magento.png" },
+      { name: "Webflow", image: "/services/tech/webflow.png" },
+      { name: "TypeScript", image: "/services/tech/typescript.png" },
+      { name: "Tailwind CSS", image: "/services/tech/tailwindcss.png" },
+      { name: "Sanity CMS", image: "/services/tech/sanity.png" },
+    ],
     process: [
       {
         step: "01",
@@ -79,6 +104,13 @@ const SERVICES_DETAIL_DATA = {
     title: "UI/UX & Graphic Design",
     subtitle: "Human-Centric Digital Interfaces Built to Captivate",
     heroImage: "/services/UX.png",
+    visual: "design",
+    stats: [
+      { value: "250+", label: "Custom Screens Designed" },
+      { value: "100%", label: "WCAG 2.1 AA Target" },
+      { value: "40%", label: "Avg. Conversion Lift" },
+      { value: "50+", label: "Design Systems Delivered" },
+    ],
     statValue: "250+",
     statLabel: "Custom Screens Designed",
     intro:
@@ -109,7 +141,14 @@ const SERVICES_DETAIL_DATA = {
         desc: "Crafting beautiful vectors, custom logotypes, rich iconography suites, and complementary HSL color schemes.",
       },
     ],
-    techStack: ["Figma", "Adobe CC", "Principle", "Atomic Design", "WCAG 2.1", "Tokens Studio", "Storybook", "SVG Vector"],
+    techStack: [
+      { name: "Figma", image: "/services/tech/figma.png" },
+      { name: "Adobe Creative Cloud", image: "/services/tech/adobe.png" },
+      { name: "Principle", image: "/services/tech/principle.svg" },
+      { name: "Storybook", image: "/services/tech/storybook.svg" },
+      { name: "Sketch", image: "/services/tech/sketch.png" },
+      { name: "Miro", image: "/services/tech/miro.png" },
+    ],
     process: [
       {
         step: "01",
@@ -151,10 +190,17 @@ const SERVICES_DETAIL_DATA = {
     title: "Digital Solutions",
     subtitle: "Accelerate Customer Acquisition & Scale Operations",
     heroImage: "/services/Frame 1597884173.png",
+    visual: "digital",
+    stats: [
+      { value: "10x", label: "Average Client ROI Lift" },
+      { value: "40%", label: "Lower Cost Per Lead" },
+      { value: "3×", label: "Organic Traffic Growth" },
+      { value: "85%", label: "Marketing Automation Rate" },
+    ],
     statValue: "10x",
     statLabel: "Average Client ROI Lift",
     intro:
-      "We provide digital solutions that bridges business strategy with performance marketing. From consulting and marketing automations to CRM structures and user acquisition funnels, we build high-performing engines that generate, nurture, and convert pipeline leads.",
+      "We provide digital solutions that bridge business strategy with performance marketing. From consulting and marketing automations to CRM structures and user acquisition funnels, we build high-performing engines that generate, nurture, and convert pipeline leads.",
     capabilities: [
       {
         title: "Digital Strategy & Consulting",
@@ -181,7 +227,16 @@ const SERVICES_DETAIL_DATA = {
         desc: "Connecting and syncing tools like HubSpot, Salesforce, or customized data lakes to keep customer records unified.",
       },
     ],
-    techStack: ["Google Analytics 4", "HubSpot", "Zapier", "Meta Ads", "Google Tag Manager", "Mailchimp", "SEMrush", "SQL Data"],
+    techStack: [
+      { name: "Google Analytics 4", image: "/services/tech/google-analytics.png" },
+      { name: "HubSpot", image: "/services/tech/hubspot.png" },
+      { name: "Zapier", image: "/services/tech/zapier.png" },
+      { name: "Meta Ads", image: "/services/tech/meta.png" },
+      { name: "Google Tag Manager", image: "/services/tech/gtm.png" },
+      { name: "Mailchimp", image: "/services/tech/mailchimp.png" },
+      { name: "SEMrush", image: "/services/tech/semrush.png" },
+      { name: "AHREFS", image: "/services/tech/ahrefs.png" },
+    ],
     process: [
       {
         step: "01",
@@ -223,6 +278,13 @@ const SERVICES_DETAIL_DATA = {
     title: "Mobile App Development",
     subtitle: "Robust iOS & Android App Engineering That Scales",
     heroImage: "/services/Frame 1597884174.png",
+    visual: "mobile",
+    stats: [
+      { value: "99.9%", label: "Production Crash-Free Rate" },
+      { value: "2×", label: "Faster Cross-Platform Delivery" },
+      { value: "< 200ms", label: "Average API Response" },
+      { value: "4.8★", label: "Avg. App Store Rating" },
+    ],
     statValue: "99.9%",
     statLabel: "Production Crash-Free Rate",
     intro:
@@ -253,7 +315,17 @@ const SERVICES_DETAIL_DATA = {
         desc: "Handling all aspects of Apple App Store and Google Play console setup, asset guidelines compliance, and app vetting processes.",
       },
     ],
-    techStack: ["React Native", "Flutter", "Swift & Kotlin", "SQLite", "Firebase", "Node.js API", "WebSockets", "App Store Connect"],
+    techStack: [
+      { name: "React Native", image: "/services/tech/react-native.png" },
+      { name: "Flutter", image: "/services/tech/flutter.png" },
+      { name: "Swift", image: "/services/tech/swift.png" },
+      { name: "Kotlin", image: "/services/tech/kotlin.png" },
+      { name: "SQLite", image: "/services/tech/sqlite.png" },
+      { name: "Firebase", image: "/services/tech/firebase.png" },
+      { name: "Node.js", image: "/services/tech/nodejs.png" },
+      { name: "Apple App Store", image: "/services/tech/app-store.png" },
+      { name: "Google Play Store", image: "/services/tech/google-play.png" },
+    ],
     process: [
       {
         step: "01",
@@ -295,6 +367,13 @@ const SERVICES_DETAIL_DATA = {
     title: "AI Solutions",
     subtitle: "Empower Business Workflows with Practical Intelligence",
     heroImage: "/services/Frame 1597884175.png",
+    visual: "ai",
+    stats: [
+      { value: "65%", label: "Workflow Time Reduced" },
+      { value: "10×", label: "Faster Data Processing" },
+      { value: "92%", label: "Classification Accuracy" },
+      { value: "24/7", label: "Automated Agent Uptime" },
+    ],
     statValue: "65%",
     statLabel: "Workflow Time Reduced",
     intro:
@@ -325,7 +404,37 @@ const SERVICES_DETAIL_DATA = {
         desc: "Developing custom object detection models, automated image tagging, and visual quality audit pipelines.",
       },
     ],
-    techStack: ["Python", "PyTorch", "OpenAI API", "LangChain", "Vector DB (Pinecone)", "FastAPI", "AWS SageMaker", "LlamaIndex"],
+    techStack: [
+      { name: "Python", image: "/services/tech/python.png" },
+      { name: "PyTorch", image: "/services/tech/pytorch.png" },
+      { name: "OpenAI", image: "/services/tech/openai.png" },
+      { name: "LangChain", image: "/services/tech/langchain.png" },
+      { name: "Pinecone", image: "/services/tech/pinecone.png" },
+      { name: "FastAPI", image: "/services/tech/fastapi.png" },
+      { name: "LlamaIndex", image: "/services/tech/llamaindex.jpeg" },
+      { name: "Amazon Bedrock", image: "/services/tech/aws-bedrock.svg" },
+      { name: "Amazon Q", image: "/services/tech/aws-q.svg" },
+      { name: "AWS SageMaker", image: "/services/tech/aws-sagemaker.svg" },
+      { name: "Amazon Comprehend", image: "/services/tech/aws-comprehend.svg" },
+      { name: "Amazon Comprehend Medical", image: "/services/tech/aws-comprehend-medical.svg" },
+      { name: "Amazon Lex", image: "/services/tech/aws-lex.svg" },
+      { name: "Amazon Polly", image: "/services/tech/aws-polly.svg" },
+      { name: "Amazon Transcribe", image: "/services/tech/aws-transcribe.svg" },
+      { name: "Amazon Translate", image: "/services/tech/aws-translate.svg" },
+      { name: "Amazon Rekognition", image: "/services/tech/aws-rekognition.svg" },
+      { name: "Amazon Textract", image: "/services/tech/aws-textract.svg" },
+      { name: "Amazon Kendra", image: "/services/tech/aws-kendra.svg" },
+      { name: "Amazon Personalize", image: "/services/tech/aws-personalize.svg" },
+      { name: "Amazon Forecast", image: "/services/tech/aws-forecast.svg" },
+      { name: "Amazon Fraud Detector", image: "/services/tech/aws-fraud-detector.svg" },
+      { name: "Amazon Lookout for Equipment", image: "/services/tech/aws-lookout-equipment.svg" },
+      { name: "Amazon Augmented AI", image: "/services/tech/aws-a2i.svg" },
+      { name: "Amazon CodeGuru", image: "/services/tech/aws-codeguru.svg" },
+      { name: "Amazon DevOps Guru", image: "/services/tech/aws-devops-guru.svg" },
+      { name: "AWS HealthLake", image: "/services/tech/aws-healthlake.svg" },
+      { name: "Amazon Monitron", image: "/services/tech/aws-monitron.svg" },
+      { name: "AWS Panorama", image: "/services/tech/aws-panorama.svg" },
+    ],
     process: [
       {
         step: "01",
@@ -360,6 +469,96 @@ const SERVICES_DETAIL_DATA = {
       {
         q: "What is the typical timeframe to build a custom AI integration?",
         a: "A standard LLM-agent chatbot or RAG database search module takes 4 to 6 weeks to model, refine, and deploy into your website. More complex predictive custom models require 8 to 12 weeks depending on dataset readiness.",
+      },
+    ],
+  },
+  "cyber-security": {
+    title: "Cyber Security & VAPT",
+    subtitle: "Identify Threats Early. Harden Defenses. Stay Compliant.",
+    heroImage: "/services/Frame 1597884176.png",
+    visual: "security",
+    stats: [
+      { value: "500+", label: "Vulnerabilities Remediated" },
+      { value: "100%", label: "OWASP Top 10 Coverage" },
+      { value: "48hr", label: "Critical Finding SLA" },
+    ],
+    statValue: "500+",
+    statLabel: "Vulnerabilities Remediated",
+    intro:
+      "We deliver end-to-end Vulnerability Assessment and Penetration Testing (VAPT) alongside strategic cyber security consultation. Our experts simulate real-world attack scenarios across your web apps, APIs, mobile platforms, and cloud infrastructure — then guide your team through prioritized remediation, compliance readiness, and long-term security posture improvement.",
+    capabilities: [
+      {
+        title: "Vulnerability Assessment (VA)",
+        desc: "Automated and manual scanning to catalog security weaknesses across networks, applications, and cloud environments with severity scoring.",
+      },
+      {
+        title: "Penetration Testing (PT)",
+        desc: "Controlled exploitation of discovered vulnerabilities to validate real-world impact, privilege escalation paths, and data exposure risks.",
+      },
+      {
+        title: "Web & API Security Testing",
+        desc: "Deep testing for OWASP Top 10 flaws — injection, broken authentication, SSRF, IDOR, and insecure API endpoints on REST and GraphQL services.",
+      },
+      {
+        title: "Mobile Application Security",
+        desc: "Assessing iOS and Android apps for insecure data storage, certificate pinning bypass, API key exposure, and runtime manipulation risks.",
+      },
+      {
+        title: "Cloud Security Assessment (AWS)",
+        desc: "Auditing IAM policies, S3 bucket exposure, security group misconfigurations, GuardDuty alerts, and WAF rule effectiveness on AWS workloads.",
+      },
+      {
+        title: "Cyber Security Consultation",
+        desc: "Strategic advisory on security architecture, incident response planning, vendor risk management, and building a security-first engineering culture.",
+      },
+    ],
+    techStack: [
+      { name: "OWASP ZAP", image: "/services/tech/owasp-zap.svg" },
+      { name: "Burp Suite", image: "/services/tech/burp-suite.jpg" },
+      { name: "Nessus", image: "/services/tech/nessus.png" },
+      { name: "Nmap", image: "/services/tech/nmap.png" },
+      { name: "Wireshark", image: "/services/tech/wireshark.png" },
+      { name: "Snyk", image: "/services/tech/snyk.png" },
+      { name: "SonarQube", image: "/services/tech/sonarqube.svg" },
+      { name: "AWS WAF", image: "/services/tech/aws-waf.svg" },
+      { name: "AWS GuardDuty", image: "/services/tech/aws-guardduty.svg" },
+      { name: "AWS Inspector", image: "/services/tech/aws-inspector.svg" },
+      { name: "AWS Security Hub", image: "/services/tech/aws-security-hub.svg" },
+    ],
+    process: [
+      {
+        step: "01",
+        phase: "Scope & Threat Modeling",
+        desc: "Defining test boundaries, asset inventory, compliance requirements, and attack surface mapping aligned with your business risk profile.",
+      },
+      {
+        step: "02",
+        phase: "Discovery & Scanning",
+        desc: "Running automated vulnerability scans combined with manual reconnaissance to identify misconfigurations, exposed endpoints, and weak credentials.",
+      },
+      {
+        step: "03",
+        phase: "Exploitation & Analysis",
+        desc: "Safely exploiting confirmed vulnerabilities to measure blast radius, data access potential, and lateral movement paths within your environment.",
+      },
+      {
+        step: "04",
+        phase: "Report, Remediate & Retest",
+        desc: "Delivering executive and technical reports with CVSS scoring, remediation guidance, and optional retesting to verify all critical fixes.",
+      },
+    ],
+    faqs: [
+      {
+        q: "What is the difference between Vulnerability Assessment and Penetration Testing?",
+        a: "A Vulnerability Assessment (VA) identifies and lists potential security weaknesses across your systems. Penetration Testing (PT) goes further — our ethical hackers actively attempt to exploit those vulnerabilities to prove real-world impact. Most engagements combine both as VAPT for comprehensive coverage.",
+      },
+      {
+        q: "How often should we conduct VAPT?",
+        a: "We recommend at least annually for stable production systems, and after every major release, infrastructure change, or cloud migration. Regulated industries and PCI-DSS environments often require quarterly or bi-annual testing.",
+      },
+      {
+        q: "Do you only provide reports, or help fix the vulnerabilities too?",
+        a: "We deliver detailed technical and executive reports with prioritized remediation steps. Our development team can also implement fixes directly — patching code, hardening AWS configurations, and setting up WAF rules — then retest to confirm closure.",
       },
     ],
   },
@@ -420,5 +619,6 @@ export async function generateStaticParams() {
     { slug: "digital-solutions" },
     { slug: "mobile-app-development" },
     { slug: "ai-solutions" },
+    { slug: "cyber-security" },
   ];
 }

@@ -6,10 +6,10 @@ const testimonials = [
       "AGS gave our brand a much stronger digital identity. The website feels premium, performs smoothly, and finally reflects the quality of our business.",
   },
   {
-    name: "Pronoy Sarkar",
-    role: "Marketing Lead, Healthcare Brand",
+    name: "James Mitchell",
+    role: "Marketing Director, Hartwell Digital",
     quote:
-      "AGS is the most trusted website development and digital marketing platform. I took their services. They provide services at a very affordable price and work hard to provide the customer with the best possible service. Highly recommended.",
+      "The team understood our brief from day one. The site launch was smooth, and we've seen a steady increase in inbound enquiries since going live.",
   },
   {
     name: "Abhirup Mukhopadhyay",
@@ -18,22 +18,22 @@ const testimonials = [
       "They created a clean and conversion-focused experience for our brand. The final output was not only beautiful but also practical for business growth.",
   },
   {
-    name: "Sathi Ghosh Hazra",
-    role: "Product Manager, Digital Platform",
+    name: "Sarah Chen",
+    role: "Co-founder, Bloom & Bridge Co.",
     quote:
-      "Professional company with prompt and efficient service. Wish them all the best.",
+      "AGS rebuilt our storefront with a focus on speed and clarity. Our bounce rate dropped within the first month, and checkout feels much smoother now.",
   },
   {
     name: "Priya Chatterjee",
     role: "Director, Education Venture",
     quote:
-      "Really happy and satisfied with the behaviour and pattern they work and extend their minds and hands towards professional prosperity of a specific client",
+      "Working with AGS felt structured and professional throughout. They listened carefully, communicated clearly, and delivered exactly what we needed.",
   },
   {
-    name: "Ranadip Nandy",
-    role: "Operations Head, Growth Team",
+    name: "Marcus Weber",
+    role: "Head of Digital, Klein & Partners",
     quote:
-      "Very professional company. Assisted my channel with utmost care and support. I recommend wholeheartedly.",
+      "Professional, responsive, and detail-oriented. They handled our requirements carefully and delivered a polished website we were confident launching.",
   },
 ];
 

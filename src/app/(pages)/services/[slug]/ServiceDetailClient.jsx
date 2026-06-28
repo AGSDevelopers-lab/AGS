@@ -1,9 +1,100 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useCtaForm } from "@/components/CtaFormProvider";
+import ServiceVisual from "@/components/ServiceVisual";
 import ScrollReveal from "@/components/ScrollReveal";
+
+function normalizeTech(tech) {
+  if (typeof tech === "string") return { name: tech, image: null };
+  return tech;
+}
+
+function TechLogo({ name, image }) {
+  const [error, setError] = useState(false);
+  const initials = name
+    .split(/[\s.&+/]+/)
+    .filter(Boolean)
+    .map((word) => word[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
+  const showPlaceholder = !image || error;
+
+  if (!showPlaceholder) {
+    return (
+      <Image
+        src={image}
+        alt={name}
+        width={40}
+        height={40}
+        className="h-10 w-auto max-w-[120px] object-contain opacity-80 transition duration-300 hover:opacity-100"
+        onError={() => setError(true)}
+      />
+    );
+  }
+
+  return (
+    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-white/[0.04]">
+      <span className="text-[0.7rem] font-medium text-white/45">{initials}</span>
+    </div>
+  );
+}
+
+function TechStackGrid({ items }) {
+  const techs = items.map(normalizeTech);
+
+  return (
+    <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+      {techs.map((tech) => (
+        <div
+          key={tech.name}
+          className="flex flex-col items-center gap-3 rounded-lg bg-white/[0.02] px-3 py-4 transition duration-300 hover:bg-white/[0.04]"
+        >
+          <TechLogo name={tech.name} image={tech.image} />
+          <span className="text-center text-[0.78rem] font-medium leading-tight text-white/75">
+            {tech.name}
+          </span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function HeroStats({ data }) {
+  const stats =
+    data.stats ??
+    (data.statValue && data.statLabel
+      ? [{ value: data.statValue, label: data.statLabel }]
+      : []);
+
+  if (stats.length === 0) return null;
+
+  return (
+    <div className="mt-10">
+      <p className="mb-3 text-[0.65rem] uppercase tracking-[0.2em] text-[#9795FF]/80">
+        Performance benchmarks
+      </p>
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 max-w-xl">
+        {stats.map((stat) => (
+          <div
+            key={stat.label}
+            className="border border-white/10 bg-white/[0.03] px-4 py-3.5 backdrop-blur-sm transition duration-300 hover:border-[#9795FF]/30 hover:bg-white/[0.05]"
+          >
+            <span className="block text-2xl font-light tracking-tight text-white sm:text-[1.65rem]">
+              {stat.value}
+            </span>
+            <span className="mt-1 block text-[0.62rem] uppercase leading-snug tracking-[0.12em] text-white/45">
+              {stat.label}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function ServiceDetailClient({ data }) {
   const { openForm } = useCtaForm();
@@ -39,7 +130,7 @@ export default function ServiceDetailClient({ data }) {
                 <h1 className="bg-[linear-gradient(90deg,#9795FF_0%,#FFFFFF_42%,#FFFFFF_59%,#BE9FFF_100%)] bg-clip-text pb-2 text-4xl sm:text-6xl font-light tracking-tight text-transparent leading-[1.1]">
                   {data.title}
                 </h1>
-                
+
                 <p className="mt-4 text-lg sm:text-[1.32rem] text-[#b4b4c0] font-light leading-relaxed max-w-2xl">
                   {data.subtitle}
                 </p>
@@ -48,27 +139,26 @@ export default function ServiceDetailClient({ data }) {
                   {data.intro}
                 </p>
 
-                {/* Stat Box */}
-                <div className="mt-10 inline-flex flex-col border border-white/10 bg-white/[0.02] backdrop-blur-md px-6 py-4 rounded-sm">
-                  <span className="text-3xl sm:text-4xl font-light text-white tracking-tight">
-                    {data.statValue}
-                  </span>
-                  <span className="text-xs uppercase tracking-[0.16em] text-white/45 mt-1 font-semibold">
-                    {data.statLabel}
-                  </span>
-                </div>
+                {/* Performance stats */}
+                <HeroStats data={data} />
               </div>
 
-              {/* Graphic */}
-              <div className="w-full lg:w-[42%] aspect-[4/3] relative rounded-lg overflow-hidden border border-white/10">
-                <Image
-                  src={data.heroImage}
-                  alt={data.title}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 40vw"
-                  className="object-cover opacity-90"
-                  priority
-                />
+              {/* Visual */}
+              <div className="w-full lg:w-[42%] flex-shrink-0">
+                {data.visual ? (
+                  <ServiceVisual variant={data.visual} label={data.title} />
+                ) : (
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-white/10">
+                    <Image
+                      src={data.heroImage}
+                      alt={data.title}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 40vw"
+                      className="object-cover opacity-90"
+                      priority
+                    />
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -154,23 +244,16 @@ export default function ServiceDetailClient({ data }) {
           </div>
         </section>
 
-        {/* TECH STACK BAR */}
+        {/* TECH STACK */}
         <section className="py-14 bg-white/[0.01] border-b border-white/5">
-          <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-26 text-center">
+          <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-26">
             <ScrollReveal direction="fade">
-              <h3 className="text-xs uppercase tracking-[0.2em] text-white/40 font-semibold mb-6">
-                Engineered with leading technologies
-              </h3>
-              <div className="flex flex-wrap justify-center gap-3">
-                {data.techStack.map((tech) => (
-                  <span
-                    key={tech}
-                    className="border border-white/10 bg-white/[0.02] px-4 py-2 text-sm text-white/80 font-medium rounded-full"
-                  >
-                    {tech}
-                  </span>
-                ))}
+              <div className="mb-8 text-center">
+                <h3 className="text-xs uppercase tracking-[0.2em] text-white/40 font-semibold">
+                  Our Technical Capabilities
+                </h3>
               </div>
+              <TechStackGrid items={data.techStack} />
             </ScrollReveal>
           </div>
         </section>

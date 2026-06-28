@@ -1,17 +1,45 @@
 import Image from "next/image";
 import Link from "next/link";
 
+const NAV_LINKS = [
+  { label: "About", href: "/about" },
+  { label: "Services", href: "/services" },
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "Careers", href: "/careers" },
+  { label: "Contact", href: "/contact" },
+];
+
 const SERVICE_LINKS = [
   { label: "Web Development", slug: "website-development" },
   { label: "UI/UX Design", slug: "ui-ux-design" },
-  { label: "Branding", slug: "branding" },
-  { label: "Shopify", slug: "shopify" },
+  { label: "Digital Solutions", slug: "digital-solutions" },
+  { label: "AI Solutions", slug: "ai-solutions" },
+  { label: "Cyber Security & VAPT", slug: "cyber-security" },
 ];
 
-const BUSINESS_FEATURES = [
-  { label: "Data-Based Chatbot Training", href: "/services" },
-  { label: "Model Fine-Tuning", href: "/services" },
-  { label: "Sales & Customer Service Smart Agents", href: "/services" },
+const AWS_BADGES = [
+  {
+    src: "/aws-cloud-quest-cloud-practitioner-training-badge.png",
+    alt: "AWS Cloud Quest Cloud Practitioner",
+  },
+  {
+    src: "/aws-knowledge-security-champion-training-badge.png",
+    alt: "AWS Knowledge Security Champion",
+  },
+  {
+    src: "/aws-partner-public-sector-for-sellers-business.png",
+    alt: "AWS Partner Public Sector for Sellers",
+  },
+  {
+    src: "/aws-partner-sales-accreditation-training-badge.png",
+    alt: "AWS Partner Sales Accreditation",
+  },
+];
+
+const LEGAL_LINKS = [
+  { label: "Privacy Policy", href: "/privacy-policy" },
+  { label: "Terms of Service", href: "/terms-of-service" },
+  { label: "Cookie Policy", href: "/cookie-policy" },
 ];
 
 const SOCIAL_LINKS = [
@@ -43,121 +71,140 @@ const SOCIAL_LINKS = [
     ),
   },
   {
-    label: "Twitter",
-    href: "https://twitter.com",
+    label: "Facebook",
+    href: "https://www.facebook.com/share/1DHd1rZUkd/",
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.3 4.3 0 0 0 1.88-2.38 8.59 8.59 0 0 1-2.72 1.04 4.28 4.28 0 0 0-7.32 3.91A12.16 12.16 0 0 1 3 4.79a4.28 4.28 0 0 0 1.32 5.72 4.24 4.24 0 0 1-1.94-.54v.05a4.28 4.28 0 0 0 3.43 4.2 4.27 4.27 0 0 1-1.93.07 4.29 4.29 0 0 0 4 2.97A8.59 8.59 0 0 1 2 19.54a12.13 12.13 0 0 0 6.56 1.92c7.88 0 12.2-6.53 12.2-12.2 0-.19 0-.37-.01-.56A8.72 8.72 0 0 0 22.46 6z" />
+        <path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.87.24-1.46 1.49-1.46H16.7V4.96c-.3-.04-1.33-.12-2.52-.12-2.5 0-4.2 1.53-4.2 4.33V11H7.3v3h2.68v8h3.52z" />
       </svg>
     ),
   },
 ];
 
+function FooterLinks({ title, children }) {
+  return (
+    <div>
+      <h3 className="text-[1rem] font-medium text-white">{title}</h3>
+      {children}
+    </div>
+  );
+}
+
 export default function Footer() {
   return (
-    <footer className="bg-[#0A0A14] pt-16 pb-8 border-t border-white/10">
-      <div className="container mx-auto px-6">
-        {/* Top section: Logo + Description | Services | Business Features */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
-          {/* Logo & Description */}
-          <div className="md:col-span-5">
-            <Link href="/" className="inline-flex items-center mb-5">
-              <Image
-                src="/ags_logo.png"
-                alt="AGS logo"
-                width={132}
-                height={48}
-                className="h-auto w-[100px] sm:w-[110px]"
-              />
-            </Link>
-            <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
-              Modern design, seamless user experience, and optimized SEO to turn
-              your ideas into high-performing digital platforms.
-            </p>
-          </div>
+    <footer className="relative w-full px-6 pb-10 pt-0 sm:px-8 lg:px-26">
+      {/* Main links */}
+      <div className="grid grid-cols-1 gap-10 py-10 sm:py-12 md:grid-cols-[1.5fr_0.8fr_0.8fr_1fr] md:gap-8 lg:gap-12">
+        <div className="max-w-[360px]">
+          <Link href="/" className="inline-flex items-center">
+            <Image
+              src="/ags_logo.png"
+              alt="AGS logo"
+              width={132}
+              height={48}
+              className="h-auto w-[108px] sm:w-[120px]"
+            />
+          </Link>
+          <p className="mt-4 text-[0.95rem] leading-[1.7] text-white/60">
+            Modern design, seamless user experience, and optimized solutions —
+            built on AWS and Google Cloud infrastructure.
+          </p>
 
-          {/* Services */}
-          <div className="md:col-span-3">
-            <h3 className="text-white font-semibold mb-5">Services</h3>
-            <ul className="space-y-3">
-              {SERVICE_LINKS.map((item) => (
-                <li key={item.label}>
-                  <Link
-                    href={`/services/${item.slug}`}
-                    className="text-gray-400 text-sm hover:text-white transition-colors"
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Business Features */}
-          <div className="md:col-span-4">
-            <h3 className="text-white font-semibold mb-5">
-              Business Features
-            </h3>
-            <ul className="space-y-3">
-              {BUSINESS_FEATURES.map((item) => (
-                <li key={item.label}>
-                  <Link
-                    href={item.href}
-                    className="text-gray-400 text-sm hover:text-white transition-colors"
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          <div className="mt-6 flex items-center gap-6">
+            <div className="relative h-6 w-14">
+              <Image src="/aws.png" alt="AWS" fill sizes="56px" className="object-contain object-left opacity-90" />
+            </div>
+            <div className="relative h-6 w-32">
+              <Image src="/google-cloud-image.png" alt="Google Cloud" fill sizes="128px" className="object-contain object-left opacity-90" />
+            </div>
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          {/* Left: Copyright + Policy links */}
-          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
-            <p className="text-gray-500 text-sm">
-              © {new Date().getFullYear()} Amrut Global Solutions Pvt. Ltd. All
-              rights reserved.
-            </p>
-            <div className="flex items-center gap-6 text-sm">
-              <Link
-                href="/privacy-policy"
-                className="text-gray-400 hover:text-white transition-colors"
-              >
-                Privacy Policy
-              </Link>
-              <Link
-                href="/terms-of-service"
-                className="text-gray-400 hover:text-white transition-colors"
-              >
-                Terms of Service
-              </Link>
-              <Link
-                href="/cookie-policy"
-                className="text-gray-400 hover:text-white transition-colors"
-              >
-                Cookie Policy
-              </Link>
-            </div>
-          </div>
-
-          {/* Right: Social icons */}
-          <div className="flex items-center gap-4">
-            {SOCIAL_LINKS.map((social) => (
-              <a
-                key={social.label}
-                href={social.href}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={social.label}
-                className="text-gray-400 hover:text-white transition-colors"
-              >
-                {social.icon}
-              </a>
+        <FooterLinks title="Company">
+          <ul className="mt-4 space-y-2.5">
+            {NAV_LINKS.map((item) => (
+              <li key={item.label}>
+                <Link href={item.href} className="text-[0.92rem] text-white/65 transition hover:text-white">
+                  {item.label}
+                </Link>
+              </li>
             ))}
+          </ul>
+        </FooterLinks>
+
+        <FooterLinks title="Services">
+          <ul className="mt-4 space-y-2.5">
+            {SERVICE_LINKS.map((item) => (
+              <li key={item.label}>
+                <Link href={`/services/${item.slug}`} className="text-[0.92rem] text-white/65 transition hover:text-white">
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </FooterLinks>
+
+        <FooterLinks title="Get in touch">
+          <div className="mt-4 space-y-3 text-[0.92rem] text-white/65">
+            <a href="tel:+919038130595" className="block transition hover:text-white">
+              +91 90381 30595
+            </a>
+            <a href="mailto:hello@amrutglobalsolutions.com" className="block transition hover:text-white">
+              hello@amrutglobalsolutions.com
+            </a>
+            <p className="leading-[1.6]">
+              1119A, PS QUBE, Newtown,
+              <br />
+              Kolkata, West Bengal 700161
+            </p>
           </div>
+        </FooterLinks>
+      </div>
+
+      {/* AWS badges — compact row */}
+      <div className="border-t border-white/10 py-8">
+        <p className="mb-5 text-[0.72rem] uppercase tracking-[0.18em] text-white/35">
+          AWS Certified & Trained
+        </p>
+        <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+          {AWS_BADGES.map((badge) => (
+            <div key={badge.src} className="relative h-[72px] w-[72px] shrink-0 sm:h-[80px] sm:w-[80px]">
+              <Image
+                src={badge.src}
+                alt={badge.alt}
+                fill
+                sizes="80px"
+                className="object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Bottom bar */}
+      <div className="flex flex-col gap-5 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-3 text-[0.8rem] text-white/45 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-6">
+          <span>&copy; {new Date().getFullYear()} Amrut Global Solutions Pvt. Ltd.</span>
+          {LEGAL_LINKS.map((item) => (
+            <Link key={item.label} href={item.href} className="transition hover:text-white/80">
+              {item.label}
+            </Link>
+          ))}
+        </div>
+
+        <div className="flex items-center gap-5">
+          {SOCIAL_LINKS.map((social) => (
+            <a
+              key={social.label}
+              href={social.href}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={social.label}
+              className="text-white/55 transition hover:text-white"
+            >
+              {social.icon}
+            </a>
+          ))}
         </div>
       </div>
     </footer>

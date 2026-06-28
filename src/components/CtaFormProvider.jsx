@@ -19,6 +19,7 @@ const SERVICE_OPTIONS = [
   "AI-Powered Digital Marketing",
   "Web App Development",
   "AI Consulting & Training",
+  "Cyber Security & VAPT",
   "Website & Application Security",
   "Business Security & Data Protection",
   "Cyber Security Audits",

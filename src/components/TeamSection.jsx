@@ -33,11 +33,7 @@ const teamMembers = [
     name: "Sayan Bhattacharjee",
     department: "Design",
   },
-  {
-    name: "Sristi Bhattacharyya",
-    department: "Development",
-  },
-  {
+{
     name: "Pradip Mondal",
     department: "Design",
   },

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useCtaForm } from "@/components/CtaFormProvider";
+import ServiceVisual from "@/components/ServiceVisual";
 import CTASection from "@/components/CTASection";
 
 const servicesData = [
@@ -11,7 +12,7 @@ const servicesData = [
     slug: "website-development",
     description:
       "We craft high-performance websites tailored to your brand identity and business goals. From sleek corporate sites to complex e-commerce platforms, our development team delivers pixel-perfect, lightning-fast experiences that convert visitors into customers.",
-    image: "/Website.png",
+    visual: "web",
     bullets: [
       "Custom Website Design",
       "E-Commerce Development",
@@ -26,7 +27,7 @@ const servicesData = [
     slug: "ui-ux-design",
     description:
       "Great design is more than aesthetics — it's about creating intuitive, accessible experiences that delight users. Our design team combines user research with creative excellence to deliver interfaces and visuals that elevate your brand.",
-    image: "/image 1.png",
+    visual: "design",
     bullets: [
       "User Research & Wireframing",
       "Interactive Prototyping",
@@ -41,7 +42,7 @@ const servicesData = [
     slug: "digital-solutions",
     description:
       "Navigate the digital landscape with confidence. We provide end-to-end digital strategy and marketing solutions that drive measurable growth, helping you reach the right audience with the right message at the right time.",
-    image: "/image 3.png",
+    visual: "digital",
     bullets: [
       "Digital Strategy Consulting",
       "Marketing Automation",
@@ -56,7 +57,7 @@ const servicesData = [
     slug: "mobile-app-development",
     description:
       "Bring your ideas to life on every screen. We build robust, scalable mobile applications for iOS and Android that deliver seamless experiences — from concept and design through launch and ongoing support.",
-    image: "/image 5.png",
+    visual: "mobile",
     bullets: [
       "iOS & Android Development",
       "Cross-Platform Apps",
@@ -71,7 +72,7 @@ const servicesData = [
     slug: "ai-solutions",
     description:
       "Unlock the power of artificial intelligence to automate processes, uncover insights, and create competitive advantages. Our AI experts design and deploy intelligent systems that transform how your business operates.",
-    image: "/image 6.png",
+    visual: "ai",
     bullets: [
       "AI Strategy & Consulting",
       "Machine Learning Models",
@@ -79,6 +80,21 @@ const servicesData = [
       "Computer Vision",
       "AI-Powered Analytics",
       "Intelligent Automation",
+    ],
+  },
+  {
+    title: "Cyber Security & VAPT",
+    slug: "cyber-security",
+    description:
+      "Protect your applications, infrastructure, and customer data with rigorous security assessments and expert consultation. Our VAPT specialists uncover vulnerabilities before attackers do — and deliver clear, actionable remediation roadmaps aligned with industry standards.",
+    visual: "security",
+    bullets: [
+      "Vulnerability Assessment (VA)",
+      "Penetration Testing (PT)",
+      "Web & API Security Testing",
+      "Cloud Security Assessment",
+      "Security Consultation",
+      "Compliance Readiness (ISO 27001)",
     ],
   },
 ];
@@ -126,7 +142,7 @@ export default function ServicesPage() {
               Our Services
             </h1>
             <p className="mt-6 text-lg md:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed">
-              End-to-end digital solutions designed to transform your business — from stunning websites and intuitive apps to AI-powered intelligence.
+              End-to-end digital solutions designed to transform your business — from stunning websites and intuitive apps to AI-powered intelligence and enterprise-grade cyber security.
             </p>
             <button
               type="button"
@@ -166,16 +182,9 @@ export default function ServicesPage() {
                       : "lg:flex-row-reverse"
                   }`}
                 >
-                  {/* Image */}
-                  <div className="relative w-full lg:w-1/2 aspect-[4/3] rounded-lg overflow-hidden flex-shrink-0">
-                    <Image
-                      src={service.image}
-                      alt={service.title}
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                      loading={index < 2 ? "eager" : "lazy"}
-                      className="object-cover"
-                    />
+                  {/* Animated visual */}
+                  <div className="w-full lg:w-1/2 flex-shrink-0">
+                    <ServiceVisual variant={service.visual} label={service.title} />
                   </div>
 
                   {/* Text Content */}
