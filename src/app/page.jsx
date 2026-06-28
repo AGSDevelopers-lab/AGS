@@ -6,7 +6,6 @@ import AwsSection from "@/components/aws";
 import GcpSection from "@/components/gcp";
 import ProductsSection from "@/components/ProductsSection";
 import FeaturedWorks from "@/components/FeaturedWorks";
-import TeamSection from "@/components/TeamSection";
 import Testimonials from "@/components/Testimonials";
 import CTASection from "@/components/CTASection";
 import CertificationsSection from "@/components/CertificationsSection";
@@ -100,9 +99,6 @@ export default function Home() {
         </ScrollReveal>
         <ScrollReveal direction="up" delay={150}>
           <FeaturedWorks />
-        </ScrollReveal>
-        <ScrollReveal direction="up" delay={150}>
-          <TeamSection />
         </ScrollReveal>
         <ScrollReveal direction="fade" delay={200}>
           <Testimonials />

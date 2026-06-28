@@ -22,7 +22,7 @@ const CONTACT_INFO = [
   {
     title: "Call Us",
     value: "+91 9038130595",
-    hint: "Mon–Fri, 10am–7pm IST",
+    hint: "Mon–Fri, 10am–6pm IST",
     href: "tel:+919038130595",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -32,7 +32,7 @@ const CONTACT_INFO = [
   },
   {
     title: "Visit Us",
-    value: "Kolkata, India",
+    value: "1119A, PS QUBE, Newtown, Kolkata, WB 700161",
     hint: "Available for remote clients worldwide",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -43,7 +43,7 @@ const CONTACT_INFO = [
   },
   {
     title: "Working Hours",
-    value: "Mon – Fri, 10:00 – 19:00",
+    value: "Mon – Fri, 10:00 – 18:00",
     hint: "Weekend support for active projects",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">

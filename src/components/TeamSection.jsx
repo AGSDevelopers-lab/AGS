@@ -24,29 +24,6 @@ const directors = [
   },
 ];
 
-const teamMembers = [
-  {
-    name: "Piyali Das",
-    department: "Operations",
-  },
-  {
-    name: "Sayan Bhattacharjee",
-    department: "Design",
-  },
-{
-    name: "Pradip Mondal",
-    department: "Design",
-  },
-  {
-    name: "Shrestha Samadder",
-    department: "Creative",
-  },
-  {
-    name: "Abhijit Manna",
-    department: "Marketing",
-  },
-];
-
 function LinkedInIcon() {
   return (
     <svg
@@ -101,20 +78,7 @@ function DirectorCard({ director }) {
   );
 }
 
-function TeamMemberCard({ member }) {
-  return (
-    <article className="group relative overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-[#0b0f1a] to-[#141023] flex flex-col items-center justify-center p-6 sm:p-8 hover:border-white/20 transition-colors">
-      <div className="text-center">
-        <h3 className="text-[0.95rem] font-medium leading-tight tracking-[-0.03em] text-white sm:text-[1.05rem]">
-          {member.name}
-        </h3>
-        <span className="mt-2 inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-white/85 backdrop-blur-sm">
-          {member.department}
-        </span>
-      </div>
-    </article>
-  );
-}
+
 
 export default function TeamSection() {
   return (
@@ -142,17 +106,7 @@ export default function TeamSection() {
             </div>
           </div>
 
-          <div className="mt-10 sm:mt-14">
-            <h3 className="bg-[linear-gradient(90deg,#9795FF_0%,#FFFFFF_42%,#FFFFFF_59%,#BE9FFF_100%)] bg-clip-text pb-2 text-[2.1rem] font-normal leading-[1.03] tracking-[-0.06em] text-transparent sm:text-[2.8rem] lg:text-[3.9rem]">
-              Meet the Driving Force
-            </h3>
 
-            <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-5">
-              {teamMembers.map((member) => (
-                <TeamMemberCard key={member.name} member={member} />
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </section>
