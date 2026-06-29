@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import { useCtaForm } from "@/components/CtaFormProvider";
 import CTASection from "@/components/CTASection";
 
@@ -151,6 +152,18 @@ function ProjectCard({ project }) {
 }
 
 export default function PortfolioPage() {
+  const [filter, setFilter] = useState("All");
+
+  const categories = ["All", "Web Development", "App Development", "Design"];
+
+  const filteredProjects = projects.filter((project) => {
+    if (filter === "All") return true;
+    if (filter === "Web Development" && project.label.includes("Website")) return true;
+    if (filter === "App Development" && project.label.includes("App")) return true;
+    if (filter === "Design" && project.label.includes("Design")) return true;
+    return false;
+  });
+
   return (
     <main className="relative flex min-h-screen flex-col overflow-hidden bg-black pb-0">
       <div className="pointer-events-none absolute inset-0 z-0">
@@ -198,8 +211,25 @@ export default function PortfolioPage() {
 
         <section className="relative w-full px-6 pb-20 sm:px-8 lg:px-26">
           <div className="relative mx-auto max-w-[1280px]">
+            {/* Filter Navigation */}
+            <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setFilter(cat)}
+                  className={`px-5 py-2 text-[0.85rem] font-medium rounded-full transition-all duration-300 ${
+                    filter === cat
+                      ? "bg-white text-black"
+                      : "bg-white/5 text-white/70 hover:bg-white/10 hover:text-white"
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+
             <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-              {projects.map((project) => (
+              {filteredProjects.map((project) => (
                 <ProjectCard key={project.name} project={project} />
               ))}
             </div>
