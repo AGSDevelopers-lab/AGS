@@ -538,7 +538,7 @@ export default function CareersPage() {
                   Let&apos;s work with Us
                 </h2>
                 <p className="text-white/55 text-[0.95rem] font-light max-w-lg leading-relaxed">
-                  Blog writing is a Magical Content of Freelance, who provides the services to companies and help them reach their goals by putting digital experiences.
+                  Join a team of innovators and creators who are passionate about building digital products that transform businesses and elevate user experiences.
                 </p>
               </div>
               <button

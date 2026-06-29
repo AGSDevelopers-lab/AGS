@@ -161,7 +161,7 @@ export default function ServiceDetailClient({ data }) {
           <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-[#020205] to-transparent z-20 pointer-events-none" />
           
           <div className="flex gap-16 w-max animate-auto-scroll items-center py-6 px-16">
-            {[1, 2].map((group) => (
+            {[1, 2, 3, 4].map((group) => (
               <div key={group} className="flex gap-16 items-center flex-shrink-0">
                 <div className="text-xl font-bold text-white/50 tracking-wider flex items-center gap-2"><div className="w-8 h-8 bg-white/20 rounded-full"></div>oliferamedia</div>
                 <div className="text-2xl font-bold text-white/70">हिमालय दर्पण</div>
@@ -169,6 +169,10 @@ export default function ServiceDetailClient({ data }) {
                 <div className="text-xl font-bold text-white/50 tracking-wider flex items-center gap-2"><div className="w-6 h-6 border-2 border-white/50 rounded-sm transform rotate-45"></div>Farz Academy</div>
                 <div className="text-3xl font-black text-white/70 tracking-tighter">JPNR</div>
                 <div className="text-xl font-bold text-white/50 tracking-wider flex items-center gap-2"><div className="w-8 h-8 border border-white/50 rounded-full flex items-center justify-center text-xs">REI</div>RENUKA EYE INSTITUTE</div>
+                <div className="text-2xl font-light text-white/60 tracking-widest uppercase">Mangal Materials</div>
+                <div className="text-xl font-bold text-white/50 tracking-wider flex items-center gap-2"><div className="w-5 h-5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-sm"></div>TotoJan</div>
+                <div className="text-xl font-serif italic text-white/60">Apex Ventures</div>
+                <div className="text-2xl font-bold text-white/70 tracking-tighter flex items-center gap-1">Tech<span className="text-white/30 font-light">Global</span></div>
               </div>
             ))}
           </div>
