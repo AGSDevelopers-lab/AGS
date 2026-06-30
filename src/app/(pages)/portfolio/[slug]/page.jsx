@@ -142,6 +142,76 @@ const PORTFOLIO_DETAIL_DATA = {
       { name: "Warm Charcoal", hex: "#1F1A14", desc: "Background canvas mimicking rich agricultural soil and organic tea leaves." },
       { name: "Ivory Silk", hex: "#FAFAFA", desc: "Clean typography contrast tone mimicking luxury tea packaging elements." }
     ]
+  },
+  "bhairal": {
+    name: "Bhairal",
+    label: "Website Development",
+    tags: ["React", "AWS", "Node.js"],
+    bgTheme: "from-[#0a0a0a] via-[#111] to-[#0a0a0a]",
+    accentColor: "#3B82F6",
+    heroImage: "/ags1/Bhairal.png",
+    figmaUrl: "#",
+    tagline: "The first influencer platform for freelancing. Find and hire top creators.",
+    about: "Bhairal is an innovative influencer platform designed to connect brands with top freelance creators seamlessly. It provides a robust marketplace for transparent collaboration.",
+    challenge: "Creating a reliable and scalable platform capable of handling real-time creator matches, secure payments, and large media portfolio uploads without performance degradation.",
+    research: [
+      { metric: "100k+", label: "Concurrent users supported with zero downtime." },
+      { metric: "3x", label: "Increase in creator engagement speed." },
+      { metric: "99%", label: "Uptime on media delivery networks." }
+    ],
+    sitemap: [
+      { node: "Creator Hub", children: ["Portfolio Dashboard", "Analytics", "Earnings"] },
+      { node: "Brand Portal", children: ["Discovery Engine", "Campaign Manager", "Invoices"] },
+      { node: "Marketplace", children: ["Search & Filter", "Messaging", "Contracts"] }
+    ],
+    wireframes: [
+      { name: "Discovery Engine", desc: "A robust search interface allowing brands to filter creators by niche, engagement rate, and platform." },
+      { name: "Creator Dashboard", desc: "A centralized hub for freelancers to manage their active campaigns and track analytics." }
+    ],
+    finalUi: [
+      { title: "Sleek Modern UI", desc: "A dark-themed interface with vibrant blue accents to inspire trust and creativity." },
+      { title: "Seamless Interactions", desc: "Fluid transitions and micro-interactions that make browsing creator profiles engaging." }
+    ],
+    palette: [
+      { name: "Trust Blue", hex: "#3B82F6", desc: "Primary accent color symbolizing professional reliability." },
+      { name: "Deep Charcoal", hex: "#111111", desc: "Background canvas to make creator media pop." },
+      { name: "Pure White", hex: "#FFFFFF", desc: "High contrast text for optimal readability." }
+    ]
+  },
+  "himalayan-darpan": {
+    name: "Himalayan Darpan",
+    label: "Website Development",
+    tags: ["React", "AWS", "Node.js"],
+    bgTheme: "from-[#0a0a0a] via-[#111] to-[#0a0a0a]",
+    accentColor: "#EF4444",
+    heroImage: "/ags1/Himalayn Darpan.png",
+    figmaUrl: "#",
+    tagline: "A digital news platform delivering regional and international news.",
+    about: "Himalayan Darpan provides a modern, lightning-fast, and accessible digital news reading experience tailored for both regional readers and global audiences.",
+    challenge: "Ensuring instantaneous content delivery and optimal SEO indexing for high volumes of daily news articles across varying network conditions and devices.",
+    research: [
+      { metric: "< 1s", label: "Average page load time across mobile networks." },
+      { metric: "5x", label: "Increase in daily organic search traffic." },
+      { metric: "85%", label: "Reduction in bounce rate for long-form articles." }
+    ],
+    sitemap: [
+      { node: "News Categories", children: ["Regional", "National", "International"] },
+      { node: "Media Hub", children: ["Video Reports", "Photo Galleries", "Podcasts"] },
+      { node: "User Portal", children: ["Saved Articles", "Newsletter Preferences", "Comments"] }
+    ],
+    wireframes: [
+      { name: "Dynamic Article Grid", desc: "An intelligent masonry layout prioritizing breaking news and trending stories based on real-time analytics." },
+      { name: "Reading Mode", desc: "A distraction-free article view optimized for long-form reading with adjustable typography." }
+    ],
+    finalUi: [
+      { title: "Editorial Elegance", desc: "A clean, typography-driven design reminiscent of premium print media, adapted for the digital screen." },
+      { title: "Accessible Navigation", desc: "Intuitive categorization and sticky headers to ensure readers can effortlessly jump between news sections." }
+    ],
+    palette: [
+      { name: "Alert Red", hex: "#EF4444", desc: "Attention-grabbing accent for breaking news and primary actions." },
+      { name: "Slate Black", hex: "#0F172A", desc: "Softened dark background for comfortable extended reading." },
+      { name: "Off-White", hex: "#F8FAFC", desc: "Primary text color designed to reduce eye strain." }
+    ]
   }
 };
 

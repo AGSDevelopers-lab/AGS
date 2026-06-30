@@ -50,19 +50,21 @@ export default function PortfolioDetailClient({ project }) {
 
         {/* ── HERO ── */}
         <section className="relative px-6 pt-20 pb-16 sm:px-8 lg:px-26 max-w-[1400px] mx-auto">
-          <Link
-            href="/portfolio"
-            className="group inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] uppercase mb-10 transition-colors text-white/50 hover:text-white"
-          >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="transition-transform group-hover:-translate-x-1">
-              <path d="M19 12H5M12 19l-7-7 7-7" />
-            </svg>
-            <span>Back to Portfolio</span>
-          </Link>
+          <ScrollReveal direction="down" delay={0}>
+            <Link
+              href="/portfolio"
+              className="group inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] uppercase mb-10 transition-colors text-white/50 hover:text-white"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="transition-transform group-hover:-translate-x-1">
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+              </svg>
+              <span>Back to Portfolio</span>
+            </Link>
+          </ScrollReveal>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left: text */}
-            <div>
+            <ScrollReveal direction="left" delay={100} className="flex flex-col items-start">
               <span
                 className="inline-flex rounded-full border px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.1em]"
                 style={{
@@ -94,21 +96,23 @@ export default function PortfolioDetailClient({ project }) {
                   </span>
                 ))}
               </div>
-            </div>
+            </ScrollReveal>
 
             {/* Right: hero image */}
             {project.heroImage && (
-              <div className="relative w-full aspect-[4/3] rounded-sm overflow-hidden border border-white/8 shadow-[0_30px_80px_rgba(0,0,0,0.6)]">
-                <Image
-                  src={project.heroImage}
-                  alt={`${project.name} showcase`}
-                  fill
-                  sizes="(min-width: 1024px) 50vw, 100vw"
-                  className="object-cover"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-              </div>
+              <ScrollReveal direction="right" delay={200}>
+                <div className="relative w-full aspect-[4/3] rounded-sm overflow-hidden border border-white/8 shadow-[0_30px_80px_rgba(0,0,0,0.6)] bg-[#111]">
+                  <Image
+                    src={project.heroImage}
+                    alt={`${project.name} showcase`}
+                    fill
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    className="object-contain p-2"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+                </div>
+              </ScrollReveal>
             )}
           </div>
 

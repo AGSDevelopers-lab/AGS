@@ -47,6 +47,26 @@ const projects = [
     image: "/product-3.png",
     href: "https://www.figma.com/proto/D9F8w0qbj3yeX1WwhjQTrT/Dhunseri-Case-Study?node-id=1-2&t=zLHzFULkEWQlHTgp-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
   },
+  {
+    name: "Bhairal",
+    slug: "bhairal",
+    label: "Website Development",
+    description:
+      "The first influencer platform for freelancing. Find and hire top creators.",
+    tags: ["React", "AWS", "Node.js"],
+    image: "/ags1/Bhairal.png",
+    href: "#",
+  },
+  {
+    name: "Himalayan Darpan",
+    slug: "himalayan-darpan",
+    label: "Website Development",
+    description:
+      "A digital news platform delivering regional and international news.",
+    tags: ["React", "AWS", "Node.js"],
+    image: "/ags1/Himalayn Darpan.png",
+    href: "#",
+  },
 ];
 
 function HeroCTA() {
@@ -102,7 +122,7 @@ function ProjectCard({ project }) {
             <Link
               href={`/portfolio/${project.slug}`}
               className="absolute inset-3 bg-contain bg-right bg-no-repeat transition duration-500 group-hover:scale-[1.03]"
-              style={{ backgroundImage: `url(${project.image})` }}
+              style={{ backgroundImage: `url('${project.image}')` }}
             />
             <a
               href={project.href}
@@ -125,17 +145,8 @@ function ProjectCard({ project }) {
           </div>
         </div>
 
-        <div className="min-h-[88px] bg-transparent px-5 py-4 sm:px-6">
-          <Link
-            href={`/portfolio/${project.slug}`}
-            className="text-[1.45rem] leading-none font-medium tracking-[-0.04em] text-white hover:text-white/80 transition-colors"
-          >
-            {project.name}
-          </Link>
-          <p className="mt-3 max-w-[400px] text-[0.85rem] leading-[1.72] text-white/70">
-            {project.description}
-          </p>
-          <div className="mt-4 flex flex-wrap gap-2">
+        <div className="bg-transparent px-5 py-4 sm:px-6">
+          <div className="flex flex-wrap gap-2">
             {project.tags.map((tag) => (
               <span
                 key={tag}
@@ -209,7 +220,7 @@ export default function PortfolioPage() {
           </div>
         </section>
 
-        <section className="relative w-full px-6 pb-20 sm:px-8 lg:px-26">
+        <section className="relative w-full px-6 pt-14 pb-20 sm:pt-20 sm:px-8 lg:px-26">
           <div className="relative mx-auto max-w-[1280px]">
             {/* Filter Navigation */}
             <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
@@ -217,11 +228,10 @@ export default function PortfolioPage() {
                 <button
                   key={cat}
                   onClick={() => setFilter(cat)}
-                  className={`px-5 py-2 text-[0.85rem] font-medium rounded-full transition-all duration-300 ${
-                    filter === cat
+                  className={`px-5 py-2 text-[0.85rem] font-medium rounded-full transition-all duration-300 ${filter === cat
                       ? "bg-white text-black"
                       : "bg-white/5 text-white/70 hover:bg-white/10 hover:text-white"
-                  }`}
+                    }`}
                 >
                   {cat}
                 </button>

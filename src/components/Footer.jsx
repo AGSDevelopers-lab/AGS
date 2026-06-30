@@ -161,26 +161,6 @@ export default function Footer() {
         </FooterLinks>
       </div>
 
-      {/* AWS badges — compact row */}
-      <div className="border-t border-white/10 py-8">
-        <p className="mb-5 text-[0.72rem] uppercase tracking-[0.18em] text-white/35">
-          AWS Certified & Trained
-        </p>
-        <div className="flex flex-wrap items-center gap-3 sm:gap-4">
-          {AWS_BADGES.map((badge) => (
-            <div key={badge.src} className="relative h-[72px] w-[72px] shrink-0 sm:h-[80px] sm:w-[80px]">
-              <Image
-                src={badge.src}
-                alt={badge.alt}
-                fill
-                sizes="80px"
-                className="object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]"
-              />
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* Bottom bar */}
       <div className="flex flex-col gap-5 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex flex-col gap-3 text-[0.8rem] text-white/45 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-6">

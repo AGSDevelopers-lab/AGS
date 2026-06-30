@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import ScrollReveal from "./ScrollReveal";
 
 const directors = [
   {
@@ -19,10 +20,12 @@ const directors = [
   {
     name: "Atish Roy",
     role: "Chief Growth Officer",
-    image: "https://res.cloudinary.com/dhxgwo5r4/image/upload/q_auto/f_auto/v1775113883/Atish_Sir_qcjmrn.png",
+    image:
+      "https://res.cloudinary.com/dhxgwo5r4/image/upload/q_auto/f_auto/v1775113883/Atish_Sir_qcjmrn.png",
     linkedin: "https://www.linkedin.com/in/atishroy/",
   },
 ];
+
 
 function LinkedInIcon() {
   return (
@@ -36,49 +39,49 @@ function LinkedInIcon() {
   );
 }
 
-function DirectorCard({ director }) {
+function DirectorCard({ director, delay = 0 }) {
   return (
-    <article className="group relative mx-auto w-full max-w-xs overflow-hidden border border-white/10 bg-white/4 backdrop-blur-sm">
-      {/* Top accent line that animates in on hover */}
-      <div className="absolute left-0 top-0 z-30 h-0.5 w-0 bg-linear-to-r from-[#9795FF] to-[#BE9FFF] transition-all duration-500 group-hover:w-full" />
+    <ScrollReveal direction="up" delay={delay}>
+      <article className="group relative mx-auto w-full max-w-xs overflow-hidden border border-white/10 bg-white/4 backdrop-blur-sm">
+        {/* Top accent line that animates in on hover */}
+        <div className="absolute left-0 top-0 z-30 h-0.5 w-0 bg-[linear-gradient(90deg,#9795FF_0%,#BE9FFF_100%)] transition-all duration-500 group-hover:w-full" />
 
-      <div className="relative aspect-4/5 overflow-hidden">
-        {/* Background image */}
-        <div
-          className="absolute inset-0 bg-cover bg-top grayscale transition-all duration-700 group-hover:scale-[1.05] group-hover:grayscale-0"
-          style={{ backgroundImage: `url(${director.image})` }}
-        />
+        <div className="relative aspect-[4/5] overflow-hidden">
+          {/* Background image */}
+          <div
+            className="absolute inset-0 bg-cover bg-top grayscale transition-all duration-700 group-hover:scale-[1.05] group-hover:grayscale-0"
+            style={{ backgroundImage: `url(${director.image})` }}
+          />
 
-        {/* Base gradient */}
-        <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/20 to-transparent" />
+          {/* Base gradient */}
+          <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(0,0,0,0.9)_0%,rgba(0,0,0,0.2)_50%,transparent_100%)]" />
 
-        {/* LinkedIn button */}
-        <Link
-          href={director.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={(e) => e.stopPropagation()}
-          className="absolute right-4 top-4 z-20 flex h-9 w-9 -translate-y-1.5 items-center justify-center rounded border border-white/15 bg-[rgba(10,102,194,0.85)] opacity-0 shadow-lg transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 hover:bg-[rgba(10,102,194,1)]"
-        >
-          <LinkedInIcon />
-        </Link>
+          {/* LinkedIn button */}
+          <Link
+            href={director.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="absolute right-4 top-4 z-20 flex h-9 w-9 -translate-y-1.5 items-center justify-center rounded border border-white/15 bg-[rgba(10,102,194,0.85)] opacity-0 shadow-lg transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 hover:bg-[rgba(10,102,194,1)]"
+          >
+            <LinkedInIcon />
+          </Link>
 
-        {/* Name / role block */}
-        <div className="absolute inset-x-0 bottom-0 z-10 translate-y-2 p-6 transition-transform duration-500 group-hover:translate-y-0">
-          <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-[#9795FF]">
-            {director.role}
-          </p>
-          <h3 className="mt-1.5 text-[1.35rem] font-medium leading-tight tracking-[-0.04em] text-white lg:text-[1.25rem]">
-            {director.name}
-          </h3>
-          <div className="mt-3 h-px w-0 bg-white/20 transition-all duration-500 delay-75 group-hover:w-full" />
+          {/* Name / role block */}
+          <div className="absolute inset-x-0 bottom-0 z-10 translate-y-2 p-6 transition-transform duration-500 group-hover:translate-y-0">
+            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-[#9795FF]">
+              {director.role}
+            </p>
+            <h3 className="mt-1.5 text-[1.35rem] font-medium leading-tight tracking-[-0.04em] text-white lg:text-[1.25rem]">
+              {director.name}
+            </h3>
+            <div className="mt-3 h-px w-0 bg-white/20 transition-all duration-500 delay-75 group-hover:w-full" />
+          </div>
         </div>
-      </div>
-    </article>
+      </article>
+    </ScrollReveal>
   );
 }
-
-
 
 export default function TeamSection() {
   return (
@@ -88,24 +91,24 @@ export default function TeamSection() {
     >
       <div className="relative w-full px-6 py-4 sm:px-8 sm:py-6 lg:px-26 lg:py-8">
         <div className="relative">
+          {/* Leadership Team */}
           <div className="mt-4 grid gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1.8fr)] lg:items-start lg:gap-10">
-            <div className="max-w-105 pt-1">
+            <ScrollReveal direction="fade" className="max-w-[420px] pt-1">
               <h2 className="mt-3 bg-[linear-gradient(90deg,#9795FF_0%,#FFFFFF_42%,#FFFFFF_59%,#BE9FFF_100%)] bg-clip-text pb-2 text-[2.35rem] font-normal leading-[1.02] tracking-[-0.06em] text-transparent sm:text-[3rem] lg:text-[3.9rem]">
                 Our Leadership Team
               </h2>
-              <p className="mt-3 max-w-95 text-[0.92rem] leading-[1.7] text-white/70 sm:text-[1rem]">
+              <p className="mt-3 max-w-[380px] text-[0.92rem] leading-[1.7] text-white/70 sm:text-[1rem]">
                 Meet the people guiding AGS with strategy, creativity, and
                 execution across every stage of our client work.
               </p>
-            </div>
+            </ScrollReveal>
 
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {directors.map((director) => (
-                <DirectorCard key={director.name} director={director} />
+              {directors.map((director, idx) => (
+                <DirectorCard key={director.name} director={director} delay={idx * 150} />
               ))}
             </div>
           </div>
-
 
         </div>
       </div>

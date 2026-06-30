@@ -6,7 +6,9 @@ const SERVICES_DETAIL_DATA = {
   "website-development": {
     title: "Website Development",
     subtitle: "High-Performance Web Platforms Engineered for Real Growth",
-    heroImage: "/services/Website.png",
+    heroImage: "/ags1/website development hero.png",
+    frontCubeImage: "/ags1/website development page front cube.png",
+    backCubeImage: "/ags1/website development page back cube.png",
     visual: "web",
     stats: [
       { value: "< 1.2s", label: "Average Load Time" },
@@ -103,7 +105,9 @@ const SERVICES_DETAIL_DATA = {
   "ui-ux-design": {
     title: "UI/UX & Graphic Design",
     subtitle: "Human-Centric Digital Interfaces Built to Captivate",
-    heroImage: "/services/UX.png",
+    heroImage: "/ags1/ui-ux hero.png",
+    frontCubeImage: "/ags1/ui-ux page front cube.png",
+    backCubeImage: "/ags1/uiu-ux page back cube.png",
     visual: "design",
     stats: [
       { value: "250+", label: "Custom Screens Designed" },
@@ -189,7 +193,9 @@ const SERVICES_DETAIL_DATA = {
   "digital-solutions": {
     title: "Digital Solutions",
     subtitle: "Accelerate Customer Acquisition & Scale Operations",
-    heroImage: "/services/Frame 1597884173.png",
+    heroImage: "/ags1/digital solutions page hero .png",
+    frontCubeImage: "/ags1/digital solution page front cube .png",
+    backCubeImage: "/ags1/digital solution back cube.png",
     visual: "digital",
     stats: [
       { value: "10x", label: "Average Client ROI Lift" },
@@ -277,7 +283,9 @@ const SERVICES_DETAIL_DATA = {
   "mobile-app-development": {
     title: "Mobile App Development",
     subtitle: "Robust iOS & Android App Engineering That Scales",
-    heroImage: "/services/Frame 1597884174.png",
+    heroImage: "/ags1/mobile app development hero.png",
+    frontCubeImage: "/ags1/mobile app development page front cube.png",
+    backCubeImage: "/ags1/mobile app development page back cube.png",
     visual: "mobile",
     stats: [
       { value: "99.9%", label: "Production Crash-Free Rate" },
@@ -366,7 +374,9 @@ const SERVICES_DETAIL_DATA = {
   "ai-solutions": {
     title: "AI Solutions",
     subtitle: "Empower Business Workflows with Practical Intelligence",
-    heroImage: "/services/Frame 1597884175.png",
+    heroImage: "/ags1/ai solution page hero.png",
+    frontCubeImage: "/ags1/ai solution page front cube .png",
+    backCubeImage: "/ags1/ai solutions page back cube .png",
     visual: "ai",
     stats: [
       { value: "65%", label: "Workflow Time Reduced" },
@@ -475,7 +485,9 @@ const SERVICES_DETAIL_DATA = {
   "cyber-security": {
     title: "Cyber Security & VAPT",
     subtitle: "Identify Threats Early. Harden Defenses. Stay Compliant.",
-    heroImage: "/services/Frame 1597884176.png",
+    heroImage: "/ags1/cyber security hero.png",
+    frontCubeImage: "/ags1/cyber security page front cube.png",
+    backCubeImage: "/ags1/cyber security page back cube.png",
     visual: "security",
     stats: [
       { value: "500+", label: "Vulnerabilities Remediated" },

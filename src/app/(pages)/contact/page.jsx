@@ -171,15 +171,15 @@ export default function ContactPage() {
         {/* HERO */}
         <section className="relative w-full overflow-hidden border-b border-white/10 px-6 pt-24 pb-20 sm:pt-32 sm:pb-28 lg:pt-36 lg:pb-32">
           <Image
-            src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"
+            src="/ags1/contactus hero.png"
             alt=""
             fill
             priority
             sizes="100vw"
-            className="object-cover opacity-25"
+            className="object-cover"
             aria-hidden="true"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/80 to-black" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#020205]/90 via-[#020205]/60 to-[#020205]/90" />
 
           <div className="relative z-10 mx-auto max-w-4xl text-center">
             <span className="text-[0.68rem] uppercase tracking-[0.25em] text-[#7b5cff] font-semibold">
@@ -188,7 +188,7 @@ export default function ContactPage() {
             <h1 className="mt-4 bg-[linear-gradient(90deg,#9795FF_0%,#FFFFFF_42%,#FFFFFF_59%,#BE9FFF_100%)] bg-clip-text pb-2 text-5xl font-light tracking-tight text-transparent md:text-7xl">
               Contact Us
             </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/75 md:text-xl">
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/90 md:text-xl drop-shadow-md">
               Have a project in mind or need a security audit? Tell us about your goals — we typically reply within one business day.
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">

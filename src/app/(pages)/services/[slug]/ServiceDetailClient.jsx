@@ -1,361 +1,310 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 import { useCtaForm } from "@/components/CtaFormProvider";
-import ServiceVisual from "@/components/ServiceVisual";
-import ScrollReveal from "@/components/ScrollReveal";
 
-function normalizeTech(tech) {
-  if (typeof tech === "string") return { name: tech, image: null };
-  return tech;
-}
+const numberWords = ["One", "Two", "Three", "Four", "Five", "Six"];
 
-function TechLogo({ name, image }) {
-  const [error, setError] = useState(false);
-  const initials = name
-    .split(/[\s.&+/]+/)
-    .filter(Boolean)
-    .map((word) => word[0])
-    .join("")
-    .slice(0, 2)
-    .toUpperCase();
-  const showPlaceholder = !image || error;
-
-  if (!showPlaceholder) {
-    return (
-      <Image
-        src={image}
-        alt={name}
-        width={40}
-        height={40}
-        className="h-10 w-auto max-w-[120px] object-contain opacity-80 transition duration-300 hover:opacity-100"
-        onError={() => setError(true)}
-      />
-    );
-  }
-
-  return (
-    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-white/[0.04]">
-      <span className="text-[0.7rem] font-medium text-white/45">{initials}</span>
-    </div>
-  );
-}
-
-function TechStackGrid({ items }) {
-  const techs = items.map(normalizeTech);
-
-  return (
-    <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-      {techs.map((tech) => (
-        <div
-          key={tech.name}
-          className="flex flex-col items-center gap-3 rounded-lg bg-white/[0.02] px-3 py-4 transition duration-300 hover:bg-white/[0.04]"
-        >
-          <TechLogo name={tech.name} image={tech.image} />
-          <span className="text-center text-[0.78rem] font-medium leading-tight text-white/75">
-            {tech.name}
-          </span>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-function HeroStats({ data }) {
-  const stats =
-    data.stats ??
-    (data.statValue && data.statLabel
-      ? [{ value: data.statValue, label: data.statLabel }]
-      : []);
-
-  if (stats.length === 0) return null;
-
-  return (
-    <div className="mt-10">
-      <p className="mb-3 text-[0.65rem] uppercase tracking-[0.2em] text-[#9795FF]/80">
-        Performance benchmarks
-      </p>
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 max-w-xl">
-        {stats.map((stat) => (
-          <div
-            key={stat.label}
-            className="border border-white/10 bg-white/[0.03] px-4 py-3.5 backdrop-blur-sm transition duration-300 hover:border-[#9795FF]/30 hover:bg-white/[0.05]"
-          >
-            <span className="block text-2xl font-light tracking-tight text-white sm:text-[1.65rem]">
-              {stat.value}
-            </span>
-            <span className="mt-1 block text-[0.62rem] uppercase leading-snug tracking-[0.12em] text-white/45">
-              {stat.label}
-            </span>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
+const industryCards = [
+  { title: "Fintech", image: "/image 6.png", desc: "Deliver secure, high-performance financial solutions and seamless payment integrations with cutting-edge fintech architectures." },
+  { title: "E-commerce", image: "/image 5.png", desc: "Custom development that drives conversions, reduces cart abandonment, and scales seamlessly across all retail demands." },
+  { title: "Real Estate", image: "/Website.png", desc: "The market dynamics of the real estate sector are changing rapidly and so does customer preference. Reach more clients effectively." },
+  { title: "Professional Service", image: "/image 1.png", desc: "Professional service is a high-demand sector with a strong growth potential. Optimize your online presence to gain more leads." }
+];
 
 export default function ServiceDetailClient({ data }) {
   const { openForm } = useCtaForm();
+  const [openAccordion, setOpenAccordion] = useState(null);
+  const [currentIndustry, setCurrentIndustry] = useState(0);
+
+  const toggleAccordion = (index) => {
+    setOpenAccordion(openAccordion === index ? null : index);
+  };
+
+  const nextIndustry = () => {
+    setCurrentIndustry((prev) => (prev === industryCards.length - 2 ? 0 : prev + 1));
+  };
+
+  const prevIndustry = () => {
+    setCurrentIndustry((prev) => (prev === 0 ? industryCards.length - 2 : prev - 1));
+  };
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndustry((prev) => (prev >= industryCards.length - 2 ? 0 : prev + 1));
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
-    <main className="relative flex min-h-screen flex-col overflow-hidden bg-black pb-0">
+    <main className="relative flex min-h-screen flex-col overflow-hidden bg-[#020205] pb-0 font-sans">
       {/* Background Glows */}
       <div className="pointer-events-none absolute inset-0 z-0">
         <div className="absolute inset-0 bg-[linear-gradient(180deg,#000000_0%,#020205_22%,#010103_48%,#000000_100%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_4%_16%,rgba(86,126,255,0.16),rgba(0,0,0,0)_18%),radial-gradient(circle_at_96%_14%,rgba(120,96,255,0.18),rgba(0,0,0,0)_18%),radial-gradient(circle_at_3%_48%,rgba(72,118,255,0.14),rgba(0,0,0,0)_18%),radial-gradient(circle_at_97%_54%,rgba(126,84,255,0.15),rgba(0,0,0,0)_18%)]" />
-        <div className="absolute left-[-15%] top-[10%] h-144 w-144 rounded-full bg-[radial-gradient(circle,rgba(123,92,255,0.22)_0%,rgba(0,0,0,0)_70%)] blur-[90px] mix-blend-screen" />
-        <div className="absolute right-[-15%] top-[25%] h-152 w-152 rounded-full bg-[radial-gradient(circle,rgba(86,126,255,0.2)_0%,rgba(0,0,0,0)_70%)] blur-[95px] mix-blend-screen" />
-        <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-size-[120px_120px]" />
       </div>
 
-      <div className="relative z-10 w-full pt-16 lg:pt-24">
-        {/* HERO SECTION */}
-        <section className="relative w-full px-6 pt-24 pb-20 sm:pt-32 sm:pb-28 lg:pt-36 lg:pb-32 overflow-hidden border-b border-white/10">
-          <div className="mx-auto max-w-[1400px] sm:px-8 lg:px-26">
-            <div className="flex flex-col lg:flex-row gap-12 items-center">
-              {/* Text */}
-              <div className="w-full lg:w-[58%] text-left">
-                <Link
-                  href="/services"
-                  className="group inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] uppercase text-[#7b5cff] mb-6 hover:text-white transition-colors"
-                >
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="transition-transform group-hover:-translate-x-1">
-                    <path d="M19 12H5M12 19l-7-7 7-7" />
-                  </svg>
-                  <span>Our Services</span>
-                </Link>
+      {/* 1. HERO SECTION */}
+      <section className="relative w-full h-[100vh] min-h-[600px] flex items-center pt-24 border-b border-white/10">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={data.heroImage || "/serviceswebsite development.png"}
+            alt="Hero Background"
+            fill
+            sizes="100vw"
+            className="object-cover opacity-40 mix-blend-lighten"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#020205] via-[#020205]/70 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#020205] via-transparent to-[#020205]/40" />
+        </div>
+        <div className="relative z-10 max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-26 w-full">
+          <div className="max-w-2xl text-left">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-light text-white tracking-tight mb-6 leading-[1.1]">
+              {data.title}
+            </h1>
+            <p className="text-[#a4a4af] text-[1.1rem] font-light leading-relaxed mb-10 max-w-xl">
+              {data.intro}
+            </p>
+            <button
+              onClick={() => openForm({ service: data.title })}
+              className="group inline-flex items-center gap-3 border border-white bg-white px-8 py-3.5 font-semibold text-black transition-all duration-500 hover:bg-transparent hover:text-white"
+            >
+              <span>Get Started</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1">
+                <path d="M7 17L17 7M17 7H7M17 7V17" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
 
-                <h1 className="bg-[linear-gradient(90deg,#9795FF_0%,#FFFFFF_42%,#FFFFFF_59%,#BE9FFF_100%)] bg-clip-text pb-2 text-4xl sm:text-6xl font-light tracking-tight text-transparent leading-[1.1]">
-                  {data.title}
-                </h1>
+      {/* 2. SERVICES ACCORDION SECTION */}
+      <section className="w-full py-24 border-b border-white/5 relative">
+        <div className="absolute left-[10%] top-[20%] w-96 h-96 bg-[#7b5cff]/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-26 flex flex-col lg:flex-row gap-16 relative z-10">
+          <div className="w-full lg:w-1/2">
+            <div className="mb-12">
+              <span className="text-[0.85rem] font-medium tracking-[0.2em] uppercase text-[#a4a4af]">Services</span>
+              <h2 className="text-4xl md:text-5xl font-light text-white mt-3 leading-[1.2]">
+                Solutions That Drive Results
+              </h2>
+            </div>
 
-                <p className="mt-4 text-lg sm:text-[1.32rem] text-[#b4b4c0] font-light leading-relaxed max-w-2xl">
-                  {data.subtitle}
-                </p>
-
-                <p className="mt-6 text-[0.98rem] leading-[1.8] text-white/70 font-light max-w-xl">
-                  {data.intro}
-                </p>
-
-                {/* Performance stats */}
-                <HeroStats data={data} />
+            <div className="relative w-full aspect-[4/5] sm:aspect-square md:aspect-[4/3] lg:aspect-square">
+              {/* Top Image */}
+              <div className="absolute top-0 left-0 w-[80%] aspect-video z-0">
+                <Image
+                  src={data.backCubeImage}
+                  alt="Background Cube"
+                  fill
+                  className="object-contain"
+                />
               </div>
-
-              {/* Visual */}
-              <div className="w-full lg:w-[42%] flex-shrink-0">
-                {data.visual ? (
-                  <ServiceVisual variant={data.visual} label={data.title} />
-                ) : (
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-white/10">
-                    <Image
-                      src={data.heroImage}
-                      alt={data.title}
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 40vw"
-                      className="object-cover opacity-90"
-                      priority
-                    />
-                  </div>
-                )}
+              {/* Bottom Image */}
+              <div className="absolute bottom-[10%] right-0 w-[85%] aspect-video z-10">
+                <Image
+                  src={data.frontCubeImage}
+                  alt="Foreground Cube"
+                  fill
+                  className="object-contain drop-shadow-2xl"
+                />
               </div>
             </div>
           </div>
-        </section>
 
-        {/* CAPABILITIES SECTION */}
-        <section className="py-20 border-b border-white/5">
-          <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-26">
-            <ScrollReveal direction="up">
-              <div className="mb-14">
-                <span className="text-[0.68rem] uppercase tracking-[0.25em] text-[#7b5cff] font-semibold">
-                  Core Capabilities
-                </span>
-                <h2 className="text-3xl sm:text-4xl font-light text-white mt-2">
-                  What We Deliver Under This Pillar
-                </h2>
-              </div>
-            </ScrollReveal>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {data.capabilities.map((cap, i) => (
-                <ScrollReveal
-                  key={cap.title}
-                  direction="up"
-                  delay={i * 100}
-                >
-                  <article className="h-full bg-[#121225]/40 border border-white/5 p-8 flex flex-col justify-between hover:border-white/12 transition-all duration-300 rounded-sm">
-                    <div>
-                      <div className="text-[0.68rem] text-[#7b5cff] font-semibold mb-5 font-mono">
-                        {`// CAPABILITY_0${i + 1}`}
-                      </div>
-                      <h3 className="text-lg font-medium text-white mb-3">
-                        {cap.title}
-                      </h3>
-                      <p className="text-[0.88rem] leading-[1.65] text-white/60 font-light">
-                        {cap.desc}
-                      </p>
+          <div className="w-full lg:w-1/2 flex flex-col justify-center">
+            <div className="flex flex-col space-y-1">
+              {data.capabilities.map((cap, index) => (
+                <div key={index} className="border-b border-white/10">
+                  <button
+                    onClick={() => toggleAccordion(index)}
+                    className="w-full py-5 flex items-center justify-between text-left text-white/90 hover:text-white transition-colors"
+                  >
+                    <span className="text-xl font-light tracking-wide">{cap.title}</span>
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      className={`transition-transform duration-300 ${openAccordion === index ? "rotate-180" : ""}`}
+                    >
+                      <path d="M6 9l6 6 6-6" />
+                    </svg>
+                  </button>
+                  {openAccordion === index && (
+                    <div className="pb-5 text-[#a4a4af] font-light text-[0.95rem] leading-relaxed animate-in slide-in-from-top-2 duration-300">
+                      {cap.desc}
                     </div>
-                  </article>
-                </ScrollReveal>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* CLIENTS TICKER */}
-        <section className="py-24 border-b border-white/5 overflow-hidden relative">
-          <div className="text-center mb-16 px-6 relative z-10">
-            <span className="text-[0.85rem] font-medium tracking-[0.2em] uppercase text-[#a4a4af]">Clients</span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-white mt-4 leading-tight">
-              Delivering Value Through Collaboration
-            </h2>
-          </div>
-          <div className="relative w-full max-w-[1400px] mx-auto z-10">
-            <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-[#020205] to-transparent z-20 pointer-events-none" />
-            <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-[#020205] to-transparent z-20 pointer-events-none" />
-            
-            <div className="flex gap-16 w-max animate-auto-scroll items-center py-6 px-16">
-              {[1, 2, 3, 4].map((group) => (
-                <div key={group} className="flex gap-16 items-center flex-shrink-0">
-                  <div className="text-xl font-bold text-white/50 tracking-wider flex items-center gap-2"><div className="w-8 h-8 bg-white/20 rounded-full"></div>oliferamedia</div>
-                  <div className="text-2xl font-bold text-white/70">हिमालय दर्पण</div>
-                  <div className="text-xl font-bold text-white/50 tracking-wider">Dhunseri</div>
-                  <div className="text-xl font-bold text-white/50 tracking-wider flex items-center gap-2"><div className="w-6 h-6 border-2 border-white/50 rounded-sm transform rotate-45"></div>Farz Academy</div>
-                  <div className="text-3xl font-black text-white/70 tracking-tighter">JPNR</div>
-                  <div className="text-xl font-bold text-white/50 tracking-wider flex items-center gap-2"><div className="w-8 h-8 border border-white/50 rounded-full flex items-center justify-center text-xs">REI</div>RENUKA EYE INSTITUTE</div>
-                  <div className="text-2xl font-light text-white/60 tracking-widest uppercase">Mangal Materials</div>
-                  <div className="text-xl font-bold text-white/50 tracking-wider flex items-center gap-2"><div className="w-5 h-5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-sm"></div>TotoJan</div>
-                  <div className="text-xl font-serif italic text-white/60">Apex Ventures</div>
-                  <div className="text-2xl font-bold text-white/70 tracking-tighter flex items-center gap-1">Tech<span className="text-white/30 font-light">Global</span></div>
+                  )}
                 </div>
               ))}
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* PROCESS SECTION */}
-        <section className="py-20 border-b border-white/5">
-          <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-26">
-            <ScrollReveal direction="up">
-              <div className="mb-16 text-center">
-                <span className="text-[0.68rem] uppercase tracking-[0.25em] text-[#7b5cff] font-semibold">
-                  The Blueprint
-                </span>
-                <h2 className="text-3xl sm:text-4xl font-light text-white mt-2">
-                  Our Agile Process Step-by-Step
-                </h2>
+      {/* 3. CLIENTS TICKER */}
+      <section className="py-24 border-b border-white/5 overflow-hidden relative">
+        <div className="text-center mb-16 px-6 relative z-10">
+          <span className="text-[0.85rem] font-medium tracking-[0.2em] uppercase text-[#a4a4af]">Clients</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-white mt-4 leading-tight">
+            Delivering Value Through Collaboration
+          </h2>
+        </div>
+        <div className="relative w-full max-w-[1400px] mx-auto z-10">
+          <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-[#020205] to-transparent z-20 pointer-events-none" />
+          <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-[#020205] to-transparent z-20 pointer-events-none" />
+
+          <div className="flex gap-16 w-max animate-auto-scroll items-center py-6 px-16">
+            {[1, 2, 3, 4].map((group) => (
+              <div key={group} className="flex gap-16 items-center flex-shrink-0">
+                <div className="text-xl font-bold text-white/50 tracking-wider flex items-center gap-2"><div className="w-8 h-8 bg-white/20 rounded-full"></div>oliferamedia</div>
+                <div className="text-2xl font-bold text-white/70">αñ╣αñ┐αñ«αñ╛αñ▓αñ» αñªαñ░αÑìαñ¬αñú</div>
+                <div className="text-xl font-bold text-white/50 tracking-wider">Dhunseri</div>
+                <div className="text-xl font-bold text-white/50 tracking-wider flex items-center gap-2"><div className="w-6 h-6 border-2 border-white/50 rounded-sm transform rotate-45"></div>Farz Academy</div>
+                <div className="text-3xl font-black text-white/70 tracking-tighter">JPNR</div>
+                <div className="text-xl font-bold text-white/50 tracking-wider flex items-center gap-2"><div className="w-8 h-8 border border-white/50 rounded-full flex items-center justify-center text-xs">REI</div>RENUKA EYE INSTITUTE</div>
+                <div className="text-2xl font-light text-white/60 tracking-widest uppercase">Mangal Materials</div>
+                <div className="text-xl font-bold text-white/50 tracking-wider flex items-center gap-2"><div className="w-5 h-5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-sm"></div>TotoJan</div>
+                <div className="text-xl font-serif italic text-white/60">Apex Ventures</div>
+                <div className="text-2xl font-bold text-white/70 tracking-tighter flex items-center gap-1">Tech<span className="text-white/30 font-light">Global</span></div>
               </div>
-            </ScrollReveal>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {data.process.map((step, i) => (
-                <ScrollReveal
-                  key={step.phase}
-                  direction="up"
-                  delay={i * 100}
-                >
-                  <div className="relative p-6 bg-[#0f0f1c] border border-white/5 rounded-sm h-full flex flex-col justify-between">
-                    <div>
-                      <div className="text-5xl font-extralight text-white/10 mb-6">
-                        {step.step}
-                      </div>
-                      <h3 className="text-[1.1rem] font-medium text-white mb-3">
-                        {step.phase}
-                      </h3>
-                      <p className="text-[0.85rem] leading-[1.6] text-white/50 font-light">
-                        {step.desc}
-                      </p>
-                    </div>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* TECH STACK */}
-        <section className="py-14 bg-white/[0.01] border-b border-white/5">
-          <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-26">
-            <ScrollReveal direction="fade">
-              <div className="mb-8 text-center">
-                <h3 className="text-xs uppercase tracking-[0.2em] text-white/40 font-semibold">
-                  Our Technical Capabilities
-                </h3>
-              </div>
-              <TechStackGrid items={data.techStack} />
-            </ScrollReveal>
-          </div>
-        </section>
+      {/* 4. INDUSTRIES CAROUSEL */}
+      <section className="py-24 border-b border-white/5 relative">
+        <div className="absolute right-[5%] top-[10%] w-80 h-80 bg-[#4828b8]/10 rounded-full blur-[100px] pointer-events-none" />
+        <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-26 mb-12 relative z-10">
+          <span className="text-[0.85rem] font-medium tracking-[0.2em] uppercase text-[#a4a4af]">Industries</span>
+          <h2 className="bg-[linear-gradient(90deg,#9795FF_0%,#FFFFFF_42%,#FFFFFF_59%,#BE9FFF_100%)] bg-clip-text text-4xl md:text-5xl font-light text-transparent mt-3 leading-[1.2] max-w-2xl">
+            Empowering Diverse Industries With Integrated Marketing Solutions
+          </h2>
+        </div>
 
-        {/* FAQ SECTION */}
-        <section className="py-20 border-b border-white/5">
-          <div className="mx-auto max-w-[900px] px-6">
-            <ScrollReveal direction="up">
-              <div className="mb-14 text-center">
-                <span className="text-[0.68rem] uppercase tracking-[0.25em] text-[#7b5cff] font-semibold">
-                  Common Inquiries
-                </span>
-                <h2 className="text-3xl sm:text-4xl font-light text-white mt-2">
-                  Frequently Asked Questions
-                </h2>
-              </div>
-            </ScrollReveal>
-
-            <div className="space-y-6">
-              {data.faqs.map((faq, i) => (
-                <ScrollReveal
-                  key={faq.q}
-                  direction="up"
-                  delay={i * 100}
-                >
-                  <div className="p-6 bg-[#121225]/20 border border-white/5 rounded-sm">
-                    <h3 className="text-lg font-medium text-white mb-3">
-                      {faq.q}
-                    </h3>
-                    <p className="text-[0.9rem] leading-[1.65] text-white/60 font-light">
-                      {faq.a}
+        {/* Horizontal Moving Carousel */}
+        <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-26 relative z-10 overflow-hidden">
+          <div className="relative group">
+            {/* Cards Container */}
+            <div
+              className="flex gap-6 transition-transform duration-1000 ease-in-out"
+              style={{ transform: `translateX(calc(-${currentIndustry * 50}% - ${currentIndustry * 12}px))` }}
+            >
+              {industryCards.map((card, index) => (
+                <div key={index} className="w-full lg:w-[calc(50%-12px)] flex-shrink-0 bg-white/[0.03] border border-white/10 flex flex-row rounded-none overflow-hidden hover:border-white/20 transition-colors">
+                  {/* Text Left */}
+                  <div className="w-1/2 p-8 md:p-10 flex flex-col justify-center">
+                    <h3 className="text-3xl font-light text-white mb-6">{card.title}</h3>
+                    <p className="text-[#a492ff] text-[0.95rem] leading-relaxed font-light">
+                      {card.desc}
                     </p>
                   </div>
-                </ScrollReveal>
+                  {/* Image Right */}
+                  <div className="w-1/2 relative flex items-center justify-center p-4">
+                    <div className="relative w-full h-full min-h-[250px]">
+                      <Image
+                        src={card.image}
+                        alt={card.title}
+                        fill
+                        sizes="(max-width: 1024px) 50vw, 25vw"
+                        className="object-contain drop-shadow-2xl"
+                      />
+                    </div>
+                  </div>
+                </div>
               ))}
             </div>
-          </div>
-        </section>
 
-        {/* SERVICE CTA */}
-        <section className="py-20 text-center">
-          <div className="max-w-3xl mx-auto px-6">
-            <ScrollReveal direction="up">
-              <h2 className="text-3xl sm:text-5xl font-light tracking-tight text-white mb-6">
-                Have an idea for a {data.title} project?
-              </h2>
-              <p className="text-white/60 font-light mb-10 max-w-xl mx-auto leading-relaxed">
-                Connect with our senior architects for a comprehensive breakdown audit and precise estimate.
-              </p>
-              <button
-                type="button"
-                onClick={() => openForm({ service: data.title, lockService: true })}
-                className="group inline-flex items-center gap-3 border border-white bg-white px-8 py-4 font-semibold text-black transition-all duration-700 hover:bg-transparent hover:text-white"
-              >
-                <span>Initiate Audit Analysis</span>
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  className="transition-transform duration-700 group-hover:rotate-45"
-                >
-                  <path d="M7 17L17 7M17 7H7M17 7V17" />
-                </svg>
-              </button>
-            </ScrollReveal>
+            {/* Navigation Arrows */}
+            <button
+              onClick={prevIndustry}
+              className="absolute left-0 top-1/2 -translate-y-1/2 flex items-center justify-center text-white hover:text-white/70 transition-all z-20 opacity-0 group-hover:opacity-100 px-4"
+            >
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M15 18l-6-6 6-6" /></svg>
+            </button>
+            <button
+              onClick={nextIndustry}
+              className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center justify-center text-white hover:text-white/70 transition-all z-20 opacity-0 group-hover:opacity-100 px-4"
+            >
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M9 18l6-6-6-6" /></svg>
+            </button>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
+
+      {/* 4.5 BENCHMARKS OF EXCELLENCE */}
+      <section className="py-24 border-b border-white/5 relative">
+        <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-26 relative z-10">
+          <h2 className="text-4xl md:text-5xl font-light text-white mb-4">
+            Benchmarks of Excellence
+          </h2>
+          <p className="text-[#a4a4af] text-[0.95rem] max-w-xl mb-16 leading-relaxed">
+            From seamless integration to robust infrastructure, we are dedicated to setting new benchmarks of excellence in the industry.
+          </p>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 items-center justify-items-center mt-12">
+            {[
+              "/aws-cloud-quest-cloud-practitioner-training-badge.png",
+              "/aws-partner-sales-accreditation-training-badge.png",
+              "/aws-knowledge-security-champion-training-badge.png",
+              "/aws-partner-public-sector-for-sellers-business.png"
+            ].map((src, idx) => (
+              <div key={idx} className="relative w-full aspect-[4/5] max-w-[200px] hover:-translate-y-2 transition-transform duration-500">
+                <Image
+                  src={src}
+                  alt={`Benchmark Badge ${idx + 1}`}
+                  fill
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                  className="object-contain"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. IMPORTANCE SECTION */}
+      <section className="py-24 bg-[#010103] relative border-b border-white/5">
+        <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-26">
+          <h2 className="text-4xl md:text-5xl font-light text-white mb-20 text-left">
+            Importance of {data.title}
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 relative">
+            <div className="absolute top-[8px] left-0 right-0 h-[1px] bg-white/10 hidden lg:block z-0" />
+            {data.process.map((step, index) => (
+              <div key={index} className="flex flex-col relative z-10 pt-4 lg:pt-0">
+                <div className="w-4 h-4 bg-white rounded-full mb-8 lg:mt-0 lg:-translate-y-[7.5px] border-[3px] border-[#010103] shadow-[0_0_0_1px_rgba(255,255,255,0.2)]" />
+                <h3 className="text-6xl text-transparent bg-clip-text bg-white/10 font-black tracking-tighter mb-4" style={{ WebkitTextStroke: '1px rgba(255,255,255,0.3)' }}>
+                  {numberWords[index] || `0${index + 1}`}
+                </h3>
+                <h4 className="text-xl font-light text-white mb-4 leading-snug">
+                  {step.phase}
+                </h4>
+                <p className="text-[#a4a4af] text-[0.9rem] leading-[1.6] font-light">
+                  {step.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <style jsx global>{`
+        .hide-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+        .hide-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}</style>
     </main>
   );
 }

@@ -12,7 +12,7 @@ const servicesData = [
     slug: "website-development",
     description:
       "We craft high-performance websites tailored to your brand identity and business goals. From sleek corporate sites to complex e-commerce platforms, our development team delivers pixel-perfect, lightning-fast experiences that convert visitors into customers.",
-    visual: "web",
+    image: "/Website.png",
     bullets: [
       "Custom Website Design",
       "E-Commerce Development",
@@ -27,7 +27,7 @@ const servicesData = [
     slug: "ui-ux-design",
     description:
       "Great design is more than aesthetics — it's about creating intuitive, accessible experiences that delight users. Our design team combines user research with creative excellence to deliver interfaces and visuals that elevate your brand.",
-    visual: "design",
+    image: "/image 1.png",
     bullets: [
       "User Research & Wireframing",
       "Interactive Prototyping",
@@ -42,7 +42,7 @@ const servicesData = [
     slug: "digital-solutions",
     description:
       "Navigate the digital landscape with confidence. We provide end-to-end digital strategy and marketing solutions that drive measurable growth, helping you reach the right audience with the right message at the right time.",
-    visual: "digital",
+    image: "/image 3.png",
     bullets: [
       "Digital Strategy Consulting",
       "Marketing Automation",
@@ -57,7 +57,7 @@ const servicesData = [
     slug: "mobile-app-development",
     description:
       "Bring your ideas to life on every screen. We build robust, scalable mobile applications for iOS and Android that deliver seamless experiences — from concept and design through launch and ongoing support.",
-    visual: "mobile",
+    image: "/image 5.png",
     bullets: [
       "iOS & Android Development",
       "Cross-Platform Apps",
@@ -72,7 +72,7 @@ const servicesData = [
     slug: "ai-solutions",
     description:
       "Unlock the power of artificial intelligence to automate processes, uncover insights, and create competitive advantages. Our AI experts design and deploy intelligent systems that transform how your business operates.",
-    visual: "ai",
+    image: "/image 6.png",
     bullets: [
       "AI Strategy & Consulting",
       "Machine Learning Models",
@@ -87,7 +87,7 @@ const servicesData = [
     slug: "cyber-security",
     description:
       "Protect your applications, infrastructure, and customer data with rigorous security assessments and expert consultation. Our VAPT specialists uncover vulnerabilities before attackers do — and deliver clear, actionable remediation roadmaps aligned with industry standards.",
-    visual: "security",
+    image: "/ags1/services page cyber security.png",
     bullets: [
       "Vulnerability Assessment (VA)",
       "Penetration Testing (PT)",
@@ -182,9 +182,16 @@ export default function ServicesPage() {
                       : "lg:flex-row-reverse"
                   }`}
                 >
-                  {/* Animated visual */}
-                  <div className="w-full lg:w-1/2 flex-shrink-0">
-                    <ServiceVisual variant={service.visual} label={service.title} />
+                  {/* Image */}
+                  <div className="relative w-full lg:w-1/2 aspect-[4/3] rounded-lg overflow-hidden flex-shrink-0 border border-white/10">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      loading={index < 2 ? "eager" : "lazy"}
+                      className="object-cover"
+                    />
                   </div>
 
                   {/* Text Content */}
