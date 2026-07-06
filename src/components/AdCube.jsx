@@ -12,7 +12,7 @@ export default function AdCube() {
   useEffect(() => {
     if (isHovered) return;
     const interval = setInterval(() => {
-      setRotation((prev) => prev - 90);
+      setRotation((prev) => prev - 120);
     }, 4000);
     return () => clearInterval(interval);
   }, [isHovered]);
@@ -23,34 +23,27 @@ export default function AdCube() {
       image: "/ad1.png",
       href: "/academy-ai-projects",
       title: "AI Projects Certification",
-      transform: "rotateY(0deg) translateZ(300px)",
+      transform: "rotateY(0deg) translateZ(173px)",
     },
     {
       id: "right",
       image: "/ad2.png",
       href: "/academy-ai-engineer",
       title: "AI Engineer Mastermind",
-      transform: "rotateY(90deg) translateZ(300px)",
-    },
-    {
-      id: "back",
-      image: "/ad3.png",
-      href: "/academy-ai-ml",
-      title: "AI & ML Career Program",
-      transform: "rotateY(180deg) translateZ(300px)",
+      transform: "rotateY(120deg) translateZ(173px)",
     },
     {
       id: "left",
-      image: "/ad1.png", // Repeat ad1 for 4th face to complete cube
-      href: "/academy-ai-projects",
-      title: "AI Projects Certification",
-      transform: "rotateY(-90deg) translateZ(300px)",
+      image: "/ad3.png",
+      href: "/academy-ai-ml",
+      title: "AI & ML Career Program",
+      transform: "rotateY(240deg) translateZ(173px)",
     },
   ];
 
   const getActiveIndex = () => {
-    // Rotation goes negative. 0 = front, -90 = right, -180 = back, -270 = left, -360 = front...
-    const normalized = Math.abs(rotation / 90) % 4;
+    // Rotation goes negative. 0 = front, -120 = right, -240 = back...
+    const normalized = Math.round(Math.abs(rotation / 120)) % 3;
     return normalized;
   };
   
@@ -86,7 +79,7 @@ export default function AdCube() {
           <div 
             className="w-full h-full relative transform-style-3d transition-transform duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)]"
             style={{ 
-              transform: `rotateY(${rotation}deg)`,
+              transform: `translateZ(127px) rotateY(${rotation}deg)`,
               transformStyle: "preserve-3d" 
             }}
           >
@@ -109,12 +102,7 @@ export default function AdCube() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#05070D] via-transparent to-transparent opacity-80" />
                   
-                  {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-[#7B5CFF]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
-                    <div className="bg-white text-black px-6 py-3 rounded-full font-bold flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 shadow-xl">
-                      View Program <ArrowRight className="w-4 h-4" />
-                    </div>
-                  </div>
+                  {/* Hover Overlay Removed as requested */}
                 </Link>
               </div>
             ))}
@@ -139,10 +127,10 @@ export default function AdCube() {
 
       {/* Cube Navigation Dots */}
       <div className="flex justify-center gap-3 mt-12 relative z-10">
-        {[0, 1, 2, 3].map((index) => (
+        {[0, 1, 2].map((index) => (
           <button
             key={index}
-            onClick={() => setRotation(-(index * 90))}
+            onClick={() => setRotation(-(index * 120))}
             className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
               getActiveIndex() === index 
                 ? "bg-[#7B5CFF] w-8" 
