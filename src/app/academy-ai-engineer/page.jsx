@@ -14,7 +14,7 @@ function Navbar() {
         <span className="hidden md:inline text-white/50">•</span>
         <span className="hidden md:inline">Early-bird ends in 48 hours · <span className="font-bold">Only 14 seats left</span></span>
       </div>
-      
+
       {/* Main Navbar */}
       <nav className="flex w-full items-center justify-between px-6 sm:px-8 lg:px-12 py-3 bg-[#05070D]/90 backdrop-blur-xl border-b border-white/5">
         <Link href="/academy-v2" className="flex items-center gap-3">
@@ -73,7 +73,7 @@ function Hero() {
             <div className="w-1.5 h-1.5 rounded-full bg-[#7B5CFF]"></div>
             AGS ACADEMY &middot; LIVE COHORT
           </div>
-          
+
           <h1 className="text-4xl md:text-5xl lg:text-[64px] font-bold text-white leading-[1.1] mb-6">
             Become an <br className="hidden md:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7B5CFF] to-[#FF5C77]">
@@ -181,7 +181,7 @@ function Hero() {
             <a href="#pricing" className="block w-full bg-[#7B5CFF] hover:bg-[#6a4cef] text-white text-center py-4 rounded-sm text-[15px] font-bold transition-all shadow-[0_0_20px_rgba(123,92,255,0.3)] hover:shadow-[0_0_30px_rgba(123,92,255,0.5)] mb-4">
               Enroll for ₹499 <span aria-hidden="true">&rarr;</span>
             </a>
-            
+
             <p className="flex items-center justify-center text-center text-[11px] font-bold text-[#FF5C77]">
               <span className="inline-block w-2 h-2 rounded-full bg-[#FF5C77] mr-1.5 animate-pulse"></span>
               Only 14 of 100 seats remaining
@@ -377,16 +377,16 @@ function AWSTraining() {
   return (
     <section className="py-16 md:py-24 bg-[#070913]">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="mb-12">
+        <div className="mb-12 text-center">
           <h3 className="text-[10px] md:text-xs font-bold tracking-[0.2em] text-[#7B5CFF] uppercase mb-4">
             VERIFIED CREDENTIALS
           </h3>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-10 leading-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-10 leading-tight mx-auto max-w-4xl">
             AWS-Accredited Training &amp; Digital Badges
           </h2>
         </div>
 
-        <div className="flex flex-wrap items-center justify-start gap-6 md:gap-10">
+        <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10">
           <div className="relative w-32 h-32 md:w-40 md:h-40 hover:scale-105 transition-transform duration-300">
             <Image src="/aws-partner-public-sector-for-sellers-business.png" alt="AWS Public Sector" fill className="object-contain" />
           </div>
@@ -418,7 +418,7 @@ function MentorsSection() {
       company: "Cloud Consultant",
       desc: "7+ years of experience as a Technical SPOC and Cloud consultant. Currently a Pre-Sales Cloud Solution Architect with expertise in AWS, Microsoft Azure, and Google Cloud Pl...",
       skills: ["AWS", "GCP", "AI/ML", "Azure"],
-      image: "/Academy/ankit bhadra.png",
+      image: "/Academy/ankit-bhadra.png",
     },
     {
       name: "Aritra Sen",
@@ -427,7 +427,7 @@ function MentorsSection() {
       company: "",
       desc: "10 years of work experience in Sales & Business Development. His core lies in technology sales with a strong domain expertise in AI, data engineering, cloud native and various digital cr...",
       skills: ["AI", "Data Engineering"],
-      image: "/Academy/aritra sen.png",
+      image: "/Academy/aritra-sen.png",
     }
   ];
 
@@ -451,7 +451,7 @@ function MentorsSection() {
           {mentors.map((mentor, idx) => (
             <div key={idx} className="bg-[#0D101E] border border-white/5 rounded-sm overflow-hidden flex flex-col md:flex-row hover:border-white/10 transition-colors">
               <div className="w-full md:w-1/2 h-64 md:h-auto relative bg-[#14172B]">
-                <Image src={mentor.image} alt={mentor.name} fill quality={100} className="object-cover object-top" />
+                <Image src={mentor.image} alt={mentor.name} fill quality={100} className="object-cover object-bottom" />
               </div>
               <div className="w-full md:w-1/2 p-6 md:p-8 flex flex-col justify-center">
                 <div className="flex items-center gap-3 mb-2">

@@ -13,7 +13,7 @@ function Navbar() {
           <Image src="/ags_logo.png" alt="AGS logo" fill className="object-contain" priority />
         </div>
       </Link>
-      
+
       <div className="hidden lg:flex items-center gap-8">
         {["Curriculum", "Outcomes", "Mentors", "Pricing", "FAQ"].map((item) => (
           <Link key={item} href={`#${item.toLowerCase()}`} className="text-white/70 hover:text-white text-[13px] font-medium transition-colors">
@@ -40,18 +40,18 @@ function Hero() {
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center mt-8 md:mt-16">
-          
+
           {/* Hero Left Content */}
           <div className="lg:col-span-7 xl:col-span-7">
             <div className="text-white/60 text-xs font-bold tracking-widest uppercase mb-4">
               AGS Academy • AI & Machine Learning Career Program
             </div>
-            
+
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-6 tracking-tight">
-              Launch Your <span className="text-[#9D7AFF]">AI & Machine Learning</span> Career on AWS<br/>
+              Launch Your <span className="text-[#9D7AFF]">AI & Machine Learning</span> Career on AWS<br />
               — in 12 Weeks
             </h1>
-            
+
             <p className="text-white/80 text-[15px] md:text-[17px] mb-6 max-w-xl leading-relaxed font-medium">
               Train on the exact skills companies hire for — <span className="font-bold text-white">Artificial Intelligence, Machine Learning, Deep Learning, NLP, Computer Vision, MLOps, and AWS Cloud.</span>
             </p>
@@ -140,7 +140,7 @@ function Hero() {
 /* ───────────────── TECHNOLOGIES & PLATFORMS ───────────────── */
 function TechStack() {
   const platforms = ["AWS SageMaker", "TensorFlow", "PyTorch", "Scikit-Learn", "Python", "OpenCV", "AWS Lambda"];
-  
+
   return (
     <section className="py-12 bg-[#0A0D18] border-t border-white/5 text-center">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
@@ -276,7 +276,7 @@ function WhatYoullHave() {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-16 leading-tight tracking-tight">
               What You'll Have on Day 85 That You <span className="text-[#9D7AFF]">Don't Have Today</span>
             </h2>
-            
+
             <div className="space-y-8">
               {items.map((item, idx) => (
                 <div key={idx} className="relative pl-6 pb-8 border-l border-white/10 last:pb-0 last:border-transparent">
@@ -287,7 +287,7 @@ function WhatYoullHave() {
               ))}
             </div>
           </div>
-          
+
           <div className="flex items-center justify-center">
             <div className="w-full aspect-[4/3] bg-[#05070D] border border-white/5 rounded-xl flex flex-col items-center justify-center p-8 text-center relative overflow-hidden">
               <div className="absolute top-0 right-0 w-64 h-64 bg-[#7B5CFF]/5 rounded-full blur-[80px]" />
@@ -356,7 +356,7 @@ function Bonuses() {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="mb-16">
           <h4 className="text-[#7B5CFF] text-[11px] font-bold tracking-widest uppercase mb-4">Included Bonuses</h4>
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">Everything Else That Comes<br/>With Your <span className="text-[#9D7AFF]">Enrollment</span></h2>
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">Everything Else That Comes<br />With Your <span className="text-[#9D7AFF]">Enrollment</span></h2>
           <p className="text-white/60 text-lg">Worth more than the program itself — yours free when you join this batch.</p>
         </div>
 
@@ -377,7 +377,7 @@ function Bonuses() {
 /* ───────────────── MENTORS ───────────────── */
 function Mentors() {
   const mentors = [
-    { name: "Ankit Bhadra", role: "Director & CEO, AGS", desc: "Leads AGS's AI and cloud practice, architecting GenAI products on AWS for clients across media, retail, and healthcare.", image: "/Academy/ankit bhadra.png" },
+    { name: "Ankit Bhadra", role: "Director & CEO, AGS", desc: "Leads AGS's AI and cloud practice, architecting GenAI products on AWS for clients across media, retail, and healthcare.", image: "/Academy/Ankit-Bhadra.png" },
     { name: "Sharmistha Chatterjee", role: "Director & COO, AGS", desc: "Runs delivery and operations for AGS's product teams, turning ambitious AI ideas into shipped, scalable systems.", image: "/Sharmitha Chatterjee.png" },
     { name: "Atish Roy", role: "Chief Growth Officer, AGS", desc: "Helps founders take AI products to market from positioning to growth — so your build doesn't just work, it sells.", image: "/Atish roy.png" }
   ];
@@ -394,7 +394,7 @@ function Mentors() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {mentors.map((mentor, idx) => (
             <div key={idx} className="bg-[#12162A] rounded-xl overflow-hidden group">
-              <div className="aspect-square bg-[#0A0D18] relative overflow-hidden">
+              <div className="aspect-[4/5] bg-[#0A0D18] relative overflow-hidden">
                 <Image src={mentor.image} alt={mentor.name} fill className="object-cover opacity-80 group-hover:scale-105 transition-transform duration-700 z-0" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#12162A] via-[#12162A]/30 to-transparent z-10 pointer-events-none" />
               </div>
@@ -471,14 +471,14 @@ function Pricing() {
     <section id="pricing" className="py-24 bg-[#05070D]">
       <div className="max-w-3xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
         <h4 className="text-[#7B5CFF] text-[11px] font-bold tracking-widest uppercase mb-8">Simple Pricing</h4>
-        
+
         <div className="bg-[#0A0D18] border border-[#7B5CFF]/30 rounded-3xl p-10 md:p-14 relative overflow-hidden shadow-[0_0_50px_rgba(123,92,255,0.05)]">
           <div className="absolute top-0 inset-x-0 mx-auto w-fit bg-[#0f5132] text-[#75b798] border border-[#75b798]/30 text-[10px] font-bold tracking-widest uppercase px-6 py-2 rounded-b-lg">
             Limited Batch Offer
           </div>
 
           <h2 className="text-3xl md:text-4xl font-bold text-white mt-6 mb-4 tracking-tight">
-            The Investment: ₹4,000<br/>The Return: A Career in AI.
+            The Investment: ₹4,000<br />The Return: A Career in AI.
           </h2>
           <p className="text-white/50 text-[14px] mb-8">Everything included. Nothing hidden. One price, full access.</p>
 
@@ -503,7 +503,7 @@ function Pricing() {
           <a href="#" className="block w-full bg-[#7B5CFF] hover:bg-[#6a4cef] text-white py-4 rounded-md text-[15px] font-bold transition-all">
             Reserve Your Seat Now →
           </a>
-          
+
           <p className="text-white/30 text-[11px] mt-6">Seats are limited per batch. Price valid for current intake only. Secure your spot before it fills.</p>
         </div>
       </div>
@@ -564,7 +564,7 @@ function Footer() {
               Practical AI & Machine Learning training built around real projects, live cloud deployments, and industry mentorship. Build a portfolio employers can actually evaluate.
             </p>
           </div>
-          
+
           <div className="md:col-span-4 lg:col-span-2 lg:col-start-7">
             <h4 className="text-white font-bold text-[11px] tracking-widest uppercase mb-6">Program</h4>
             <ul className="space-y-4">
@@ -573,7 +573,7 @@ function Footer() {
               ))}
             </ul>
           </div>
-          
+
           <div className="md:col-span-4 lg:col-span-2">
             <h4 className="text-white font-bold text-[11px] tracking-widest uppercase mb-6">Resources</h4>
             <ul className="space-y-4">
@@ -582,7 +582,7 @@ function Footer() {
               ))}
             </ul>
           </div>
-          
+
           <div className="md:col-span-4 lg:col-span-2">
             <h4 className="text-white font-bold text-[11px] tracking-widest uppercase mb-6">Contact</h4>
             <ul className="space-y-4">
@@ -592,15 +592,15 @@ function Footer() {
             </ul>
           </div>
         </div>
-        
+
         <div className="mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 border-t border-white/5">
           <p className="text-white/30 text-[11px]">
             © 2025 AGS Academy. All rights reserved.
           </p>
           <div className="flex gap-6">
-             {["Instagram", "LinkedIn", "Twitter / X", "YouTube"].map(link => (
-               <a key={link} href="#" className="text-white/30 hover:text-white transition-colors text-[11px]">{link}</a>
-             ))}
+            {["Instagram", "LinkedIn", "Twitter / X", "YouTube"].map(link => (
+              <a key={link} href="#" className="text-white/30 hover:text-white transition-colors text-[11px]">{link}</a>
+            ))}
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import HeroSlider from "@/components/HeroSlider";
+import AdCube from "@/components/AdCube";
 import IntroSection from "@/components/IntroSection";
 import ServicesSection from "@/components/ServicesSection";
 import ClientsSection from "@/components/ClientsSection";
@@ -70,6 +71,7 @@ export default function Home() {
 
       <div className="relative z-10">
         <HeroSlider />
+        <AdCube />
         <div className="relative">
           <SectionConnector />
           <ScrollReveal direction="up" delay={100}>
