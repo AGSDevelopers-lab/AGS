@@ -461,7 +461,7 @@ export default function CareersPage() {
               <div className="absolute left-[24px] md:left-1/2 w-14 h-14 rounded-full bg-white text-black font-medium text-[1.3rem] flex items-center justify-center transform -translate-x-1/2 shadow-[0_4px_12px_rgba(0,0,0,0.1)] z-10 transition-all duration-700 delay-500">05</div>
               <div className="w-full md:w-5/12 pl-20 md:pl-0">
                 <h4 className="text-white text-[1.1rem] font-medium mb-2">Preliminary Interview</h4>
-                <p className="text-white/60 text-[0.95rem] leading-relaxed">Sometimes, we ask candidates to participate in some technical challenge that is designated to demonstrate candidates' proficiency.</p>
+                <p className="text-white/60 text-[0.95rem] leading-relaxed">Sometimes, we ask candidates to participate in some technical challenge that is designated to demonstrate candidates&apos; proficiency.</p>
               </div>
             </div>
 

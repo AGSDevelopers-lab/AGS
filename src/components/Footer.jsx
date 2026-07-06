@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const NAV_LINKS = [
   { label: "About", href: "/about" },
@@ -91,6 +94,10 @@ function FooterLinks({ title, children }) {
 }
 
 export default function Footer() {
+  const pathname = usePathname();
+
+  if (pathname === "/academy") return null;
+
   return (
     <footer className="relative w-full px-6 pb-10 pt-0 sm:px-8 lg:px-26">
       {/* Main links */}

@@ -25,8 +25,8 @@ export default function NotFound() {
             Page Not Found
           </h2>
 
-          <p className="text-xl text-gray-300 leading-relaxed max-w-lg mx-auto">
-            Oops! It seems like you've wandered off the map. The page you're looking for doesn't exist or has been moved.
+          <p className="text-white/60 mb-8 max-w-md mx-auto">
+            The page you&apos;re looking for doesn&apos;t exist or has been moved. Let&apos;s get you back on track.
           </p>
 
           {/* Suggested Links */}
@@ -57,15 +57,8 @@ export default function NotFound() {
 
         {/* Footer Text */}
         <div className="mt-16 pt-8 border-t border-gray-700/50">
-          <p className="text-gray-400 text-sm">
-            If you think this is an error, feel free to{' '}
-            <Link
-              href="/#contact"
-              className="text-purple-400 hover:text-purple-300 underline transition-colors"
-            >
-              contact us
-            </Link>
-            .
+          <p className="text-white/40 text-sm">
+            If you believe this is a mistake, please <Link href="/contact" className="text-white/60 hover:text-white underline underline-offset-4">contact our support</Link>.
           </p>
         </div>
       </div>
