@@ -28,6 +28,61 @@ function Pricing() { const features = ["120+ Hours of Live, Hands-On Training","
 function FAQ() { const [openIdx, setOpenIdx] = useState(null); const faqs = [ { q:"Do I need prior AI experience?", a:"No, this program is designed to take you from foundational concepts to advanced deployments." }, { q:"Is this course practical or theoretical?", a:"Highly practical. You will be coding and deploying on AWS from week one." }, { q:"Will I build projects?", a:"Yes, you'll complete 15 minor projects and 1 major capstone project." }, { q:"Will I learn AWS?", a:"Absolutely. AWS SageMaker, Lambda, EC2, and S3 are core components of the curriculum." }, { q:"Is there a capstone project?", a:"Yes, an end-to-end AI deployment serves as your final capstone." }, { q:"Will I receive a certificate?", a:"Yes, an AGS Academy Program Completion Certificate is awarded upon finishing." } ]; const toggleFaq = (idx) => { setOpenIdx(openIdx === idx ? null : idx); }; return ( <section id="faq" className="py-24 bg-[#0A0D18]"> <div className="max-w-3xl mx-auto px-6 sm:px-8 lg:px-12"> <div className="text-center mb-16"> <h4 className="text-[#7B5CFF] text-[11px] font-bold tracking-widest uppercase mb-4">Common Questions</h4> <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Everything You Might Ask</h2> </div> <div className="space-y-4"> {faqs.map((faq, idx) => ( <div key={idx} className="border-b border-white/5 py-6 flex flex-col justify-center cursor-pointer group" onClick={() => toggleFaq(idx)}> <div className="flex items-center justify-between"> <span className="text-white/80 font-bold text-[14px] group-hover:text-white transition-colors">{faq.q}</span> <span className="text-[#7B5CFF] text-xl transition-transform duration-300" style={{ transform: openIdx === idx ? 'rotate(45deg)' : 'rotate(0deg)' }}>+</span> </div> {openIdx === idx && ( <div className="mt-4 text-white/50 text-[13px] leading-relaxed pr-8"> {faq.a} </div> )} </div> ))} </div> </div> </section> );
 } /* ───────────────── FOOTER ───────────────── */
 function Footer() { return ( <footer className="bg-[#05070D]"> <div className="py-32 text-center border-b border-white/5"> <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">Stop Reading About AI.</h2> <h2 className="text-4xl md:text-5xl font-bold text-[#9D7AFF] mb-8 tracking-tight">Start Building It.</h2> <p className="text-white/50 text-[15px] max-w-lg mx-auto mb-10">Join the next AGS Academy cohort and gain the practical AI & Machine Learning experience that employers actually look for.</p> <a href="#pricing" className="inline-block bg-[#7B5CFF] hover:bg-[#6a4cef] text-white px-8 py-3.5 text-[15px] font-bold transition-all shadow-[0_0_20px_rgba(123,92,255,0.4)]"> Reserve Your Seat Now → </a> </div> <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16"> <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-8"> <div className="md:col-span-12 lg:col-span-5"> <h3 className="text-white font-bold text-lg mb-4 tracking-tight"><span className="text-[#7B5CFF]">AGS</span> Academy</h3> <p className="text-white/50 text-[12px] leading-relaxed max-w-sm"> Practical AI & Machine Learning training built around real projects, live cloud deployments, and industry mentorship. Build a portfolio employers can actually evaluate. </p> </div> <div className="md:col-span-4 lg:col-span-2 lg:col-start-7"> <h4 className="text-white font-bold text-[11px] tracking-widest uppercase mb-6">Program</h4> <ul className="space-y-4"> {["Curriculum","Outcomes","Mentors","Pricing"].map(link => ( <li key={link}><a href={`#${link.toLowerCase()}`} className="text-white/40 hover:text-white transition-colors text-[12px]">{link}</a></li> ))} </ul> </div> <div className="md:col-span-4 lg:col-span-2"> <h4 className="text-white font-bold text-[11px] tracking-widest uppercase mb-6">Resources</h4> <ul className="space-y-4"> {["Student Stories","Project Gallery","Blog","FAQ"].map(link => ( <li key={link}><a href="#" className="text-white/40 hover:text-white transition-colors text-[12px]">{link}</a></li> ))} </ul> </div> <div className="md:col-span-4 lg:col-span-2"> <h4 className="text-white font-bold text-[11px] tracking-widest uppercase mb-6">Contact</h4> <ul className="space-y-4"> {["hello@agsacademy.in","WhatsApp Us","Instagram","LinkedIn"].map(link => ( <li key={link}><a href="#" className="text-white/40 hover:text-white transition-colors text-[12px]">{link}</a></li> ))} </ul> </div> </div> <div className="mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 border-t border-white/5"> <p className="text-white/30 text-[11px]"> © 2025 AGS Academy. All rights reserved. </p> <div className="flex gap-6"> {["Instagram","LinkedIn","Twitter / X","YouTube"].map(link => ( <a key={link} href="#" className="text-white/30 hover:text-white transition-colors text-[11px]">{link}</a> ))} </div> </div> </div> </footer> );
-} /* ───────────────── PAGE EXPORT ───────────────── */
-export default function BrainwarePage() { return ( <main className="bg-[#05070D] min-h-screen text-white font-sans antialiased selection:bg-[#7B5CFF]/30 selection:text-white"> <Navbar /> <Hero /> <TechStack /> <Stats /> <Curriculum /> <TargetAudience /> <WhatYoullHave /> <Instructors /> <Bonuses /> {/* <Mentors /> */} <Testimonials /> <Pricing /> <FAQ /> <Footer /> </main> );
+} /* ───────────────── AWS ACCREDITED TRAINING & DIGITAL BADGES ───────────────── */
+function AWSTraining() {
+  const badges = [
+    { src: "/aws-partner-public-sector-for-sellers-business.png", alt: "AWS Public Sector" },
+    { src: "/aws-cloud-quest-cloud-practitioner-training-badge.png", alt: "AWS Cloud Practitioner" },
+    { src: "/aws-knowledge-security-champion-training-badge.png", alt: "AWS Security Champion" },
+    { src: "/aws generative ai practitioner.png", alt: "AWS Generative AI Practitioner" },
+    { src: "/aws-partner-sales-accreditation-training-badge.png", alt: "AWS Sales Accreditation" }
+  ];
+
+  return (
+    <section className="py-16 md:py-24 bg-[#070913] overflow-hidden">
+      <style>{`
+        @keyframes scroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .animate-scroll {
+          animation: scroll 30s linear infinite;
+        }
+        .animate-scroll:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="mb-12 text-center">
+          <h3 className="text-[10px] md:text-xs font-bold tracking-[0.2em] text-[#7B5CFF] uppercase mb-4">
+            VERIFIED CREDENTIALS
+          </h3>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-10 leading-tight mx-auto max-w-4xl">
+            AWS-Accredited Training &amp; Digital Badges
+          </h2>
+        </div>
+      </div>
+      
+      {/* Carousel Track */}
+      <div className="relative w-full">
+        {/* Fading Edges */}
+        <div className="absolute top-0 left-0 w-24 h-full bg-gradient-to-r from-[#070913] to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute top-0 right-0 w-24 h-full bg-gradient-to-l from-[#070913] to-transparent z-10 pointer-events-none"></div>
+        
+        <div className="flex w-[200%] animate-scroll">
+          {/* Double the items for seamless looping */}
+          {[...badges, ...badges].map((badge, idx) => (
+            <div key={idx} className="flex-1 flex justify-center px-4 md:px-8">
+              <div className="relative w-32 h-32 md:w-40 md:h-40 hover:scale-105 transition-transform duration-300">
+                <Image src={badge.src} alt={badge.alt} fill className="object-contain" />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+/* ───────────────── PAGE EXPORT ───────────────── */
+export default function BrainwarePage() { return ( <main className="bg-[#05070D] min-h-screen text-white font-sans antialiased selection:bg-[#7B5CFF]/30 selection:text-white"> <Navbar /> <Hero /> <TechStack /> <Stats /> <Curriculum /> <TargetAudience /> <WhatYoullHave /> <AWSTraining /> <Instructors /> <Bonuses /> {/* <Mentors /> */} <Testimonials /> <Pricing /> <FAQ /> <Footer /> </main> );
 }
