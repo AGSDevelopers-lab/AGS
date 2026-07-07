@@ -40,7 +40,7 @@ export default function Navbar() {
 
   const getNavHref = (href) => href;
 
-  if (pathname === "/academy") return null;
+  if (pathname.startsWith("/academy")) return null;
 
   return (
     <nav
