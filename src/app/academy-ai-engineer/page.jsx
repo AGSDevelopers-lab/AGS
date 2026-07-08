@@ -67,8 +67,67 @@ function AWSTraining() {
     </section>
   );
 }
-/* ───────────────── MENTORS ───────────────── */
-function MentorsSection() { const mentors = [ { name:"Ankit Bhadra", tag:"Mentor", role:"Pre-Sales Cloud Solution Architect", company:"Cloud Consultant", desc:"7+ years of experience as a Technical SPOC and Cloud consultant. Currently a Pre-Sales Cloud Solution Architect with expertise in AWS, Microsoft Azure, and Google Cloud Pl...", skills: ["AWS","GCP","AI/ML","Azure"], image:"/Academy/ankit-bhadra.png", }, { name:"Aritra Sen", tag:"Mentor", role:"Sales & Business Development", company:"", desc:"10 years of work experience in Sales & Business Development. His core lies in technology sales with a strong domain expertise in AI, data engineering, cloud native and various digital cr...", skills: ["AI","Data Engineering"], image:"/Academy/aritra-sen.png", } ]; return ( <section id="mentors" className="py-16 md:py-24 bg-[#05070D]"> <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12"> <div className="mb-12"> <h3 className="text-[10px] md:text-xs font-bold tracking-[0.2em] text-[#7B5CFF] uppercase mb-4"> MEET YOUR MENTORS </h3> <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight max-w-3xl"> Learn from industry experts who ship <br className="hidden md:block" /> <span className="text-[#7B5CFF]">real solutions.</span> </h2> <p className="text-white/70 text-[15px] md:text-[17px] max-w-2xl leading-relaxed"> Our mentors bring years of real-world experience in cloud, AI, and digital transformation. </p> </div> <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto"> {mentors.map((mentor, idx) => ( <div key={idx} className="bg-[#0D101E] border border-white/5 overflow-hidden flex flex-col md:flex-row hover:border-white/10 transition-colors"> <div className="w-full md:w-1/2 h-64 md:h-auto relative bg-[#14172B]"> <Image src={mentor.image} alt={mentor.name} fill quality={100} className="object-cover object-bottom" /> </div> <div className="w-full md:w-1/2 p-6 md:p-8 flex flex-col justify-center"> <div className="flex items-center gap-3 mb-2"> <h4 className="text-white font-bold text-xl">{mentor.name}</h4> <span className="px-2 py-0.5 border border-[#7B5CFF]/30 text-[#7B5CFF] text-[10px] font-bold">{mentor.tag}</span> </div> <p className="text-[#7B5CFF] text-[13px] font-bold mb-1">{mentor.role}</p> {mentor.company && <p className="text-white font-semibold text-[13px] mb-4">{mentor.company}</p>} {!mentor.company && <div className="mb-4"></div>} <p className="text-white/60 text-[13px] leading-relaxed mb-6">{mentor.desc}</p> <div className="flex flex-wrap gap-2 mb-6"> {mentor.skills.map(skill => ( <span key={skill} className="px-2 py-1 border border-white/10 bg-white/5 text-[11px] text-white/70 font-medium flex items-center gap-1.5"> <div className="w-1 h-1 rounded-full bg-[#7B5CFF]"></div> {skill} </span> ))} </div> <a href="#" className="text-[#7B5CFF] hover:text-white transition-colors text-[13px] font-bold flex items-center gap-2 mt-auto"> View Profile <span aria-hidden="true">&rarr;</span> </a> </div> </div> ))} </div> </div> </section> );
+/* ───────────────── MENTORS CAROUSEL ───────────────── */
+function MentorsSection() {
+  const mentors = [
+    { name: "Ankit Bhadra", tag: "Mentor", role: "Pre-Sales Cloud Solution Architect", company: "Cloud Consultant", desc: "7+ years of experience as a Technical SPOC and Cloud consultant. Currently a Pre-Sales Cloud Solution Architect with expertise in AWS, Microsoft Azure, and Google Cloud Platform.", skills: ["AWS", "GCP", "AI/ML", "Azure"], image: "/Academy/Ankit-Bhadra.png" },
+    { name: "Aritra Sen", tag: "Mentor", role: "Sales & Business Development", company: "", desc: "10 years of work experience in Sales & Business Development. His core lies in technology sales with a strong domain expertise in AI, data engineering, cloud native and various digital transformation.", skills: ["AI", "Data Engineering"], image: "/Academy/aritra-sen.png" },
+  ];
+  return (
+    <section id="mentors" className="py-16 md:py-24 bg-[#05070D] overflow-hidden">
+      <style>{`
+        @keyframes mentorScroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .mentor-carousel { animation: mentorScroll 20s linear infinite; }
+        .mentor-carousel:hover { animation-play-state: paused; }
+      `}</style>
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 mb-12">
+        <h3 className="text-[10px] md:text-xs font-bold tracking-[0.2em] text-[#7B5CFF] uppercase mb-4">MEET YOUR MENTORS</h3>
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight max-w-3xl">
+          Learn from industry experts who ship <br className="hidden md:block" />
+          <span className="text-[#7B5CFF]">real solutions.</span>
+        </h2>
+        <p className="text-white/70 text-[15px] md:text-[17px] max-w-2xl leading-relaxed">
+          Our mentors bring years of real-world experience in cloud, AI, and digital transformation.
+        </p>
+      </div>
+      <div className="relative w-full">
+        <div className="absolute top-0 left-0 w-24 h-full bg-gradient-to-r from-[#05070D] to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute top-0 right-0 w-24 h-full bg-gradient-to-l from-[#05070D] to-transparent z-10 pointer-events-none"></div>
+        <div className="flex w-[200%] mentor-carousel">
+          {[...mentors, ...mentors, ...mentors, ...mentors].map((mentor, idx) => (
+            <div key={idx} className="w-[500px] flex-shrink-0 mx-3">
+              <div className="bg-[#0D101E] border border-white/5 overflow-hidden flex flex-col md:flex-row hover:border-white/10 transition-colors h-full">
+                <div className="w-full md:w-1/2 h-64 md:h-auto relative bg-[#14172B] min-h-[300px]">
+                  <Image src={mentor.image} alt={mentor.name} fill quality={100} className="object-cover object-top" />
+                </div>
+                <div className="w-full md:w-1/2 p-6 md:p-8 flex flex-col justify-center">
+                  <div className="flex items-center gap-3 mb-2">
+                    <h4 className="text-white font-bold text-xl">{mentor.name}</h4>
+                    <span className="px-2 py-0.5 border border-[#7B5CFF]/30 text-[#7B5CFF] text-[10px] font-bold">{mentor.tag}</span>
+                  </div>
+                  <p className="text-[#7B5CFF] text-[13px] font-bold mb-1">{mentor.role}</p>
+                  {mentor.company && <p className="text-white font-semibold text-[13px] mb-4">{mentor.company}</p>}
+                  {!mentor.company && <div className="mb-4"></div>}
+                  <p className="text-white/60 text-[13px] leading-relaxed mb-6">{mentor.desc}</p>
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {mentor.skills.map(skill => (
+                      <span key={skill} className="px-2 py-1 border border-white/10 bg-white/5 text-[11px] text-white/70 font-medium flex items-center gap-1.5">
+                        <div className="w-1 h-1 rounded-full bg-[#7B5CFF]"></div>
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 } /* ───────────────── BONUSES ───────────────── */
 function Bonuses() { const bonuses = [ { title:"AI Engineer Starter Kit", desc:"Prompt libraries, agent boilerplates, and deployment templates ready to clone.", value:"₹6,000", icon: ( <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"> <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path> <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline> <line x1="12" y1="22.08" x2="12" y2="12"></line> </svg> ) }, { title:"1:1 Project Review", desc:"Submit your capstone and get a personalised review from an AGS mentor.", value:"₹5,000", icon: ( <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"> <circle cx="12" cy="12" r="10"></circle> <circle cx="12" cy="12" r="6"></circle> <circle cx="12" cy="12" r="2"></circle> </svg> ) }, { title:"Alumni Community Access", desc:"Lifetime entry to the AGS Academy network \u2014 jobs, collabs, and monthly AI sessions.", value:"₹7,000", icon: ( <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"> <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path> <circle cx="9" cy="7" r="4"></circle> <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path> <path d="M16 3.13a4 4 0 0 1 0 7.75"></path> </svg> ) }, ]; return ( <section className="py-16 md:py-24 bg-[#070913]"> <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12"> <div className="mb-12"> <h3 className="text-[10px] md:text-xs font-bold tracking-[0.2em] text-[#7B5CFF] uppercase mb-4"> ENROLMENT BONUSES </h3> <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight max-w-3xl"> Worth <span className="text-[#FF5C77]">₹18,000+</span> \u2014 yours free </h2> </div> <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5"> {bonuses.map((bonus, idx) => ( <div key={idx} className="bg-[#0D101E] border border-white/5 p-6 md:p-8 hover:border-white/10 transition-colors flex flex-col"> <div className="flex justify-between items-start mb-6"> <div className="w-10 h-10 border border-white/10 bg-white/5 flex items-center justify-center text-[#7B5CFF]"> {bonus.icon} </div> <div className="text-[#FF5C77] text-[13px] font-bold">{bonus.value}</div> </div> <h4 className="text-white font-bold text-[16px] mb-3">{bonus.title}</h4> <p className="text-white/50 text-[13px] leading-relaxed">{bonus.desc}</p> </div> ))} </div> </div> </section> );
 } /* ───────────────── TESTIMONIALS ───────────────── */
@@ -80,5 +139,5 @@ function FAQ() { const faqs = [ { question:"Do I need to know how to code?", ans
 } /* ───────────────── FOOTER (WITH CTA) ───────────────── */
 function Footer() { return ( <footer className="bg-[#0A0C16]"> {/* Final CTA Section */} <div className="py-20 md:py-32 border-b border-white/5 relative"> <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#7B5CFF]/10 blur-[100px] pointer-events-none"></div> <div className="max-w-4xl mx-auto px-6 sm:px-8 text-center relative z-10"> <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-[1.2]"> Stop reading about AI. <br /> <span className="text-[#7B5CFF]">Start building it.</span> </h2> <p className="text-white/70 text-[15px] md:text-[17px] max-w-2xl mx-auto mb-10 leading-relaxed"> Join the next AGS Academy cohort and gain the practical AI &amp; Machine Learning experience that employers actually look for. </p> <div className="flex flex-col items-center justify-center"> <a href="#pricing" className="inline-flex items-center justify-center bg-[#7B5CFF] hover:bg-[#6a4cef] text-white px-8 py-4 text-[15px] font-bold transition-all shadow-[0_0_20px_rgba(123,92,255,0.4)] hover:shadow-[0_0_30px_rgba(123,92,255,0.6)] mb-4"> Reserve Your Seat Now → </a> <p className="text-[#FF5C77] text-[12px] font-bold"> Only 14 of 100 seats left for the 22-23 June cohort </p> </div> </div> </div> {/* Main Footer Links */} <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16"> <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-8"> <div className="md:col-span-12 lg:col-span-5"> <Link href="/" className="inline-block mb-6"> <h3 className="text-white font-bold text-xl tracking-tight"> <span className="text-[#7B5CFF]">AGS</span> Academy </h3> </Link> <p className="text-white/50 text-[13px] md:text-[14px] leading-relaxed max-w-sm"> Practical AI &amp; Machine Learning training built around real projects, live cloud deployments, and industry mentorship. Build a portfolio employers can actually evaluate. </p> </div> <div className="md:col-span-4 lg:col-span-2 lg:col-start-7"> <h4 className="text-white font-bold text-[11px] tracking-widest uppercase mb-6">PROGRAM</h4> <ul className="space-y-4"> {["Curriculum","Outcomes","Mentors","Pricing"].map((link, idx) => ( <li key={idx}> <Link href={`#${link.toLowerCase()}`} className="text-white/50 hover:text-white text-[13px] md:text-[14px] transition-colors">{link}</Link> </li> ))} </ul> </div> <div className="md:col-span-4 lg:col-span-2"> <h4 className="text-white font-bold text-[11px] tracking-widest uppercase mb-6">RESOURCES</h4> <ul className="space-y-4"> {["Student Stories","Project Gallery","Blog","FAQ"].map((link, idx) => ( <li key={idx}> <Link href="#" className="text-white/50 hover:text-white text-[13px] md:text-[14px] transition-colors">{link}</Link> </li> ))} </ul> </div> <div className="md:col-span-4 lg:col-span-2"> <h4 className="text-white font-bold text-[11px] tracking-widest uppercase mb-6">CONTACT</h4> <ul className="space-y-4"> {["hello@agsacademy.in","WhatsApp Us","Instagram","LinkedIn"].map((link, idx) => ( <li key={idx}> <Link href="#" className="text-white/50 hover:text-white text-[13px] md:text-[14px] transition-colors">{link}</Link> </li> ))} </ul> </div> </div> <div className="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6"> <p className="text-white/40 text-[12px] md:text-[13px]"> © {new Date().getFullYear()} AGS Academy. All rights reserved. </p> <div className="flex gap-4 md:gap-6 text-white/40 text-[12px] md:text-[13px]"> <a href="#" className="hover:text-white transition-colors">Instagram</a> <a href="#" className="hover:text-white transition-colors">LinkedIn</a> <a href="#" className="hover:text-white transition-colors">Twitter / X</a> <a href="#" className="hover:text-white transition-colors">YouTube</a> </div> </div> </div> </footer> );
 } /* ───────────────── PAGE EXPORT ───────────────── */
-export default function AcademyV2Page() { return ( <main className="bg-[#05070D] min-h-screen text-white font-sans antialiased selection:bg-[#7B5CFF]/30 selection:text-white"> <Navbar /> <Hero /> <TechStackBar /> <Stats /> <Curriculum /> <TargetAudience /> <AWSTraining /> {/* <MentorsSection /> */} <Bonuses /> <Testimonials /> <Pricing /> <FAQ /> <Footer /> </main> );
+export default function AcademyV2Page() { return ( <main className="bg-[#05070D] min-h-screen text-white font-sans antialiased selection:bg-[#7B5CFF]/30 selection:text-white"> <Navbar /> <Hero /> <TechStackBar /> <Stats /> <Curriculum /> <TargetAudience /> <AWSTraining /> <MentorsSection /> <Bonuses /> <Testimonials /> <Pricing /> <FAQ /> <Footer /> </main> );
 }
