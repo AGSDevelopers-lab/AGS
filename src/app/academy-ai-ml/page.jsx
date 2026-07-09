@@ -41,17 +41,49 @@ function TargetAudience() {
   const audiences = [{ title: "B.Tech & Engineering Students", desc: "Your college taught you concepts. We teach you what companies actually test in interviews." }, { title: "Aspiring AI & ML Engineers", desc: "A structured, proven path from zero to job-ready." }, { title: "Data Science Enthusiasts", desc: "Every module produces a deliverable you can add to your portfolio." }, { title: "Career Changers", desc: "We help you build proof, even if your background is non-technical." }]; return (<section className="py-24 bg-[#05070D]"> <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12"> <div className="mb-16"> <h4 className="text-[#7B5CFF] text-[11px] font-bold tracking-widest uppercase mb-4">WHO IT'S FOR</h4> <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">Built for <span className="text-[#9D7AFF]">Future AI Professionals</span></h2> <p className="text-white/60 text-lg max-w-2xl">Whether you're a student, career changer, or enthusiast this program meets you where you are.</p> </div> <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"> {audiences.map((item, idx) => (<div key={idx} className="bg-[#161029] border border-white/5 p-6 md:p-8 hover:border-white/10 transition-colors flex flex-col"> <div className="w-10 h-10 rounded-xl bg-[#12162A] mb-6"></div> <h3 className="text-white font-bold text-[16px] mb-4 leading-snug">{item.title}</h3> <p className="text-white/50 text-[13px] leading-relaxed">{item.desc}</p> </div>))} </div> </div> </section>);
 } /* ───────────────── WHAT YOU'LL HAVE ───────────────── */
 function WhatYoullHave() {
-  const items = [{ title: "Deployed AI Application", desc: "A live ML model running on AWS something you can demo in any interview room." }, { title: "Portfolio Projects", desc: "Multiple completed projects across NLP, Computer Vision, and ML all publicly accessible." }, { title: "Program Completion Certificate", desc: "Issued on successfully meeting all course requirements." }, { title: "Production-Ready Capstone", desc: "One end-to-end AI solution built from scratch to deployment." }, { title: "Hands-On AWS Experience", desc: "Real cloud infrastructure experience most freshers don't have." }, { title: "GitHub Repository", desc: "A polished collection of notebooks and code that speaks louder than your resume." }]; return (<section className="py-24 bg-[#05070D]"> <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12"> <div className="mb-16"> <h4 className="text-[#7B5CFF] text-[11px] font-bold tracking-widest uppercase mb-4">YOUR OUTCOMES</h4> <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight tracking-tight max-w-3xl"> What You'll Have on Day 85 <span className="text-[#9D7AFF]">That You Don't Have Today</span> </h2> </div> <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"> {items.map((item, idx) => (<div key={idx} className={`bg-[#161029] border ${idx === 2 ? 'border-[#7B5CFF]' : 'border-white/5'} p-6 md:p-8 flex flex-col hover:border-[#7B5CFF]/30 transition-colors`}> <h3 className="text-white font-bold text-[16px] mb-3">{item.title}</h3> <p className="text-white/50 text-[13px] leading-relaxed">{item.desc}</p> </div>))} </div> </div> </section>);
-} /* ───────────────── INSTRUCTORS ───────────────── */
-function Instructors() {
-  const roles = [{ initials: "AB", name: "Ankit Bhadra", title: "AI/ML Engineer · AWS Cloud", desc: "Builds production-grade ML pipelines and deploys them at scale for enterprise clients." }, { initials: "SC", name: "Shamishtha Chatterjee", title: "Data Scientist · NLP & Computer Vision", desc: "Specializes in turning messy real-world data into usable, interpretable models." }, { initials: "AR", name: "Atish Roy", title: "MLOps Architect · Cloud Infrastructure", desc: "Helps teams ship models like software with CI/CD, monitoring, and reliability built in." }]; return (<section className="py-24 bg-[#05070D]"> <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12"> <div className="mb-16 max-w-2xl"> <h4 className="text-[#7B5CFF] text-[11px] font-bold tracking-widest uppercase mb-4">YOUR INSTRUCTORS</h4> <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">Learn From <span className="text-[#9D7AFF]">Engineers Who Build AI Systems</span></h2> <p className="text-white/60 text-lg leading-relaxed"> Train under industry professionals actively working in AI, Cloud Computing, and Digital Transformation practitioners who build and deploy real AI systems for real businesses. </p> </div> <div className="grid grid-cols-1 md:grid-cols-3 gap-6"> {roles.map((role, idx) => (<div key={idx} className="bg-[#161029] border border-white/5 p-8 flex flex-col hover:border-[#7B5CFF]/30 transition-colors"> <div className="w-12 h-12 rounded-full bg-[#7B5CFF] text-white flex items-center justify-center font-bold text-lg mb-6"> {role.initials} </div> <h3 className="text-white font-bold text-[18px] mb-1">{role.name}</h3> <div className="text-[#7B5CFF] text-[12px] font-bold mb-4">{role.title}</div> <p className="text-white/50 text-[13px] leading-relaxed">{role.desc}</p> </div>))} </div> </div> </section>);
+  const items = [
+    { title: "Deployed AI Application", desc: "Launch a live machine learning model on AWS — something real employers can see and interact with." },
+    { title: "Portfolio Projects", desc: "Multiple practical projects across NLP, Computer Vision, and Machine Learning — all ready to share." },
+    { title: "Industry Capstone", desc: "A complete end-to-end production-ready AI solution you built from scratch." },
+    { title: "AWS Experience", desc: "Hands-on experience with AWS cloud infrastructure and AI services that employers pay a premium for." },
+    { title: "GitHub Repository", desc: "A maintained collection of projects, notebooks, and deployments — your proof of skills." }
+  ];
+  return (
+    <section className="py-24 bg-[#05070D]">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          <div>
+            <div className="mb-12">
+              <h4 className="text-[#7B5CFF] text-[11px] font-bold tracking-widest uppercase mb-4">WHAT YOU'LL HAVE</h4>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight tracking-tight">
+                What You'll Have on Day 85 <br className="hidden lg:block"/>
+                That You <span className="text-[#9D7AFF]">Don't Have Today</span>
+              </h2>
+            </div>
+            <div className="space-y-6">
+              {items.map((item, idx) => (
+                <div key={idx} className={`relative pl-6 pb-6 ${idx !== items.length - 1 ? 'border-b border-white/5' : ''}`}>
+                  <div className="absolute left-0 top-2 w-1.5 h-1.5 rounded-full bg-[#7B5CFF]"></div>
+                  <h3 className="text-white font-bold text-[15px] mb-2">{item.title}</h3>
+                  <p className="text-white/50 text-[14px] leading-relaxed max-w-lg">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden">
+            <Image src="/Academy/certificate.png" alt="Course Completion Certificate" fill className="object-contain" />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 } /* ───────────────── BONUSES ───────────────── */
 function Bonuses() {
   const bonuses = [{ tag: "LIBRARY", title: "AI & ML Resource Library", desc: "Curated templates, datasets, notebooks, and project starter kits." }, { tag: "CAREER", title: "Career Guidance Sessions", desc: "Interview prep, resume review, and project presentation coaching." }, { tag: "REVIEW", title: "Capstone Project Review", desc: "Get expert feedback on your final project before you take it into interviews." }, { tag: "EXPOSURE", title: "Real Industry Exposure", desc: "Understand how AI systems are scoped, built, and deployed inside real businesses." }]; return (<section className="py-24 bg-[#05070D]"> <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12"> <div className="mb-16"> <h4 className="text-[#7B5CFF] text-[11px] font-bold tracking-widest uppercase mb-4">INCLUDED BONUSES</h4> <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">Everything Else That Comes <span className="text-[#9D7AFF]">With Your Enrollment</span></h2> </div> <div className="grid grid-cols-1 md:grid-cols-2 gap-6"> {bonuses.map((bonus, idx) => (<div key={idx} className="bg-[#161029] border border-white/5 p-8 flex flex-col sm:flex-row gap-6 items-start hover:border-white/10 transition-colors"> <div className="px-3 py-1 rounded-full bg-[#7B5CFF]/10 text-[#7B5CFF] text-[10px] font-bold uppercase tracking-widest shrink-0 mt-1"> {bonus.tag} </div> <div> <h3 className="text-white font-bold text-[16px] mb-2">{bonus.title}</h3> <p className="text-white/50 text-[13px] leading-relaxed">{bonus.desc}</p> </div> </div>))} </div> </div> </section>);
 } /* ───────────────── MENTORS ───────────────── */
 function Mentors() {
   const mentors = [
-    { name: "Ankit Bhadra", tag: "Mentor", role: "Pre-Sales Cloud Solution Architect", company: "Cloud Consultant", desc: "7+ years of experience as a Technical SPOC and Cloud consultant. Currently a Pre-Sales Cloud Solution Architect with expertise in AWS, Microsoft Azure, and Google Cloud Platform (GCP). He helps organizations accelerate digital transformation by designing optimized cloud solutions, architectures, and AI/ML ecosystems.", skills: ["AWS", "GCP", "AI/ML", "Azure"], image: "/Academy/Ankit_Bhadra_2.png" },
+    { name: "Ankit Bhadra", tag: "Mentor", role: "Pre-Sales Cloud Solution Architect", company: "Cloud Consultant", desc: "7+ years of experience as a Technical SPOC and Cloud consultant. Currently a Pre-Sales Cloud Solution Architect with expertise in AWS, Microsoft Azure, and Google Cloud Platform (GCP). He helps organizations accelerate digital transformation by designing optimized cloud solutions, architectures, and AI/ML ecosystems.", skills: ["AWS", "GCP", "AI/ML", "Azure"], image: "/Academy/Ankit_Bhadra_1.png" },
     { name: "Aritra Sen", tag: "Mentor", role: "Sales & Business Development Expert", company: "", desc: "16 years of work experience in Sales & Business Development. His expertise in technology sales with a strong consultancy expertise in AI, data engineering, cloud native and various digital engineering solutions.", skills: ["AI", "Data Engineering", "Cloud Native"], image: "/Academy/aritra_sen.png" },
   ];
   return (
@@ -211,5 +243,5 @@ function AWSTraining() {
 }
 /* ───────────────── PAGE EXPORT ───────────────── */
 export default function BrainwarePage() {
-  return (<main className="bg-[#05070D] min-h-screen text-white font-sans antialiased selection:bg-[#7B5CFF]/30 selection:text-white"> <Navbar /> <Hero /> <TechStack /> <Stats /> <Curriculum /> <TargetAudience /> <WhatYoullHave /> <AWSTraining /> <Instructors /> <Bonuses /> <Mentors /> <Testimonials /> <Pricing /> <FAQ /> <Footer /> </main>);
+  return (<main className="bg-[#05070D] min-h-screen text-white font-sans antialiased selection:bg-[#7B5CFF]/30 selection:text-white"> <Navbar /> <Hero /> <TechStack /> <Stats /> <Curriculum /> <TargetAudience /> <WhatYoullHave /> <AWSTraining /> <Bonuses /> <Mentors /> <Testimonials /> <Pricing /> <FAQ /> <Footer /> </main>);
 }
