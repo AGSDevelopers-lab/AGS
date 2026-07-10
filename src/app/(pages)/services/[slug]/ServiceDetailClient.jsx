@@ -159,8 +159,8 @@ export default function ServiceDetailClient({ data }) {
         <div className="relative w-full max-w-[1400px] mx-auto z-10">          <div className="flex gap-16 w-max animate-auto-scroll items-center py-6 px-16">
             {[1, 2, 3, 4].map((group) => (
               <div key={group} className="flex gap-16 items-center flex-shrink-0">
-                <div className="relative w-56 h-12 opacity-80 flex-shrink-0">
-                  <Image src="/molifera.png" alt="oliferamedia" fill className="object-contain object-left" />
+                <div className="opacity-80 flex-shrink-0 flex items-center">
+                  <img src="/molifera.png" alt="oliferamedia" className="h-14 object-contain" />
                 </div>
                 <div className="text-xl font-bold text-white/50 tracking-wider">Dhunseri</div>
                 <div className="text-xl font-bold text-white/50 tracking-wider flex items-center gap-2"><div className="w-6 h-6 border-2 border-white/50 rounded-sm transform rotate-45"></div>Farz Academy</div>
