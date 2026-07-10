@@ -156,15 +156,12 @@ export default function ServiceDetailClient({ data }) {
             Delivering Value Through Collaboration
           </h2>
         </div>
-        <div className="relative w-full max-w-[1400px] mx-auto z-10">
-          <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-[#020205] to-transparent z-20 pointer-events-none" />
-          <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-[#020205] to-transparent z-20 pointer-events-none" />
-
-          <div className="flex gap-16 w-max animate-auto-scroll items-center py-6 px-16">
+        <div className="relative w-full max-w-[1400px] mx-auto z-10">          <div className="flex gap-16 w-max animate-auto-scroll items-center py-6 px-16">
             {[1, 2, 3, 4].map((group) => (
               <div key={group} className="flex gap-16 items-center flex-shrink-0">
-                <div className="text-xl font-bold text-white/50 tracking-wider flex items-center gap-2"><div className="w-8 h-8 bg-white/20 rounded-full"></div>oliferamedia</div>
-                <div className="text-2xl font-bold text-white/70">αñ╣αñ┐αñ«αñ╛αñ▓αñ» αñªαñ░αÑìαñ¬αñú</div>
+                <div className="relative w-56 h-12 opacity-80 flex-shrink-0">
+                  <Image src="/molifera.png" alt="oliferamedia" fill className="object-contain object-left" />
+                </div>
                 <div className="text-xl font-bold text-white/50 tracking-wider">Dhunseri</div>
                 <div className="text-xl font-bold text-white/50 tracking-wider flex items-center gap-2"><div className="w-6 h-6 border-2 border-white/50 rounded-sm transform rotate-45"></div>Farz Academy</div>
                 <div className="text-3xl font-black text-white/70 tracking-tighter">JPNR</div>

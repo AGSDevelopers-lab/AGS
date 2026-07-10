@@ -1,40 +1,32 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function AdCube() {
   const [rotation, setRotation] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
-
-  useEffect(() => {
-    if (isHovered) return;
-    const interval = setInterval(() => {
-      setRotation((prev) => prev - 120);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, [isHovered]);
+  // Auto-rotation removed as requested
 
   const faces = [
     {
       id: "front",
-      image: "/ad1.png",
+      image: "/ad 2.png",
       href: "/academy-ai-projects",
       title: "AI Projects Certification",
       transform: "rotateY(0deg) translateZ(173px)",
     },
     {
       id: "right",
-      image: "/ad2.png",
+      image: "/ad 1.png",
       href: "/academy-ai-engineer",
       title: "AI Engineer Mastermind",
       transform: "rotateY(120deg) translateZ(173px)",
     },
     {
       id: "left",
-      image: "/ad3.png",
+      image: "/ad 3.png",
       href: "/academy-ai-ml",
       title: "AI & ML Career Program",
       transform: "rotateY(240deg) translateZ(173px)",
@@ -70,8 +62,6 @@ export default function AdCube() {
       {/* 3D Cube Container */}
       <div 
         className="relative z-10 perspective-[1500px] w-full flex justify-center mb-16"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
       >
         {/* Scale wrapper for responsiveness */}
         <div className="scale-[0.55] sm:scale-[0.7] md:scale-[0.85] lg:scale-100 transition-transform duration-500 origin-center h-[315px] w-[600px]">
@@ -109,6 +99,27 @@ export default function AdCube() {
           </div>
 
         </div>
+      </div>
+
+      {/* Manual Navigation Buttons */}
+      <div className="absolute top-1/2 left-4 md:left-12 -translate-y-1/2 z-20">
+        <button
+          onClick={() => setRotation((prev) => prev + 120)}
+          className="w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur border border-white/20 flex items-center justify-center text-white transition-all hover:scale-110"
+          aria-label="Previous"
+        >
+          <ChevronLeft className="w-6 h-6" />
+        </button>
+      </div>
+      
+      <div className="absolute top-1/2 right-4 md:right-12 -translate-y-1/2 z-20">
+        <button
+          onClick={() => setRotation((prev) => prev - 120)}
+          className="w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur border border-white/20 flex items-center justify-center text-white transition-all hover:scale-110"
+          aria-label="Next"
+        >
+          <ChevronRight className="w-6 h-6" />
+        </button>
       </div>
 
       {/* Seat Registration CTA */}
