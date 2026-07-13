@@ -30,15 +30,18 @@ function CTAButton() {
 
 export default function CTASection() {
   return (
-    <section id="contact" className="relative z-10 w-full overflow-hidden pt-0">
-      <div className="relative w-full border-t border-white/10">
+    <section id="contact" className="relative z-10 w-full overflow-hidden pt-0 bg-[#010103]">
+      {/* Ambient Purple Glow */}
+      <div className="absolute left-[-10%] top-[10%] w-[800px] h-[800px] bg-[radial-gradient(circle_at_center,rgba(86,126,255,0.12)_0%,rgba(120,96,255,0.08)_40%,transparent_70%)] pointer-events-none blur-2xl z-0" />
+      
+      <div className="relative w-full border-t border-white/10 z-10">
         <div className="border-b border-white/10 px-6 py-8 sm:px-8 sm:py-12 lg:px-26 lg:py-14">
           <div className="flex flex-col gap-6 sm:gap-8 lg:flex-row lg:items-start lg:justify-between">
             <div className="max-w-[720px]">
-              <h2 className="bg-[linear-gradient(90deg,#9795FF_0%,#FFFFFF_42%,#FFFFFF_59%,#BE9FFF_100%)] bg-clip-text pb-2 pr-2 text-[2.8rem] leading-[1.08] font-normal tracking-[-0.06em] text-transparent sm:text-[4rem] lg:text-[4.9rem]">
+              <h2 className="bg-[linear-gradient(90deg,#9795FF_0%,#FFFFFF_60%)] bg-clip-text pb-2 pr-2 text-[2.8rem] leading-[1.08] font-light tracking-tight text-transparent sm:text-[4rem] lg:text-[4.9rem]">
                 Let&apos;s Work With Us
               </h2>
-              <p className="mt-5 max-w-[620px] text-[1rem] leading-[1.75] text-white/78">
+              <p className="mt-5 max-w-[620px] text-[1rem] leading-[1.75] text-white/78 font-light">
                 Partner with AGS for web development, UI/UX design, branding,
                 and digital solutions built to help your business grow.
               </p>
