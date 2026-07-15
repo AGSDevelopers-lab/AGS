@@ -24,7 +24,98 @@ function Navbar() {
     </div>
   );
 } /* ───────────────── HERO SECTION ───────────────── */
-function Hero() { return ( <section className="relative pt-8 pb-24 md:pt-24 md:pb-32 overflow-hidden bg-[#05070D]"> <div className="absolute inset-0 z-0 hidden md:block"> <Image src="/Academy/hero1.png" alt="Hero background" fill className="object-cover object-top opacity-80" priority /> <div className="absolute inset-0 bg-gradient-to-b from-[#05070D]/40 via-transparent to-[#05070D]" /> </div> <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10"> <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center mt-4 md:mt-16"> <div className="lg:col-span-7 xl:col-span-7"> <div className="text-[#7B5CFF] text-[11px] font-bold tracking-widest uppercase mb-4"> AGS ACADEMY • AI & MACHINE LEARNING CAREER PROGRAM </div> <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-6 tracking-tight"> Get Hired in AI<br />Build Real Projects on <span className="text-[#9D7AFF]">AWS</span><br />in Just 12 Weeks </h1> <p className="text-white/80 text-[15px] md:text-[17px] mb-6 max-w-xl leading-relaxed font-medium"> Train on the exact skills companies hire for — <span className="font-bold text-white">Machine Learning, Deep Learning, NLP, Computer Vision, MLOps, and AWS Cloud.</span> </p> <p className="text-white/60 text-[14px] md:text-[15px] mb-8 max-w-xl leading-relaxed"> No theory overload. No fluff. You'll build real AI projects, deploy live models, and walk out with a portfolio recruiters can actually open not just a certificate they ignore. </p> <div className="relative w-full aspect-video md:hidden mb-8 border border-white/10 bg-black"> <Image src="/Academy/hero1.png" alt="Cloud AI Platform" fill className="object-cover" /> </div> <div className="space-y-3 mb-10"> {["120+ Hands-On Training Hours","13 Job-Ready Modules","AWS + Python + Machine Learning","Live Capstone Project","1-on-1 Industry Mentorship","Portfolio Built to Get You Hired" ].map((item, idx) => ( <div key={idx} className="flex items-center gap-3"> <span className="text-[#7B5CFF] bg-[#7B5CFF]/10 w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold">✓</span> <span className="text-white/80 text-[14px]">{item}</span> </div> ))} </div> <div className="flex items-end gap-3 mb-4"> <span className="text-4xl font-black text-white">₹4,000</span> <span className="text-[12px] text-white/40 mb-1">Full program · Zero hidden costs</span> </div> <a href="#pricing" className="inline-block bg-[#7B5CFF] hover:bg-[#6a4cef] text-white px-8 py-3.5 text-[14px] font-bold transition-all shadow-[0_0_20px_rgba(123,92,255,0.4)] mb-4 w-full text-center sm:w-auto"> Reserve Your Seat — Batch Filling Fast </a> <div className="text-white/50 text-[11px] flex items-center gap-2 justify-center sm:justify-start"> <span className="text-[#7B5CFF]">★★★★★</span> 200+ students trained </div> </div> <div className="lg:col-span-5 xl:col-span-5 relative mt-8 lg:mt-0"> <div className="bg-[#05070D]/80 md:bg-white/[0.03] backdrop-blur-2xl border border-white/10 p-8 relative z-10 shadow-[0_20px_50px_rgba(0,0,0,0.5)]"> <h3 className="text-white font-bold text-xl mb-2">Seat Registration</h3> <p className="text-white/50 text-xs mb-6">Next batch starts soon. Secure your spot.</p> <div className="flex gap-3 mb-8 justify-between"> {[ { label:"DAYS", value:"03" }, { label:"HOURS", value:"14" }, { label:"MINS", value:"22" }, { label:"SECS", value:"01" } ].map((time, idx) => ( <div key={idx} className="flex flex-col items-center justify-center bg-[#151722] w-[72px] h-[72px] border border-white/5 shadow-inner"> <div className="text-[22px] leading-none font-black text-white mb-1.5">{time.value}</div> <div className="text-[9px] text-white/50 tracking-wider font-semibold">{time.label}</div> </div> ))} </div> <div className="space-y-4 mb-8"> {["120+ Practical Training Hours","13 Industry-Focused Modules","Live AI Capstone Project","Program Completion Certificate" ].map((item, idx) => ( <div key={idx} className="flex items-center gap-3"> <span className="text-white text-[14px] font-bold">✓</span> <span className="text-white/70 text-[13px]">{item}</span> </div> ))} </div> <a href="#pricing" className="block w-full bg-[#7B5CFF] hover:bg-[#6a4cef] text-center text-white py-3 text-[14px] font-bold transition-all shadow-[0_0_20px_rgba(123,92,255,0.3)]"> Reserve Your Seat → </a> </div> </div> </div> </div> </section> );
+function Hero() {
+  const features = [
+    "120+ Practical Training Hours",
+    "13 Industry-Focused Modules",
+    "AWS Cloud + Python + ML",
+    "Real Capstone Project",
+    "Industry Mentorship",
+    "Portfolio & Career Ready"
+  ];
+  
+  const cardFeatures = [
+    "120+ Hours of Live Training",
+    "13 AWS-Integrated Modules",
+    "Real Capstone AI Project",
+    "1-on-1 Mentorship Included",
+    "Portfolio-Ready Deliverables",
+    "Program Completion Certificate"
+  ];
+
+  return (
+    <section className="relative pt-8 pb-24 md:pt-24 md:pb-32 overflow-hidden bg-[#05070D]">
+      <div className="absolute inset-0 z-0 hidden md:block">
+        <Image src="/Academy/hero1.png" alt="Hero background" fill className="object-cover object-top opacity-30" priority />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#05070D]/80 via-transparent to-[#05070D]" />
+      </div>
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center mt-4 md:mt-16">
+          <div className="lg:col-span-7 xl:col-span-7">
+            <div className="text-[11px] font-medium tracking-wide mb-4">
+              <span className="text-[#9D7AFF] font-bold">AGS Academy</span> <span className="text-white/40 px-1">•</span> <span className="text-white/60 uppercase">AWS & Google Cloud Accredited Industrial Training</span>
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-6 tracking-tight">
+              Launch Your Tech Career in <span className="text-transparent bg-clip-text bg-[linear-gradient(90deg,#9795FF_0%,#D4B3FF_100%)]">AI, Full Stack, or Design.</span>
+            </h1>
+            <p className="text-white/60 text-[14px] md:text-[15px] mb-8 max-w-xl leading-relaxed">
+              One industrial training academy, three job-ready career tracks AI & Machine Learning, Full Stack Web Development, and UI/UX & Product Design built in collaboration with Brainware University. Real projects, real deployment, real portfolios.
+            </p>
+            
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-10">
+              {features.map((item, idx) => (
+                <div key={idx} className="bg-[#12141D] border border-white/5 px-4 py-3 text-center flex items-center justify-center">
+                  <span className="text-white/40 text-[11px] font-medium">{item}</span>
+                </div>
+              ))}
+            </div>
+            
+            <div className="flex items-end gap-3 mb-4">
+              <span className="text-4xl font-black text-white">₹4,000</span>
+              <span className="text-lg text-white/40 mb-1 line-through decoration-white/40">₹12,000</span>
+            </div>
+            <a href="#pricing" className="inline-block bg-[#7B5CFF] hover:bg-[#6a4cef] text-white px-8 py-3.5 text-[14px] font-bold transition-all shadow-[0_0_20px_rgba(123,92,255,0.4)] mb-4 w-full text-center sm:w-auto">
+              Reserve Your Seat Now — Batch Filling Fast
+            </a>
+            <div className="text-white/50 text-[11px] flex items-center gap-2 justify-center sm:justify-start">
+              <span className="text-white text-[10px]">★ ★ ★ ★ ★</span> <span className="text-white/80">4.9</span> • 200+ students trained
+            </div>
+          </div>
+          
+          <div className="lg:col-span-5 xl:col-span-5 relative mt-8 lg:mt-0">
+            <div className="bg-[#12131C]/90 backdrop-blur-2xl border border-white/5 p-8 relative z-10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] mt-10 lg:mt-[100px] rounded-sm">
+              <h3 className="text-white font-bold text-xl mb-2">Seat Registration</h3>
+              <p className="text-white/50 text-[12px] mb-6">Next batch starts soon. Secure your spot.</p>
+              <div className="flex gap-3 mb-8 justify-between">
+                {[
+                  { label: "DAYS", value: "03" },
+                  { label: "HOURS", value: "14" },
+                  { label: "MINS", value: "22" },
+                  { label: "SECS", value: "01" }
+                ].map((time, idx) => (
+                  <div key={idx} className="flex flex-col items-center justify-center bg-[#0C0E14] w-[72px] h-[72px] border border-white/5 shadow-inner rounded-sm">
+                    <div className="text-[22px] leading-none font-black text-white mb-1.5">{time.value}</div>
+                    <div className="text-[9px] text-white/50 tracking-wider font-semibold">{time.label}</div>
+                  </div>
+                ))}
+              </div>
+              <div className="space-y-4 mb-8">
+                {cardFeatures.map((item, idx) => (
+                  <div key={idx} className="flex items-center gap-3">
+                    <span className="text-white text-[12px] font-bold">✓</span>
+                    <span className="text-white/70 text-[13px]">{item}</span>
+                  </div>
+                ))}
+              </div>
+              <a href="#pricing" className="block w-full bg-[#7B5CFF] hover:bg-[#6a4cef] text-center text-white py-3 text-[14px] font-bold transition-all shadow-[0_0_20px_rgba(123,92,255,0.3)] rounded-sm">
+                Reserve Your Seat →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 } /* ───────────────── STATS ───────────────── */
 function Stats() { const statItems = [ { value:"120+", label:"Practical Training Hours" }, { value:"13", label:"Industry Modules" }, { value:"200+", label:"Students Trained" }, { value:"100%", label:"Project-Based Learning" } ]; return ( <section className="py-24 bg-[#0A0D18]"> <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center"> <h4 className="text-white/40 text-[11px] font-bold tracking-[0.2em] uppercase mb-12">WHY 200+ STUDENTS CHOSE AGS ACADEMY</h4> <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12"> {statItems.map((stat, idx) => ( <div key={idx} className="flex flex-col items-center justify-center text-center"> <div className="text-4xl md:text-5xl font-black text-[#7B5CFF] mb-2">{stat.value}</div> <div className="text-[11px] text-white/60 font-bold uppercase tracking-widest">{stat.label}</div> </div> ))} </div> </div> </section> );
 } /* ───────────────── THE OPPORTUNITY ───────────────── */
@@ -34,7 +125,410 @@ function Methodology() { return ( <section className="py-24 bg-[#0A0D18]"> <div 
 } /* ───────────────── TECH SKILLS ───────────────── */
 function TechSkills() { const techSkills = ["Python Programming","NumPy & Pandas","Machine Learning","Deep Learning","NLP","Computer Vision"]; const industryTools = ["Amazon Web Services","Amazon SageMaker","Amazon S3","AWS Lambda","API Gateway","MLOps & CI/CD","Model Monitoring","Git & GitHub"]; return ( <section className="py-24 bg-[#05070D]"> <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12"> <div className="text-center mb-16 w-full mx-auto"> <h4 className="text-white/40 text-[10px] font-bold tracking-widest uppercase mb-4">WHAT THE INDUSTRY NEEDS</h4> <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 md:whitespace-nowrap"> Companies Don't Hire Theory. <span className="text-[#9D7AFF]">They Hire Proof.</span> </h2> <p className="text-white/50 text-[14px] leading-relaxed max-w-2xl mx-auto whitespace-normal"> Today's employers expect more than academic knowledge. With AGS Academy, you'll gain practical experience in the technologies companies use every day. </p> </div> <div className="grid grid-cols-1 md:grid-cols-2 gap-16"> <div> <h4 className="text-[#7B5CFF] text-[11px] font-bold mb-6">Technical Skills You'll Build</h4> <div className="flex flex-wrap gap-3"> {techSkills.map((skill, idx) => ( <div key={idx} className="bg-white/5 border border-white/10 text-white/70 text-[11px] px-4 py-2"> {skill} </div> ))} </div> </div> <div> <h4 className="text-[#7B5CFF] text-[11px] font-bold mb-6">Industry Tools You'll Work With</h4> <div className="flex flex-wrap gap-3"> {industryTools.map((tool, idx) => ( <div key={idx} className="bg-white/5 border border-white/10 text-white/70 text-[11px] px-4 py-2"> {tool} </div> ))} </div> </div> </div> </div> </section> );
 } /* ───────────────── CURRICULUM GRID ───────────────── */
-function Curriculum() { const modules = [ { title:"Orientation to AI/ML & AWS Setup", desc:"Start with the full AI project lifecycle. Set up your cloud workspace using SageMaker Studio, IAM, CloudShell, and core AWS services." }, { title:"Data Storage & Management", desc:"Build cloud-native data pipelines using Amazon S3, AWS Glue, and Athena." }, { title:"Data Cleaning & Preprocessing", desc:"Work with real-world messy datasets using Pandas and NumPy the way data teams do it professionally." }, { title:"Exploratory Data Analysis", desc:"Visualize patterns, extract insights, and tell data stories using modern EDA techniques." }, { title:"Classical Machine Learning on AWS", desc:"Build classification, regression, and clustering models using Scikit-Learn and SageMaker." }, { title:"Model Evaluation & Optimization", desc:"Tune hyperparameters, run validation strategies, and hit accuracy benchmarks." }, { title:"Feature Engineering & Pipelines", desc:"Design reusable ML workflows used in production systems at real companies." }, { title:"Deep Learning on AWS", desc:"Train neural networks using TensorFlow and PyTorch, backed by AWS cloud compute." }, { title:"Natural Language Processing", desc:"Build systems that understand text sentiment analysis, text classification, and language models." }, { title:"Computer Vision Applications", desc:"Create image recognition solutions using OpenCV and AWS AI services." }, { title:"Deployment & API Integration", desc:"Learn SageMaker Endpoints, AWS Lambda, and API Gateway to go from model to product." }, { title:"MLOps & Monitoring", desc:"Learn CI/CD workflows, version control, deployment automation, and live monitoring." }, { title:"Capstone Project — End-to-End AI Deployment", desc:"Build one complete end-to-end AI application from raw data to deployed product. This is the project you'll show in every interview." } ]; return ( <section id="curriculum" className="py-24 bg-[#05070D]"> <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12"> <div className="mb-16 max-w-2xl"> <h4 className="text-[#7B5CFF] text-[11px] font-bold tracking-widest uppercase mb-4">FULL CURRICULUM</h4> <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-[1.1] tracking-tight"> 13 Modules. 12 Weeks. <span className="text-[#9D7AFF]">One Portfolio That Gets You Hired.</span> </h2> <p className="text-white/60 text-[16px] leading-relaxed"> Every module ends with a real deliverable not a quiz. You'll graduate with proof of your skills, not just a certificate that claims them. </p> </div> <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"> {modules.map((mod, idx) => ( <div key={idx} className={`bg-[#161029] border ${idx === modules.length - 1 ? 'border-[#7B5CFF]' : 'border-white/5'} p-8 hover:border-[#7B5CFF]/30 transition-colors ${idx === modules.length - 1 ? 'md:col-span-2 lg:col-span-3' : ''} flex flex-col`}> <h5 className="text-[#7B5CFF] text-[10px] font-bold tracking-widest uppercase mb-3">MODULE {String(idx + 1).padStart(2, '0')} {idx === modules.length - 1 && "— CAPSTONE"}</h5> <h3 className="text-white font-bold text-[16px] mb-3">{mod.title}</h3> {mod.desc && <p className="text-white/50 text-[16px] leading-relaxed">{mod.desc}</p>} </div> ))} </div> </div> </section> );
+/* ───────────────── CURRICULUM GRID ───────────────── */
+function Curriculum() {
+  const tags = ["Artificial Intelligence", "Machine Learning", "Deep Learning", "NLP", "Computer Vision", "MLOps", "AWS Cloud"];
+  
+  const modules = [
+    {
+      num: "00",
+      title: "Orientation to AI/ML & AWS Setup",
+      topics: ["AI/ML landscape & career paths", "AWS account & SageMaker setup", "Python & notebook environment", "AI-assisted coding tools"],
+      deliverable: "AWS environment configured and first notebook shipped."
+    },
+    {
+      num: "01",
+      title: "Data Storage & Management",
+      topics: ["S3, RDS & data lakes", "Data versioning", "Schema design for ML", "Access & security basics"],
+      deliverable: "Structured data pipeline connected to cloud storage."
+    },
+    {
+      num: "02",
+      title: "Data Cleaning & Preprocessing",
+      topics: ["Handling missing data", "Outlier detection", "Feature scaling & encoding", "Data quality checks"],
+      deliverable: "Cleaned, production-ready dataset."
+    },
+    {
+      num: "03",
+      title: "Exploratory Data Analysis",
+      topics: ["Visualizing distributions", "Correlation analysis", "Feature importance tracking", "Statistical testing"],
+      deliverable: "Comprehensive EDA report with actionable insights."
+    },
+    {
+      num: "04",
+      title: "Classical Machine Learning on AWS",
+      topics: ["Regression & classification", "Decision trees & ensembles", "SageMaker built-in algorithms", "Cross-validation"],
+      deliverable: "Trained & benchmarked ML model on AWS."
+    },
+    {
+      num: "05",
+      title: "Model Evaluation & Optimization",
+      topics: ["Precision, recall, F1, ROC-AUC", "Hyperparameter tuning", "Bias-variance tradeoff", "A/B testing basics"],
+      deliverable: "Optimized model with documented metrics."
+    },
+    {
+      num: "06",
+      title: "Feature Engineering & Pipelines",
+      topics: ["Feature stores", "Automated pipelines", "Data leakage prevention", "Reusable transforms"],
+      deliverable: "Automated, reusable feature pipeline."
+    },
+    {
+      num: "07",
+      title: "Deep Learning on AWS",
+      topics: ["Neural network fundamentals", "CNNs & RNNs", "SageMaker training jobs", "GPU-accelerated training"],
+      deliverable: "Deep learning model trained on AWS GPUs."
+    },
+    {
+      num: "08",
+      title: "Natural Language Processing",
+      topics: ["Text preprocessing & embeddings", "Transformers & LLM basics", "Sentiment & classification tasks", "Prompt engineering"],
+      deliverable: "NLP model integrated into an application."
+    },
+    {
+      num: "09",
+      title: "Computer Vision Applications",
+      topics: ["Image classification", "Object detection", "Transfer learning", "Real-time inference"],
+      deliverable: "CV model deployed for image analysis."
+    },
+    {
+      num: "10",
+      title: "Deployment & Orchestration",
+      topics: ["SageMaker endpoints", "Containerizing models", "CI/CD for ML", "API integration"],
+      deliverable: "Model deployed as a live, callable endpoint."
+    },
+    {
+      num: "11",
+      title: "MLOps & Monitoring",
+      topics: ["Model versioning & registry", "Drift detection", "Logging & alerting", "Cost optimization on AWS"],
+      deliverable: "Monitored production ML pipeline."
+    },
+    {
+      num: "12",
+      title: "Capstone — End-to-End AI Deployment 🏁",
+      topics: ["Own problem statement", "Full pipeline: data → model → deployment", "Stakeholder-style presentation", "Mock technical interview"],
+      deliverable: "Deployed, end-to-end AI system + professional portfolio."
+    }
+  ];
+
+  const fullStackTags = ["TypeScript", "React", "Next.js", "Node.js", "PostgreSQL", "Docker", "AWS", "AI-Assisted Coding"];
+
+  const fullStackModules = [
+    {
+      num: "00",
+      title: "Developer Environment & AI-Augmented Workflow",
+      topics: ["VS Code & terminal fluency", "Git & GitHub, PR workflows", "AI-assisted coding with Copilot/Claude/Cursor", "When not to trust AI-generated code"],
+      deliverable: "Personal portfolio repository initialized with proper Git hygiene."
+    },
+    {
+      num: "01",
+      title: "Web Fundamentals",
+      topics: ["HTTP/HTTPS, DNS, request lifecycle", "Semantic HTML5 & accessibility", "Modern CSS: Flexbox, Grid, Tailwind", "Core Web Vitals & performance"],
+      deliverable: "Fully responsive, accessible multi-page site scoring 90+ on Lighthouse."
+    },
+    {
+      num: "02",
+      title: "JavaScript & TypeScript",
+      topics: ["JS fundamentals & ES2024+", "Async programming & DOM", "Strict TypeScript", "Vite, ESLint/Biome, Prettier"],
+      deliverable: "Interactive browser app (Expense Tracker) built in strict TypeScript."
+    },
+    {
+      num: "03",
+      title: "React Development",
+      topics: ["Components, JSX, props, state", "Hooks & custom hooks", "Design systems & TanStack Query", "Testing & accessibility"],
+      deliverable: "Component-driven React application with routing and state management."
+    },
+    {
+      num: "04",
+      title: "Backend with Node.js & APIs",
+      topics: ["Node.js, Express/Fastify", "REST APIs, OpenAPI/Swagger", "JWT & OAuth authentication", "Rate limiting & pagination"],
+      deliverable: "Documented and secured REST API with authentication and automated tests."
+    },
+    {
+      num: "05",
+      title: "Databases & Data Modeling",
+      topics: ["PostgreSQL & schema design", "Prisma & Drizzle ORM", "MongoDB, Redis, vector databases", "GDPR & DPDP-aware design"],
+      deliverable: "Normalized database integrated into backend APIs."
+    },
+    {
+      num: "06",
+      title: "Full Stack Integration with Next.js",
+      topics: ["App Router, layouts, streaming", "Server components & server actions", "SSR, SSG, ISR", "End-to-end type safety"],
+      deliverable: "Production-ready full stack application deployed to Vercel."
+    },
+    {
+      num: "07",
+      title: "AI-Powered Features",
+      topics: ["LLM APIs (Anthropic/OpenAI)", "RAG & embeddings, pgvector", "AI chat interfaces & tool calling", "Responsible AI & prompt injection"],
+      deliverable: "AI-powered feature integrated into the full stack application."
+    },
+    {
+      num: "08",
+      title: "DevOps, Cloud & Security",
+      topics: ["Docker & GitHub Actions", "AWS, Vercel, Cloudflare Workers", "OWASP Top 10 & security headers", "Monitoring with Sentry"],
+      deliverable: "Containerized application with CI/CD pipeline and production monitoring."
+    },
+    {
+      num: "09",
+      title: "Capstone — Portfolio & Career Sprint 🏁",
+      topics: ["Production-grade full stack app", "System design & architecture reviews", "Resume, GitHub & portfolio polish", "Technical interview preparation"],
+      deliverable: "Deployed capstone project, professional portfolio, and mock interview."
+    }
+  ];
+
+  const designTags = ["UX Research", "UI Design", "Conversational UX", "Agentic UX", "Generative UI", "Figma AI"];
+
+  const designModules = [
+    {
+      num: "01",
+      title: "Modern UX Foundations",
+      topics: ["UX fundamentals, design thinking", "Double Diamond & JTBD", "User research & personas", "Information architecture & usability"],
+      deliverable: "User research, persona and journey map for a redesigned app."
+    },
+    {
+      num: "02",
+      title: "AI Product Thinking",
+      topics: ["Understanding AI products vs automation", "Generative AI & LLMs for designers", "AI opportunity identification", "When to use — and not use — AI"],
+      deliverable: "Evaluation of an existing product with proposed AI integrations."
+    },
+    {
+      num: "03",
+      title: "Conversational UX Design",
+      topics: ["Chat interfaces & prompt-based UX", "AI personalities & multi-turn flows", "Context retention & error recovery"],
+      deliverable: "Conversational flow designed for an AI banking assistant."
+    },
+    {
+      num: "04",
+      title: "DUI — Delegative UI",
+      topics: ["Goal-oriented interfaces", "Task delegation models", "Autonomous workflows & human oversight"],
+      deliverable: "Goal-based productivity system with delegation flows."
+    },
+    {
+      num: "05",
+      title: "Agentic UX Design (AUI)",
+      topics: ["AI agents & agent ecosystems", "Multi-agent collaboration", "Human-in-the-loop systems"],
+      deliverable: "AI project manager copilot with approval workflows."
+    },
+    {
+      num: "06",
+      title: "Generative UI (GenUI)",
+      topics: ["Dynamic, context-aware interfaces", "Personalized experiences", "Real-time interface generation"],
+      deliverable: "Adaptive e-commerce experience with dynamic screens."
+    },
+    {
+      num: "07",
+      title: "Explainable AI UX (XAI)",
+      topics: ["AI transparency & confidence indicators", "Explainability patterns", "Trust-building design"],
+      deliverable: "AI healthcare dashboard with decision breakdowns."
+    },
+    {
+      num: "08",
+      title: "Zero UI & Ambient Experience Design",
+      topics: ["Voice UX & ambient computing", "Smart environments", "Gesture interfaces"],
+      deliverable: "Hands-free workspace system with voice journey mapping."
+    },
+    {
+      num: "09",
+      title: "Neuro-Inclusive Design",
+      topics: ["Cognitive diversity", "ADHD-friendly & autism-aware interfaces", "Dyslexia design principles"],
+      deliverable: "Neuro-inclusive learning platform with accessibility redesign."
+    },
+    {
+      num: "10",
+      title: "Spatial UX (AR/VR/XR)",
+      topics: ["Spatial computing & AR interfaces", "VR experiences", "Mixed reality design"],
+      deliverable: "Virtual workspace design with XR prototyping."
+    },
+    {
+      num: "11",
+      title: "AI Systems & Workflow Design",
+      topics: ["AI architecture for designers", "LLM & RAG fundamentals", "Multi-agent workflow design"],
+      deliverable: "Enterprise AI workflow map for customer support and recruitment."
+    },
+    {
+      num: "12",
+      title: "AI Evaluation & Metrics",
+      topics: ["Precision, recall, hallucination rate", "UX metrics: adoption, trust, task success"],
+      deliverable: "AI UX audit report for an existing product."
+    },
+    {
+      num: "13",
+      title: "AI Tools for Designers",
+      topics: ["Figma AI, Framer AI, Adobe Firefly", "ChatGPT, Claude & AI research agents", "Runway & Midjourney for visuals"],
+      deliverable: "A complete workflow built end-to-end using AI tools."
+    },
+    {
+      num: "14",
+      title: "Ethics, Privacy & Responsible AI",
+      topics: ["AI ethics & bias detection", "Privacy-first design", "Regulatory landscape"],
+      deliverable: "Ethical review of an AI product."
+    },
+    {
+      num: "15",
+      title: "Capstone — Portfolio & Career Building 🏁",
+      topics: ["Writing AI UX case studies", "LinkedIn branding & freelancing strategy", "AI UX interview preparation"],
+      deliverable: "Portfolio website, LinkedIn profile and polished case-study resume."
+    }
+  ];
+  
+  return (
+    <section id="curriculum" className="py-24 bg-[#05070D]">
+      <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="mb-16">
+          <h4 className="text-[#7B5CFF] text-[11px] font-bold tracking-[0.2em] uppercase mb-4">FULL CURRICULUM</h4>
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-[1.1] tracking-tight">
+            Pick Your Track.<br />
+            Same Rigor, <span className="text-transparent bg-clip-text bg-[linear-gradient(90deg,#9795FF_0%,#D4B3FF_100%)]">Different Modules.</span>
+          </h2>
+          <p className="text-white/60 text-[16px] leading-relaxed">
+            Every track ends in a real, deployed capstone project and a portfolio that gets you hired.<br className="hidden md:block"/>
+            Only the curriculum below changes by track — everything else about the program experience is the same.
+          </p>
+        </div>
+
+        {/* AI Track */}
+        <div className="mb-8 border-b border-white/10 pb-6 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-2.5 h-8 bg-[#9D7AFF] rounded-full"></div>
+            <h3 className="text-xl md:text-2xl font-bold text-white">AI & Machine Learning</h3>
+          </div>
+          <div className="text-white/40 text-[12px] md:text-[14px]">
+            12 Weeks • 13 Modules
+          </div>
+        </div>
+
+        <div className="flex flex-wrap gap-3 mb-12">
+          {tags.map((tag, idx) => (
+            <div key={idx} className="border border-white/10 text-white/50 text-[12px] px-4 py-2 rounded-sm bg-[#0C0E14]">
+              {tag}
+            </div>
+          ))}
+        </div>
+
+        <div className="space-y-4">
+          {modules.map((mod, idx) => (
+            <div key={idx} className="bg-[#0C0E14] border border-white/5 p-6 md:p-8 rounded-sm hover:border-white/10 transition-colors flex flex-col md:flex-row gap-6 md:gap-8">
+              <div className="shrink-0">
+                <div className="w-12 h-12 rounded-xl bg-[#7B5CFF] flex items-center justify-center text-white font-bold text-[15px]">
+                  {mod.num}
+                </div>
+              </div>
+              <div>
+                <h4 className="text-white font-bold text-[16px] md:text-[18px] mb-3">
+                  {mod.title}
+                </h4>
+                <div className="flex flex-wrap items-center text-white/50 text-[12px] md:text-[13px] gap-3 mb-5">
+                  {mod.topics.map((topic, tIdx) => (
+                    <div key={tIdx} className="flex items-center gap-3">
+                      <span>{topic}</span>
+                      {tIdx < mod.topics.length - 1 && <span className="text-[#7B5CFF] text-[16px] leading-none">›</span>}
+                    </div>
+                  ))}
+                </div>
+                <div className="inline-block border border-[#7B5CFF]/30 bg-[#7B5CFF]/5 text-[#A58FFF] text-[11px] md:text-[12px] px-4 py-2 rounded-full">
+                  Deliverable: {mod.deliverable}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Full Stack Track */}
+        <div className="mb-8 mt-24 border-b border-white/10 pb-6 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-2.5 h-8 bg-[#38BDF8] rounded-full"></div>
+            <h3 className="text-xl md:text-2xl font-bold text-white">Full Stack Web Development</h3>
+          </div>
+          <div className="text-white/40 text-[12px] md:text-[14px]">
+            24 Weeks • 10 Modules
+          </div>
+        </div>
+
+        <div className="flex flex-wrap gap-3 mb-12">
+          {fullStackTags.map((tag, idx) => (
+            <div key={idx} className="border border-white/10 text-white/50 text-[12px] px-4 py-2 rounded-sm bg-[#0C0E14]">
+              {tag}
+            </div>
+          ))}
+        </div>
+
+        <div className="space-y-4">
+          {fullStackModules.map((mod, idx) => (
+            <div key={idx} className="bg-[#0C0E14] border border-white/5 p-6 md:p-8 rounded-sm hover:border-white/10 transition-colors flex flex-col md:flex-row gap-6 md:gap-8">
+              <div className="shrink-0">
+                <div className="w-12 h-12 rounded-xl bg-[#7B5CFF] flex items-center justify-center text-white font-bold text-[15px]">
+                  {mod.num}
+                </div>
+              </div>
+              <div>
+                <h4 className="text-white font-bold text-[16px] md:text-[18px] mb-3">
+                  {mod.title}
+                </h4>
+                <div className="flex flex-wrap items-center text-white/50 text-[12px] md:text-[13px] gap-3 mb-5">
+                  {mod.topics.map((topic, tIdx) => (
+                    <div key={tIdx} className="flex items-center gap-3">
+                      <span>{topic}</span>
+                      {tIdx < mod.topics.length - 1 && <span className="text-[#7B5CFF] text-[16px] leading-none">›</span>}
+                    </div>
+                  ))}
+                </div>
+                <div className="inline-block border border-[#7B5CFF]/30 bg-[#7B5CFF]/5 text-[#A58FFF] text-[11px] md:text-[12px] px-4 py-2 rounded-full">
+                  Deliverable: {mod.deliverable}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* UI/UX Track */}
+        <div className="mb-8 mt-24 border-b border-white/10 pb-6 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-2.5 h-8 bg-[#FF66A1] rounded-full"></div>
+            <h3 className="text-xl md:text-2xl font-bold text-white">UI/UX & Product Design</h3>
+          </div>
+          <div className="text-white/40 text-[12px] md:text-[14px]">
+            15 Weeks • 15 Modules
+          </div>
+        </div>
+
+        <div className="flex flex-wrap gap-3 mb-12">
+          {designTags.map((tag, idx) => (
+            <div key={idx} className="border border-white/10 text-white/50 text-[12px] px-4 py-2 rounded-sm bg-[#0C0E14]">
+              {tag}
+            </div>
+          ))}
+        </div>
+
+        <div className="space-y-4">
+          {designModules.map((mod, idx) => (
+            <div key={idx} className="bg-[#0C0E14] border border-white/5 p-6 md:p-8 rounded-sm hover:border-white/10 transition-colors flex flex-col md:flex-row gap-6 md:gap-8">
+              <div className="shrink-0">
+                <div className="w-12 h-12 rounded-xl bg-[#7B5CFF] flex items-center justify-center text-white font-bold text-[15px]">
+                  {mod.num}
+                </div>
+              </div>
+              <div>
+                <h4 className="text-white font-bold text-[16px] md:text-[18px] mb-3">
+                  {mod.title}
+                </h4>
+                <div className="flex flex-wrap items-center text-white/50 text-[12px] md:text-[13px] gap-3 mb-5">
+                  {mod.topics.map((topic, tIdx) => (
+                    <div key={tIdx} className="flex items-center gap-3">
+                      <span>{topic}</span>
+                      {tIdx < mod.topics.length - 1 && <span className="text-[#7B5CFF] text-[16px] leading-none">›</span>}
+                    </div>
+                  ))}
+                </div>
+                <div className="inline-block border border-[#7B5CFF]/30 bg-[#7B5CFF]/5 text-[#A58FFF] text-[11px] md:text-[12px] px-4 py-2 rounded-full">
+                  Deliverable: {mod.deliverable}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+  );
 } /* ───────────────── TARGET AUDIENCE ───────────────── */
 function TargetAudience() { const audiences = [ { title:"B.Tech & Engineering Students", desc:"Your college taught you concepts. We teach you what companies actually test in interviews." }, { title:"Aspiring AI & ML Engineers", desc:"A structured, proven path from zero to job-ready." }, { title:"Data Science Enthusiasts", desc:"Every module produces a deliverable you can add to your portfolio." }, { title:"Career Changers", desc:"We help you build proof, even if your background is non-technical." } ]; return ( <section className="py-24 bg-[#05070D]"> <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12"> <div className="mb-16"> <h4 className="text-[#7B5CFF] text-[11px] font-bold tracking-widest uppercase mb-4">WHO IT'S FOR</h4> <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">Built for <span className="text-[#9D7AFF]">Future AI Professionals</span></h2> <p className="text-white/60 text-[16px] max-w-2xl">Whether you're a student, career changer, or enthusiast this program meets you where you are.</p> </div> <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"> {audiences.map((item, idx) => ( <div key={idx} className="bg-[#161029] border border-white/5 p-6 md:p-8 hover:border-white/10 transition-colors flex flex-col"> <div className="w-10 h-10 rounded-xl bg-[#12162A] mb-6"></div> <h3 className="text-white font-bold text-[16px] mb-4 leading-snug">{item.title}</h3> <p className="text-white/50 text-[16px] leading-relaxed">{item.desc}</p> </div> ))} </div> </div> </section> );
 } /* ───────────────── WHAT YOU'LL HAVE ───────────────── */
@@ -52,5 +546,5 @@ function FAQ() { const [openIdx, setOpenIdx] = useState(null); const faqs = [ { 
 } /* ───────────────── FOOTER ───────────────── */
 function Footer() { return ( <footer className="bg-[#05070D]"> <div className="py-24 text-center border-t border-white/5"> <h2 className="text-4xl md:text-5xl font-bold text-white mb-2 tracking-tight">Stop Reading About AI. <span className="text-[#9D7AFF]">Start Building It.</span></h2> <p className="text-white/50 text-[15px] md:text-[16px] max-w-xl mx-auto mb-8 leading-relaxed mt-6"> The next batch is forming now. Seats are limited and once they're gone, enrollment closes until the next intake. If you're serious about getting into AI, this is the program that actually prepares you for it. </p> <a href="#pricing" className="inline-block bg-[#7B5CFF] hover:bg-[#6a4cef] text-white px-8 py-4 text-[15px] md:text-[16px] font-bold transition-all mb-4"> Reserve Your Seat Now — It Takes 60 Seconds </a> <p className="text-white/40 text-[13px]">Join 200+ students who chose projects over theory and portfolios over empty certificates.</p> </div> <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 border-t border-white/5"> <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-8"> <div className="md:col-span-12 lg:col-span-4"> <h3 className="text-white font-bold text-xl mb-4 tracking-tight"><span className="text-[#7B5CFF]">AGS</span> Academy</h3> <p className="text-white/50 text-[12px] leading-relaxed max-w-sm"> A career program for AI & Machine Learning, built around real projects and AWS deployment. </p> </div> <div className="md:col-span-4 lg:col-span-2 lg:col-start-7"> <h4 className="text-white font-bold text-[11px] tracking-widest uppercase mb-6">Program</h4> <ul className="space-y-4"> {["Curriculum","Outcomes","Mentors"].map(link => ( <li key={link}><a href={`#${link.toLowerCase()}`} className="text-white/40 hover:text-white transition-colors text-[13px]">{link}</a></li> ))} </ul> </div> <div className="md:col-span-4 lg:col-span-2"> <h4 className="text-white font-bold text-[11px] tracking-widest uppercase mb-6">Resources</h4> <ul className="space-y-4"> {["FAQ","Pricing","Student Stories"].map(link => ( <li key={link}><a href={`#${link.toLowerCase()}`} className="text-white/40 hover:text-white transition-colors text-[13px]">{link}</a></li> ))} </ul> </div> <div className="md:col-span-4 lg:col-span-2"> <h4 className="text-white font-bold text-[11px] tracking-widest uppercase mb-6">Contact</h4> <ul className="space-y-4"> {["hello@agsacademy.in","+91 98300 98300"].map(link => ( <li key={link}><a href="#" className="text-white/40 hover:text-white transition-colors text-[13px]">{link}</a></li> ))} </ul> </div> </div> <div className="mt-16 pt-8 text-center border-t border-white/5"> <p className="text-white/30 text-[12px]"> © 2026 AGS Academy. All rights reserved. </p> </div> </div> </footer> );
 } /* ───────────────── PAGE EXPORT ───────────────── */
-export default function AcademyPage() { return ( <main className="bg-[#05070D] min-h-screen text-white font-sans antialiased selection:bg-[#7B5CFF]/30 selection:text-white"> <Navbar /> <Hero /> <Stats /> <Opportunity /> <Methodology /> <TechSkills /> <Curriculum /> <TargetAudience /> <WhatYoullHave /> {/* <Mentors /> */} <Bonuses /> <Testimonials /> <Pricing /> <FAQ /> <Footer /> </main> );
+export default function AcademyPage() { return ( <main className="bg-[#05070D] min-h-screen text-white font-sans antialiased selection:bg-[#7B5CFF]/30 selection:text-white"> <Navbar /> <Hero /> <Stats /> {/* <Opportunity /> */} {/* <Methodology /> */} {/* <TechSkills /> */} <Curriculum /> <TargetAudience /> <WhatYoullHave /> {/* <Mentors /> */} <Bonuses /> <Testimonials /> <Pricing /> <FAQ /> <Footer /> </main> );
 }

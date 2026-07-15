@@ -71,7 +71,7 @@ export default function Home() {
 
       <div className="relative z-10">
         <HeroSlider />
-        <AdCube />
+        {/* <AdCube /> */}
         <div className="relative">
           <SectionConnector />
           <ScrollReveal direction="up" delay={100}>
