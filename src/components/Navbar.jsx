@@ -49,10 +49,9 @@ export default function Navbar() {
           : "bg-transparent py-6"
         }`}
     >
-      <div className="flex w-full items-center justify-between px-6 sm:px-8 lg:px-26">
-
-        {/* LEFT: Logo + Desktop Nav items */}
-        <div className="flex items-center gap-10">
+      <div className="flex w-full items-center justify-between px-6 sm:px-8 lg:px-26 relative">
+        {/* LEFT: Logo + Company Name */}
+        <div className="flex items-center">
           {/* LOGO + COMPANY NAME + TAGLINE */}
           <Link
             href="/"
@@ -105,20 +104,20 @@ export default function Navbar() {
               </p>
             </div>
           </Link>
+        </div>
 
-          {/* Desktop Menu — right next to logo */}
-          <div className="hidden md:flex space-x-10 items-center">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={getNavHref(item.href)}
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-white hover:text-white/80 transition-colors text-[15px] tracking-[0.04em] font-medium"
-              >
-                {item.name}
-              </Link>
-            ))}
-          </div>
+        {/* CENTER: Desktop Menu */}
+        <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 space-x-10 items-center">
+          {navItems.map((item) => (
+            <Link
+              key={item.name}
+              href={getNavHref(item.href)}
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-white hover:text-white/80 transition-colors text-[15px] tracking-[0.04em] font-medium"
+            >
+              {item.name}
+            </Link>
+          ))}
         </div>
 
         {/* RIGHT: CTA Button + Mobile menu button */}

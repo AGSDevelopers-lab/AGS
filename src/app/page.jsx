@@ -11,6 +11,7 @@ import Testimonials from "@/components/Testimonials";
 import CTASection from "@/components/CTASection";
 import CertificationsSection from "@/components/CertificationsSection";
 import CertifiedExcellence from "@/components/CertifiedExcellence";
+import AWSTraining from "@/components/AWSTraining";
 import ScrollReveal from "@/components/ScrollReveal";
 
 function SectionConnector() {
@@ -92,6 +93,9 @@ export default function Home() {
         </ScrollReveal>
         <ScrollReveal direction="up" delay={150}>
           <GcpSection />
+        </ScrollReveal>
+        <ScrollReveal direction="up" delay={150}>
+          <AWSTraining />
         </ScrollReveal>
         <ScrollReveal direction="up" delay={150}>
           <CertifiedExcellence />
