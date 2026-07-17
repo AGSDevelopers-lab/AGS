@@ -1,7 +1,7 @@
 ﻿export const metadata = {
-  title: 'Become an AI Engineer in 12 Hours | AGS Academy',
-  description: 'A hands-on, build-first mastermind. Go from API integration to shipping your own production-ready GenAI agents on AWS.',
-  keywords: 'AI engineer, GenAI, AWS, AI mastermind, generative AI, LLM, prompt engineering',
+  title: 'AI Projects & Machine Learning Certification | AGS Academy',
+  description: 'Build real AI applications and launch your career in AI & Machine Learning on AWS in just 12 weeks with AGS Academy.',
+  keywords: 'AI projects, machine learning, AWS certification, AI career, deep learning, NLP, computer vision, MLOps',
 };
 
 export default function Layout({ children }) {

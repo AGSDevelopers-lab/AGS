@@ -45,15 +45,13 @@ export default function AWSTraining() {
           animation-play-state: paused;
         }
       `}</style>
-      <div className="w-full px-6 sm:px-8 lg:px-26">
-        <div className="mb-4 sm:mb-6">
-          <h3 className="text-[10px] md:text-xs font-bold tracking-[0.2em] text-[#7B5CFF] uppercase mb-4">
-            VERIFIED CREDENTIALS
-          </h3>
-          <h2 className="bg-[linear-gradient(90deg,#9795FF_0%,#FFFFFF_42%,#FFFFFF_59%,#BE9FFF_100%)] bg-clip-text pb-2 pr-2 text-[2.8rem] leading-[1.08] font-normal tracking-[-0.06em] text-transparent sm:text-[4rem] lg:text-[4.9rem]">
-            AWS-Accredited Training & Digital Badges
-          </h2>
-        </div>
+      <div className="w-full px-6 sm:px-8 lg:px-26 mb-12">
+        <h4 className="text-[10px] md:text-xs font-bold tracking-[0.2em] text-[#7B5CFF] uppercase mb-4">
+          VERIFIED CREDENTIALS
+        </h4>
+        <h2 className="bg-[linear-gradient(90deg,#9795FF_0%,#FFFFFF_42%,#FFFFFF_59%,#BE9FFF_100%)] bg-clip-text pb-2 pr-2 text-[2.8rem] leading-[1.08] font-normal tracking-[-0.06em] text-transparent sm:text-[4rem] lg:text-[4.9rem]">
+          AWS-Accredited Training & Digital Badges
+        </h2>
       </div>
 
       {/* Carousel Track */}
