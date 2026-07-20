@@ -779,8 +779,10 @@ function MentorsSection() {
   const mentors = [
     {
       name: "Ankit Bhadra",
-      image: "/Academy/ankit bhadra.png",
+      image: "/Academy/Ankit Bhadra.png",
       tag: "Mentor",
+      tagColor: "border-[#7B5CFF]/30 text-[#BE9FFF] bg-[#7B5CFF]/10",
+      roleColor: "text-[#7B5CFF]",
       roles: ["Pre-Sales Cloud Solution Architect", "Cloud Consultant"],
       desc: "7+ years of experience as a Technical SPOC and Cloud consultant. Currently a Pre-Sales Cloud Solution Architect with expertise in AWS, Microsoft Azure, and Google Cloud Platform (GCP). He helps organizations accelerate digital transformation by designing optimized cloud solutions, architectures, and AI/ML ecosystems.",
       badges: [
@@ -792,8 +794,10 @@ function MentorsSection() {
     },
     {
       name: "Aritra Sen",
-      image: "/Academy/aritra sen.png",
+      image: "/Academy/Aritra Sen.png",
       tag: "Mentor",
+      tagColor: "border-[#7B5CFF]/30 text-[#BE9FFF] bg-[#7B5CFF]/10",
+      roleColor: "text-[#7B5CFF]",
       roles: ["Sales & Business Development Expert"],
       desc: "16 years of work experience in Sales & Business Development. His expertise in technology sales with a strong consultancy expertise in AI, data engineering, cloud native and various digital engineering solutions.",
       badges: [
@@ -806,6 +810,7 @@ function MentorsSection() {
       name: "Atish Roy",
       image: "/Academy/atish roy.png",
       tag: "Mentor",
+      tagColor: "border-[#FF4D6D]/30 text-[#FF8FA3] bg-[#FF4D6D]/10",
       roleColor: "text-[#FF4D6D]",
       roleIcon: "cursor",
       roles: ["Mentor For Advanced UI, UX"],
@@ -819,6 +824,7 @@ function MentorsSection() {
       name: "Sayan Bhattacharjee",
       image: "/Academy/Sayan bhattacharjee (1).png",
       tag: "Mentor",
+      tagColor: "border-[#FF4D6D]/30 text-[#FF8FA3] bg-[#FF4D6D]/10",
       roleColor: "text-[#FF4D6D]",
       roleIcon: "gradCap",
       roles: ["Mentor For Basic Course UI, UX"],
@@ -878,70 +884,93 @@ function MentorsSection() {
     )
   };
 
+  const renderMentorCard = (mentor, idx) => (
+    <div key={idx} className="flex flex-col sm:flex-row w-full h-full bg-[#13111C] overflow-hidden">
+      <div className="w-full sm:w-[45%] relative min-h-[300px] sm:min-h-[320px] flex-shrink-0 bg-transparent">
+        <Image 
+          src={mentor.image} 
+          alt={mentor.name} 
+          fill
+          quality={100}
+          unoptimized
+          className="object-cover object-top" 
+        />
+      </div>
+      <div className="w-full sm:w-[55%] p-6 lg:p-8 flex flex-col border border-l-0 border-white/5">
+        <div className="flex flex-row items-center flex-wrap gap-3 mb-2">
+          <h3 className="text-lg lg:text-[22px] font-bold text-white tracking-tight leading-none">{mentor.name}</h3>
+          <span className={`px-2 py-0.5 border text-[10px] rounded-sm ${mentor.tagColor}`}>
+            {mentor.tag}
+          </span>
+        </div>
+        <div className="flex flex-col gap-1 mb-4">
+          {mentor.roles.map((role, i) => (
+            <div key={i} className={`font-bold text-[12px] lg:text-[13px] flex items-center leading-snug ${mentor.roleColor}`}>
+              {i === 0 && mentor.roleIcon && IconMap[mentor.roleIcon]}
+              {role}
+            </div>
+          ))}
+        </div>
+        <p className="text-white/60 text-[12px] leading-relaxed mb-6">
+          {mentor.desc}
+        </p>
+        <div className="mt-auto flex flex-col justify-end">
+          {mentor.badges && mentor.badges.length > 0 ? (
+            <div className="flex flex-wrap gap-2 mb-5">
+              {mentor.badges.map((badge, i) => (
+                <div key={i} className="flex items-center px-2 py-1 border border-[#7B5CFF]/30 text-[#BE9FFF] text-[10px] bg-[#7B5CFF]/10 rounded-sm">
+                  {IconMap[badge.icon]}
+                  {badge.label}
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="mb-5 h-[24px]"></div>
+          )}
+          <a href="#" className={`hover:opacity-80 transition-opacity text-[12px] font-bold flex items-center gap-1.5 w-fit ${mentor.roleColor}`}>
+            View Profile <span>→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <section id="mentors" className="py-24 bg-[#05070D] overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="mb-12 lg:mb-16">
           <h4 className="text-[#7B5CFF] text-[10px] md:text-[11px] font-bold tracking-[0.2em] uppercase mb-4">
             MEET YOUR MENTORS
           </h4>
-          <h2 className="bg-[linear-gradient(90deg,#9795FF_0%,#FFFFFF_42%,#FFFFFF_59%,#BE9FFF_100%)] bg-clip-text pb-2 pr-2 text-[2.8rem] leading-[1.08] font-normal tracking-[-0.06em] text-transparent sm:text-[4rem] lg:text-[4.9rem] mb-6">
+          <h2 className="text-3xl md:text-5xl lg:text-[4rem] font-bold text-white leading-[1.1] mb-6 tracking-tight">
             Learn from industry experts who <br className="hidden md:block" />
-            ship real solutions.
+            ship <span className="text-[#7B5CFF]">real solutions.</span>
           </h2>
           <p className="text-white/60 text-[14px] md:text-[15px] leading-relaxed max-w-2xl">
-            Our mentors bring years of real-world experience in cloud, AI, and digital transformation.
+            Our mentors bring years of real-world experience in AI/ML, UI/UX, and digital transformation.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 auto-rows-fr">
-          {mentors.map((mentor, idx) => (
-            <div key={idx} className="flex flex-col sm:flex-row w-full h-full bg-[#13111C] border border-white/5 overflow-hidden">
-              <div className="w-full sm:w-[40%] bg-[#888A96] relative min-h-[250px] sm:min-h-[300px] flex-shrink-0">
-                <img 
-                  src={mentor.image} 
-                  alt={mentor.name} 
-                  className="absolute inset-0 w-full h-full object-cover object-top" 
-                />
-              </div>
-              <div className="w-full sm:w-[60%] p-6 lg:p-8 flex flex-col">
-                <div className="flex flex-row items-center flex-wrap gap-2 mb-2">
-                  <h3 className="text-lg lg:text-[22px] font-bold text-white tracking-tight leading-none">{mentor.name}</h3>
-                  <span className="px-2 py-0.5 border border-[#7B5CFF]/40 text-[#BE9FFF] text-[9px] uppercase tracking-widest bg-[#7B5CFF]/10 shrink-0">
-                    {mentor.tag}
-                  </span>
-                </div>
-                <div className="flex flex-col gap-1 mb-4">
-                  {mentor.roles.map((role, i) => (
-                    <div key={i} className={`font-bold text-[12px] lg:text-[13px] flex items-center leading-snug ${mentor.roleColor || (i === 0 ? 'text-[#9D7AFF]' : 'text-white')}`}>
-                      {i === 0 && mentor.roleIcon && IconMap[mentor.roleIcon]}
-                      {role}
-                    </div>
-                  ))}
-                </div>
-                <p className="text-white/60 text-[12px] leading-relaxed mb-6">
-                  {mentor.desc}
-                </p>
-                <div className="mt-auto flex flex-col justify-end">
-                  {mentor.badges && mentor.badges.length > 0 ? (
-                    <div className="flex flex-wrap gap-2 mb-5">
-                      {mentor.badges.map((badge, i) => (
-                        <div key={i} className="flex items-center px-2 py-1 border border-[#7B5CFF]/30 text-[#BE9FFF] text-[10px] bg-transparent">
-                          {IconMap[badge.icon]}
-                          {badge.label}
-                        </div>
-                      ))}
-                    </div>
-                  ) : (
-                    <div className="mb-5 h-[24px]"></div>
-                  )}
-                  <a href="#" className={`hover:text-[#BE9FFF] transition-colors text-[12px] font-bold flex items-center gap-1.5 w-fit ${mentor.roleColor || 'text-[#9D7AFF]'}`}>
-                    View Profile <span>→</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          ))}
+        {/* AI Engineering Mentors */}
+        <div className="mb-16">
+          <div className="mb-6 flex items-center gap-3">
+            <div className="w-1 h-5 bg-[#7B5CFF]"></div>
+            <h3 className="text-white font-bold text-[18px] lg:text-[20px]">AI Engineering Mentors</h3>
+          </div>
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 auto-rows-fr">
+            {mentors.slice(0, 2).map(renderMentorCard)}
+          </div>
+        </div>
+
+        {/* UI/UX Design Mentors */}
+        <div>
+          <div className="mb-6 flex items-center gap-3">
+            <div className="w-1 h-5 bg-[#FF4D6D]"></div>
+            <h3 className="text-white font-bold text-[18px] lg:text-[20px]">UI/UX Design Mentors</h3>
+          </div>
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 auto-rows-fr">
+            {mentors.slice(2, 4).map(renderMentorCard)}
+          </div>
         </div>
       </div>
     </section>
