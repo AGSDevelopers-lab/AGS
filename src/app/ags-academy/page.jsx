@@ -779,7 +779,7 @@ function MentorsSection() {
   const mentors = [
     {
       name: "Ankit Bhadra",
-      image: "/Academy/Ankit Bhadra.png",
+      image: "/Academy/Ankit-Bhadra.png",
       tag: "Mentor",
       tagColor: "border-[#7B5CFF]/30 text-[#BE9FFF] bg-[#7B5CFF]/10",
       roleColor: "text-[#7B5CFF]",
@@ -794,7 +794,7 @@ function MentorsSection() {
     },
     {
       name: "Aritra Sen",
-      image: "/Academy/Aritra Sen.png",
+      image: "/Academy/Aritra-Sen.png",
       tag: "Mentor",
       tagColor: "border-[#7B5CFF]/30 text-[#BE9FFF] bg-[#7B5CFF]/10",
       roleColor: "text-[#7B5CFF]",

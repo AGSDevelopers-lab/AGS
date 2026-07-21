@@ -681,7 +681,7 @@ function Mentors() {
   const mentors = [
     {
       name: "Ankit Bhadra",
-      image: "/Academy/Ankit Bhadra.png",
+      image: "/Academy/Ankit-Bhadra.png",
       tag: "Mentor",
       tagColor: "border-[#7B5CFF]/30 text-[#BE9FFF] bg-[#7B5CFF]/10",
       roleColor: "text-[#7B5CFF]",
@@ -696,7 +696,7 @@ function Mentors() {
     },
     {
       name: "Aritra Sen",
-      image: "/Academy/Aritra Sen.png",
+      image: "/Academy/Aritra-Sen.png",
       tag: "Mentor",
       tagColor: "border-[#7B5CFF]/30 text-[#BE9FFF] bg-[#7B5CFF]/10",
       roleColor: "text-[#7B5CFF]",
@@ -906,9 +906,12 @@ function Testimonials() {
     <section id="outcomes" className="py-24 bg-[#05070D]"> 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12"> 
         <div className="mb-16"> 
-          <h4 className="text-[#7B5CFF] text-[10px] font-bold tracking-widest uppercase mb-4">STUDENT OUTCOMES</h4> 
-          <h2 className="bg-[linear-gradient(90deg,#9795FF_0%,#FFFFFF_42%,#FFFFFF_59%,#BE9FFF_100%)] bg-clip-text pb-2 pr-2 text-[2.8rem] leading-[1.08] font-normal tracking-[-0.06em] text-transparent sm:text-[4rem] lg:text-[4.9rem] mb-6">
-            Real Students. Real Projects. Real Outcomes.
+          <h4 className="text-[#7B5CFF] text-[10px] md:text-[11px] font-bold tracking-[0.2em] uppercase mb-4">
+            STUDENT OUTCOMES
+          </h4> 
+          <h2 className="text-3xl md:text-5xl lg:text-[4rem] font-bold text-white leading-[1.1] mb-6 tracking-tight">
+            Real Students. Real Projects. <br className="hidden md:block" />
+            <span className="text-[#7B5CFF]">Real Outcomes.</span>
           </h2> 
           <p className="text-white/50 text-[14px] max-w-2xl">These aren't motivational quotes. These are people who came in without AI experience and left with deployed projects and job-ready portfolios.</p> 
         </div> 
@@ -918,15 +921,15 @@ function Testimonials() {
             <div key={idx} className="bg-[#0A0D18] border border-white/5 p-8 flex flex-col justify-between"> 
               <div> 
                 <div className="text-yellow-500 text-sm mb-6 tracking-widest">★★★★★</div> 
-                <p className="text-white/40 text-[11px] leading-relaxed mb-8">"{student.text}"</p> 
+                <p className="text-white/40 text-[14px] leading-relaxed mb-8">"{student.text}"</p> 
               </div> 
               <div className="flex items-center gap-4"> 
                 <div className="w-8 h-8 rounded-full bg-[#7B5CFF] flex items-center justify-center text-white font-bold text-[10px]"> 
                   {student.initial} 
                 </div> 
                 <div> 
-                  <div className="text-white font-bold text-[11px]">{student.name}</div> 
-                  <div className="text-white/30 text-[9px]">{student.role}</div> 
+                  <div className="text-white font-bold text-[14px]">{student.name}</div> 
+                  <div className="text-white/30 text-[12px]">{student.role}</div> 
                 </div> 
               </div> 
             </div> 
@@ -936,7 +939,7 @@ function Testimonials() {
     </section> 
   );
 } /* ───────────────── PRICING ───────────────── */
-function Pricing() { const features = ["120+ Hours of Live, Hands-On Training","13 Industry-Focused Modules","Full AWS Cloud Access Throughout","Machine Learning Projects","NLP & Computer Vision Projects","Capstone: End-to-End AI Deployment","1-on-1 Mentorship from Industry Engineers","Program Completion Certificate" ]; return ( <section id="pricing" className="py-24 bg-[#0A0D18]"> <div className="max-w-3xl mx-auto px-6 sm:px-8 lg:px-12 text-center"> <h4 className="text-[#7B5CFF] text-[10px] font-bold tracking-widest uppercase mb-8">LIMITED SPOTS AVAILABLE</h4> <h2 className="text-3xl font-bold text-white mb-12 tracking-tight"> The Investment: ₹4,000. <span className="text-[#9D7AFF]">The Return: A Career in AI.</span> </h2> <div className="bg-[#161029] border border-white/10 p-10 max-w-lg mx-auto relative shadow-[0_0_50px_rgba(123,92,255,0.05)] text-left"> <div className="bg-[#75b798] text-[#0f5132] text-[8px] font-bold tracking-widest uppercase px-3 py-1 w-fit mb-6"> PRICE LOCKED FOR THIS INTAKE </div> <h3 className="text-white font-bold text-xl mb-2">Full Program. Zero Hidden Costs.</h3> <p className="text-white/50 text-[11px] mb-8">Everything included — nothing locked behind upgrades.</p> <div className="mb-2"> <span className="text-4xl font-black text-white">₹4,000</span> </div> <div className="text-white/30 text-[10px] pb-8 border-b border-white/5 mb-8"> One-time payment - No EMI confusion </div> <div className="space-y-4 mb-10"> {features.map((feature, idx) => ( <div key={idx} className="flex items-center gap-3"> <span className="text-[#7B5CFF] font-bold text-[10px]">✓</span> <span className="text-white/60 text-[11px]">{feature}</span> </div> ))} </div> <a href="#" className="block w-full bg-[#7B5CFF] hover:bg-[#6a4cef] text-white py-3.5 text-center text-[13px] font-bold transition-all"> Reserve Your Seat Now </a> <p className="text-white/20 text-[9px] mt-4 text-center">Price valid for current intake only. Once the batch fills, enrollment closes.</p> </div> </div> </section> );
+function Pricing() { const features = ["120+ Hours of Live, Hands-On Training","13 Industry-Focused Modules","Full AWS Cloud Access Throughout","Machine Learning Projects","NLP & Computer Vision Projects","Capstone: End-to-End AI Deployment","1-on-1 Mentorship from Industry Engineers","Program Completion Certificate" ]; return ( <section id="pricing" className="py-24 bg-[#0A0D18]"> <div className="max-w-3xl mx-auto px-6 sm:px-8 lg:px-12 text-center"> <h4 className="text-[#7B5CFF] text-[10px] font-bold tracking-widest uppercase mb-8">LIMITED SPOTS AVAILABLE</h4> <h2 className="text-3xl md:text-4xl font-normal text-white mb-12 tracking-tight"> The Investment: ₹4,000. <span className="text-[#9D7AFF]">The Return: A Career in AI.</span> </h2> <div className="bg-[#161029] border border-white/10 p-10 max-w-lg mx-auto relative shadow-[0_0_50px_rgba(123,92,255,0.05)] text-left"> <div className="bg-[#75b798] text-[#0f5132] text-[8px] font-bold tracking-widest uppercase px-3 py-1 w-fit mb-6"> PRICE LOCKED FOR THIS INTAKE </div> <h3 className="text-white font-bold text-xl mb-2">Full Program. Zero Hidden Costs.</h3> <p className="text-white/50 text-[14px] mb-8">Everything included — nothing locked behind upgrades.</p> <div className="mb-2"> <span className="text-4xl font-black text-white">₹4,000</span> </div> <div className="text-white/30 text-[12px] pb-8 border-b border-white/5 mb-8"> One-time payment - No EMI confusion </div> <div className="space-y-4 mb-10"> {features.map((feature, idx) => ( <div key={idx} className="flex items-center gap-3"> <span className="text-[#7B5CFF] font-bold text-[12px]">✓</span> <span className="text-white/60 text-[14px]">{feature}</span> </div> ))} </div> <a href="#" className="block w-full bg-[#7B5CFF] hover:bg-[#6a4cef] text-white py-3.5 text-center text-[13px] font-bold transition-all"> Reserve Your Seat Now </a> <p className="text-white/20 text-[9px] mt-4 text-center">Price valid for current intake only. Once the batch fills, enrollment closes.</p> </div> </div> </section> );
 } /* ───────────────── FAQ ───────────────── */
 function FAQ() { const [openIdx, setOpenIdx] = useState(null); const faqs = [ { q:"Do I need prior AI or ML experience?", a:"No prior AI/ML experience is required, though a basic understanding of programming (like Python) is helpful. We cover the foundations before moving into advanced topics." }, { q:"Is this program practical or mostly theory?", a:"It is intensely practical. We believe in learning by doing, so every module involves hands-on coding, building, and deploying real AI systems rather than just watching lectures." }, { q:"Will I actually build projects?", a:"Yes. You will build multiple industry-grade projects throughout the course, including NLP tools and GenAI applications, which will form a robust portfolio you can show to recruiters." }, { q:"Will I learn AWS?", a:"Absolutely. Deploying models is just as important as building them. You will learn to use AWS services like SageMaker, EC2, and Lambda to host your AI applications in the cloud." }, { q:"Is there a capstone project?", a:"Yes. The program culminates in a comprehensive capstone project where you solve a real-world business problem end-to-end, from data ingestion to a live cloud deployment." }, { q:"Will I get a certificate?", a:"Yes, you will receive an industry-recognized certificate from AGS Academy upon successful completion of your capstone project, validating your practical skills." } ]; const toggleFaq = (idx) => { setOpenIdx(openIdx === idx ? null : idx); }; return ( <section id="faq" className="py-24 bg-[#05070D]"> <div className="max-w-3xl mx-auto px-6 sm:px-8 lg:px-12"> <div className="text-center mb-16"> <h4 className="text-[#7B5CFF] text-[12px] font-bold tracking-widest uppercase mb-4">COMMON QUESTIONS</h4> <h2 className="text-3xl font-bold text-white tracking-tight">Everything You Might Ask</h2> </div> <div className="space-y-2"> {faqs.map((faq, idx) => ( <div key={idx} className="border-b border-white/5 py-5 flex flex-col justify-center cursor-pointer" onClick={() => toggleFaq(idx)}> <div className="flex items-center justify-between"> <span className="text-white/80 font-bold text-[16px] md:text-[18px]">{faq.q}</span> <span className="text-[#7B5CFF] text-2xl transition-transform duration-300" style={{ transform: openIdx === idx ? 'rotate(45deg)' : 'rotate(0deg)' }}>+</span> </div> {openIdx === idx && ( <div className="mt-4 text-white/50 text-[15px] md:text-[16px] leading-relaxed pr-8"> {faq.a} </div> )} </div> ))} </div> </div> </section> );
 } /* ───────────────── FOOTER ───────────────── */

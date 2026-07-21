@@ -27,17 +27,15 @@ export default function Testimonials() {
     <section className="py-16 md:py-24 bg-[#05070D]">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="mb-12 text-left">
-          <h3 className="text-[10px] md:text-xs font-bold tracking-[0.2em] text-[#9D7AFF] uppercase mb-4">
+          <h4 className="text-[#7B5CFF] text-[10px] md:text-[11px] font-bold tracking-[0.2em] uppercase mb-4">
             STUDENT OUTCOMES
-          </h3>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
-            Real Students. Real Projects.{" "}
-            <span className="text-[#9D7AFF]">
-              Real Outcomes.
-            </span>
+          </h4>
+          <h2 className="text-3xl md:text-5xl lg:text-[4rem] font-bold text-white leading-[1.1] mb-6 tracking-tight">
+            Real Students. Real Projects. <br className="hidden md:block" />
+            <span className="text-[#7B5CFF]">Real Outcomes.</span>
           </h2>
-          <p className="text-white/70 text-base md:text-lg max-w-2xl">
-            Hear from students who transformed classroom knowledge into practical AI skills and industry-ready portfolios.
+          <p className="text-white/50 text-[14px] max-w-2xl">
+            These aren't motivational quotes. These are people who came in without AI experience and left with deployed projects and job-ready portfolios.
           </p>
         </div>
 
