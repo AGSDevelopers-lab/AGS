@@ -19,9 +19,9 @@ function Navbar() {
       </div>
       {/* Main Navbar */}
       <div className="w-full bg-[#05070D]/90 backdrop-blur-xl border-b border-white/5">
-        <nav className="max-w-7xl mx-auto flex items-center justify-between px-6 sm:px-8 lg:px-12 py-3">
+        <nav className="max-w-[1800px] mx-auto flex items-center justify-between px-6 sm:px-8 lg:px-16 xl:px-24 py-3">
           <Link href="/" className="flex items-center gap-3">
-            <div className="relative w-[50px] h-[20px] sm:w-[60px] sm:h-[24px]">
+            <div className="relative w-[92px] sm:w-[104px] h-[40px]">
               <Image
                 src="/ags_logo.png"
                 alt="AGS logo"
@@ -81,10 +81,10 @@ function Hero() {
           />
         </video>
       </div>
-      <div className="relative z-10 max-w-[1536px] mx-auto px-6 sm:px-8 lg:px-16 flex flex-col lg:flex-row gap-12 lg:gap-8 items-center lg:items-start justify-between">
+      <div className="relative z-10 max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-16 xl:px-24 flex flex-col lg:flex-row gap-12 lg:gap-16 items-center lg:items-start justify-between">
         {" "}
         {/* Left Content */}{" "}
-        <div className="w-full lg:w-1/2 flex flex-col items-start text-left pt-4 lg:pt-10">
+        <div className="w-full lg:w-[55%] flex flex-col items-start text-left pt-4 lg:pt-10">
           {" "}
           <div className="inline-flex items-center gap-2 px-3 py-1.5 border border-[#7B5CFF]/30 bg-[#7B5CFF]/10 text-[10px] font-bold tracking-widest text-[#7B5CFF] uppercase mb-6">
             {" "}
@@ -237,7 +237,7 @@ function Hero() {
           </div>{" "}
         </div>{" "}
         {/* Right Content / Registration Card */}{" "}
-        <div className="w-full lg:w-[45%] lg:pl-10 relative z-20 lg:mt-[92px]">
+        <div className="w-full lg:w-[40%] xl:w-[40%] lg:pl-10 relative z-20 lg:mt-[92px]">
           {" "}
           <div className="bg-[#05070D]/40 backdrop-blur-3xl border border-white/20 p-8 relative z-10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] w-full bg-gradient-to-br from-white/10 to-transparent">
             {" "}
@@ -320,7 +320,7 @@ function TechStackBar() {
     { name: "Dhunseri", logo: "/dhunseri.png", width: 100 },
   ];
   return (
-    <section className="pt-10 pb-10 bg-[#05070D] overflow-hidden">
+    <section className="pt-16 md:pt-28 pb-10 bg-[#05070D] overflow-hidden">
       <style>{`
         @keyframes scrollPartners {
           0% { transform: translateX(0); }
@@ -339,7 +339,7 @@ function TechStackBar() {
         }
       `}</style>
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center mb-8">
-        <h3 className="text-[10px] md:text-xs font-bold tracking-[0.2em] text-white/40 uppercase">
+        <h3 className="text-[14px] font-bold tracking-[0.2em] text-white/40 uppercase">
           Our Learners &amp; Partners Come From Teams Like
         </h3>
       </div>
@@ -375,7 +375,7 @@ function Stats() {
     { value: "5.2k", label: "Learners trained by AGS" },
   ];
   return (
-    <section className="pb-10 md:pb-14 bg-[#05070D]">
+    <section className="pt-8 md:pt-16 pb-10 md:pb-14 bg-[#05070D]">
       {" "}
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {" "}
