@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import AWSTraining from "@/components/AWSTraining";
@@ -81,7 +81,7 @@ function Hero() {
           />
         </video>
       </div>
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex flex-col lg:flex-row gap-12 lg:gap-8 items-center lg:items-start justify-between">
+      <div className="relative z-10 max-w-[1536px] mx-auto px-6 sm:px-8 lg:px-16 flex flex-col lg:flex-row gap-12 lg:gap-8 items-center lg:items-start justify-between">
         {" "}
         {/* Left Content */}{" "}
         <div className="w-full lg:w-1/2 flex flex-col items-start text-left pt-4 lg:pt-10">
@@ -320,7 +320,7 @@ function TechStackBar() {
     { name: "Dhunseri", logo: "/dhunseri.png", width: 100 },
   ];
   return (
-    <section className="pt-10 pb-6 bg-[#05070D] overflow-hidden">
+    <section className="pt-10 pb-10 bg-[#05070D] overflow-hidden">
       <style>{`
         @keyframes scrollPartners {
           0% { transform: translateX(0); }
@@ -375,7 +375,7 @@ function Stats() {
     { value: "5.2k", label: "Learners trained by AGS" },
   ];
   return (
-    <section className="pb-16 md:pb-24 bg-[#05070D]">
+    <section className="pb-10 md:pb-14 bg-[#05070D]">
       {" "}
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {" "}
@@ -429,7 +429,7 @@ function IndustryPrograms() {
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-[#05070D]">
+    <section className="pt-4 pb-16 md:pt-10 md:pb-24 bg-[#05070D]">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight xl:whitespace-nowrap">
@@ -828,10 +828,39 @@ function MentorsSection() {
       roleColor: "text-[#FF4D6D]",
       roleIcon: "gradCap",
       roles: ["Mentor For Basic Course UI, UX"],
-      desc: "Specializes in foundational design principles and introducing students to the world of UI/UX.",
       badges: [
         { label: "UI Basics", icon: "layers" },
         { label: "Design Thinking", icon: "penTool" }
+      ]
+    },
+    {
+      name: "Pradip Mondal",
+      image: "/Academy/Pradip-Mondal.png",
+      imageClass: "object-cover object-top scale-[1.06]",
+      tag: "Mentor",
+      tagColor: "border-[#FF4D6D]/30 text-[#FF8FA3] bg-[#FF4D6D]/10",
+      roleColor: "text-[#FF4D6D]",
+      roleIcon: "briefcase",
+      roles: ["Mentor For Basic Course UI, UX"],
+      desc: "Focuses on practical wireframing and prototyping skills for beginners entering the design field.",
+      badges: [
+        { label: "Prototyping", icon: "layout" },
+        { label: "Wireframing", icon: "cursor" }
+      ]
+    },
+    {
+      name: "Shrestha Samadder",
+      image: "/Academy/Shrestha-Samadder.png",
+      imageClass: "object-cover object-top scale-[1.06]",
+      tag: "Mentor",
+      tagColor: "border-[#FF4D6D]/30 text-[#FF8FA3] bg-[#FF4D6D]/10",
+      roleColor: "text-[#FF4D6D]",
+      roleIcon: "briefcase",
+      roles: ["Mentor For Basic Course UI, UX"],
+      desc: "Passionate about teaching visual design fundamentals and user-centric research methods.",
+      badges: [
+        { label: "Visual Design", icon: "eye" },
+        { label: "User Research", icon: "search" }
       ]
     }
   ];
@@ -869,6 +898,24 @@ function MentorsSection() {
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4L3 9l9 5 9-5-9-5zM3 14v4c0 2.2 4 4 9 4s9-1.8 9-4v-4" />
       </svg>
     ),
+    briefcase: (
+      <svg className="w-4 h-4 mr-1.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <rect x="2" y="7" width="20" height="14" rx="2" ry="2" strokeWidth="1.5" />
+        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" strokeWidth="1.5" strokeLinecap="round" />
+      </svg>
+    ),
+    eye: (
+      <svg className="w-3.5 h-3.5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+        <circle cx="12" cy="12" r="3" strokeWidth="1.5" />
+      </svg>
+    ),
+    search: (
+      <svg className="w-3.5 h-3.5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="8" strokeWidth="1.5" />
+        <line x1="21" y1="21" x2="16.65" y2="16.65" strokeWidth="1.5" strokeLinecap="round" />
+      </svg>
+    ),
     layers: (
       <svg className="w-3.5 h-3.5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <polygon points="12 2 2 7 12 12 22 7 12 2" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -886,14 +933,14 @@ function MentorsSection() {
 
   const renderMentorCard = (mentor, idx) => (
     <div key={idx} className="flex flex-col sm:flex-row w-full h-full bg-[#13111C] overflow-hidden">
-      <div className="w-full sm:w-[45%] relative min-h-[300px] sm:min-h-[320px] flex-shrink-0 bg-transparent">
+      <div className="w-full sm:w-[45%] relative min-h-[300px] sm:min-h-[320px] flex-shrink-0 bg-transparent overflow-hidden">
         <Image 
           src={mentor.image} 
           alt={mentor.name} 
           fill
           quality={100}
           unoptimized
-          className="object-cover object-top" 
+          className={mentor.imageClass || "object-cover object-top"} 
         />
       </div>
       <div className="w-full sm:w-[55%] p-6 lg:p-8 flex flex-col border border-l-0 border-white/5">
@@ -964,12 +1011,40 @@ function MentorsSection() {
 
         {/* UI/UX Design Mentors */}
         <div>
-          <div className="mb-6 flex items-center gap-3">
-            <div className="w-1 h-5 bg-[#FF4D6D]"></div>
-            <h3 className="text-white font-bold text-[18px] lg:text-[20px]">UI/UX Design Mentors</h3>
+          <div className="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <div className="w-1 h-5 bg-[#FF4D6D]"></div>
+              <h3 className="text-white font-bold text-[18px] lg:text-[20px]">UI/UX Design Mentors</h3>
+            </div>
+            <div className="flex gap-2">
+              <button 
+                onClick={() => {
+                  document.getElementById('uiux-scroll-container').scrollBy({ left: -300, behavior: 'smooth' });
+                }}
+                className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:bg-white/5 transition-colors"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
+              <button 
+                onClick={() => {
+                  document.getElementById('uiux-scroll-container').scrollBy({ left: 300, behavior: 'smooth' });
+                }}
+                className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:bg-white/5 transition-colors"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+              </button>
+            </div>
           </div>
-          <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 auto-rows-fr">
-            {mentors.slice(2, 4).map(renderMentorCard)}
+          <div 
+            id="uiux-scroll-container"
+            className="flex overflow-x-auto gap-6 pb-4 snap-x snap-mandatory hide-scrollbar"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            {mentors.slice(2, 6).map((mentor, idx) => (
+              <div key={idx} className="min-w-[100%] md:min-w-[calc(50%-12px)] xl:min-w-[calc(50%-12px)] snap-start">
+                {renderMentorCard(mentor, idx)}
+              </div>
+            ))}
           </div>
         </div>
       </div>

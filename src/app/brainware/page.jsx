@@ -1,4 +1,4 @@
-"use client"; import { useState } from"react";
+"use client"; import { useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import AWSTraining from "@/components/AWSTraining";
@@ -52,7 +52,7 @@ function Hero() {
         <Image src="/Academy/hero1.png" alt="Hero background" fill className="object-cover object-top" priority />
         <div className="absolute inset-0 bg-gradient-to-r from-[#05070D] via-[#05070D]/80 via-[20%] to-transparent to-[45%]" />
       </div>
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
+      <div className="max-w-[1536px] mx-auto px-6 sm:px-8 lg:px-16 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center mt-4 md:mt-16">
           <div className="lg:col-span-7 xl:col-span-7">
             <div className="text-[11px] font-medium tracking-wide mb-4">
@@ -730,10 +730,39 @@ function Mentors() {
       roleColor: "text-[#FF4D6D]",
       roleIcon: "gradCap",
       roles: ["Mentor For Basic Course UI, UX"],
-      desc: "Specializes in foundational design principles and introducing students to the world of UI/UX.",
       badges: [
         { label: "UI Basics", icon: "layers" },
         { label: "Design Thinking", icon: "penTool" }
+      ]
+    },
+    {
+      name: "Pradip Mondal",
+      image: "/Academy/Pradip-Mondal.png",
+      imageClass: "object-cover object-top scale-[1.06]",
+      tag: "Mentor",
+      tagColor: "border-[#FF4D6D]/30 text-[#FF8FA3] bg-[#FF4D6D]/10",
+      roleColor: "text-[#FF4D6D]",
+      roleIcon: "briefcase",
+      roles: ["Mentor For Basic Course UI, UX"],
+      desc: "Focuses on practical wireframing and prototyping skills for beginners entering the design field.",
+      badges: [
+        { label: "Prototyping", icon: "layout" },
+        { label: "Wireframing", icon: "cursor" }
+      ]
+    },
+    {
+      name: "Shrestha Samadder",
+      image: "/Academy/Shrestha-Samadder.png",
+      imageClass: "object-cover object-top scale-[1.06]",
+      tag: "Mentor",
+      tagColor: "border-[#FF4D6D]/30 text-[#FF8FA3] bg-[#FF4D6D]/10",
+      roleColor: "text-[#FF4D6D]",
+      roleIcon: "briefcase",
+      roles: ["Mentor For Basic Course UI, UX"],
+      desc: "Passionate about teaching visual design fundamentals and user-centric research methods.",
+      badges: [
+        { label: "Visual Design", icon: "eye" },
+        { label: "User Research", icon: "search" }
       ]
     }
   ];
@@ -783,19 +812,37 @@ function Mentors() {
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15.5 3.5a2.121 2.121 0 0 1 3 3L7 17.5 3 18l.5-4 12-12.5z" />
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M13.5 6.5l4 4" />
       </svg>
+    ),
+    briefcase: (
+      <svg className="w-4 h-4 mr-1.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <rect x="2" y="7" width="20" height="14" rx="2" ry="2" strokeWidth="1.5" />
+        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" strokeWidth="1.5" strokeLinecap="round" />
+      </svg>
+    ),
+    eye: (
+      <svg className="w-3.5 h-3.5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+        <circle cx="12" cy="12" r="3" strokeWidth="1.5" />
+      </svg>
+    ),
+    search: (
+      <svg className="w-3.5 h-3.5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="8" strokeWidth="1.5" />
+        <line x1="21" y1="21" x2="16.65" y2="16.65" strokeWidth="1.5" strokeLinecap="round" />
+      </svg>
     )
   };
 
   const renderMentorCard = (mentor, idx) => (
     <div key={idx} className="flex flex-col sm:flex-row w-full h-full bg-[#13111C] overflow-hidden">
-      <div className="w-full sm:w-[45%] relative min-h-[300px] sm:min-h-[320px] flex-shrink-0 bg-transparent">
+      <div className="w-full sm:w-[45%] relative min-h-[300px] sm:min-h-[320px] flex-shrink-0 bg-transparent overflow-hidden">
         <Image 
           src={mentor.image} 
           alt={mentor.name} 
           fill
           quality={100}
           unoptimized
-          className="object-cover object-top" 
+          className={mentor.imageClass || "object-cover object-top"} 
         />
       </div>
       <div className="w-full sm:w-[55%] p-6 lg:p-8 flex flex-col border border-l-0 border-white/5">
@@ -866,12 +913,40 @@ function Mentors() {
 
         {/* UI/UX Design Mentors */}
         <div>
-          <div className="mb-6 flex items-center gap-3">
-            <div className="w-1 h-5 bg-[#FF4D6D]"></div>
-            <h3 className="text-white font-bold text-[18px] lg:text-[20px]">UI/UX Design Mentors</h3>
+          <div className="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <div className="w-1 h-5 bg-[#FF4D6D]"></div>
+              <h3 className="text-white font-bold text-[18px] lg:text-[20px]">UI/UX Design Mentors</h3>
+            </div>
+            <div className="flex gap-2">
+              <button 
+                onClick={() => {
+                  document.getElementById('uiux-scroll-container-brainware').scrollBy({ left: -300, behavior: 'smooth' });
+                }}
+                className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:bg-white/5 transition-colors"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
+              <button 
+                onClick={() => {
+                  document.getElementById('uiux-scroll-container-brainware').scrollBy({ left: 300, behavior: 'smooth' });
+                }}
+                className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:bg-white/5 transition-colors"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+              </button>
+            </div>
           </div>
-          <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 auto-rows-fr">
-            {mentors.slice(2, 4).map(renderMentorCard)}
+          <div 
+            id="uiux-scroll-container-brainware"
+            className="flex overflow-x-auto gap-6 pb-4 snap-x snap-mandatory hide-scrollbar"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            {mentors.slice(2, 6).map((mentor, idx) => (
+              <div key={idx} className="min-w-[100%] md:min-w-[calc(50%-12px)] xl:min-w-[calc(50%-12px)] snap-start">
+                {renderMentorCard(mentor, idx)}
+              </div>
+            ))}
           </div>
         </div>
       </div>
