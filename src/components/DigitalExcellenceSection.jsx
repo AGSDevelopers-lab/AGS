@@ -58,37 +58,37 @@ export function DigitalExcellence() {
   return (
     <section
       ref={root}
-      className="relative flex min-h-screen items-center justify-center overflow-x-clip bg-white py-12 sm:py-20"
+      className="relative flex min-h-screen items-center justify-center overflow-x-clip bg-white py-16 sm:py-24 lg:py-32"
     >
-      <div className="flex items-center justify-center px-4 max-w-full">
+      <div className="flex items-center justify-center px-4 sm:px-6 md:px-8 max-w-full">
         {/* Left: AGS Monogram Outline Logo Watermark */}
         <div
           data-line
           data-from="left"
-          className="relative shrink-0 w-[10.5vw] max-w-[145px] min-w-[50px] aspect-[140/409] mr-[4.5vw] sm:mr-[5.5vw]"
+          className="relative shrink-0 w-[12vw] sm:w-[12.5vw] lg:w-[13vw] max-w-[190px] min-w-[55px] aspect-[140/409] mr-[4vw] sm:mr-[5vw]"
         >
           <Image
             src="/ags-monogram-tight.png"
             alt="AGS Monogram"
             fill
-            sizes="(max-width: 768px) 70px, 145px"
+            sizes="(max-width: 768px) 80px, 190px"
             className="object-contain"
             priority
           />
         </div>
 
-        {/* Right: 3 Kinetic Typography Lines with aligned text */}
-        <div className="flex flex-col items-start font-inter text-[9.5vw] sm:text-[10vw] lg:text-[10.5vw] font-normal leading-[1.04] tracking-[-0.02em] text-black">
-          {/* Line 1: Digital + Pill Arrow (indented so 'Digital' aligns vertically with 'Excellence') */}
+        {/* Right: 3 Kinetic Typography Lines with enlarged scale and image under 'D' */}
+        <div className="flex flex-col items-start font-inter text-[11vw] sm:text-[11.8vw] lg:text-[12.2vw] font-normal leading-[1.03] tracking-[-0.02em] text-black">
+          {/* Line 1: Digital + Pill Arrow (indented so the team image goes under 'D' by ~1.9vw) */}
           <div
             data-line
             data-from="left"
-            className="flex items-center gap-[2vw] pl-[12.2vw]"
+            className="flex items-center gap-[2vw] pl-[10.8vw]"
           >
             <span>Digital</span>
-            <span className="flex h-[5.2vw] w-[11.2vw] items-center justify-center rounded-full border border-[#8B5CF6]/80 shrink-0">
+            <span className="flex h-[6vw] sm:h-[6.2vw] w-[12.8vw] sm:w-[13.2vw] items-center justify-center rounded-full border border-[#8B5CF6]/80 shrink-0">
               <svg
-                className="h-[2.8vw] w-[2.8vw] text-[#8B5CF6]"
+                className="h-[3.2vw] w-[3.2vw] text-[#8B5CF6]"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -102,18 +102,18 @@ export function DigitalExcellence() {
             </span>
           </div>
 
-          {/* Line 2: Team Image tucked into the indent + Excellence */}
+          {/* Line 2: Team Image tucked into indent and overlapping under 'D' + Excellence */}
           <div
             data-line
             data-from="right"
-            className="flex items-center gap-[1.5vw]"
+            className="flex items-center gap-[1.6vw]"
           >
-            <div className="relative h-[6.8vw] w-[10.7vw] shrink-0 overflow-hidden">
+            <div className="relative h-[8vw] sm:h-[8.2vw] w-[12.5vw] sm:w-[12.7vw] shrink-0 overflow-hidden">
               <Image
                 src="/figma-exports/Markeo.png"
                 alt="Team members collaborating"
                 fill
-                sizes="(max-width: 768px) 60px, 145px"
+                sizes="(max-width: 768px) 70px, 180px"
                 className="object-cover object-center"
                 priority
               />
@@ -121,11 +121,11 @@ export function DigitalExcellence() {
             <span>Excellence</span>
           </div>
 
-          {/* Line 3: Delivered (indented so 'Delivered' aligns vertically with 'Digital' & 'Excellence') */}
+          {/* Line 3: Delivered (indented flush with 'Digital') */}
           <div
             data-line
             data-from="left"
-            className="pl-[12.2vw]"
+            className="pl-[10.8vw]"
           >
             Delivered
           </div>
