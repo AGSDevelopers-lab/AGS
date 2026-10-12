@@ -78,7 +78,7 @@ export default function AwsEcosystemBanner() {
   return (
     <section
       ref={sectionRef}
-      className="relative z-10 w-full min-h-[580px] sm:min-h-[660px] lg:min-h-[720px] bg-[#050414] py-24 sm:py-32 lg:py-36 text-white overflow-x-clip border-t border-gray-100 flex items-center"
+      className="relative z-10 w-full min-h-[420px] sm:min-h-[480px] lg:min-h-[520px] bg-[#050414] py-14 sm:py-18 lg:py-22 text-white overflow-x-clip border-t border-gray-100 flex items-center"
     >
       {/* Background Layer: Cloud Hologram Background Image coming from right */}
       <div
@@ -94,60 +94,60 @@ export default function AwsEcosystemBanner() {
           className="object-cover object-right"
         />
         {/* Subtle radial glow to enhance vibrancy */}
-        <div className="absolute right-[-5%] top-[-10%] h-[650px] w-[650px] rounded-full bg-[radial-gradient(circle,rgba(56,189,248,0.22)_0%,rgba(123,92,255,0.15)_45%,transparent_70%)] blur-[110px]" />
+        <div className="absolute right-[-5%] top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle,rgba(56,189,248,0.18)_0%,rgba(123,92,255,0.12)_45%,transparent_70%)] blur-[90px]" />
       </div>
 
-      <div className="relative z-10 mx-auto w-full max-w-[1640px] 2xl:max-w-[1760px] px-6 sm:px-12 lg:px-20">
+      <div className="relative z-10 mx-auto w-full max-w-[1560px] 2xl:max-w-[1680px] px-6 sm:px-12 lg:px-20">
         {/* Left Column: Text & Logos (slides in from left side to center) */}
-        <div ref={contentRef} className="max-w-4xl xl:max-w-5xl flex flex-col items-start">
-          <span className="text-sm sm:text-base md:text-lg font-medium text-[#60A5FA] tracking-wider uppercase">
+        <div ref={contentRef} className="max-w-3xl xl:max-w-4xl flex flex-col items-start">
+          <span className="text-xs sm:text-sm font-semibold text-[#60A5FA] tracking-wider uppercase">
             Partnership Announcement
           </span>
 
-          <h2 className="mt-4 sm:mt-5 text-3xl sm:text-5xl lg:text-[56px] xl:text-[66px] 2xl:text-[74px] font-bold tracking-tight text-white leading-tight whitespace-nowrap">
+          <h2 className="mt-2.5 sm:mt-3 text-2xl sm:text-4xl lg:text-[44px] xl:text-[52px] 2xl:text-[58px] font-bold tracking-tight text-white leading-tight whitespace-nowrap">
             We Are Officially AWS Partner
           </h2>
 
-          <p className="mt-4 sm:mt-5 text-xl sm:text-2xl lg:text-[30px] xl:text-[36px] font-normal text-white/95 leading-snug whitespace-nowrap">
+          <p className="mt-2 sm:mt-2.5 text-base sm:text-xl lg:text-[22px] xl:text-[26px] font-normal text-white/95 leading-snug whitespace-nowrap">
             In Association with Redington Limited
           </p>
 
-          <p className="mt-4 sm:mt-5 text-base sm:text-lg lg:text-xl xl:text-2xl text-white/70 font-light max-w-2xl leading-relaxed">
+          <p className="mt-2 sm:mt-2.5 text-xs sm:text-sm md:text-base text-white/70 font-light max-w-xl leading-relaxed">
             Delivering cloud excellence and innovation to drive your business forward.
           </p>
 
-          {/* Badges Row: Big AWS + Partner Network text X Redington logo */}
-          <div className="mt-12 sm:mt-16 flex items-center gap-6 sm:gap-10 flex-wrap pt-2">
+          {/* Badges Row: AWS + Partner Network text X Redington logo */}
+          <div className="mt-8 sm:mt-10 flex items-center gap-5 sm:gap-7 flex-wrap pt-1">
             {/* AWS Smile Logo with 'Partner Network' text beside it */}
-            <div className="flex items-center gap-3 sm:gap-4 shrink-0">
-              <div className="relative h-14 sm:h-18 md:h-22 lg:h-24 w-32 sm:w-40 md:w-48 lg:w-52 shrink-0">
+            <div className="flex items-center gap-2.5 sm:gap-3.5 shrink-0">
+              <div className="relative h-10 sm:h-12 lg:h-14 w-24 sm:w-28 lg:w-32 shrink-0">
                 <Image
                   src="/aws-tight.png"
                   alt="AWS"
                   fill
-                  sizes="(max-width: 640px) 130px, 208px"
+                  sizes="(max-width: 640px) 96px, 128px"
                   className="object-contain object-left"
                   priority
                 />
               </div>
-              <div className="flex flex-col text-sm sm:text-base md:text-lg lg:text-xl font-medium text-white leading-[1.15] tracking-wide select-none pl-1">
+              <div className="flex flex-col text-xs sm:text-sm lg:text-base font-medium text-white leading-[1.15] tracking-wide select-none pl-0.5">
                 <span>Partner</span>
                 <span>Network</span>
               </div>
             </div>
 
             {/* X Divider */}
-            <span className="text-2xl sm:text-3xl md:text-4xl font-light text-white/35 mx-1 sm:mx-3 select-none">
+            <span className="text-lg sm:text-2xl font-light text-white/35 mx-1 select-none">
               X
             </span>
 
-            {/* Redington Logo: Big, tightly-trimmed transparent logo */}
-            <div className="relative h-12 sm:h-16 md:h-20 lg:h-22 w-48 sm:w-60 md:w-72 lg:w-80 shrink-0">
+            {/* Redington Logo: Tightly-trimmed transparent logo */}
+            <div className="relative h-9 sm:h-11 lg:h-13 w-36 sm:w-44 lg:w-52 shrink-0">
               <Image
                 src="/redington-tight.png"
                 alt="Redington"
                 fill
-                sizes="(max-width: 640px) 200px, 320px"
+                sizes="(max-width: 640px) 144px, 208px"
                 className="object-contain object-left"
                 priority
               />
