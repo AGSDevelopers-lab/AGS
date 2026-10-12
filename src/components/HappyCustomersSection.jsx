@@ -43,12 +43,12 @@ export default function HappyCustomersSection() {
 
   return (
     <section
-      className="relative z-10 w-full bg-white py-28 sm:py-36 lg:py-44 text-gray-900 border-t border-gray-100 overflow-x-clip"
+      className="relative z-10 w-full bg-white py-20 sm:py-28 lg:py-32 text-gray-900 border-t border-gray-100 overflow-x-clip"
     >
-      <div className="mx-auto max-w-[1580px] 2xl:max-w-[1720px] px-6 sm:px-10 lg:px-16">
+      <div className="mx-auto max-w-[1380px] px-6 sm:px-8 lg:px-14">
         {/* Heading sliding in from left with tint */}
-        <SlideIn from="left" distance={40} tint={true} className="mb-16 sm:mb-20">
-          <h2 className="text-5xl sm:text-7xl lg:text-[84px] xl:text-[96px] font-normal tracking-tight text-gray-950 leading-[1.06]">
+        <SlideIn from="left" distance={40} tint={true} className="mb-14 sm:mb-18">
+          <h2 className="text-4xl sm:text-6xl lg:text-[68px] xl:text-[76px] font-normal tracking-tight text-gray-950 leading-[1.08]">
             Trusted By{" "}
             <span className="text-[#8B5CF6] font-medium">25,000+</span>
             <br />
@@ -58,9 +58,9 @@ export default function HappyCustomersSection() {
 
         {/* Rating Block & Testimonial Track sliding in from right with distance=15 */}
         <SlideIn from="right" distance={15}>
-          <div className="grid grid-cols-1 gap-14 lg:grid-cols-12 lg:gap-16 items-start">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-14 items-start">
             {/* Rating Column */}
-            <div className="lg:col-span-4 flex flex-col justify-start lg:pr-12 lg:border-r lg:border-gray-200">
+            <div className="lg:col-span-4 flex flex-col justify-start lg:pr-10 lg:border-r lg:border-gray-200">
               <div>
                 <span className="text-7xl sm:text-8xl lg:text-9xl font-bold text-gray-950 tracking-tight leading-none">
                   4.9
