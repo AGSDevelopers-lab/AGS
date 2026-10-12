@@ -122,6 +122,7 @@ export default function AboutPage() {
                      alt="City building"
                      fill
                      sizes="100vw"
+                     priority
                      className="object-cover select-none"
                   />
                   {/* Blackish on left fading to transparent to show image's real color */}

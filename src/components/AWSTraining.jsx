@@ -1,81 +1,118 @@
 "use client";
 
 import Image from "next/image";
+import SlideIn from "@/components/SlideIn";
+
+const badges = [
+  {
+    id: "badge-ml",
+    title: "AWS Cloud Quest: Machine Learning (Trained)",
+    image: "/badges/badge-ml.png",
+  },
+  {
+    id: "badge-ai-architect",
+    title: "AWS SimuLearn: AI Architect (Trained)",
+    image: "/badges/badge-ai-architect.png",
+  },
+  {
+    id: "badge-solutions-architect",
+    title: "AWS Cloud Quest: Solutions Architect (Trained)",
+    image: "/badges/badge-solutions-architect.png",
+  },
+  {
+    id: "badge-security",
+    title: "AWS Cloud Quest: Security (Trained)",
+    image: "/badges/badge-security.png",
+  },
+  {
+    id: "badge-ai-practitioner",
+    title: "AWS SimuLearn: AI Practitioner (Trained)",
+    image: "/badges/badge-ai-practitioner.png",
+  },
+  {
+    id: "badge-serverless",
+    title: "AWS SimuLearn: Serverless Developer (Trained)",
+    image: "/badges/badge-serverless.png",
+  },
+];
+
+// Double the badges for seamless, continuous, infinite auto-moving carousel
+const marqueeBadges = [...badges, ...badges];
 
 export default function AWSTraining() {
-  const badges = [
-    {
-      src: "/aws-partner-public-sector-for-sellers-business.png",
-      alt: "AWS Public Sector",
-    },
-    {
-      src: "/aws-cloud-quest-cloud-practitioner-training-badge.png",
-      alt: "AWS Cloud Practitioner",
-    },
-    {
-      src: "/aws-knowledge-security-champion-training-badge.png",
-      alt: "AWS Security Champion",
-    },
-    {
-      src: "/aws generative ai practitioner.png",
-      alt: "AWS Generative AI Practitioner",
-    },
-    {
-      src: "/aws-partner-sales-accreditation-training-badge.png",
-      alt: "AWS Sales Accreditation",
-    },
-  ];
-
   return (
-    <section className="py-12 md:py-20 bg-[#05070D] border-t border-white/5">
-      <style>{`
-        @keyframes scroll {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-        .animate-scroll {
-          animation: scroll 8s linear infinite;
-        }
-        @media (min-width: 768px) {
-          .animate-scroll {
-            animation: scroll 30s linear infinite;
-          }
-        }
-        .animate-scroll:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
-      
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="mb-12">
-          <h4 className="text-[#7B5CFF] text-[10px] md:text-[11px] font-bold tracking-[0.2em] uppercase mb-4">
+    <section className="relative z-10 w-full bg-white py-20 sm:py-28 text-gray-900 border-t border-gray-100 overflow-x-clip">
+      <div className="mx-auto max-w-[1380px] px-6 sm:px-8 lg:px-14">
+        <SlideIn from="left" distance={40} className="mb-14 sm:mb-16">
+          <span className="text-sm sm:text-base font-semibold uppercase tracking-wider text-[#7C3AED]">
             VERIFIED CREDENTIALS
-          </h4>
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">
-            AWS-Accredited Training & Digital Badges
+          </span>
+          <h2 className="mt-3 text-4xl sm:text-6xl lg:text-[64px] font-normal tracking-tight text-gray-950 leading-[1.1]">
+            AWS-Accredited Training &amp; Digital Badges
           </h2>
+        </SlideIn>
+      </div>
+
+      {/* Auto-moving continuous carousel track */}
+      <div className="group flex relative w-full overflow-hidden py-4">
+        <div className="flex shrink-0 items-center gap-12 sm:gap-16 lg:gap-24 animate-badge-marquee group-hover:[animation-play-state:paused] will-change-transform pr-12 sm:pr-16 lg:pr-24">
+          {marqueeBadges.map((badge, idx) => (
+            <div
+              key={`badge-track-1-${badge.id}-${idx}`}
+              className="relative shrink-0 cursor-pointer transition-transform duration-300 hover:scale-105"
+              title={badge.title}
+            >
+              <div className="relative w-[130px] sm:w-[160px] lg:w-[190px] aspect-[180/200] drop-shadow-md">
+                <Image
+                  src={badge.image}
+                  alt={badge.title}
+                  fill
+                  sizes="(max-width: 640px) 130px, (max-width: 1024px) 160px, 190px"
+                  className="object-contain"
+                  priority={idx < 6}
+                />
+              </div>
+            </div>
+          ))}
         </div>
 
-        {/* Carousel Clipping Wrapper */}
-        {/* Placed inside the padded container and styled with overflow-hidden so badges clip EXACTLY at the 'A' in 'AWS' */}
-        <div className="overflow-hidden w-full relative">
-          <div className="flex w-max animate-scroll">
-            {[...badges, ...badges, ...badges, ...badges].map((badge, idx) => (
-              <div key={idx} className="flex justify-center px-4 md:px-8 lg:px-10">
-                <div className="relative w-[120px] h-[120px] sm:w-[140px] sm:h-[140px] lg:w-[160px] lg:h-[160px] hover:scale-105 transition-transform duration-300">
-                  <Image
-                    src={badge.src}
-                    alt={badge.alt}
-                    fill
-                    className="object-contain"
-                    quality={100}
-                  />
-                </div>
+        <div
+          aria-hidden="true"
+          className="flex shrink-0 items-center gap-12 sm:gap-16 lg:gap-24 animate-badge-marquee group-hover:[animation-play-state:paused] will-change-transform pr-12 sm:pr-16 lg:pr-24"
+        >
+          {marqueeBadges.map((badge, idx) => (
+            <div
+              key={`badge-track-2-${badge.id}-${idx}`}
+              className="relative shrink-0 cursor-pointer transition-transform duration-300 hover:scale-105"
+              title={badge.title}
+            >
+              <div className="relative w-[130px] sm:w-[160px] lg:w-[190px] aspect-[180/200] drop-shadow-md">
+                <Image
+                  src={badge.image}
+                  alt={badge.title}
+                  fill
+                  sizes="(max-width: 640px) 130px, (max-width: 1024px) 160px, 190px"
+                  className="object-contain"
+                />
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes badgeScroll {
+          0% {
+            transform: translateX(0%);
+          }
+          100% {
+            transform: translateX(-100%);
+          }
+        }
+        .animate-badge-marquee {
+          animation: badgeScroll 30s linear infinite;
+        }
+      `}</style>
     </section>
   );
 }

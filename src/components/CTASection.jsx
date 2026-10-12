@@ -1,7 +1,7 @@
 "use client";
 
 import { useCtaForm } from "@/components/CtaFormProvider";
-import Footer from "@/components/Footer";
+import SlideIn from "@/components/SlideIn";
 
 function CTAButton() {
   const { openForm } = useCtaForm();
@@ -9,51 +9,50 @@ function CTAButton() {
   return (
     <button
       type="button"
-      className="group inline-flex items-center gap-3 border border-white bg-white px-5 py-3 text-sm font-medium text-black transition-all duration-700 hover:bg-transparent hover:text-white"
+      className="group inline-flex items-center gap-2.5 rounded-full bg-white px-7 py-3.5 text-xs sm:text-sm font-semibold text-black transition-colors duration-300 hover:bg-white/90 shadow-xl"
       onClick={() => openForm()}
     >
-      <span>Create Your Digital Experience</span>
-      <svg
-        width="29"
-        height="29"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        className="transition-transform duration-700 group-hover:rotate-45"
-      >
-        <path d="M7 17L17 7M17 7H7M17 7V17" />
-      </svg>
+      <span>Know More</span>
+      <span className="flex h-5 w-5 items-center justify-center rounded-full border border-black/40 text-black">
+        <svg
+          width="10"
+          height="10"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.5"
+          className="transition-transform duration-300 group-hover:rotate-45"
+        >
+          <path d="M7 17L17 7M17 7H7M17 7V17" />
+        </svg>
+      </span>
     </button>
   );
 }
 
 export default function CTASection() {
   return (
-    <section id="contact" className="relative z-10 w-full overflow-hidden pt-0 bg-[#010103]">
-      {/* Ambient Purple Glow */}
-      <div className="absolute left-[-10%] top-[10%] w-[800px] h-[800px] bg-[radial-gradient(circle_at_center,rgba(86,126,255,0.12)_0%,rgba(120,96,255,0.08)_40%,transparent_70%)] pointer-events-none blur-2xl z-0" />
-      
-      <div className="relative w-full border-t border-white/10 z-10">
-        <div className="border-b border-white/10 px-6 py-8 sm:px-8 sm:py-12 lg:px-26 lg:py-14">
-          <div className="flex flex-col gap-6 sm:gap-8 lg:flex-row lg:items-start lg:justify-between">
-            <div className="max-w-[720px]">
-              <h2 className="bg-[linear-gradient(90deg,#9795FF_0%,#FFFFFF_60%)] bg-clip-text pb-2 pr-2 text-[2.8rem] leading-[1.08] font-light tracking-tight text-transparent sm:text-[4rem] lg:text-[4.9rem]">
-                Let&apos;s Work With Us
-              </h2>
-              <p className="mt-5 max-w-[620px] text-[1rem] leading-[1.75] text-white/78 font-light">
-                Partner with AGS for web development, UI/UX design, branding,
-                and digital solutions built to help your business grow.
-              </p>
-            </div>
+    <section
+      id="contact"
+      className="relative z-10 w-full overflow-x-clip bg-[#0A071E] py-14 sm:py-20 border-b border-white/10"
+    >
+      <div className="relative mx-auto max-w-[1380px] px-6 sm:px-8 lg:px-14">
+        <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between py-6 sm:py-10">
+          {/* Left: Heading & paragraph sliding from left */}
+          <SlideIn from="left" distance={40} className="max-w-3xl">
+            <h2 className="text-4xl sm:text-6xl lg:text-[68px] font-bold tracking-tight text-white leading-tight">
+              Let&apos;s work with Us
+            </h2>
+            <p className="mt-4 text-base sm:text-lg lg:text-xl text-white/70 font-light max-w-2xl leading-relaxed">
+              Partner with Amrut Global Solutions to turn your ideas into high-performing, enterprise-grade digital platforms.
+            </p>
+          </SlideIn>
 
-            <div className="lg:pt-[5.9rem]">
-              <CTAButton />
-            </div>
-          </div>
+          {/* Right: Know More button sliding from right */}
+          <SlideIn from="right" distance={25} className="shrink-0">
+            <CTAButton />
+          </SlideIn>
         </div>
-
-        <Footer />
       </div>
     </section>
   );

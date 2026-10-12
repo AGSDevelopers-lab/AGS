@@ -10,6 +10,7 @@ const navItems = [
   { name: "About", href: "/about" },
   { name: "Services", href: "/services" },
   { name: "Portfolio", href: "/portfolio" },
+  { name: "Careers", href: "/careers" },
   { name: "Contact Us", href: "/contact" },
 ];
 
@@ -44,18 +45,18 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled
-          ? "bg-black/45 backdrop-blur-xl supports-backdrop-filter:bg-black/35 py-4"
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-[#07051A]/95 py-4 border-b border-white/5"
           : "bg-transparent py-6"
-        }`}
+      }`}
     >
-      <div className="flex w-full items-center justify-between px-6 sm:px-8 lg:px-26 relative">
-        {/* LEFT: Logo + Company Name */}
+      <div className="mx-auto flex w-full max-w-[1680px] 2xl:max-w-[1780px] items-center justify-between px-6 sm:px-12 lg:px-20 relative">
+        {/* LEFT: AGS Logo */}
         <div className="flex items-center">
-          {/* LOGO + COMPANY NAME + TAGLINE */}
           <Link
             href="/"
-            className="inline-flex items-center gap-3 sm:gap-4"
+            className="inline-flex items-center"
             onClick={(e) => {
               if (isHomePage) {
                 handleSmoothScroll(e, "#home");
@@ -64,56 +65,27 @@ export default function Navbar() {
               }
             }}
           >
-            <div className="relative w-[92px] sm:w-[104px] h-[40px] shrink-0 flex items-center justify-center">
+            <div className="relative w-[88px] sm:w-[98px] h-[38px] sm:h-[42px] shrink-0">
               <Image
                 src="/ags_logo.png"
-                alt="AGS logo"
+                alt="AGS"
                 fill
-                sizes="(max-width:640px) 92px, 104px"
-                className={`object-contain transition-all duration-500 ${scrolled ? "opacity-0" : "opacity-100"}`}
+                sizes="(max-width:640px) 88px, 98px"
+                className="object-contain object-left"
                 priority
               />
-              <Image
-                src="/favicon.png"
-                alt="AGS logo"
-                fill
-                sizes="(max-width:640px) 92px, 104px"
-                className={`object-contain transition-all duration-500 ${scrolled ? "opacity-100" : "opacity-0"}`}
-                priority
-              />
-            </div>
-
-            {/* Divider */}
-            <div
-              className={`hidden sm:block h-8 w-px bg-white/20 shrink-0 transition-all duration-500 ${
-                scrolled ? "opacity-0" : "opacity-100"
-              }`}
-            />
-
-            {/* Company name + tagline */}
-            <div
-              className={`transition-all duration-500 ${
-                scrolled ? "opacity-0 pointer-events-none" : "opacity-100"
-              }`}
-            >
-              <p className="text-white text-[0.78rem] sm:text-[0.88rem] font-semibold tracking-[0.06em] leading-none">
-                Amrut Global Solutions
-              </p>
-              <p className="hidden sm:block mt-1 text-[0.58rem] tracking-[0.2em] uppercase text-white/45">
-                Your Vision, Our Innovation
-              </p>
             </div>
           </Link>
         </div>
 
         {/* CENTER: Desktop Menu */}
-        <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 space-x-10 items-center">
+        <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 space-x-9 lg:space-x-11 items-center">
           {navItems.map((item) => (
             <Link
               key={item.name}
               href={getNavHref(item.href)}
               onClick={() => setMobileMenuOpen(false)}
-              className="text-white hover:text-white/80 transition-colors text-[15px] tracking-[0.04em] font-medium"
+              className="text-white/90 hover:text-white transition-colors text-sm lg:text-[15px] tracking-[0.02em] font-normal"
             >
               {item.name}
             </Link>
@@ -125,21 +97,10 @@ export default function Navbar() {
           {/* CTA Button */}
           <button
             type="button"
-            className="group hidden md:flex items-center gap-2 border border-white/30 bg-transparent px-5 py-2.5 text-[14px] font-medium tracking-[0.02em] text-white transition-all duration-500 hover:border-white hover:bg-white hover:text-black"
+            className="group hidden md:flex items-center justify-center border border-white/80 bg-transparent px-5 py-2 text-sm font-normal tracking-[0.02em] text-white rounded-[2px] transition-all duration-300 hover:border-white hover:bg-white hover:text-black"
             onClick={() => openForm()}
           >
             <span>Get Started</span>
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              className="transition-transform duration-500 group-hover:rotate-45"
-            >
-              <path d="M7 17L17 7M17 7H7M17 7V17" />
-            </svg>
           </button>
 
           {/* Mobile menu button */}
@@ -163,7 +124,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="mx-6 mt-4 rounded-[22px] border border-white/10 bg-[rgba(10,12,24,0.9)] p-5 backdrop-blur-xl md:hidden sm:mx-8">
+        <div className="mx-6 mt-4 rounded-[22px] border border-white/10 bg-[rgba(10,12,24,0.98)] p-5 md:hidden sm:mx-8">
           <div className="flex flex-col gap-4">
             {navItems.map((item) => (
               <Link
