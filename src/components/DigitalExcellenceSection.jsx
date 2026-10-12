@@ -58,25 +58,45 @@ export function DigitalExcellence() {
   return (
     <section
       ref={root}
-      className="relative flex min-h-screen items-center justify-center overflow-x-clip bg-white"
+      className="relative flex min-h-screen items-center justify-center overflow-x-clip bg-white py-12 sm:py-20"
     >
-      <div className="flex flex-col items-center font-inter text-[11.5vw] font-light leading-[1.03] tracking-[-0.01em]">
-        <div data-line data-from="left" className="flex items-center gap-[2vw]">
-          <span>Digital</span>
-          <span className="flex h-[6.4vw] w-[13.3vw] items-center justify-center rounded-full border border-violet-600">
-            <ArrowUpRight className="h-[3vw] w-[3vw] text-violet-600" strokeWidth={1} />
-          </span>
-        </div>
-        <div data-line data-from="right" className="flex items-center gap-[1.5vw]">
-          <img
-            src="/images/digital-team.jpg"
-            alt="Team members collaborating around laptop"
-            className="h-[8.5vw] w-[13.3vw] object-cover"
+      <div className="flex items-center justify-center gap-[3vw] sm:gap-[4vw] lg:gap-[5vw] px-4 max-w-full">
+        {/* Left: AGS Monogram Outline Logo */}
+        <div
+          data-line
+          data-from="left"
+          className="relative shrink-0 w-[11vw] sm:w-[12vw] lg:w-[13vw] max-w-[170px] min-w-[55px] aspect-[229/441]"
+        >
+          <Image
+            src="/AGS Landing Page Images/Rectangle 5568.png"
+            alt="AGS"
+            fill
+            sizes="(max-width: 768px) 70px, 170px"
+            className="object-contain"
+            priority
           />
-          <span>Excellence</span>
         </div>
-        <div data-line data-from="left">
-          Delivered
+
+        {/* Right: 3 Left-Aligned Kinetic Typography Lines */}
+        <div className="flex flex-col items-start font-inter text-[10vw] sm:text-[11vw] lg:text-[11.5vw] font-light leading-[1.03] tracking-[-0.01em]">
+          <div data-line data-from="left" className="flex items-center gap-[2vw]">
+            <span>Digital</span>
+            <span className="flex h-[5.5vw] sm:h-[6.4vw] w-[11.5vw] sm:w-[13.3vw] items-center justify-center rounded-full border border-violet-600">
+              <ArrowUpRight className="h-[2.8vw] sm:h-[3vw] w-[2.8vw] sm:w-[3vw] text-violet-600" strokeWidth={1} />
+            </span>
+            <span className="hidden md:inline-block w-[6vw] max-w-[90px] border-b border-dashed border-gray-300 self-center opacity-60 ml-[1vw]" />
+          </div>
+          <div data-line data-from="right" className="flex items-center gap-[1.5vw]">
+            <img
+              src="/images/digital-team.jpg"
+              alt="Team members collaborating around laptop"
+              className="h-[7.5vw] sm:h-[8.5vw] w-[11.5vw] sm:w-[13.3vw] object-cover"
+            />
+            <span>Excellence</span>
+          </div>
+          <div data-line data-from="left">
+            Delivered
+          </div>
         </div>
       </div>
     </section>
@@ -132,7 +152,7 @@ function ServiceImageComposition({ service }) {
   if (!service) return null;
   return (
     <div className="relative w-full h-full flex items-center justify-center">
-      <div className="relative w-full h-full max-h-[740px] aspect-[630/740] rounded-2xl overflow-hidden shadow-2xl bg-white border border-gray-100">
+      <div className="relative w-full h-full max-h-[740px] aspect-[630/740]">
         <Image
           src={service.image}
           alt={service.alt}
