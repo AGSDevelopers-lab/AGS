@@ -60,41 +60,73 @@ export function DigitalExcellence() {
       ref={root}
       className="relative flex min-h-screen items-center justify-center overflow-x-clip bg-white py-12 sm:py-20"
     >
-      <div className="flex items-center justify-center gap-[3vw] sm:gap-[4vw] lg:gap-[5vw] px-4 max-w-full">
-        {/* Left: AGS Monogram Outline Logo */}
+      <div className="flex items-center justify-center px-4 max-w-full">
+        {/* Left: AGS Monogram Outline Logo Watermark */}
         <div
           data-line
           data-from="left"
-          className="relative shrink-0 w-[11vw] sm:w-[12vw] lg:w-[13vw] max-w-[170px] min-w-[55px] aspect-[229/441]"
+          className="relative shrink-0 w-[10.5vw] max-w-[145px] min-w-[50px] aspect-[140/409] mr-[4.5vw] sm:mr-[5.5vw]"
         >
           <Image
-            src="/AGS Landing Page Images/Rectangle 5568.png"
-            alt="AGS"
+            src="/ags-monogram-tight.png"
+            alt="AGS Monogram"
             fill
-            sizes="(max-width: 768px) 70px, 170px"
+            sizes="(max-width: 768px) 70px, 145px"
             className="object-contain"
             priority
           />
         </div>
 
-        {/* Right: 3 Left-Aligned Kinetic Typography Lines */}
-        <div className="flex flex-col items-start font-inter text-[10vw] sm:text-[11vw] lg:text-[11.5vw] font-light leading-[1.03] tracking-[-0.01em]">
-          <div data-line data-from="left" className="flex items-center gap-[2vw]">
+        {/* Right: 3 Kinetic Typography Lines with aligned text */}
+        <div className="flex flex-col items-start font-inter text-[9.5vw] sm:text-[10vw] lg:text-[10.5vw] font-normal leading-[1.04] tracking-[-0.02em] text-black">
+          {/* Line 1: Digital + Pill Arrow (indented so 'Digital' aligns vertically with 'Excellence') */}
+          <div
+            data-line
+            data-from="left"
+            className="flex items-center gap-[2vw] pl-[12.2vw]"
+          >
             <span>Digital</span>
-            <span className="flex h-[5.5vw] sm:h-[6.4vw] w-[11.5vw] sm:w-[13.3vw] items-center justify-center rounded-full border border-violet-600">
-              <ArrowUpRight className="h-[2.8vw] sm:h-[3vw] w-[2.8vw] sm:w-[3vw] text-violet-600" strokeWidth={1} />
+            <span className="flex h-[5.2vw] w-[11.2vw] items-center justify-center rounded-full border border-[#8B5CF6]/80 shrink-0">
+              <svg
+                className="h-[2.8vw] w-[2.8vw] text-[#8B5CF6]"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <line x1="7" y1="17" x2="17" y2="7" />
+                <polyline points="7 7 17 7 17 17" />
+              </svg>
             </span>
-            <span className="hidden md:inline-block w-[6vw] max-w-[90px] border-b border-dashed border-gray-300 self-center opacity-60 ml-[1vw]" />
           </div>
-          <div data-line data-from="right" className="flex items-center gap-[1.5vw]">
-            <img
-              src="/images/digital-team.jpg"
-              alt="Team members collaborating around laptop"
-              className="h-[7.5vw] sm:h-[8.5vw] w-[11.5vw] sm:w-[13.3vw] object-cover"
-            />
+
+          {/* Line 2: Team Image tucked into the indent + Excellence */}
+          <div
+            data-line
+            data-from="right"
+            className="flex items-center gap-[1.5vw]"
+          >
+            <div className="relative h-[6.8vw] w-[10.7vw] shrink-0 overflow-hidden">
+              <Image
+                src="/figma-exports/Markeo.png"
+                alt="Team members collaborating"
+                fill
+                sizes="(max-width: 768px) 60px, 145px"
+                className="object-cover object-center"
+                priority
+              />
+            </div>
             <span>Excellence</span>
           </div>
-          <div data-line data-from="left">
+
+          {/* Line 3: Delivered (indented so 'Delivered' aligns vertically with 'Digital' & 'Excellence') */}
+          <div
+            data-line
+            data-from="left"
+            className="pl-[12.2vw]"
+          >
             Delivered
           </div>
         </div>
