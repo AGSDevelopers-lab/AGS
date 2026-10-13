@@ -32,7 +32,7 @@ export function DigitalExcellence() {
 
         const st = ScrollTrigger.create({
           trigger: root.current,
-          start: "top 65%",
+          start: "top 75%",
           once: true,
           onEnter: () =>
             gsap.to(lines, {
@@ -58,7 +58,7 @@ export function DigitalExcellence() {
   return (
     <section
       ref={root}
-      className="relative flex min-h-screen items-center justify-center overflow-x-clip bg-white py-16 sm:py-24 lg:py-32"
+      className="relative flex items-center justify-center overflow-x-clip bg-white pt-8 sm:pt-12 lg:pt-16 pb-20 sm:pb-28 lg:pb-32"
     >
       <div className="flex items-center justify-center px-4 sm:px-6 md:px-8 max-w-full">
         {/* Left: AGS Monogram Outline Logo Watermark */}

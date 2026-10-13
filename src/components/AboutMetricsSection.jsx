@@ -104,7 +104,7 @@ export default function AboutMetricsSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative z-10 w-full bg-white py-24 sm:py-32 lg:py-40 text-gray-900 overflow-x-clip"
+      className="relative z-10 w-full bg-white pt-20 sm:pt-28 lg:pt-32 pb-12 sm:pb-16 lg:pb-20 text-gray-900 overflow-x-clip"
     >
       <div className="mx-auto max-w-[1560px] 2xl:max-w-[1680px] px-6 sm:px-10 lg:px-16 2xl:px-20">
         {/* Top 2-Column: Photo Left (slides from left to center) + Content Right (slides from right to center) */}
