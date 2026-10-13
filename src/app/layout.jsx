@@ -1,4 +1,4 @@
-import { Manrope } from "next/font/google";
+import { Manrope, Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import { CtaFormProvider } from "@/components/CtaFormProvider";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
@@ -8,6 +8,13 @@ const manrope = Manrope({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
   variable: "--font-manrope",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-inter",
   display: "swap",
 });
 
@@ -50,7 +57,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={manrope.variable}>
+    <html lang="en" className={`${manrope.variable} ${inter.variable}`} suppressHydrationWarning>
       <body className="antialiased bg-background text-white">
         <GoogleAnalytics />
         <CtaFormProvider>

@@ -61,11 +61,11 @@ export function DigitalExcellence() {
       className="relative flex items-center justify-center overflow-x-clip bg-white pt-8 sm:pt-12 lg:pt-16 pb-20 sm:pb-28 lg:pb-32"
     >
       <div className="flex items-center justify-center px-4 sm:px-6 md:px-8 max-w-full">
-        {/* Left: AGS Monogram Outline Logo Watermark */}
+        {/* Left: AGS Monogram Outline Logo Watermark (Figma: 20% Opacity) */}
         <div
           data-line
           data-from="left"
-          className="relative shrink-0 w-[12vw] sm:w-[12.5vw] lg:w-[13vw] max-w-[190px] min-w-[55px] aspect-[140/409] mr-[4vw] sm:mr-[5vw]"
+          className="relative shrink-0 w-[12vw] sm:w-[12.5vw] lg:w-[13vw] max-w-[190px] min-w-[55px] aspect-[140/409] mr-[4vw] sm:mr-[5vw] opacity-20"
         >
           <Image
             src="/ags-monogram-tight.png"
@@ -77,8 +77,8 @@ export function DigitalExcellence() {
           />
         </div>
 
-        {/* Right: 3 Kinetic Typography Lines with enlarged scale and image under 'D' */}
-        <div className="flex flex-col items-start font-inter text-[11vw] sm:text-[11.8vw] lg:text-[12.2vw] font-normal leading-[1.03] tracking-[-0.02em] text-black">
+        {/* Right: 3 Kinetic Typography Lines (Figma: Manrope 400, 150px, line-height 160px, letter-spacing -0.32px) */}
+        <div className="flex flex-col items-start font-sans text-[8.5vw] sm:text-[10vw] lg:text-[150px] font-normal leading-[1.07] lg:leading-[160px] tracking-[-0.32px] text-black">
           {/* Line 1: Digital + Pill Arrow (indented so the team image goes under 'D' by ~1.9vw) */}
           <div
             data-line

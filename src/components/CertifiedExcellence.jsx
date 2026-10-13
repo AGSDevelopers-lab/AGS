@@ -28,10 +28,10 @@ export default function CertifiedExcellence() {
       <div className="relative mx-auto max-w-[1380px] px-6 sm:px-8 lg:px-14">
         {/* Section Heading & Subtitle sliding in from Left */}
         <SlideIn from="left" distance={40} tint={true} className="mb-14 sm:mb-16">
-          <h2 className="text-4xl sm:text-6xl lg:text-[68px] font-normal tracking-tight text-gray-950 leading-[1.08]">
+          <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-normal tracking-tight text-gray-950 leading-[1.12]">
             Certified Excellence
           </h2>
-          <p className="mt-4 text-lg sm:text-xl text-gray-500 font-normal">
+          <p className="mt-2.5 text-sm sm:text-base text-gray-500 font-normal">
             Industry-recognized credentials that validate our expertise.
           </p>
         </SlideIn>
@@ -41,14 +41,14 @@ export default function CertifiedExcellence() {
           
           {/* Left: AWS Sales Accreditation */}
           <SlideIn from="left" distance={40} tint={true} className="flex flex-col items-start">
-            <h3 className="text-3xl sm:text-5xl lg:text-[56px] font-normal leading-[1.14] tracking-tight text-gray-950">
+            <h3 className="text-2xl sm:text-3xl lg:text-[40px] font-normal leading-[1.18] tracking-tight text-gray-950">
               We&rsquo;ve Got{" "}
-              <span className="text-[#6366F1] font-medium">AWS Sales</span>
+              <span className="text-[#567EFF] font-medium">AWS Sales</span>
               <br />
               Accreditation
             </h3>
 
-            <p className="mt-6 text-lg sm:text-xl leading-relaxed text-gray-600 font-normal max-w-lg">
+            <p className="mt-5 text-sm sm:text-base leading-relaxed text-gray-600 font-normal max-w-md">
               Being appreciated by the clients we work with means the world to
               us. It also translates beautifully into our official ratings and
               awards, matching our commitment to align cloud infrastructure

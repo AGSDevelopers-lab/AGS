@@ -40,10 +40,10 @@ export default function CTASection() {
         <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between py-6 sm:py-10">
           {/* Left: Heading & paragraph sliding from left */}
           <SlideIn from="left" distance={40} className="max-w-3xl">
-            <h2 className="text-4xl sm:text-6xl lg:text-[68px] font-bold tracking-tight text-white leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-normal tracking-tight text-white leading-tight">
               Let&apos;s work with Us
             </h2>
-            <p className="mt-4 text-base sm:text-lg lg:text-xl text-white/70 font-light max-w-2xl leading-relaxed">
+            <p className="mt-3 text-sm sm:text-base text-white/70 font-light max-w-xl leading-relaxed">
               Partner with Amrut Global Solutions to turn your ideas into high-performing, enterprise-grade digital platforms.
             </p>
           </SlideIn>

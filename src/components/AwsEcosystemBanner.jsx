@@ -104,11 +104,11 @@ export default function AwsEcosystemBanner() {
             Partnership Announcement
           </span>
 
-          <h2 className="mt-2.5 sm:mt-3 text-2xl sm:text-4xl lg:text-[44px] xl:text-[52px] 2xl:text-[58px] font-bold tracking-tight text-white leading-tight whitespace-nowrap">
+          <h2 className="mt-2.5 sm:mt-3 text-2xl sm:text-3xl md:text-4xl lg:text-[47.1px] font-normal tracking-tight text-white leading-tight lg:leading-[72px] whitespace-nowrap">
             We Are Officially AWS Partner
           </h2>
 
-          <p className="mt-2 sm:mt-2.5 text-base sm:text-xl lg:text-[22px] xl:text-[26px] font-normal text-white/95 leading-snug whitespace-nowrap">
+          <p className="mt-1 sm:mt-2 text-base sm:text-xl lg:text-[28px] font-normal text-white leading-snug lg:leading-[48px] whitespace-nowrap">
             In Association with Redington Limited
           </p>
 

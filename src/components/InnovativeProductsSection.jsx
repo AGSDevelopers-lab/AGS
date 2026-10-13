@@ -172,13 +172,13 @@ export default function InnovativeProductsSection() {
         
         {/* Centered Editorial Heading */}
         <div ref={headingRef} className="text-center max-w-5xl mx-auto mb-16 sm:mb-20">
-          <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-[68px] xl:text-[74px] font-bold tracking-tight text-white leading-[1.12]">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[55px] font-normal tracking-[1px] text-white leading-tight lg:leading-[70px]">
             <span className="block whitespace-nowrap">
               Powering Businesses With
             </span>
-            <span className="block mt-2 sm:mt-3 whitespace-nowrap text-white">
+            <span className="block mt-1 sm:mt-2 whitespace-nowrap text-white">
               Innovative{" "}
-              <span className="text-[#8B5CF6]">Digital Products</span>
+              <span className="text-[#9B86EB]">Digital Products</span>
             </span>
           </h2>
         </div>

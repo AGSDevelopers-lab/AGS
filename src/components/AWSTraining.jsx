@@ -47,7 +47,7 @@ export default function AWSTraining() {
           <span className="text-sm sm:text-base font-semibold uppercase tracking-wider text-[#7C3AED]">
             VERIFIED CREDENTIALS
           </span>
-          <h2 className="mt-3 text-4xl sm:text-6xl lg:text-[64px] font-normal tracking-tight text-gray-950 leading-[1.1]">
+          <h2 className="mt-3 text-2xl sm:text-3xl md:text-4xl lg:text-[46.5px] font-normal tracking-[-1.2px] text-black leading-[1.15]">
             AWS-Accredited Training &amp; Digital Badges
           </h2>
         </SlideIn>

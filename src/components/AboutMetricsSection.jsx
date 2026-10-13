@@ -140,30 +140,31 @@ export default function AboutMetricsSection() {
             ref={textColRef}
             className="lg:col-span-5 flex flex-col items-start lg:pl-4 xl:pl-8"
           >
-            <span className="text-base sm:text-lg lg:text-xl font-semibold text-[#4F46E5] tracking-wide">
+            <span className="text-sm sm:text-base font-semibold text-[#545AFF] tracking-wide">
               Who We Are
             </span>
 
             {/* "Learn About us" on a single line at a light/regular weight */}
-            <h2 className="mt-3 text-4xl sm:text-5xl lg:text-[64px] xl:text-[72px] font-normal tracking-tight text-gray-950 leading-[1.08] whitespace-nowrap">
+            <h2 className="mt-2 text-3xl sm:text-4xl lg:text-[48px] xl:text-[52px] font-normal tracking-tight text-gray-950 leading-[1.15] whitespace-nowrap">
               Learn About us
             </h2>
 
-            <p className="mt-6 sm:mt-8 text-lg sm:text-xl lg:text-2xl leading-relaxed text-gray-600 font-normal max-w-2xl">
+            {/* Figma Dev Mode: max-width 536px, Manrope 400, line-height 27px */}
+            <p className="mt-5 text-base sm:text-[17px] leading-[27px] text-gray-600 font-normal max-w-[536px]">
               We are a dynamic team of innovators, storytellers, and visionaries dedicated to transforming ideas into extraordinary experiences.
             </p>
 
-            {/* Segmented Button: sharp corners, white arrow cell (1px violet border), violet gradient label cell */}
+            {/* Segmented Button: #545AFF brand blue, sharp corners */}
             <Link
               href="/about"
-              className="mt-10 sm:mt-12 inline-flex items-stretch rounded-none transition-transform duration-300 hover:-translate-y-0.5 group"
+              className="mt-8 sm:mt-10 inline-flex items-stretch rounded-none transition-transform duration-300 hover:-translate-y-0.5 group"
             >
-              {/* White arrow cell with 1px violet border */}
-              <span className="flex items-center justify-center border border-[#7C3AED] bg-white px-5 sm:px-6 py-3.5 sm:py-4 text-[#7C3AED] text-lg sm:text-xl font-light group-hover:bg-[#7C3AED] group-hover:text-white transition-colors duration-300 rounded-none">
+              {/* White arrow cell with 1px border */}
+              <span className="flex items-center justify-center border border-[#545AFF] bg-white px-5 sm:px-6 py-3 sm:py-3.5 text-[#545AFF] text-lg font-light group-hover:bg-[#545AFF] group-hover:text-white transition-colors duration-300 rounded-none">
                 →
               </span>
-              {/* Violet gradient label cell */}
-              <span className="flex items-center justify-center bg-gradient-to-r from-[#5B4DF0] via-[#5041EE] to-[#4338CA] px-7 sm:px-9 py-3.5 sm:py-4 text-xs sm:text-sm font-semibold uppercase tracking-wider text-white group-hover:from-[#4338CA] group-hover:to-[#3730A3] transition-all duration-300 rounded-none">
+              {/* Blue label cell matching Figma #545AFF */}
+              <span className="flex items-center justify-center bg-[#545AFF] px-6 sm:px-8 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold uppercase tracking-wider text-white group-hover:bg-[#4347D9] transition-all duration-300 rounded-none">
                 KNOW MORE
               </span>
             </Link>
@@ -180,24 +181,24 @@ export default function AboutMetricsSection() {
                   <span className="text-2xl sm:text-3xl font-light text-gray-400 mt-1 sm:mt-2">
                     ↑
                   </span>
-                  <div className="text-6xl sm:text-7xl lg:text-[80px] xl:text-[88px] font-bold tracking-tight text-gray-950 leading-none">
+                  <div className="text-5xl sm:text-6xl lg:text-[72px] font-bold tracking-tight text-gray-950 leading-none">
                     <span>{metric.targetNum}</span>
-                    <span className="text-[#6366F1] font-semibold ml-1">
+                    <span className="text-[#545AFF] font-semibold ml-1">
                       {metric.suffix}
                     </span>
                   </div>
                 </div>
 
                 {/* Divider Line */}
-                <div className="mt-6 border-t-2 border-gray-200/90 w-full" />
+                <div className="mt-5 border-t border-gray-200 w-full" />
 
                 {/* Metric Label */}
-                <span className="mt-5 text-sm sm:text-base font-bold uppercase tracking-wider text-gray-900">
+                <span className="mt-4 text-xs sm:text-sm font-semibold uppercase tracking-wider text-gray-900">
                   {metric.label}
                 </span>
 
-                {/* Subtext description */}
-                <p className="mt-2 text-sm sm:text-base text-gray-500 leading-relaxed max-w-[280px]">
+                {/* Subtext description (Figma: Manrope 400, line-height 25.6px) */}
+                <p className="mt-2 text-xs sm:text-sm text-gray-500 leading-[25.6px] max-w-[280px]">
                   {metric.description}
                 </p>
               </div>

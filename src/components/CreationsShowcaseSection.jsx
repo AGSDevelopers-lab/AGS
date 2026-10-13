@@ -127,7 +127,7 @@ export default function CreationsShowcaseSection() {
         {/* Header with 'Achieve Goals' highlighted in purple */}
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between mb-14 sm:mb-18 overflow-hidden">
           <div ref={headingTextRef}>
-            <h2 className="text-4xl sm:text-6xl lg:text-[68px] font-normal tracking-tight text-gray-950 leading-[1.08]">
+            <h2 className="text-3xl sm:text-4xl lg:text-[52px] font-normal tracking-tight text-gray-950 leading-[1.15]">
               Empowering Businesses To
               <br />
               <span className="text-[#8B5CF6] font-medium">Achieve Goals</span> With
@@ -140,10 +140,10 @@ export default function CreationsShowcaseSection() {
               href="/portfolio"
               className="inline-flex items-stretch shadow-sm transition-all duration-300 hover:shadow-md"
             >
-              <span className="flex items-center justify-center border border-[#7C3AED] bg-white px-5 py-3.5 text-[#7C3AED] text-lg font-light">
+              <span className="flex items-center justify-center border border-[#545AFF] bg-white px-5 py-3 text-[#545AFF] text-lg font-light">
                 →
               </span>
-              <span className="flex items-center justify-center bg-gradient-to-r from-[#7C3AED] to-[#6D28D9] px-7 py-3.5 text-xs sm:text-[13px] font-bold uppercase tracking-wider text-white">
+              <span className="flex items-center justify-center bg-[#545AFF] px-6 py-3 text-xs sm:text-[13px] font-semibold uppercase tracking-wider text-white">
                 VIEW ALL PROJECTS
               </span>
             </Link>
