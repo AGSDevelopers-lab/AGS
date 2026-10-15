@@ -104,30 +104,30 @@ export default function AboutMetricsSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative z-10 w-full bg-white pt-20 sm:pt-28 lg:pt-32 pb-12 sm:pb-16 lg:pb-20 text-gray-900 overflow-x-clip"
+      className="relative z-10 w-full bg-white pt-12 sm:pt-16 lg:pt-20 pb-12 sm:pb-16 lg:pb-20 text-gray-900 overflow-x-clip"
     >
       <div className="mx-auto max-w-[1560px] 2xl:max-w-[1680px] px-6 sm:px-10 lg:px-16 2xl:px-20">
-        {/* Top 2-Column: Photo Left (slides from left to center) + Content Right (slides from right to center) */}
-        <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-12 lg:gap-16 xl:gap-24 overflow-x-clip">
-          {/* Left: Typing Laptop Image sliding in from left to center */}
+        {/* Top 2-Column: Photo Left + Content Right - Sharp Rectangular Image, Top/Bottom Aligned */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-18 lg:items-stretch overflow-x-clip">
+          {/* Left: Typing Laptop Image - Sharp Rectangular Shape (rounded-none, not square) */}
           <div
             ref={imageColRef}
-            className="lg:col-span-7 relative w-full overflow-hidden rounded-none bg-gray-50"
+            className="lg:col-span-6 relative w-full overflow-hidden rounded-none bg-gray-50"
           >
-            <div className="relative w-full aspect-[16/10] sm:aspect-[16/9.5] lg:h-[480px] xl:h-[540px] 2xl:h-[600px] overflow-hidden rounded-none">
+            <div className="relative w-full aspect-[16/10] overflow-hidden rounded-none">
               <Image
                 src="/about-laptop.png"
                 alt="Team member working on laptop in modern office"
                 fill
-                sizes="(max-width: 1024px) 100vw, 920px"
+                sizes="(max-width: 1024px) 100vw, 760px"
                 className="object-cover object-center rounded-none"
                 priority
               />
 
-              {/* Video Play Button Overlay without backdrop-blur */}
+              {/* Video Play Button Overlay matching Picture 3 (translucent white circle) */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="flex h-20 w-20 sm:h-24 sm:w-24 items-center justify-center rounded-full bg-black/50 text-white transition-all duration-300 border border-white/40">
-                  <svg className="ml-1.5 h-8 w-8 sm:h-9 sm:w-9 fill-current text-white" viewBox="0 0 24 24">
+                <div className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-white/40 backdrop-blur-sm text-white transition-all duration-300 border border-white/70 shadow-md">
+                  <svg className="ml-1 h-5 w-5 sm:h-6 sm:w-6 fill-current text-white" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z" />
                   </svg>
                 </div>
@@ -135,53 +135,57 @@ export default function AboutMetricsSection() {
             </div>
           </div>
 
-          {/* Right: Who We Are & Learn About us sliding in from right to center */}
+          {/* Right: Who We Are & Learn About us - Top starts with image, button ends with image */}
           <div
             ref={textColRef}
-            className="lg:col-span-5 flex flex-col items-start lg:pl-4 xl:pl-8"
+            className="lg:col-span-6 flex flex-col justify-between items-start lg:pl-4 xl:pl-8 py-1 sm:py-2 gap-6 lg:gap-0"
           >
-            <span className="text-sm sm:text-base font-semibold text-[#545AFF] tracking-wide">
-              Who We Are
-            </span>
-
-            {/* "Learn About us" on a single line at a light/regular weight */}
-            <h2 className="mt-2 text-3xl sm:text-4xl lg:text-[48px] xl:text-[52px] font-normal tracking-tight text-gray-950 leading-[1.15] whitespace-nowrap">
-              Learn About us
-            </h2>
-
-            {/* Figma Dev Mode: max-width 536px, Manrope 400, line-height 27px */}
-            <p className="mt-5 text-base sm:text-[17px] leading-[27px] text-gray-600 font-normal max-w-[536px]">
-              We are a dynamic team of innovators, storytellers, and visionaries dedicated to transforming ideas into extraordinary experiences.
-            </p>
-
-            {/* Segmented Button: #545AFF brand blue, sharp corners */}
-            <Link
-              href="/about"
-              className="mt-8 sm:mt-10 inline-flex items-stretch rounded-none transition-transform duration-300 hover:-translate-y-0.5 group"
-            >
-              {/* White arrow cell with 1px border */}
-              <span className="flex items-center justify-center border border-[#545AFF] bg-white px-5 sm:px-6 py-3 sm:py-3.5 text-[#545AFF] text-lg font-light group-hover:bg-[#545AFF] group-hover:text-white transition-colors duration-300 rounded-none">
-                →
+            <div>
+              <span className="text-sm sm:text-base font-semibold text-[#545AFF] tracking-wide block">
+                Who We Are
               </span>
-              {/* Blue label cell matching Figma #545AFF */}
-              <span className="flex items-center justify-center bg-[#545AFF] px-6 sm:px-8 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold uppercase tracking-wider text-white group-hover:bg-[#4347D9] transition-all duration-300 rounded-none">
-                KNOW MORE
-              </span>
-            </Link>
+
+              {/* "Learn About us" on a single line at a light/regular weight */}
+              <h2 className="mt-2 text-3xl sm:text-4xl lg:text-[46px] xl:text-[50px] font-normal tracking-tight text-gray-950 leading-[1.15]">
+                Learn About us
+              </h2>
+
+              {/* Figma Dev Mode: max-width 536px, Manrope 400, line-height 27px */}
+              <p className="mt-3.5 sm:mt-4 text-base sm:text-[17px] leading-[27px] text-gray-600 font-normal max-w-[536px]">
+                We are a dynamic team of innovators, storytellers, and visionaries dedicated to transforming ideas into extraordinary experiences.
+              </p>
+            </div>
+
+            {/* Segmented Button: ends exactly in the same line where the image ends, just a bit above */}
+            <div>
+              <Link
+                href="/about"
+                className="inline-flex items-stretch rounded-none transition-transform duration-300 hover:-translate-y-0.5 group shadow-sm"
+              >
+                {/* White/soft arrow cell with 1px border */}
+                <span className="flex items-center justify-center border border-[#545AFF] bg-[#F5F6FF] px-5 sm:px-6 py-3 sm:py-3.5 text-[#545AFF] text-lg font-light group-hover:bg-[#545AFF] group-hover:text-white transition-colors duration-300 rounded-none">
+                  →
+                </span>
+                {/* Blue-to-purple gradient label cell matching Picture 3 */}
+                <span className="flex items-center justify-center bg-gradient-to-r from-[#545AFF] to-[#3B0764] px-6 sm:px-8 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold uppercase tracking-wider text-white hover:opacity-95 transition-all duration-300 rounded-none">
+                  KNOW MORE
+                </span>
+              </Link>
+            </div>
           </div>
         </div>
 
-        {/* Bottom Row: 4 Metrics */}
-        <div className="mt-24 sm:mt-32 lg:mt-36">
-          <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
+        {/* Bottom Row: 4 Metrics with reduced comfortable gap matching Picture 3 */}
+        <div className="mt-12 sm:mt-16 lg:mt-20">
+          <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
             {metrics.map((metric) => (
               <div key={metric.label} className="flex flex-col">
                 {/* Number with Up Arrow */}
-                <div className="flex items-start gap-3">
+                <div className="flex items-start gap-2.5">
                   <span className="text-2xl sm:text-3xl font-light text-gray-400 mt-1 sm:mt-2">
                     ↑
                   </span>
-                  <div className="text-5xl sm:text-6xl lg:text-[72px] font-bold tracking-tight text-gray-950 leading-none">
+                  <div className="text-5xl sm:text-6xl lg:text-[70px] font-bold tracking-tight text-gray-950 leading-none">
                     <span>{metric.targetNum}</span>
                     <span className="text-[#545AFF] font-semibold ml-1">
                       {metric.suffix}
@@ -190,14 +194,14 @@ export default function AboutMetricsSection() {
                 </div>
 
                 {/* Divider Line */}
-                <div className="mt-5 border-t border-gray-200 w-full" />
+                <div className="mt-4 sm:mt-5 border-t border-gray-200 w-full" />
 
                 {/* Metric Label */}
-                <span className="mt-4 text-xs sm:text-sm font-semibold uppercase tracking-wider text-gray-900">
+                <span className="mt-3.5 text-xs sm:text-sm font-semibold uppercase tracking-wider text-gray-900">
                   {metric.label}
                 </span>
 
-                {/* Subtext description (Figma: Manrope 400, line-height 25.6px) */}
+                {/* Subtext description */}
                 <p className="mt-2 text-xs sm:text-sm text-gray-500 leading-[25.6px] max-w-[280px]">
                   {metric.description}
                 </p>

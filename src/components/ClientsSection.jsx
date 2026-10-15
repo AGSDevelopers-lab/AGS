@@ -2,24 +2,16 @@
 
 import Image from "next/image";
 
-// Exact order matching the user's reference image:
-// 1. Dhunseri -> 2. Renuka Eye Institute -> 3. JPNR -> 4. Farz Academy -> 5. Molifera Media -> 6. Himalaya
+// Exact order matching Picture 2 reference image:
+// 1. Renuka Eye Institute -> 2. JPNR -> 3. Farz Academy -> 4. Molifera Media -> 5. Himalaya Darpan -> 6. Dhunseri
 const clientLogos = [
-  {
-    name: "Dhunseri",
-    src: "/dhunseri.png",
-    alt: "Dhunseri Tea & Industries Limited",
-    width: 821,
-    height: 207,
-    aspectClass: "w-[180px] sm:w-[240px] md:w-[280px] lg:w-[320px] h-12 sm:h-16 md:h-20",
-  },
   {
     name: "Renuka Eye Institute",
     src: "/renuka.png",
     alt: "Renuka Eye Institute",
     width: 782,
     height: 271,
-    aspectClass: "w-[190px] sm:w-[250px] md:w-[290px] lg:w-[330px] h-12 sm:h-16 md:h-20",
+    aspectClass: "h-11 sm:h-13 md:h-15 lg:h-16 w-auto max-w-[220px] sm:max-w-[260px] md:max-w-[300px]",
   },
   {
     name: "JPNR",
@@ -27,7 +19,7 @@ const clientLogos = [
     alt: "JPNR Corporate Consultants Pvt Ltd",
     width: 568,
     height: 287,
-    aspectClass: "w-[160px] sm:w-[210px] md:w-[250px] lg:w-[290px] h-12 sm:h-16 md:h-20",
+    aspectClass: "h-11 sm:h-13 md:h-15 lg:h-16 w-auto max-w-[190px] sm:max-w-[230px] md:max-w-[260px]",
   },
   {
     name: "Farz Academy",
@@ -35,7 +27,7 @@ const clientLogos = [
     alt: "Farz Academy",
     width: 660,
     height: 251,
-    aspectClass: "w-[170px] sm:w-[230px] md:w-[270px] lg:w-[310px] h-12 sm:h-16 md:h-20",
+    aspectClass: "h-11 sm:h-13 md:h-15 lg:h-16 w-auto max-w-[200px] sm:max-w-[240px] md:max-w-[280px]",
   },
   {
     name: "Molifera Media",
@@ -43,7 +35,7 @@ const clientLogos = [
     alt: "Molifera Media",
     width: 634,
     height: 123,
-    aspectClass: "w-[180px] sm:w-[240px] md:w-[280px] lg:w-[320px] h-11 sm:h-14 md:h-18",
+    aspectClass: "h-9 sm:h-11 md:h-13 lg:h-14 w-auto max-w-[210px] sm:max-w-[250px] md:max-w-[290px]",
   },
   {
     name: "Himalaya",
@@ -51,7 +43,15 @@ const clientLogos = [
     alt: "Himalaya Darpan",
     width: 815,
     height: 194,
-    aspectClass: "w-[180px] sm:w-[240px] md:w-[280px] lg:w-[320px] h-12 sm:h-16 md:h-20",
+    aspectClass: "h-10 sm:h-12 md:h-14 lg:h-15 w-auto max-w-[210px] sm:max-w-[250px] md:max-w-[290px]",
+  },
+  {
+    name: "Dhunseri",
+    src: "/dhunseri.png",
+    alt: "Dhunseri Tea & Industries Limited",
+    width: 821,
+    height: 207,
+    aspectClass: "h-11 sm:h-13 md:h-15 lg:h-16 w-auto max-w-[220px] sm:max-w-[260px] md:max-w-[300px]",
   },
 ];
 
@@ -60,10 +60,10 @@ const marqueeLogos = [...clientLogos, ...clientLogos];
 
 export default function ClientsSection() {
   return (
-    <section className="relative z-20 w-full bg-white border-t border-gray-100 py-12 sm:py-16 md:py-20 overflow-hidden select-none">
+    <section className="relative z-20 w-full bg-white border-y border-gray-200/80 py-5 sm:py-6 lg:py-7 overflow-hidden select-none">
       {/* Infinite Scrolling Track */}
-      <div className="group flex w-full overflow-hidden">
-        <div className="flex shrink-0 items-center gap-14 sm:gap-20 md:gap-28 lg:gap-36 animate-marquee group-hover:[animation-play-state:paused] pr-14 sm:pr-20 md:pr-28 lg:pr-36">
+      <div className="group flex w-full overflow-hidden items-center">
+        <div className="flex shrink-0 items-center gap-12 sm:gap-16 md:gap-20 lg:gap-28 animate-marquee group-hover:[animation-play-state:paused] pr-12 sm:pr-16 md:pr-20 lg:pr-28">
           {marqueeLogos.map((logo, idx) => (
             <div
               key={`${logo.name}-${idx}`}
@@ -74,7 +74,7 @@ export default function ClientsSection() {
                 alt={logo.alt}
                 width={logo.width}
                 height={logo.height}
-                className="max-h-full max-w-full w-auto h-auto object-contain transition-opacity duration-300 opacity-90 hover:opacity-100"
+                className="max-h-full w-auto object-contain transition-opacity duration-300 opacity-95 hover:opacity-100"
                 priority={idx < 6}
               />
             </div>
@@ -83,7 +83,7 @@ export default function ClientsSection() {
 
         <div
           aria-hidden="true"
-          className="flex shrink-0 items-center gap-14 sm:gap-20 md:gap-28 lg:gap-36 animate-marquee group-hover:[animation-play-state:paused] pr-14 sm:pr-20 md:pr-28 lg:pr-36"
+          className="flex shrink-0 items-center gap-12 sm:gap-16 md:gap-20 lg:gap-28 animate-marquee group-hover:[animation-play-state:paused] pr-12 sm:pr-16 md:pr-20 lg:pr-28"
         >
           {marqueeLogos.map((logo, idx) => (
             <div
@@ -95,7 +95,7 @@ export default function ClientsSection() {
                 alt={logo.alt}
                 width={logo.width}
                 height={logo.height}
-                className="max-h-full max-w-full w-auto h-auto object-contain transition-opacity duration-300 opacity-90 hover:opacity-100"
+                className="max-h-full w-auto object-contain transition-opacity duration-300 opacity-95 hover:opacity-100"
               />
             </div>
           ))}

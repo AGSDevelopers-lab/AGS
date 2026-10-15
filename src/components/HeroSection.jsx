@@ -129,24 +129,24 @@ export default function HeroSection() {
         );
       })}
 
-      {/* Foreground Content Container — Positioned at lower-left matching Figma */}
-      <div className="relative z-20 mx-auto flex h-full max-w-[1680px] 2xl:max-w-[1780px] flex-col justify-end px-6 sm:px-12 lg:px-20 2xl:px-24 pb-8 sm:pb-10 lg:pb-12 xl:pb-16">
-        <div className="relative w-full max-w-[850px] lg:max-w-[940px] 2xl:max-w-[1020px] min-h-[350px] sm:min-h-[400px] lg:min-h-[450px]">
+      {/* Foreground Content Container — Vertically centered matching design layout in Picture 1 */}
+      <div className="relative z-20 mx-auto flex h-full max-w-[1680px] 2xl:max-w-[1780px] flex-col justify-center px-6 sm:px-12 lg:px-20 2xl:px-24 pt-20 sm:pt-24 lg:pt-28 pb-10 sm:pb-12">
+        <div className="relative w-full max-w-[850px] lg:max-w-[940px] 2xl:max-w-[1020px] min-h-[360px] sm:min-h-[420px] lg:min-h-[460px] flex items-center">
           {heroSlides.map((slide, index) => {
             const isActive = index === currentSlide;
 
             return (
               <div
                 key={slide.id}
-                className={`absolute inset-x-0 bottom-0 flex flex-col items-start justify-end transition-all duration-700 ease-in-out ${
+                className={`absolute inset-x-0 top-1/2 -translate-y-1/2 flex flex-col items-start justify-center transition-all duration-700 ease-in-out ${
                   isActive
-                    ? "opacity-100 translate-y-0 pointer-events-auto z-10 visible"
-                    : "opacity-0 translate-y-4 pointer-events-none z-0 invisible"
+                    ? "opacity-100 translate-y-[-50%] pointer-events-auto z-10 visible"
+                    : "opacity-0 translate-y-[-46%] pointer-events-none z-0 invisible"
                 }`}
               >
                 {/* Compact Partnership Badge matching Figma */}
                 {slide.badge && (
-                  <div className="mb-6 w-fit self-start">
+                  <div className="mb-5 sm:mb-6 w-fit self-start">
                     <div className="border border-white/40 bg-black/40 backdrop-blur-sm px-4 py-1.5 sm:px-5 sm:py-2 text-xs sm:text-sm font-normal tracking-wide text-white/90 rounded-[2px]">
                       {slide.badge}
                     </div>

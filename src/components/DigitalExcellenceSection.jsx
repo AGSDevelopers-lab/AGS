@@ -234,7 +234,7 @@ export default function DigitalExcellenceSection() {
       <DigitalExcellence />
 
       {/* ── PART B: Interactive Editorial Services Section ── */}
-      <section className="relative w-full bg-white py-20 sm:py-28 lg:py-36 border-t border-gray-100">
+      <section className="relative w-full bg-white py-20 sm:py-28 lg:py-36">
         <div className="mx-auto max-w-[1560px] 2xl:max-w-[1680px] px-6 sm:px-10 lg:px-16 2xl:px-20">
           <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-12 lg:gap-20 xl:gap-24">
             

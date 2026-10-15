@@ -43,10 +43,9 @@ export default function HappyCustomersSection() {
 
   return (
     <section
-      className="relative z-10 w-full bg-white py-20 sm:py-28 lg:py-32 text-gray-900 border-t border-gray-100 overflow-x-clip"
+      className="relative z-10 w-full bg-white py-16 sm:py-24 lg:py-28 text-gray-900 overflow-x-clip"
     >
       <div className="mx-auto max-w-[1380px] px-6 sm:px-8 lg:px-14">
-        {/* Heading sliding in from left with tint */}
         {/* Heading sliding in from left with tint */}
         <SlideIn from="left" distance={40} tint={true} className="mb-12 sm:mb-16 max-w-[890px]">
           <h2 className="text-3xl sm:text-4xl lg:text-[54px] font-normal tracking-tight text-gray-950 leading-[1.12]">
@@ -60,8 +59,8 @@ export default function HappyCustomersSection() {
         {/* Rating Block & Testimonial Track sliding in from right with distance=15 */}
         <SlideIn from="right" distance={15}>
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-14 items-start">
-            {/* Rating Column */}
-            <div className="lg:col-span-4 flex flex-col justify-start lg:pr-10 lg:border-r lg:border-gray-200">
+            {/* Rating Column (No unwanted vertical divider line matching Picture 6) */}
+            <div className="lg:col-span-4 flex flex-col justify-start lg:pr-10">
               <div>
                 <span className="text-6xl sm:text-7xl lg:text-[80px] font-bold text-gray-950 tracking-tight leading-none">
                   4.9
@@ -114,7 +113,7 @@ export default function HappyCustomersSection() {
                       </p>
                     </div>
 
-                    <div className="mt-8 pt-3 border-t border-gray-100">
+                    <div className="mt-8 pt-2">
                       <h4 className="text-base sm:text-lg font-medium text-gray-950">
                         {item.author}
                       </h4>

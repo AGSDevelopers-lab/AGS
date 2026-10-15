@@ -41,13 +41,13 @@ const marqueeBadges = [...badges, ...badges];
 
 export default function AWSTraining() {
   return (
-    <section className="relative z-10 w-full bg-white py-20 sm:py-28 text-gray-900 border-t border-gray-100 overflow-x-clip">
+    <section className="relative z-10 w-full bg-white pt-10 pb-12 sm:pt-12 sm:pb-16 text-gray-900 overflow-x-clip">
       <div className="mx-auto max-w-[1380px] px-6 sm:px-8 lg:px-14">
-        <SlideIn from="left" distance={40} className="mb-14 sm:mb-16">
+        <SlideIn from="left" distance={40} className="mb-6 sm:mb-8">
           <span className="text-sm sm:text-base font-semibold uppercase tracking-wider text-[#7C3AED]">
             VERIFIED CREDENTIALS
           </span>
-          <h2 className="mt-3 text-2xl sm:text-3xl md:text-4xl lg:text-[46.5px] font-normal tracking-[-1.2px] text-black leading-[1.15]">
+          <h2 className="mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-[46.5px] font-normal tracking-[-1.2px] text-black leading-[1.15]">
             AWS-Accredited Training &amp; Digital Badges
           </h2>
         </SlideIn>
