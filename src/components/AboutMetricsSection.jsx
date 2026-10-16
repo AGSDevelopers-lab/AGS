@@ -107,14 +107,14 @@ export default function AboutMetricsSection() {
       className="relative z-10 w-full bg-white pt-12 sm:pt-16 lg:pt-20 pb-12 sm:pb-16 lg:pb-20 text-gray-900 overflow-x-clip"
     >
       <div className="mx-auto max-w-[1560px] 2xl:max-w-[1680px] px-6 sm:px-10 lg:px-16 2xl:px-20">
-        {/* Top 2-Column: Photo Left + Content Right - Sharp Rectangular Image, Top/Bottom Aligned */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-18 lg:items-stretch overflow-x-clip">
-          {/* Left: Typing Laptop Image - Sharp Rectangular Shape (rounded-none, not square) */}
+        {/* Top 2-Column: Photo Left + Content Right - Height-Matched Alignment per Picture 1 */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 lg:items-stretch overflow-x-clip">
+          {/* Left: Typing Laptop Image - Height matches right text block per Picture 1 */}
           <div
             ref={imageColRef}
-            className="lg:col-span-6 relative w-full overflow-hidden rounded-none bg-gray-50"
+            className="lg:col-span-6 relative w-full h-[280px] sm:h-[320px] lg:h-auto min-h-[260px] overflow-hidden rounded-none bg-gray-50 flex items-stretch"
           >
-            <div className="relative w-full aspect-[16/10] overflow-hidden rounded-none">
+            <div className="relative w-full h-full min-h-[260px] overflow-hidden rounded-none">
               <Image
                 src="/about-laptop.png"
                 alt="Team member working on laptop in modern office"
@@ -124,10 +124,10 @@ export default function AboutMetricsSection() {
                 priority
               />
 
-              {/* Video Play Button Overlay matching Picture 3 (translucent white circle) */}
+              {/* Video Play Button Overlay matching Picture 1 */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-white/40 backdrop-blur-sm text-white transition-all duration-300 border border-white/70 shadow-md">
-                  <svg className="ml-1 h-5 w-5 sm:h-6 sm:w-6 fill-current text-white" viewBox="0 0 24 24">
+                <div className="flex h-11 w-11 sm:h-13 sm:w-13 items-center justify-center rounded-full bg-white/40 backdrop-blur-sm text-white transition-all duration-300 border border-white/70 shadow-md">
+                  <svg className="ml-0.5 h-5 w-5 fill-current text-white" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z" />
                   </svg>
                 </div>
@@ -135,29 +135,27 @@ export default function AboutMetricsSection() {
             </div>
           </div>
 
-          {/* Right: Who We Are & Learn About us - Top starts with image, button ends with image */}
+          {/* Right: Who We Are & Learn About us - Compact spacing without excessive button gap */}
           <div
             ref={textColRef}
-            className="lg:col-span-6 flex flex-col justify-between items-start lg:pl-4 xl:pl-8 py-1 sm:py-2 gap-6 lg:gap-0"
+            className="lg:col-span-6 flex flex-col justify-center items-start lg:pl-4 xl:pl-8 py-0.5"
           >
-            <div>
-              <span className="text-sm sm:text-base font-semibold text-[#545AFF] tracking-wide block">
-                Who We Are
-              </span>
+            <span className="text-sm sm:text-base font-semibold text-[#545AFF] tracking-wide block">
+              Who We Are
+            </span>
 
-              {/* "Learn About us" on a single line at a light/regular weight */}
-              <h2 className="mt-2 text-3xl sm:text-4xl lg:text-[46px] xl:text-[50px] font-normal tracking-tight text-gray-950 leading-[1.15]">
-                Learn About us
-              </h2>
+            {/* "Learn About us" on a single line at a light/regular weight */}
+            <h2 className="mt-2 text-3xl sm:text-4xl lg:text-[44px] xl:text-[48px] font-normal tracking-tight text-gray-950 leading-[1.15]">
+              Learn About us
+            </h2>
 
-              {/* Figma Dev Mode: max-width 536px, Manrope 400, line-height 27px */}
-              <p className="mt-3.5 sm:mt-4 text-base sm:text-[17px] leading-[27px] text-gray-600 font-normal max-w-[536px]">
-                We are a dynamic team of innovators, storytellers, and visionaries dedicated to transforming ideas into extraordinary experiences.
-              </p>
-            </div>
+            {/* Figma Dev Mode: max-width 536px, Manrope 400, line-height 27px */}
+            <p className="mt-3.5 sm:mt-4 text-base sm:text-[17px] leading-[27px] text-gray-600 font-normal max-w-[536px]">
+              We are a dynamic team of innovators, storytellers, and visionaries dedicated to transforming ideas into extraordinary experiences.
+            </p>
 
-            {/* Segmented Button: ends exactly in the same line where the image ends, just a bit above */}
-            <div>
+            {/* Segmented Button: Tightly spaced below description per Picture 1 */}
+            <div className="mt-6 sm:mt-7">
               <Link
                 href="/about"
                 className="inline-flex items-stretch rounded-none transition-transform duration-300 hover:-translate-y-0.5 group shadow-sm"
@@ -166,7 +164,7 @@ export default function AboutMetricsSection() {
                 <span className="flex items-center justify-center border border-[#545AFF] bg-[#F5F6FF] px-5 sm:px-6 py-3 sm:py-3.5 text-[#545AFF] text-lg font-light group-hover:bg-[#545AFF] group-hover:text-white transition-colors duration-300 rounded-none">
                   →
                 </span>
-                {/* Blue-to-purple gradient label cell matching Picture 3 */}
+                {/* Blue-to-purple gradient label cell matching Picture 1 */}
                 <span className="flex items-center justify-center bg-gradient-to-r from-[#545AFF] to-[#3B0764] px-6 sm:px-8 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold uppercase tracking-wider text-white hover:opacity-95 transition-all duration-300 rounded-none">
                   KNOW MORE
                 </span>

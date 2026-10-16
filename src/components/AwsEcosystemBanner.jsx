@@ -116,21 +116,21 @@ export default function AwsEcosystemBanner() {
             Delivering cloud excellence and innovation to drive your business forward.
           </p>
 
-          {/* Badges Row: AWS + Partner Network text X Redington logo */}
+          {/* Badges Row: AWS + Partner Network text X Redington logo per Picture 2 */}
           <div className="mt-8 sm:mt-10 flex items-center gap-5 sm:gap-7 flex-wrap pt-1">
-            {/* AWS Smile Logo with 'Partner Network' text beside it */}
-            <div className="flex items-center gap-2.5 sm:gap-3.5 shrink-0">
-              <div className="relative h-10 sm:h-12 lg:h-14 w-24 sm:w-28 lg:w-32 shrink-0">
+            {/* AWS Smile Logo with tightly spaced 'Partner Network' text at 20px */}
+            <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
+              <div className="relative h-8 sm:h-10 lg:h-11 w-16 sm:w-20 lg:w-[82px] shrink-0">
                 <Image
                   src="/aws-tight.png"
                   alt="AWS"
                   fill
-                  sizes="(max-width: 640px) 96px, 128px"
+                  sizes="(max-width: 640px) 64px, 82px"
                   className="object-contain object-left"
                   priority
                 />
               </div>
-              <div className="flex flex-col text-xs sm:text-sm lg:text-base font-medium text-white leading-[1.15] tracking-wide select-none pl-0.5">
+              <div className="flex flex-col text-sm sm:text-base lg:text-[20px] font-medium text-white leading-[1.15] tracking-tight select-none">
                 <span>Partner</span>
                 <span>Network</span>
               </div>

@@ -11,7 +11,8 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
 }
 
-const showcaseSlides = [
+// Client website projects ONLY per Picture 4 & 5 (No in-house product screenshots)
+const clientProjects = [
   {
     id: "molifera",
     title: "Molifera Media",
@@ -19,31 +20,38 @@ const showcaseSlides = [
     url: "https://www.moliferamedia.com/",
     isExternal: true,
     tagline: "Crafting Innovations, Creating Results — 360° Partner for Strategy, Marketing & Brand Growth",
-    image: "/region-carousel.png",
+    image: "/product-1.png",
     alt: "Molifera Media - Crafting Innovations Creating Results",
-    fitClass: "object-contain sm:object-cover object-center",
   },
   {
-    id: "lynkbeats",
-    title: "Lynkbeats Analytics",
-    category: "REAL-TIME AUDIENCE INTELLIGENCE",
-    url: "#",
-    isExternal: false,
-    tagline: "Live Newsroom Heartbeat, Engagement Metrics & Trending Story Insights",
-    image: "/showcase-lynkbeats.png",
-    alt: "Lynkbeats Real-time News Analytics Dashboard",
-    fitClass: "object-cover object-top",
+    id: "dhunseri",
+    title: "Dhunseri Tea",
+    category: "BRAND EXPERIENCE",
+    url: "https://dhunseritea.com/",
+    isExternal: true,
+    tagline: "Pure Leaf. Bold Brew. Centuries-Old Heritage Of Excellence & Handpicked Blends",
+    image: "/product-3.png",
+    alt: "Dhunseri Tea - Pure Leaf Bold Brew",
   },
   {
-    id: "lifeseed",
-    title: "LifeSeed ART",
-    category: "HOSPITAL INFORMATION SYSTEM",
+    id: "mangal",
+    title: "Mangal Materials",
+    category: "ECOMMERCE PLATFORM",
     url: "#",
     isExternal: false,
-    tagline: "Clinical & Operational Hospital Overview, Patient Registrations & Cycles Analytics",
-    image: "/showcase-lifeseed.png",
-    alt: "LifeSeed ART Hospital Information System Dashboard",
-    fitClass: "object-cover object-top",
+    tagline: "Everything You Need for Sacred Rites — Authentic Puja Materials & Traditional Products",
+    image: "/mangal-materials.png",
+    alt: "Mangal Materials - Sacred Rites Puja Store",
+  },
+  {
+    id: "bhairal",
+    title: "Bhairal Connect",
+    category: "CREATOR PLATFORM",
+    url: "#",
+    isExternal: false,
+    tagline: "Influencer Platform for Freelancing — Find & Hire Top UGC Creators",
+    image: "/product-5.png",
+    alt: "Bhairal - Connect Influence Creator Platform",
   },
 ];
 
@@ -59,18 +67,18 @@ export default function CreationsShowcaseSection() {
   useEffect(() => {
     if (isPaused) return;
     const timer = setInterval(() => {
-      setActiveSlide((prev) => (prev + 1) % showcaseSlides.length);
+      setActiveSlide((prev) => (prev + 1) % clientProjects.length);
     }, 4000);
 
     return () => clearInterval(timer);
   }, [isPaused]);
 
   const nextSlide = () => {
-    setActiveSlide((prev) => (prev + 1) % showcaseSlides.length);
+    setActiveSlide((prev) => (prev + 1) % clientProjects.length);
   };
 
   const prevSlide = () => {
-    setActiveSlide((prev) => (prev - 1 + showcaseSlides.length) % showcaseSlides.length);
+    setActiveSlide((prev) => (prev - 1 + clientProjects.length) % clientProjects.length);
   };
 
   useGSAP(
@@ -145,7 +153,7 @@ export default function CreationsShowcaseSection() {
     { scope: sectionRef }
   );
 
-  const activeProject = showcaseSlides[activeSlide];
+  const activeProject = clientProjects[activeSlide];
 
   return (
     <section
@@ -181,137 +189,126 @@ export default function CreationsShowcaseSection() {
           </div>
         </div>
 
-        {/* Auto-Moving Website Carousel with Hover Pause & Multi-Project Screenshots */}
+        {/* 3-Panel Coverflow Website Carousel matching Picture 5 */}
         <div ref={centerShowcaseRef} className="relative w-full">
           <div
-            className="relative w-full aspect-[16/8.5] sm:aspect-[16/8] lg:aspect-[1440/658] rounded-xl overflow-hidden shadow-2xl border border-gray-200/80 bg-white group/carousel select-none"
+            className="relative w-full h-[320px] sm:h-[450px] md:h-[530px] lg:h-[580px] overflow-hidden group/carousel select-none"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
-            {showcaseSlides.map((slide, idx) => {
-              const isActive = idx === activeSlide;
+            {clientProjects.map((slide, idx) => {
+              const N = clientProjects.length;
+              const diff = (idx - activeSlide + N) % N;
+
+              const isCenter = diff === 0;
+              const isRight = diff === 1;
+              const isLeft = diff === N - 1;
+
+              let transformStyle = "translateX(-50%) scale(0.65)";
+              let opacityStyle = "opacity-0 pointer-events-none z-0";
+
+              if (isCenter) {
+                transformStyle = "translateX(-50%) scale(1)";
+                opacityStyle = "opacity-100 z-20 pointer-events-auto";
+              } else if (isRight) {
+                transformStyle = "translateX(calc(-50% + 56%)) scale(0.82)";
+                opacityStyle = "opacity-75 hover:opacity-95 z-10 pointer-events-auto cursor-pointer";
+              } else if (isLeft) {
+                transformStyle = "translateX(calc(-50% - 56%)) scale(0.82)";
+                opacityStyle = "opacity-75 hover:opacity-95 z-10 pointer-events-auto cursor-pointer";
+              }
+
               return (
                 <div
                   key={slide.id}
-                  className={`absolute inset-0 transition-all duration-700 ease-in-out ${
-                    isActive
-                      ? "opacity-100 scale-100 z-10 pointer-events-auto"
-                      : "opacity-0 scale-98 z-0 pointer-events-none"
-                  }`}
+                  onClick={() => {
+                    if (isRight) nextSlide();
+                    if (isLeft) prevSlide();
+                  }}
+                  className={`absolute top-0 left-1/2 w-[76vw] sm:w-[620px] md:w-[720px] lg:w-[840px] rounded-xl overflow-hidden shadow-2xl border border-gray-200/90 bg-white transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] flex flex-col ${opacityStyle}`}
+                  style={{
+                    transform: transformStyle,
+                    transformOrigin: "center center",
+                  }}
                 >
-                  <Image
-                    src={slide.image}
-                    alt={slide.alt}
-                    fill
-                    priority
-                    unoptimized
-                    sizes="(max-width: 1440px) 100vw, 1440px"
-                    className={slide.fitClass}
-                  />
+                  {/* Website Screenshot */}
+                  <div className="relative w-full aspect-[16/9.5] overflow-hidden bg-gray-50">
+                    <Image
+                      src={slide.image}
+                      alt={slide.alt}
+                      fill
+                      sizes="(max-width: 1024px) 76vw, 840px"
+                      className="object-cover object-top"
+                      priority={idx < 2}
+                    />
 
-                  {/* Optional click-through hotspot if link is active */}
-                  {slide.url !== "#" ? (
-                    <a
-                      href={slide.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="absolute inset-0 bg-transparent hover:bg-black/5 transition-colors"
-                      title={`Visit ${slide.title}`}
-                    >
-                      <span className="sr-only">Visit {slide.title}</span>
-                    </a>
-                  ) : (
-                    <Link
-                      href="/portfolio"
-                      className="absolute inset-0 bg-transparent hover:bg-black/5 transition-colors"
-                      title={`View ${slide.title} in Portfolio`}
-                    >
-                      <span className="sr-only">View {slide.title}</span>
-                    </Link>
-                  )}
+                    {/* Clickable link overlay if active center card */}
+                    {isCenter && slide.url !== "#" && (
+                      <a
+                        href={slide.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="absolute inset-0 bg-transparent hover:bg-black/5 transition-colors"
+                        title={`Visit ${slide.title}`}
+                      >
+                        <span className="sr-only">Visit {slide.title}</span>
+                      </a>
+                    )}
+                  </div>
+
+                  {/* Card Footer matching Picture 5 */}
+                  <div className="flex items-center justify-between px-5 sm:px-7 py-3 sm:py-3.5 bg-white border-t border-gray-100 select-none">
+                    <div className="flex items-center gap-1.5 font-medium text-gray-950">
+                      <span className="text-sm sm:text-base">{slide.title}</span>
+                      <span className="text-[#8B5CF6] text-sm">↗</span>
+                    </div>
+                    <span className="text-xs sm:text-sm font-medium tracking-wider uppercase text-gray-400">
+                      {slide.category}
+                    </span>
+                  </div>
                 </div>
               );
             })}
 
-            {/* Left Slide Arrow Button (Visible on Hover) */}
+            {/* Left Circular Navigation Button matching Picture 5 */}
             <button
               type="button"
               onClick={prevSlide}
-              aria-label="Previous website showcase"
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-white/90 text-gray-800 shadow-xl opacity-0 group-hover/carousel:opacity-100 transition-all duration-300 hover:bg-white hover:scale-105 active:scale-95"
+              aria-label="Previous client website"
+              className="absolute left-2 sm:left-4 md:left-8 lg:left-12 top-1/2 -translate-y-1/2 z-30 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-white text-gray-800 shadow-xl border border-gray-200/80 transition-all duration-300 hover:scale-105 active:scale-95"
             >
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
+              <svg className="w-5 h-5 text-gray-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
                 <path d="M15 19l-7-7 7-7" />
               </svg>
             </button>
 
-            {/* Right Slide Arrow Button (Visible on Hover) */}
+            {/* Right Circular Navigation Button matching Picture 5 */}
             <button
               type="button"
               onClick={nextSlide}
-              aria-label="Next website showcase"
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-white/90 text-gray-800 shadow-xl opacity-0 group-hover/carousel:opacity-100 transition-all duration-300 hover:bg-white hover:scale-105 active:scale-95"
+              aria-label="Next client website"
+              className="absolute right-2 sm:right-4 md:right-8 lg:right-12 top-1/2 -translate-y-1/2 z-30 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-white text-gray-800 shadow-xl border border-gray-200/80 transition-all duration-300 hover:scale-105 active:scale-95"
             >
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
+              <svg className="w-5 h-5 text-gray-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
                 <path d="M9 5l7 7-7 7" />
               </svg>
             </button>
           </div>
 
-          {/* Bottom Dynamic Metadata Bar & Navigation Indicators */}
-          <div className="mt-6 pt-4 border-b border-gray-200 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-sm sm:text-base">
-            <div>
-              {activeProject.isExternal ? (
-                <a
-                  href={activeProject.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-1.5 font-medium text-gray-950 hover:text-[#545AFF] transition-colors"
-                >
-                  <span className="text-base sm:text-lg">{activeProject.title}</span>
-                  <svg className="w-4 h-4 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M7 17L17 7M17 7H7M17 7V17" />
-                  </svg>
-                </a>
-              ) : (
-                <Link
-                  href="/portfolio"
-                  className="inline-flex items-center gap-1.5 font-medium text-gray-950 hover:text-[#545AFF] transition-colors"
-                >
-                  <span className="text-base sm:text-lg">{activeProject.title}</span>
-                  <svg className="w-4 h-4 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M7 17L17 7M17 7H7M17 7V17" />
-                  </svg>
-                </Link>
-              )}
-              <p className="text-xs sm:text-sm text-gray-500 mt-0.5">
-                {activeProject.tagline}
-              </p>
-            </div>
-
-            {/* Right: Category + Indicator Pills */}
-            <div className="flex items-center gap-5 self-end sm:self-center">
-              <span className="text-xs sm:text-sm font-semibold tracking-wider text-gray-400 uppercase">
-                {activeProject.category}
-              </span>
-
-              {/* Progress Indicator Dots */}
-              <div className="flex items-center gap-1.5">
-                {showcaseSlides.map((_, dotIdx) => (
-                  <button
-                    key={dotIdx}
-                    type="button"
-                    onClick={() => setActiveSlide(dotIdx)}
-                    className={`h-2 rounded-full transition-all duration-300 ${
-                      dotIdx === activeSlide
-                        ? "w-7 bg-[#545AFF]"
-                        : "w-2 bg-gray-300 hover:bg-gray-400"
-                    }`}
-                    aria-label={`Go to slide ${dotIdx + 1}`}
-                  />
-                ))}
-              </div>
-            </div>
+          {/* Progress Indicator Dots */}
+          <div className="mt-6 flex items-center justify-center gap-2">
+            {clientProjects.map((p, idx) => (
+              <button
+                key={p.id}
+                onClick={() => setActiveSlide(idx)}
+                aria-label={`Jump to ${p.title}`}
+                className={`transition-all duration-300 rounded-full ${
+                  idx === activeSlide
+                    ? "w-8 h-2.5 bg-[#8B5CF6]"
+                    : "w-2.5 h-2.5 bg-gray-300 hover:bg-gray-400"
+                }`}
+              />
+            ))}
           </div>
         </div>
 
@@ -319,4 +316,3 @@ export default function CreationsShowcaseSection() {
     </section>
   );
 }
-
