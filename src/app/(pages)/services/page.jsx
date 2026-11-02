@@ -97,6 +97,21 @@ const servicesData = [
       "Compliance Readiness (ISO 27001)",
     ],
   },
+  {
+    title: "AWS Training Course",
+    slug: "aws-training",
+    description:
+      "Prepare smart and crack your AWS certification exam in one go. Our structured Academix programme features live mentor sessions led by certified cloud architects, hands-on real-world projects, exam-oriented practice tests, and dedicated career guidance.",
+    image: "/Academy/Container (5).png",
+    bullets: [
+      "Expert-Led AWS Certification Training",
+      "Hands-On Cloud Architecture Projects",
+      "Live Mentor Support & Doubt-Clearing",
+      "Exam-Focused Mock Tests & Analytics",
+      "Recorded Lessons for Lifetime Revision",
+      "Tailored Learning Pathways for All Levels",
+    ],
+  },
 ];
 
 export default function ServicesPage() {

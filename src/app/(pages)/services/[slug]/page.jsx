@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import ServiceDetailClient from "./ServiceDetailClient";
 import CTASection from "@/components/CTASection";
 
@@ -579,6 +579,7 @@ const SERVICES_DETAIL_DATA = {
 // Next.js dynamic metadata generator for individual slugs
 export async function generateMetadata({ params }) {
   const { slug } = await params;
+  if (slug === "aws-training") redirect("/services/aws-training");
   const data = SERVICES_DETAIL_DATA[slug];
 
   if (!data) {

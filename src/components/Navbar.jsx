@@ -41,7 +41,7 @@ export default function Navbar() {
 
   const getNavHref = (href) => href;
 
-  if (pathname.startsWith("/academy")) return null;
+  if (pathname.startsWith("/academy") || pathname.startsWith("/ags-academy") || pathname.startsWith("/services/aws-training")) return null;
 
   return (
     <nav

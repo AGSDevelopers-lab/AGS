@@ -125,7 +125,7 @@ export default function Footer() {
     { scope: footerRef }
   );
 
-  if (pathname === "/academy") return null;
+  if (pathname.startsWith("/academy") || pathname.startsWith("/ags-academy") || pathname.startsWith("/services/aws-training")) return null;
 
   return (
     <footer
