@@ -50,6 +50,7 @@ export function SlideIn({
               ...(tint && { color: "#000" }),
               duration: 1.2,
               ease: "power3.out",
+              clearProps: "transform,opacity,visibility",
             }),
         });
 

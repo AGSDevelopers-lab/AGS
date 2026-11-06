@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useCtaForm } from "@/components/CtaFormProvider";
 import SlideIn from "@/components/SlideIn";
 
@@ -9,42 +10,40 @@ function CTAButton() {
   return (
     <button
       type="button"
-      className="group inline-flex items-center gap-2.5 rounded-full bg-white px-7 py-3.5 text-xs sm:text-sm font-semibold text-black transition-colors duration-300 hover:bg-white/90 shadow-xl"
+      className="group inline-flex items-center gap-3 bg-white px-8 py-4 text-[15px] font-medium text-black transition-all duration-300 hover:bg-white/95 hover:scale-[1.02] shadow-xl rounded-none cursor-pointer"
       onClick={() => openForm()}
     >
       <span>Know More</span>
-      <span className="flex h-5 w-5 items-center justify-center rounded-full border border-black/40 text-black">
-        <svg
-          width="10"
-          height="10"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2.5"
-          className="transition-transform duration-300 group-hover:rotate-45"
-        >
-          <path d="M7 17L17 7M17 7H7M17 7V17" />
-        </svg>
-      </span>
+      <Image
+        src="/careers/uil_arrow-up.png"
+        alt=""
+        width={20}
+        height={20}
+        className="w-5 h-5 object-contain transition-transform duration-300 group-hover:scale-110"
+        aria-hidden="true"
+      />
     </button>
   );
 }
 
-export default function CTASection() {
+export default function CTASection({
+  heading = "Let's work with Us",
+  description = "Mangcoding is a biggest company in Indonesia, who provides the services in Development Website, Shopify and Wordpress",
+}) {
   return (
     <section
       id="contact"
-      className="relative z-10 w-full overflow-x-clip bg-[#0A071E] py-14 sm:py-20 border-b border-white/10"
+      className="relative z-10 w-full overflow-x-clip bg-[#0A071E] py-14 sm:py-20 border-t border-white/10"
     >
       <div className="relative mx-auto max-w-[1380px] px-6 sm:px-8 lg:px-14">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between py-6 sm:py-10">
           {/* Left: Heading & paragraph sliding from left */}
           <SlideIn from="left" distance={40} className="max-w-3xl">
-            <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-normal tracking-tight text-white leading-tight">
-              Let&apos;s work with Us
+            <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-normal tracking-tight bg-[linear-gradient(91.16deg,#9795FF_1.74%,#FFFFFF_43.71%,#FFFFFF_61.62%,#BE9FFF_102.48%)] bg-clip-text text-transparent leading-tight">
+              {heading}
             </h2>
             <p className="mt-3 text-sm sm:text-base text-white/70 font-light max-w-xl leading-relaxed">
-              Partner with Amrut Global Solutions to turn your ideas into high-performing, enterprise-grade digital platforms.
+              {description}
             </p>
           </SlideIn>
 

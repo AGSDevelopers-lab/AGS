@@ -9,7 +9,7 @@ const PORTFOLIO_DETAIL_DATA = {
     tags: ["React", "Next.js", "Node.js", "SEO"],
     bgTheme: "from-[#080711] via-[#0d0a21] to-[#080711]",
     accentColor: "#7B5CFF",
-    heroImage: "/Portfolio.png",
+    heroImage: "/portfolio/Molifera Media Laptop Workspace.png",
     figmaUrl: "https://www.moliferamedia.com/",
     tagline: "Your 360° Partner for Strategy, Marketing, and Brand Growth",
     about: "Molifera Media is a full-service digital agency website crafted to showcase innovative design, strategic marketing, and creative storytelling. The platform transforms brands through captivating visual experiences, data-driven campaigns, and measurable growth strategies across all digital channels.",
@@ -44,7 +44,7 @@ const PORTFOLIO_DETAIL_DATA = {
     tags: ["React", "Firebase", "UX Research", "Mobile UI"],
     bgTheme: "from-[#05110c] via-[#081f16] to-[#05110c]",
     accentColor: "#00a37b",
-    heroImage: "/product-2.png",
+    heroImage: "/portfolio/Mangal Materials Pooja App on Smartphone.png",
     figmaUrl: "https://www.figma.com/proto/xNnhifFuOzwF3uouIYKQWC/Mangal-Materials-Case-study?node-id=11-17&t=a8hh5O46d2GbS3ju-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
     tagline: "E-Commerce App Redesign for Spiritual Puja Rituals",
     about: "Mangal Materials is an offline-first spiritual e-commerce application. It delivers a curated ecosystem providing deity idols, custom puja packages, and ritual items directly to users. The redesign prioritizes tactile interface elements, simplified navigation trees, and accessibility standards.",
@@ -79,7 +79,7 @@ const PORTFOLIO_DETAIL_DATA = {
     tags: ["React Native", "AWS", "Node.js", "WebSockets"],
     bgTheme: "from-[#110f05] via-[#211f0a] to-[#110f05]",
     accentColor: "#F59E0B",
-    heroImage: "/product-4.png",
+    heroImage: "/portfolio/Eco-Friendly Ride App on Wooden Desk.png",
     figmaUrl: "https://www.figma.com/proto/NBOI7DXn8ug8hMkQB6B7Do/Totojan-Case-study?node-id=1-157&t=xpe8bxWQX9I6tZ2H-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
     tagline: "Instant Affordable E-Rickshaw Ride Booking",
     about: "TotoJan is a lightweight ride-hailing application developed for local e-rickshaw (Toto) networks. Operating under serverless AWS backends, TotoJan utilizes WebSockets to sync live coordinates between passengers and nearby drivers instantly.",
@@ -114,7 +114,7 @@ const PORTFOLIO_DETAIL_DATA = {
     tags: ["Next.js", "Tailwind CSS", "Lighthouse", "SEO"],
     bgTheme: "from-[#080705] via-[#1f1a14] to-[#080705]",
     accentColor: "#C29A5B",
-    heroImage: "/product-3.png",
+    heroImage: "/portfolio/Dhunseri Tea Website Laptop Mockup.png",
     figmaUrl: "https://www.figma.com/proto/D9F8w0qbj3yeX1WwhjQTrT/Dhunseri-Case-Study?node-id=1-2&t=zLHzFULkEWQlHTgp-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
     tagline: "Bespoke Web Platform for Premium Orthodox Teas",
     about: "Dhunseri is a global orthodox tea manufacturer. The website redesign presents a high-luxury, cinematic interface featuring custom narrative grids, agricultural transparency, and seamless wholesale sitemap integrations.",
@@ -149,7 +149,7 @@ const PORTFOLIO_DETAIL_DATA = {
     tags: ["React", "AWS", "Node.js"],
     bgTheme: "from-[#0a0a0a] via-[#111] to-[#0a0a0a]",
     accentColor: "#3B82F6",
-    heroImage: "/ags1/Bhairal.png",
+    heroImage: "/portfolio/Bhairal Influencer Platform Laptop Mockup.png",
     figmaUrl: "#",
     tagline: "The first influencer platform for freelancing. Find and hire top creators.",
     about: "Bhairal is an innovative influencer platform designed to connect brands with top freelance creators seamlessly. It provides a robust marketplace for transparent collaboration.",
@@ -184,7 +184,7 @@ const PORTFOLIO_DETAIL_DATA = {
     tags: ["React", "AWS", "Node.js"],
     bgTheme: "from-[#0a0a0a] via-[#111] to-[#0a0a0a]",
     accentColor: "#EF4444",
-    heroImage: "/ags1/Himalayn Darpan.png",
+    heroImage: "/portfolio/Himalaya Darpan News on Smartphone.png",
     figmaUrl: "#",
     tagline: "A digital news platform delivering regional and international news.",
     about: "Himalayan Darpan provides a modern, lightning-fast, and accessible digital news reading experience tailored for both regional readers and global audiences.",
@@ -207,18 +207,66 @@ const PORTFOLIO_DETAIL_DATA = {
       { title: "Editorial Elegance", desc: "A clean, typography-driven design reminiscent of premium print media, adapted for the digital screen." },
       { title: "Accessible Navigation", desc: "Intuitive categorization and sticky headers to ensure readers can effortlessly jump between news sections." }
     ],
-    palette: [
+        palette: [
       { name: "Alert Red", hex: "#EF4444", desc: "Attention-grabbing accent for breaking news and primary actions." },
       { name: "Slate Black", hex: "#0F172A", desc: "Softened dark background for comfortable extended reading." },
       { name: "Off-White", hex: "#F8FAFC", desc: "Primary text color designed to reduce eye strain." }
     ]
+  },
+  "cng": {
+    name: "CNG Cycling",
+    label: "Website Redesign",
+    tags: ["Next.js", "Tailwind CSS", "UI/UX", "Responsive Design"],
+    bgTheme: "from-[#08110b] via-[#0d1f14] to-[#08110b]",
+    accentColor: "#10B981",
+    heroImage: "/portfolio/Cycling Community Laptop Hero Scene.png",
+    figmaUrl: "#",
+    tagline: "Ride Together, Grow Together — High-Performance Cycling Community Web Redesign",
+    about: "CNG Cycling is a premier endurance and cycling community platform. The website redesign elevates the club's digital presence with high-impact community ride scheduling, member profiles, and seamless race registration pipelines.",
+    challenge: "The original community website had disconnected event calendars, slow mobile load speeds during race weekend registrations, and lacked a modern visual identity reflecting elite cycling performance.",
+    research: [
+      { metric: "98%", label: "Mobile speed index score on Google Lighthouse." },
+      { metric: "3.2x", label: "Increase in weekly ride registrations after redesign." },
+      { metric: "88%", label: "Lift in rider community engagement and route sharing." }
+    ],
+    sitemap: [
+      { node: "Community Hub", children: ["Group Rides", "Race Calendar", "Leaderboard"] },
+      { node: "Membership Portal", children: ["Rider Profiles", "Kit Orders", "Event Pass"] },
+      { node: "Routes & Tracking", children: ["Strava Sync", "GPX Downloads", "Safety Guidelines"] }
+    ],
+    wireframes: [
+      { name: "Ride Discovery Map", desc: "Interactive filtering interface letting cyclists filter upcoming weekend routes by elevation, pace, and distance." },
+      { name: "Fast-Track Registration", desc: "Frictionless 2-step event registration supporting instant calendar sync and emergency contact validation." }
+    ],
+    finalUi: [
+      { title: "Dynamic Emerald Interface", desc: "High-contrast dark aesthetic with vibrant race-green accents inspired by modern endurance cycling apparel." },
+      { title: "Live Ride Dashboard", desc: "Real-time attendance counter and weather forecast banner for morning pelotons." }
+    ],
+    palette: [
+      { name: "Race Emerald", hex: "#10B981", desc: "High-energy endurance accent color." },
+      { name: "Tarmac Black", hex: "#0B0F0D", desc: "Deep asphalt background tone." },
+      { name: "Pure White", hex: "#FFFFFF", desc: "Crisp typography contrast." }
+    ]
   }
 };
+
+const SLUG_ALIASES = {
+  "himalaya-darpan": "himalayan-darpan",
+  "himalaya-darpan-web": "himalayan-darpan",
+  "himalaya-darpan-app": "himalayan-darpan",
+  "mangal-materials-web": "mangal-materials",
+  "mangal-materials-app": "mangal-materials",
+};
+
+function resolveProject(slug) {
+  const targetSlug = SLUG_ALIASES[slug] || slug;
+  return PORTFOLIO_DETAIL_DATA[targetSlug] || null;
+}
 
 // Generate dynamic SEO metadata matching the project slug
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const project = PORTFOLIO_DETAIL_DATA[slug];
+  const project = resolveProject(slug);
 
   if (!project) {
     return {
@@ -248,7 +296,7 @@ export async function generateMetadata({ params }) {
 
 export default async function PortfolioDetailSubPage({ params }) {
   const { slug } = await params;
-  const project = PORTFOLIO_DETAIL_DATA[slug];
+  const project = resolveProject(slug);
 
   if (!project) {
     notFound();
@@ -268,6 +316,9 @@ export async function generateStaticParams() {
     { slug: "molifera-media" },
     { slug: "mangal-materials" },
     { slug: "totojan" },
-    { slug: "dhunseri" }
+    { slug: "dhunseri" },
+    { slug: "bhairal" },
+    { slug: "himalayan-darpan" },
+    { slug: "cng" },
   ];
 }

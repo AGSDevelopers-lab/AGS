@@ -23,10 +23,10 @@ const COMPANY_LINKS = [
 ];
 
 const SERVICE_LINKS = [
-  { label: "Web Development", href: "/services/website-development" },
+  { label: "Web Development", href: "/services/full-stack" },
   { label: "UI/UX Design", href: "/services/ui-ux-design" },
   { label: "Digital Solutions", href: "/services/digital-solutions" },
-  { label: "Mobile App Development", href: "/services/mobile-apps" },
+  { label: "Mobile App Development", href: "/services/mobile-app-development" },
   { label: "AI Solutions", href: "/services/ai-solutions" },
   { label: "Cyber Security & VAPT", href: "/services/cyber-security" },
 ];
