@@ -189,7 +189,7 @@ export default function AcademixLandingPage() {
       <section className="relative z-10 pt-10 sm:pt-14 pb-12 px-6 sm:px-8 text-center">
         <div className="max-w-[1240px] mx-auto">
           {/* Avatar & Text Header (NO background box, NO border, pure elements sitting on background) */}
-          <div className="inline-flex items-center justify-center gap-3.5 mb-8">
+          <div className="inline-flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-3.5 mb-8">
             {/* 5 Overlapping Avatars (Clean circular photos, NO black borders) */}
             <div className="flex -space-x-3 overflow-visible">
               {[
@@ -201,7 +201,7 @@ export default function AcademixLandingPage() {
               ].map((src, i) => (
                 <div
                   key={i}
-                  className="relative w-[46px] h-[46px] sm:w-[50px] sm:h-[50px] rounded-full overflow-hidden flex-shrink-0"
+                  className="relative w-[42px] h-[42px] sm:w-[50px] sm:h-[50px] rounded-full overflow-hidden flex-shrink-0"
                 >
                   <Image
                     src={src}
@@ -215,21 +215,21 @@ export default function AcademixLandingPage() {
             </div>
 
             {/* Text beside avatars */}
-            <div className="text-left ml-1">
-              <p className="text-[14px] font-normal text-white leading-[19.6px]">
+            <div className="text-center sm:text-left ml-0 sm:ml-1">
+              <p className="text-[13px] sm:text-[14px] font-normal text-white leading-[19.6px]">
                 Expert-Led AWS Certification Training
               </p>
-              <p className="text-[12px] text-[#FFFFFF99] font-normal leading-[16.8px] mt-0.5">
+              <p className="text-[11px] sm:text-[12px] text-[#FFFFFF99] font-normal leading-[16.8px] mt-0.5">
                 Practical Learning · Mentor Support · Exam Preparation
               </p>
             </div>
           </div>
 
           {/* Hero Headlines (Exact Figma Specs) */}
-          <h1 className="text-white text-5xl sm:text-7xl lg:text-[80px] font-medium tracking-[-0.8px] leading-[1.1] sm:leading-[88px] max-w-[960px] mx-auto">
+          <h1 className="text-white text-4xl sm:text-6xl lg:text-[80px] font-medium tracking-[-0.8px] leading-[1.15] sm:leading-[88px] max-w-[960px] mx-auto">
             Crack Your
           </h1>
-          <h2 className="text-[#8B62FF] text-5xl sm:text-7xl lg:text-[80px] font-medium tracking-[-0.8px] leading-[1.1] sm:leading-[88px] max-w-[960px] mx-auto mt-1 sm:mt-2">
+          <h2 className="text-[#8B62FF] text-4xl sm:text-6xl lg:text-[80px] font-medium tracking-[-0.8px] leading-[1.15] sm:leading-[88px] max-w-[960px] mx-auto mt-1 sm:mt-2">
             AWS Exam in One Go.
           </h2>
 
@@ -289,8 +289,8 @@ export default function AcademixLandingPage() {
       </section>
 
       {/* ───────────────── 4 FEATURES ROW (Exact Icon Mapping matching Figma) ───────────────── */}
-      <section className="relative z-10 py-12 px-6 sm:px-8">
-        <div className="max-w-[1220px] mx-auto grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 items-center justify-items-center">
+      <section className="relative z-10 py-10 sm:py-12 px-6 sm:px-8">
+        <div className="max-w-[1220px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-8 items-center justify-items-start sm:justify-items-center">
           {/* Feature 1: Hands-On AWS Projects -> SVG.png (Dash) */}
           <div className="flex items-center gap-3">
             <div className="relative w-[25px] h-[24px] flex-shrink-0">
@@ -561,7 +561,7 @@ export default function AcademixLandingPage() {
                 <button
                   key={step.id}
                   onClick={() => setActiveStep(step.id)}
-                  className={`w-full h-[76px] px-6 rounded-none flex items-center justify-between text-left transition-all duration-300 cursor-pointer ${
+                  className={`w-full min-h-[64px] sm:h-[76px] py-3 px-4 sm:px-6 rounded-none flex items-center justify-between text-left transition-all duration-300 cursor-pointer ${
                     isActive
                       ? "bg-[#211B35] border border-[#8B62FF] shadow-[0_0_20px_rgba(139,98,255,0.25)] text-white"
                       : "bg-[#18151E] border border-white/5 text-white/75 hover:bg-[#201C29] hover:text-white"
