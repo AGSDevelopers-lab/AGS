@@ -15,8 +15,8 @@ const officers = [
   },
   {
     name: "Atish Roy",
-    role: "Chief Growth Officer",
-    bio: "Leading business development, market expansion, and enterprise client strategy.",
+    role: "Advisor – Brand & Growth Strategy",
+    bio: "Advising on brand positioning, market growth strategies, and enterprise partnerships.",
     image: "/ags about page/atish roy.png",
     linkedin: "https://www.linkedin.com/in/atishroy/",
     twitter: "https://x.com/",
@@ -55,7 +55,7 @@ export default function AboutOfficers() {
         {/* Centered Heading */}
         <div className="text-center max-w-[600px] mx-auto">
           <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-normal tracking-tight text-[#101015]">
-            Our <span className="text-[#6040FF]">Officers</span>
+            Our <span className="text-[#6040FF]">Officers & Advisors</span>
           </h2>
         </div>
 

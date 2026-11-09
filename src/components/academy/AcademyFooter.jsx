@@ -73,14 +73,14 @@ export default function AcademyFooter() {
             </h4>
             <ul className="space-y-4">
               {[
-                "Student Stories",
-                "Project Gallery",
-                "Blog",
-                "FAQ"
+                { name: "Student Stories", href: "#" },
+                { name: "Project Gallery", href: "/portfolio" },
+                { name: "Blog", href: "/blog" },
+                { name: "FAQ", href: "#" }
               ].map((link, idx) => (
                 <li key={idx}>
-                  <Link href="#" className="text-white/50 hover:text-white text-[13px] md:text-[14px] transition-colors">
-                    {link}
+                  <Link href={link.href} className="text-white/50 hover:text-white text-[13px] md:text-[14px] transition-colors">
+                    {link.name}
                   </Link>
                 </li>
               ))}

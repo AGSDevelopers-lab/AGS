@@ -51,6 +51,7 @@ const products = [
     description: "Track real-time story performance and editorial KPIs to optimize newsroom coverage instantly.",
     image: "/products/lynkbeats.png",
     logo: "/products/logo-lynkbeats.png",
+    link: "https://linkbeats.in/",
   },
   {
     id: "newsbuddies",
@@ -59,6 +60,7 @@ const products = [
     description: "Optimize headlines, regional metadata, and search visibility to drive organic news traffic.",
     image: "/products/newsbuddies.png",
     logo: "/products/logo-newsbuddies.png",
+    link: "https://vidlens.in/",
   },
   {
     id: "vidlens",
@@ -67,6 +69,7 @@ const products = [
     description: "Analyze competitor channels, track audience retention, and optimize video content strategy effortlessly.",
     image: "/products/vidlens.png",
     logo: "/products/logo-vidlens.png",
+    link: "https://vidlens.in/",
   },
 ];
 
@@ -218,12 +221,24 @@ export default function InnovativeProductsSection() {
                 transform: getTransform(),
               }}
             >
-              {products.map((prod) => (
-                <div
-                  key={prod.id}
-                  onClick={() => openForm()}
-                  className="group relative flex flex-col justify-between overflow-hidden rounded-[24px] aspect-[4/5] min-h-[480px] sm:min-h-[520px] p-7 sm:p-9 border border-white/10 shadow-2xl transition-all duration-300 hover:border-purple-500/50 cursor-pointer shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-22px)]"
-                >
+              {products.map((prod) => {
+                const CardTag = prod.link ? "a" : "div";
+                const cardProps = prod.link
+                  ? {
+                      href: prod.link,
+                      target: "_blank",
+                      rel: "noopener noreferrer",
+                    }
+                  : {
+                      onClick: () => openForm(),
+                    };
+
+                return (
+                  <CardTag
+                    key={prod.id}
+                    {...cardProps}
+                    className="group relative flex flex-col justify-between overflow-hidden rounded-[24px] aspect-[4/5] min-h-[480px] sm:min-h-[520px] p-7 sm:p-9 border border-white/10 shadow-2xl transition-all duration-300 hover:border-purple-500/50 cursor-pointer shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-22px)] block"
+                  >
                   {/* Background Image */}
                   <Image
                     src={prod.image}
@@ -286,8 +301,9 @@ export default function InnovativeProductsSection() {
                     </div>
                   </div>
 
-                </div>
-              ))}
+                </CardTag>
+              );
+            })}
             </div>
           </div>
 

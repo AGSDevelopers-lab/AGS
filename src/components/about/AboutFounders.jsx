@@ -6,7 +6,7 @@ import Image from "next/image";
 const founders = [
   {
     name: "Tushar De",
-    role: "Director, CEO",
+    role: "Co-Founder & CEO",
     bio: "Executes workflows on the ground, while driving the overall vision across the market.",
     image: "/ags about page/Tushar de.png",
     linkedin: "https://www.linkedin.com/in/0xtd",
@@ -15,7 +15,7 @@ const founders = [
   },
   {
     name: "Sharmistha Chatterjee",
-    role: "Director, COO",
+    role: "Co-Founder & COO",
     bio: "Executes workflows on the ground, while scaling them across the company.",
     image: "/ags about page/Sharmistha chatterjee.png",
     linkedin: "https://www.linkedin.com/in/c-sharmistha/",

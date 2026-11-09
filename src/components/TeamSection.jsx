@@ -6,20 +6,20 @@ import ScrollReveal from "./ScrollReveal";
 const directors = [
   {
     name: "Tushar De",
-    role: "Director, CEO",
+    role: "Co-Founder & CEO",
     image: "/tushar.jpeg",
     linkedin: "https://www.linkedin.com/in/0xtd",
   },
   {
     name: "Sharmistha Chatterjee",
-    role: "Director, COO",
+    role: "Co-Founder & COO",
     image:
       "https://res.cloudinary.com/dhxgwo5r4/image/upload/q_auto/f_auto/v1775113883/Sharmistha_Ma_am_gtmxsq.png",
     linkedin: "https://www.linkedin.com/in/c-sharmistha/",
   },
   {
     name: "Atish Roy",
-    role: "Chief Growth Officer",
+    role: "Advisor – Brand & Growth Strategy",
     image:
       "https://res.cloudinary.com/dhxgwo5r4/image/upload/q_auto/f_auto/v1775113883/Atish_Sir_qcjmrn.png",
     linkedin: "https://www.linkedin.com/in/atishroy/",
