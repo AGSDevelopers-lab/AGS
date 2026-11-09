@@ -6,13 +6,13 @@ import SlideIn from "@/components/SlideIn";
 
 export default function AboutDigitalSolutionsShowcase() {
   return (
-    <section className="relative z-10 w-full overflow-x-clip bg-[#FFFFFF]">
-      <div className="grid grid-cols-1 md:grid-cols-2 w-full min-h-[460px] lg:min-h-[540px] overflow-x-clip">
+    <section className="relative z-10 w-full overflow-hidden bg-[#FFFFFF]">
+      <div className="grid grid-cols-1 md:grid-cols-2 w-full min-h-[460px] lg:min-h-[540px] overflow-hidden">
         {/* Left Panel: Dark Photographic Panel (Slides in from Left) */}
         <SlideIn from="left" distance={30} className="w-full h-full">
           <Link
             href="/services/digital-solutions"
-            className="group relative block w-full h-[380px] sm:h-[440px] md:h-[500px] lg:h-[560px] overflow-hidden"
+            className="group relative block w-full h-[290px] sm:h-[420px] md:h-[500px] lg:h-[560px] overflow-hidden"
           >
             {/* Background Image */}
             <Image
@@ -50,7 +50,7 @@ export default function AboutDigitalSolutionsShowcase() {
 
         {/* Right Panel: Bright Natural Photographic Panel with Colleagues on Laptop (Slides in from Right) */}
         <SlideIn from="right" distance={30} className="w-full h-full">
-          <div className="group relative w-full h-[380px] sm:h-[440px] md:h-[500px] lg:h-[560px] overflow-hidden">
+          <div className="group relative w-full h-[290px] sm:h-[420px] md:h-[500px] lg:h-[560px] overflow-hidden">
             <Image
               src="/ags about page/digital olutions 2.png"
               alt="Colleagues Collaborating on Laptop"

@@ -157,7 +157,7 @@ function ProjectCard({ project, index }) {
         </div>
 
         {/* Floating Bottom Box: Default Pill -> Expands to Title + Description on Hover */}
-        <div className="absolute bottom-5 left-5 right-5 sm:bottom-6 sm:left-6 sm:right-6 z-20 flex flex-row items-stretch shadow-xl transition-all duration-300 group-hover:-translate-y-1">
+        <div className="absolute bottom-3 left-3 right-3 sm:bottom-6 sm:left-6 sm:right-6 z-20 flex flex-row items-stretch shadow-xl transition-all duration-300 group-hover:-translate-y-1">
           {/* White Card Box */}
           <div className="flex-1 bg-white px-5 sm:px-6 py-3.5 sm:py-4 flex flex-col justify-center min-w-0 transition-all duration-300">
             <h3 className="text-[#111111] font-manrope font-normal text-[20px] sm:text-[22px] tracking-tight leading-none truncate m-0 p-0">
@@ -247,7 +247,7 @@ export default function PortfolioPage() {
               max-width: 794px;
           */}
           <h1
-            className={`${dmSans.className} relative z-10 text-[42px] sm:text-[54px] md:text-[68px] leading-[1.12] md:leading-[75px] font-normal tracking-[0%] text-center max-w-[794px] mx-auto bg-[linear-gradient(91.16deg,#9795FF_1.74%,#FFFFFF_43.71%,#FFFFFF_61.62%,#BE9FFF_102.48%)] bg-clip-text text-transparent`}
+            className={`${dmSans.className} relative z-10 text-[32px] xs:text-[42px] sm:text-[54px] md:text-[68px] leading-[1.12] md:leading-[75px] font-normal tracking-[0%] text-center max-w-[794px] mx-auto bg-[linear-gradient(91.16deg,#9795FF_1.74%,#FFFFFF_43.71%,#FFFFFF_61.62%,#BE9FFF_102.48%)] bg-clip-text text-transparent`}
           >
             Our Portfolio
           </h1>

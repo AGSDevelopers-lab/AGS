@@ -92,7 +92,7 @@ const testimonials = [
   {
     id: 1,
     quote:
-      "I do admire the company culture and, I like that. Visioncraft is truly the place where good attitudes have blended with proficiency. If you’re going to craft something great and you have a strong eagerness to do that, Visioncraft will remove all hassles in your journey.",
+      "I do admire the company culture and, I like that. AGS is truly the place where good attitudes have blended with proficiency. If you’re going to craft something great and you have a strong eagerness to do that, AGS will remove all hassles in your journey.",
     name: "James Olson",
     role: "Product Designer",
     linkedin: "https://www.linkedin.com",
@@ -365,7 +365,7 @@ export default function CareersPage() {
         {/* Hero Content: Directly rendered so it is 100% visible immediately */}
         <div className="relative z-10 w-full max-w-[1290px] mx-auto px-6 sm:px-8 lg:px-12">
           <h1
-            className={`${dmSans.className} text-[44px] sm:text-[58px] md:text-[68px] leading-[1.12] font-normal tracking-tight bg-[linear-gradient(91.16deg,#9795FF_1.74%,#FFFFFF_43.71%,#FFFFFF_61.62%,#BE9FFF_102.48%)] bg-clip-text text-transparent max-w-xl`}
+            className={`${dmSans.className} text-[36px] xs:text-[44px] sm:text-[58px] md:text-[68px] leading-[1.12] font-normal tracking-tight bg-[linear-gradient(91.16deg,#9795FF_1.74%,#FFFFFF_43.71%,#FFFFFF_61.62%,#BE9FFF_102.48%)] bg-clip-text text-transparent max-w-xl`}
           >
             Join the team
           </h1>
@@ -464,7 +464,7 @@ export default function CareersPage() {
               What benefits are <span className="text-[#854CFF]">waiting for you?</span>
             </h2>
             <p className="mt-3 text-[#555E70] font-manrope font-light text-[15px] sm:text-[16px] text-center">
-              Visioncraft offers a variety of hand-picked benefits that you can take advantage of!
+              AGS offers a variety of hand-picked benefits that you can take advantage of!
             </p>
           </ScrollReveal>
 
@@ -945,7 +945,7 @@ export default function CareersPage() {
                   →
                 </div>
                 <div className="h-[52px] px-8 bg-gradient-to-r from-[#504CFF] to-[#480090] text-white flex items-center justify-center font-manrope font-medium text-[13px] tracking-widest uppercase transition-opacity group-hover:opacity-95">
-                  CHOOSE YOU PATH
+                  CHOOSE YOUR PATH
                 </div>
               </button>
             </div>

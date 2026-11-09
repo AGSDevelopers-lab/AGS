@@ -24,8 +24,10 @@ export function DigitalExcellence() {
       });
 
       mm.add("(prefers-reduced-motion: no-preference)", () => {
+        const isMobile = window.innerWidth < 768;
+        const dist = isMobile ? "20vw" : "60vw";
         gsap.set(lines, {
-          x: (_, el) => (el.dataset.from === "right" ? "60vw" : "-60vw"),
+          x: (_, el) => (el.dataset.from === "right" ? dist : `-${dist}`),
           autoAlpha: 0,
           color: "#c9c9c9",
         });
@@ -58,7 +60,7 @@ export function DigitalExcellence() {
   return (
     <section
       ref={root}
-      className="relative flex items-center justify-center overflow-x-clip bg-white pt-8 sm:pt-12 lg:pt-16 pb-20 sm:pb-28 lg:pb-32"
+      className="relative flex items-center justify-center overflow-hidden bg-white pt-8 sm:pt-12 lg:pt-16 pb-20 sm:pb-28 lg:pb-32"
     >
       <div className="flex items-center justify-center px-4 sm:px-6 md:px-8 max-w-full">
         {/* Left: AGS Monogram Outline Logo Watermark (Figma: 20% Opacity) */}
@@ -229,17 +231,17 @@ export default function DigitalExcellenceSection() {
   }, [outgoingNum]);
 
   return (
-    <div className="relative z-10 w-full bg-white text-gray-950 overflow-x-clip">
+    <div className="relative z-10 w-full bg-white text-gray-950 overflow-hidden">
       {/* ── PART A: One-Way Scroll Triggered Kinetic Typography ── */}
       <DigitalExcellence />
 
       {/* ── PART B: Interactive Editorial Services Section ── */}
-      <section className="relative w-full bg-white py-20 sm:py-28 lg:py-36">
+      <section className="relative w-full bg-white py-16 sm:py-28 lg:py-36">
         <div className="mx-auto max-w-[1560px] 2xl:max-w-[1680px] px-6 sm:px-10 lg:px-16 2xl:px-20">
-          <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-12 lg:gap-20 xl:gap-24">
+          <div className="grid grid-cols-1 items-center gap-10 sm:gap-16 lg:grid-cols-12 lg:gap-20 xl:gap-24">
             
             {/* Left Column: Enlarged Single Composition with Crossfading Image */}
-            <div className="lg:col-span-5 xl:col-span-5 relative w-full h-[520px] sm:h-[640px] lg:h-[700px] xl:h-[740px]">
+            <div className="lg:col-span-5 xl:col-span-5 relative w-full h-[320px] sm:h-[500px] lg:h-[700px] xl:h-[740px]">
               {outgoingNum !== null && (
                 <div
                   className="absolute inset-0 transition-opacity duration-500 ease-in-out pointer-events-none"
@@ -266,13 +268,13 @@ export default function DigitalExcellenceSection() {
                     key={item.num}
                     onMouseEnter={() => handleServiceChange(item.num)}
                     onClick={() => handleServiceChange(item.num)}
-                    className="group py-7 sm:py-9 transition-colors duration-300 cursor-pointer border-b border-gray-200"
+                    className="group py-5 sm:py-9 transition-colors duration-300 cursor-pointer border-b border-gray-200"
                   >
                     <div className="flex w-full items-center">
-                      <div className="flex items-center gap-3 sm:gap-4">
+                      <div className="flex items-center gap-2.5 sm:gap-4">
                         {/* Blue diagonal arrow matching user's chat image - appears on hover/active */}
                         <svg
-                          className={`w-6 h-6 sm:w-8 sm:h-8 text-[#2563EB] transition-all duration-300 shrink-0 ${
+                          className={`w-5 h-5 sm:w-8 sm:h-8 text-[#2563EB] transition-all duration-300 shrink-0 ${
                             isActive
                               ? "opacity-100 translate-x-0"
                               : "opacity-0 -translate-x-3 pointer-events-none w-0 overflow-hidden group-hover:opacity-100 group-hover:translate-x-0 group-hover:w-6 sm:group-hover:w-8"
@@ -291,7 +293,7 @@ export default function DigitalExcellenceSection() {
                         {/* Title with small superscript blue number beside it */}
                         <div className="inline-flex items-baseline">
                           <span
-                            className={`text-3xl sm:text-5xl lg:text-[54px] tracking-tight transition-colors duration-300 select-text ${
+                            className={`text-[25px] sm:text-5xl lg:text-[54px] tracking-tight transition-colors duration-300 select-text ${
                               isActive
                                 ? "font-normal text-gray-950"
                                 : "font-light text-gray-400 group-hover:text-gray-700"
@@ -299,7 +301,7 @@ export default function DigitalExcellenceSection() {
                           >
                             {item.title}
                           </span>
-                          <span className="ml-2.5 sm:ml-3 text-sm sm:text-base md:text-lg font-normal text-[#2563EB] relative -top-3 sm:-top-5 select-text">
+                          <span className="ml-2 sm:ml-3 text-xs sm:text-base md:text-lg font-normal text-[#2563EB] relative -top-2.5 sm:-top-5 select-text">
                             {item.num}
                           </span>
                         </div>

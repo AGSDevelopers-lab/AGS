@@ -78,7 +78,7 @@ export default function AwsEcosystemBanner() {
   return (
     <section
       ref={sectionRef}
-      className="relative z-10 w-full min-h-[420px] sm:min-h-[480px] lg:min-h-[520px] bg-[#050414] py-14 sm:py-18 lg:py-22 text-white overflow-x-clip border-t border-gray-100 flex items-center"
+      className="relative z-10 w-full min-h-[420px] sm:min-h-[480px] lg:min-h-[520px] bg-[#050414] py-14 sm:py-18 lg:py-22 text-white overflow-hidden border-t border-gray-100 flex items-center"
     >
       {/* Background Layer: Cloud Hologram Background Image coming from right */}
       <div
@@ -104,11 +104,11 @@ export default function AwsEcosystemBanner() {
             Partnership Announcement
           </span>
 
-          <h2 className="mt-2.5 sm:mt-3 text-2xl sm:text-3xl md:text-4xl lg:text-[47.1px] font-normal tracking-tight text-white leading-tight lg:leading-[72px] whitespace-nowrap">
+          <h2 className="mt-2.5 sm:mt-3 text-2xl sm:text-3xl md:text-4xl lg:text-[47.1px] font-normal tracking-tight text-white leading-tight lg:leading-[72px] whitespace-normal sm:whitespace-nowrap">
             We Are Officially AWS Partner
           </h2>
 
-          <p className="mt-1 sm:mt-2 text-base sm:text-xl lg:text-[28px] font-normal text-white leading-snug lg:leading-[48px] whitespace-nowrap">
+          <p className="mt-1 sm:mt-2 text-base sm:text-xl lg:text-[28px] font-normal text-white leading-snug lg:leading-[48px] whitespace-normal sm:whitespace-nowrap">
             In Association with Redington Limited
           </p>
 

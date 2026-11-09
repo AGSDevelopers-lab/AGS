@@ -43,7 +43,7 @@ export default function HappyCustomersSection() {
 
   return (
     <section
-      className="relative z-10 w-full bg-white py-16 sm:py-24 lg:py-28 text-gray-900 overflow-x-clip"
+      className="relative z-10 w-full bg-white py-16 sm:py-24 lg:py-28 text-gray-900 overflow-hidden"
     >
       <div className="mx-auto max-w-[1380px] px-6 sm:px-8 lg:px-14">
         {/* Heading sliding in from left with tint */}
@@ -134,7 +134,8 @@ export default function HappyCustomersSection() {
           width: max-content;
           animation: reviewScroll 18s linear infinite;
         }
-        .testimonial-marquee-track:hover {
+        .testimonial-marquee-track:hover,
+        .testimonial-marquee-track:active {
           animation-play-state: paused;
         }
         @keyframes reviewScroll {

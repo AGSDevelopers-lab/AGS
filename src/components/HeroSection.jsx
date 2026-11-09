@@ -102,7 +102,7 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="relative z-10 w-full min-h-[580px] sm:min-h-[640px] lg:min-h-[680px] h-screen max-h-[1200px] overflow-hidden bg-[#07051A]"
+      className="relative z-10 w-full min-h-[520px] sm:min-h-[640px] lg:min-h-[680px] h-[100dvh] max-h-[1200px] overflow-hidden bg-[#07051A]"
     >
       {/* Background Slides */}
       {heroSlides.map((slide, index) => {
@@ -130,8 +130,8 @@ export default function HeroSection() {
       })}
 
       {/* Foreground Content Container — Vertically centered matching design layout in Picture 1 */}
-      <div className="relative z-20 mx-auto flex h-full max-w-[1680px] 2xl:max-w-[1780px] flex-col justify-center px-6 sm:px-12 lg:px-20 2xl:px-24 pt-20 sm:pt-24 lg:pt-28 pb-10 sm:pb-12">
-        <div className="relative w-full max-w-[850px] lg:max-w-[940px] 2xl:max-w-[1020px] min-h-[360px] sm:min-h-[420px] lg:min-h-[460px] flex items-center">
+      <div className="relative z-20 mx-auto flex h-full max-w-[1680px] 2xl:max-w-[1780px] flex-col justify-center px-4 sm:px-12 lg:px-20 2xl:px-24 pt-20 sm:pt-24 lg:pt-28 pb-10 sm:pb-12">
+        <div className="relative w-full max-w-[850px] lg:max-w-[940px] 2xl:max-w-[1020px] min-h-[340px] sm:min-h-[420px] lg:min-h-[460px] flex items-center">
           {heroSlides.map((slide, index) => {
             const isActive = index === currentSlide;
 
@@ -146,8 +146,8 @@ export default function HeroSection() {
               >
                 {/* Compact Partnership Badge matching Figma */}
                 {slide.badge && (
-                  <div className="mb-5 sm:mb-6 w-fit self-start">
-                    <div className="border border-white/40 bg-black/40 backdrop-blur-sm px-4 py-1.5 sm:px-5 sm:py-2 text-xs sm:text-sm font-normal tracking-wide text-white/90 rounded-[2px]">
+                  <div className="mb-4 sm:mb-6 w-fit self-start">
+                    <div className="border border-white/40 bg-black/40 backdrop-blur-sm px-3.5 py-1 sm:px-5 sm:py-2 text-[11px] sm:text-sm font-normal tracking-wide text-white/90 rounded-[2px]">
                       {slide.badge}
                     </div>
                   </div>
@@ -155,14 +155,14 @@ export default function HeroSection() {
 
                 {/* SLIDE 1: AWS Specific Layout */}
                 {slide.type === "aws" && (
-                  <div className="space-y-2.5 sm:space-y-3.5 lg:space-y-4">
-                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[60px] font-normal tracking-tight leading-[1.12]">
+                  <div className="space-y-2 sm:space-y-3.5 lg:space-y-4">
+                    <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[60px] font-normal tracking-tight leading-[1.12]">
                       <span className="text-[#9B86EB]">Proud </span>
                       <span className="text-white">to be an</span>
                     </h1>
 
                     <div className="flex items-center gap-2 sm:gap-2.5 md:gap-3 flex-wrap">
-                      <div className="relative h-9 sm:h-11 md:h-13 lg:h-16 aspect-[72/44] shrink-0">
+                      <div className="relative h-8 xs:h-9 sm:h-11 md:h-13 lg:h-16 aspect-[72/44] shrink-0">
                         <Image
                           src="/aws-tight.png"
                           alt="aws"
@@ -172,14 +172,14 @@ export default function HeroSection() {
                           priority
                         />
                       </div>
-                      <span className="font-serif italic text-4xl sm:text-5xl md:text-6xl lg:text-[68px] xl:text-[72px] text-[#22D3EE] leading-none">
+                      <span className="font-serif italic text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-[68px] xl:text-[72px] text-[#22D3EE] leading-none">
                         Partner
                       </span>
                     </div>
 
-                    <div className="flex items-center gap-2.5 sm:gap-3.5 md:gap-4 flex-wrap text-lg sm:text-xl md:text-2xl lg:text-[28px] xl:text-[32px] font-medium leading-tight pt-0.5 sm:pt-1">
+                    <div className="flex items-center gap-2 sm:gap-3.5 md:gap-4 flex-wrap text-base xs:text-lg sm:text-xl md:text-2xl lg:text-[28px] xl:text-[32px] font-medium leading-tight pt-0.5 sm:pt-1">
                       <span className="text-[#9B86EB]">In association with</span>
-                      <div className="relative h-7 sm:h-9 md:h-10 lg:h-[44px] xl:h-[48px] aspect-[941/270] shrink-0">
+                      <div className="relative h-6 xs:h-7 sm:h-9 md:h-10 lg:h-[44px] xl:h-[48px] aspect-[941/270] shrink-0">
                         <Image
                           src="/redington-tight.png"
                           alt="Redington"
@@ -195,13 +195,13 @@ export default function HeroSection() {
 
                 {/* SLIDE 2: Google Cloud Specific Layout */}
                 {slide.type === "google" && (
-                  <div className="space-y-2.5 sm:space-y-3.5 lg:space-y-4">
-                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[60px] font-normal tracking-tight leading-[1.12]">
+                  <div className="space-y-2 sm:space-y-3.5 lg:space-y-4">
+                    <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[60px] font-normal tracking-tight leading-[1.12]">
                       <span className="text-[#9B86EB]">Proud </span>
                       <span className="text-white">to be an</span>
                     </h1>
 
-                    <div className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] xl:text-[58px] font-medium tracking-tight leading-[1.15]">
+                    <div className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-[52px] xl:text-[58px] font-medium tracking-tight leading-[1.15]">
                       <span>
                         <span className="text-[#4285F4]">G</span>
                         <span className="text-[#EA4335]">o</span>
@@ -213,7 +213,7 @@ export default function HeroSection() {
                       <span className="text-white ml-2.5 sm:ml-3">Cloud</span>
                     </div>
 
-                    <div className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] xl:text-[58px] font-medium text-white tracking-tight leading-[1.15]">
+                    <div className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-[52px] xl:text-[58px] font-medium text-white tracking-tight leading-[1.15]">
                       Member
                     </div>
                   </div>
@@ -222,7 +222,7 @@ export default function HeroSection() {
                 {/* SLIDES 3-7: General Industry Headlines */}
                 {slide.type !== "aws" && slide.type !== "google" && (
                   <div className="space-y-1 sm:space-y-1.5">
-                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[60px] font-normal tracking-tight leading-[1.12]">
+                    <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[60px] font-normal tracking-tight leading-[1.12]">
                       <span className="block text-[#9B86EB]">
                         {slide.titleLine1}
                       </span>

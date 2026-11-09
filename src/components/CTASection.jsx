@@ -28,12 +28,12 @@ function CTAButton() {
 
 export default function CTASection({
   heading = "Let's work with Us",
-  description = "Mangcoding is a biggest company in Indonesia, who provides the services in Development Website, Shopify and Wordpress",
+  description = "Amrut Global Solutions is an official AWS Partner providing enterprise-grade cloud engineering, digital transformation, web & mobile development, and AI solutions.",
 }) {
   return (
     <section
       id="contact"
-      className="relative z-10 w-full overflow-x-clip bg-[#0A071E] py-14 sm:py-20 border-t border-white/10"
+      className="relative z-10 w-full overflow-hidden bg-[#0A071E] py-14 sm:py-20 border-t border-white/10"
     >
       <div className="relative mx-auto max-w-[1380px] px-6 sm:px-8 lg:px-14">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between py-6 sm:py-10">

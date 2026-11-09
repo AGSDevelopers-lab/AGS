@@ -35,7 +35,7 @@ export default function Testimonials() {
             <span className="text-[#7B5CFF]">Real Outcomes.</span>
           </h2>
           <p className="text-white/50 text-[14px] max-w-2xl">
-            These aren't motivational quotes. These are people who came in without AI experience and left with deployed projects and job-ready portfolios.
+            These aren&apos;t motivational quotes. These are people who came in without AI experience and left with deployed projects and job-ready portfolios.
           </p>
         </div>
 

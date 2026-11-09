@@ -226,7 +226,7 @@ export default function ContactPage() {
               </h2>
 
               <p className="text-[#555E70] font-manrope font-light text-[14.5px] sm:text-[15px] leading-relaxed mt-4 mb-10 sm:mb-12 max-w-md">
-                Lorem suspend vivamus enim netus conval Viverra iaculis erat auctor vulputate mollis Eget porta.
+                Have a project in mind, need technical consultation, or want to explore enterprise cloud solutions? Reach out to our engineering team today.
               </p>
 
               {/* 4 Detail Items with Official Figma Icons */}
@@ -270,10 +270,10 @@ export default function ContactPage() {
                       Contact Us
                     </h3>
                     <a
-                      href="tel:+919876543210"
+                      href="tel:+919038130595"
                       className="text-[#555E70] hover:text-[#854CFF] transition-colors text-[14.5px] sm:text-[15px] font-light mt-1 block"
                     >
-                      +91 98765 43210
+                      +91 90381 30595
                     </a>
                   </div>
                 </div>
@@ -293,7 +293,7 @@ export default function ContactPage() {
                       Visit Us
                     </h3>
                     <span className="text-[#555E70] text-[14.5px] sm:text-[15px] font-light mt-1 block">
-                      kolkata, india
+                      Kolkata, India
                     </span>
                   </div>
                 </div>
@@ -334,7 +334,7 @@ export default function ContactPage() {
               </h2>
 
               <p className="text-[#555E70] font-manrope font-light text-[14.5px] sm:text-[15px] leading-relaxed mt-2.5 mb-10">
-                Whether you have a question about our brews or just want to share your story, we&apos;re here to listen.
+                Whether you have a question about our cloud services, software development, or want to discuss a new digital initiative, we&apos;re here to help.
               </p>
 
               {statusMessage.text && (

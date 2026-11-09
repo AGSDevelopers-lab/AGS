@@ -104,11 +104,11 @@ export default function AboutMetricsSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative z-10 w-full bg-white pt-12 sm:pt-16 lg:pt-20 pb-12 sm:pb-16 lg:pb-20 text-gray-900 overflow-x-clip"
+      className="relative z-10 w-full bg-white pt-12 sm:pt-16 lg:pt-20 pb-12 sm:pb-16 lg:pb-20 text-gray-900 overflow-hidden"
     >
       <div className="mx-auto max-w-[1560px] 2xl:max-w-[1680px] px-6 sm:px-10 lg:px-16 2xl:px-20">
         {/* Top 2-Column: Photo Left + Content Right - Height-Matched Alignment per Picture 1 */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 lg:items-stretch overflow-x-clip">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 lg:items-stretch overflow-hidden">
           {/* Left: Typing Laptop Image - Height matches right text block per Picture 1 */}
           <div
             ref={imageColRef}

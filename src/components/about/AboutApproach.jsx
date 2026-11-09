@@ -78,10 +78,10 @@ export default function AboutApproach() {
   return (
     <section
       ref={sectionRef}
-      className="relative z-10 w-full bg-[#FFFFFF] py-16 sm:py-24 lg:py-28 overflow-x-clip"
+      className="relative z-10 w-full bg-[#FFFFFF] py-16 sm:py-24 lg:py-28 overflow-hidden"
     >
       <div className="mx-auto max-w-[1380px] px-6 sm:px-10 lg:px-14">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center overflow-x-clip">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center overflow-hidden">
           {/* Left Column: Photograph (Slides in from Left) */}
           <div ref={imageColRef} className="w-full">
             <div className="relative w-full aspect-[1.12/1] sm:aspect-[1.15/1] max-w-[580px] mx-auto lg:mx-0 overflow-hidden rounded-[2px] shadow-sm">

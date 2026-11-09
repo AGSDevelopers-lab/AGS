@@ -64,6 +64,29 @@ export default function CreationsShowcaseSection() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+    const diff = touchStartX.current - touchEndX.current;
+    if (diff > 45) {
+      nextSlide();
+    } else if (diff < -45) {
+      prevSlide();
+    }
+    touchStartX.current = 0;
+    touchEndX.current = 0;
+  };
+
   useEffect(() => {
     if (isPaused) return;
     const timer = setInterval(() => {
@@ -192,9 +215,12 @@ export default function CreationsShowcaseSection() {
         {/* 3-Panel Coverflow Website Carousel matching Picture 5 */}
         <div ref={centerShowcaseRef} className="relative w-full">
           <div
-            className="relative w-full h-[320px] sm:h-[450px] md:h-[530px] lg:h-[580px] overflow-hidden group/carousel select-none"
+            className="relative w-full h-[290px] sm:h-[450px] md:h-[530px] lg:h-[580px] overflow-hidden group/carousel select-none"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
           >
             {clientProjects.map((slide, idx) => {
               const N = clientProjects.length;

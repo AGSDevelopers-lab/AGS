@@ -51,7 +51,7 @@ export default function Navbar() {
           : "bg-transparent py-6"
       }`}
     >
-      <div className="mx-auto flex w-full max-w-[1680px] 2xl:max-w-[1780px] items-center justify-between px-6 sm:px-12 lg:px-20 relative">
+      <div className="mx-auto flex w-full max-w-[1680px] 2xl:max-w-[1780px] items-center justify-between px-4 sm:px-12 lg:px-20 relative">
         {/* LEFT: AGS Logo */}
         <div className="flex items-center">
           <Link
@@ -124,7 +124,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="mx-6 mt-4 rounded-[22px] border border-white/10 bg-[rgba(10,12,24,0.98)] p-5 md:hidden sm:mx-8">
+        <div className="mx-4 mt-3 rounded-none border border-white/10 bg-[rgba(10,12,24,0.98)] p-5 md:hidden sm:mx-8">
           <div className="flex flex-col gap-4">
             {navItems.map((item) => (
               <Link

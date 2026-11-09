@@ -177,8 +177,10 @@ export default function AboutBusinessGrowth() {
       });
 
       mm.add("(prefers-reduced-motion: no-preference)", () => {
+        const isMobile = window.innerWidth < 768;
+        const dist = isMobile ? "20vw" : "60vw";
         gsap.set(lines, {
-          x: (_, el) => (el.dataset.from === "right" ? "60vw" : "-60vw"),
+          x: (_, el) => (el.dataset.from === "right" ? dist : `-${dist}`),
           autoAlpha: 0,
           color: "#c9c9c9",
         });
@@ -209,11 +211,11 @@ export default function AboutBusinessGrowth() {
   );
 
   return (
-    <section className="relative w-full bg-white overflow-x-clip pt-8 sm:pt-12 lg:pt-16 pb-16 sm:pb-24">
+    <section className="relative w-full bg-white overflow-hidden pt-8 sm:pt-12 lg:pt-16 pb-16 sm:pb-24">
       {/* ── PART A: Exact Same Design & Image Effect as Homepage Digital Excellence ── */}
       <div
         ref={root}
-        className="relative flex items-center justify-center overflow-x-clip bg-white pb-16 sm:pb-24 lg:pb-28"
+        className="relative flex items-center justify-center overflow-hidden bg-white pb-16 sm:pb-24 lg:pb-28"
       >
         <div className="flex items-center justify-center px-4 sm:px-6 md:px-8 max-w-full">
           {/* Left: AGS Monogram Outline Logo Watermark (20% Opacity) */}
@@ -293,7 +295,7 @@ export default function AboutBusinessGrowth() {
         <AlternatingMetricsRow />
 
         {/* Lower: Supporting Business-Growth Statement (2-Column) */}
-        <div className="mt-16 sm:mt-24 pt-12 sm:pt-16 border-t border-black/[0.06] grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center overflow-x-clip">
+        <div className="mt-16 sm:mt-24 pt-12 sm:pt-16 border-t border-black/[0.06] grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center overflow-hidden">
           {/* Left Heading (Slides in from Left) */}
           <SlideIn from="left" distance={30}>
             <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-normal tracking-tight text-[#101015] leading-[1.2]">

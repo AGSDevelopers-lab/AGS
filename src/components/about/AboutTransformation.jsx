@@ -101,10 +101,10 @@ export default function AboutTransformation() {
   return (
     <section
       ref={sectionRef}
-      className="relative z-10 w-full bg-[#FFFFFF] pt-14 sm:pt-18 lg:pt-20 pb-2 sm:pb-4 lg:pb-4 overflow-x-clip border-t border-black/[0.06]"
+      className="relative z-10 w-full bg-[#FFFFFF] pt-14 sm:pt-18 lg:pt-20 pb-2 sm:pb-4 lg:pb-4 overflow-hidden border-t border-black/[0.06]"
     >
       <div className="mx-auto max-w-[1380px] px-6 sm:px-10 lg:px-14">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 lg:items-stretch items-center overflow-x-clip">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 lg:items-stretch items-center overflow-hidden">
           {/* Left Column: Heading, Paragraph & Presentation Action (Slides in from Left) */}
           <div ref={leftColRef} className="lg:col-span-6 lg:pr-12 xl:pr-16 flex flex-col justify-center py-2 sm:py-4">
             <div>

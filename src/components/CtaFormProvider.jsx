@@ -186,7 +186,7 @@ function CtaFormModal({ isOpen, config, onClose }) {
         onClick={onClose}
       />
 
-      <div className="relative my-auto flex w-full max-w-190 flex-col overflow-hidden border border-white/10 bg-[#0b0d1a] shadow-[0_60px_160px_rgba(0,0,0,0.7)] max-h-[calc(100vh-1.5rem)] sm:max-h-[calc(100dvh-3rem)]">
+      <div className="relative my-auto flex w-full max-w-[760px] flex-col overflow-hidden border border-white/10 bg-[#0b0d1a] shadow-[0_60px_160px_rgba(0,0,0,0.7)] max-h-[calc(100vh-1.5rem)] sm:max-h-[calc(100dvh-3rem)]">
         {/* Top accent line */}
         <div className="absolute top-0 left-0 right-0 h-0.5 bg-[linear-gradient(90deg,transparent_0%,#9795FF_30%,#ffffff_50%,#BE9FFF_70%,transparent_100%)]" />
 
@@ -207,7 +207,7 @@ function CtaFormModal({ isOpen, config, onClose }) {
               <h3 className="bg-[linear-gradient(90deg,#ffffff_0%,#ffffff_50%,#BE9FFF_100%)] bg-clip-text text-[1.5rem] leading-[1.1] font-light tracking-[-0.04em] text-transparent sm:text-[2.2rem]">
                 {modalCopy.heading}
               </h3>
-              <p className="mt-3 max-w-105 text-[0.82rem] leading-[1.6] text-white/50 sm:text-[0.88rem]">
+              <p className="mt-3 max-w-[420px] text-[0.82rem] leading-[1.6] text-white/50 sm:text-[0.88rem]">
                 {modalCopy.subtext}
               </p>
             </div>

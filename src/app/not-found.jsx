@@ -51,7 +51,7 @@ export default function NotFound() {
           {/* Decorative Element */}
           <div className="pt-12 space-y-2">
             <div className="h-1 w-20 bg-linear-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
-            <p className="text-sm text-gray-500">Let's get you back on track</p>
+            <p className="text-sm text-gray-500">Let&apos;s get you back on track</p>
           </div>
         </div>
 

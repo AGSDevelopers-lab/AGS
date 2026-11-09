@@ -53,7 +53,7 @@ export default function AboutFounders() {
               <div
                 key={founder.name}
                 onClick={() => toggleTouch(index)}
-                className="group relative w-full aspect-[1.38/1] sm:aspect-[1.39/1] overflow-hidden rounded-[2px] bg-[#E8E8ED] shadow-sm cursor-pointer select-none"
+                className="group relative w-full aspect-[1.18/1] sm:aspect-[1.39/1] min-h-[280px] overflow-hidden rounded-[2px] bg-[#E8E8ED] shadow-sm cursor-pointer select-none"
               >
                   {/* Portrait Photograph (Default Grayscale, Color on Hover) */}
                   <Image

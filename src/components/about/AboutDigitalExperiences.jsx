@@ -99,10 +99,10 @@ export default function AboutDigitalExperiences() {
   return (
     <section
       ref={sectionRef}
-      className="relative z-10 w-full bg-[#FFFFFF] py-20 sm:py-28 overflow-x-clip"
+      className="relative z-10 w-full bg-[#FFFFFF] py-20 sm:py-28 overflow-hidden"
     >
       <div className="mx-auto max-w-[1380px] px-6 sm:px-10 lg:px-14">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-start overflow-x-clip">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-start overflow-hidden">
           {/* Left Column: Stacked Photography with Floating Query Card (Slides in from Left) */}
           <div ref={imageColRef} className="relative w-full max-w-[580px] mx-auto lg:mx-0">
             {/* Upper Image with Query Card */}

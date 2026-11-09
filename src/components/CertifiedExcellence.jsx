@@ -69,7 +69,7 @@ export default function CertifiedExcellence() {
   return (
     <section
       id="certified-excellence"
-      className="relative z-10 w-full bg-white py-14 sm:py-20 text-gray-900 overflow-x-clip"
+      className="relative z-10 w-full bg-white py-14 sm:py-20 text-gray-900 overflow-hidden"
     >
       <div className="relative mx-auto max-w-[1380px] px-6 sm:px-8 lg:px-14">
         {/* 2-Column Layout matching Picture 3 / Picture 7 */}

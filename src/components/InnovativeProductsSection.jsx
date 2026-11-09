@@ -82,6 +82,29 @@ export default function InnovativeProductsSection() {
   const headingRef = useRef(null);
   const carouselContainerRef = useRef(null);
 
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+    const diff = touchStartX.current - touchEndX.current;
+    if (diff > 45) {
+      handleNext();
+    } else if (diff < -45) {
+      handlePrev();
+    }
+    touchStartX.current = 0;
+    touchEndX.current = 0;
+  };
+
   useEffect(() => {
     const updateVisible = () => {
       if (window.innerWidth < 768) {
@@ -176,10 +199,10 @@ export default function InnovativeProductsSection() {
         {/* Centered Editorial Heading */}
         <div ref={headingRef} className="text-center max-w-5xl mx-auto mb-16 sm:mb-20">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[55px] font-normal tracking-[1px] text-white leading-tight lg:leading-[70px]">
-            <span className="block whitespace-nowrap">
+            <span className="block whitespace-normal sm:whitespace-nowrap">
               Powering Businesses With
             </span>
-            <span className="block mt-1 sm:mt-2 whitespace-nowrap text-white">
+            <span className="block mt-1 sm:mt-2 whitespace-normal sm:whitespace-nowrap text-white">
               Innovative{" "}
               <span className="text-[#9B86EB]">Digital Products</span>
             </span>
@@ -194,9 +217,9 @@ export default function InnovativeProductsSection() {
             type="button"
             onClick={handlePrev}
             aria-label="Previous products"
-            className="absolute -left-3 sm:-left-6 lg:-left-12 top-1/2 -translate-y-1/2 z-20 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-black/60 text-[#8B5CF6] hover:text-white hover:bg-purple-900/60 backdrop-blur-md border border-purple-500/30 transition-all shadow-2xl hover:scale-110 cursor-pointer"
+            className="absolute left-0 sm:-left-6 lg:-left-12 top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-black/70 text-[#8B5CF6] hover:text-white hover:bg-purple-900/60 backdrop-blur-md border border-purple-500/30 transition-all shadow-2xl hover:scale-110 cursor-pointer"
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <path d="M15 19l-7-7 7-7" />
             </svg>
           </button>
@@ -206,15 +229,20 @@ export default function InnovativeProductsSection() {
             type="button"
             onClick={handleNext}
             aria-label="Next products"
-            className="absolute -right-3 sm:-right-6 lg:-right-12 top-1/2 -translate-y-1/2 z-20 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-black/60 text-[#8B5CF6] hover:text-white hover:bg-purple-900/60 backdrop-blur-md border border-purple-500/30 transition-all shadow-2xl hover:scale-110 cursor-pointer"
+            className="absolute right-0 sm:-right-6 lg:-right-12 top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-black/70 text-[#8B5CF6] hover:text-white hover:bg-purple-900/60 backdrop-blur-md border border-purple-500/30 transition-all shadow-2xl hover:scale-110 cursor-pointer"
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <path d="M9 5l7 7-7 7" />
             </svg>
           </button>
 
           {/* Carousel Track Overflow Viewport */}
-          <div className="overflow-hidden w-full py-2">
+          <div
+            className="overflow-hidden w-full py-2 select-none"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
             <div
               className="flex gap-6 lg:gap-8 transition-transform duration-500 ease-out will-change-transform"
               style={{

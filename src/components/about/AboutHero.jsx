@@ -9,7 +9,7 @@ export default function AboutHero() {
   const { openForm } = useCtaForm();
 
   return (
-    <section className="relative w-full h-[78vh] min-h-[560px] max-h-[820px] flex items-center justify-center overflow-hidden bg-[#0A0D1A]">
+    <section className="relative w-full h-[78vh] min-h-[480px] sm:min-h-[560px] max-h-[820px] flex items-center justify-center overflow-hidden bg-[#0A0D1A]">
       {/* Background Photograph */}
       <div className="absolute inset-0 z-0">
         <Image

@@ -118,7 +118,7 @@ export default function ServicePageTemplate({
         <div className="relative z-10 w-full max-w-[1240px] mx-auto px-6 sm:px-8 lg:px-12">
           <ScrollReveal direction="down" distance={90} duration={1.1}>
             <div className="max-w-[740px]">
-              <h1 className="text-[44px] sm:text-[56px] lg:text-[66px] font-normal tracking-tight text-white leading-[1.12]">
+              <h1 className="text-[32px] xs:text-[40px] sm:text-[56px] lg:text-[66px] font-normal tracking-tight text-white leading-[1.12]">
                 <span className="bg-gradient-to-r from-[#9875FF] via-[#7B5CFF] to-[#504CFF] bg-clip-text text-transparent">
                   {titleGradient}
                 </span>{" "}
@@ -309,14 +309,14 @@ export default function ServicePageTemplate({
                 <div className="flex flex-col gap-8 sm:gap-10">
                   {/* Step 01 */}
                   <ScrollReveal direction="down" distance={70} duration={1.0}>
-                    <div className="w-[260px] h-[260px] sm:w-[280px] sm:h-[280px] rounded-full border border-white/15 bg-[#17123A]/55 backdrop-blur-md flex flex-col items-center justify-center p-6 sm:p-7 text-center shadow-[0_12px_40px_rgba(0,0,0,0.35)] hover:border-[#854CFF]/60 hover:scale-105 transition-all duration-300">
-                      <span className="text-[38px] sm:text-[42px] font-bold text-white leading-none mb-2">
+                    <div className="w-[230px] h-[230px] xs:w-[260px] xs:h-[260px] sm:w-[280px] sm:h-[280px] rounded-full border border-white/15 bg-[#17123A]/55 backdrop-blur-md flex flex-col items-center justify-center p-5 sm:p-7 text-center shadow-[0_12px_40px_rgba(0,0,0,0.35)] hover:border-[#854CFF]/60 hover:scale-105 transition-all duration-300">
+                      <span className="text-[34px] sm:text-[42px] font-bold text-white leading-none mb-2">
                         {workingProcessSteps[0].step}
                       </span>
-                      <h3 className="text-[16px] sm:text-[17px] font-semibold text-white leading-snug mb-1.5">
+                      <h3 className="text-[15px] sm:text-[17px] font-semibold text-white leading-snug mb-1.5">
                         {workingProcessSteps[0].title}
                       </h3>
-                      <p className="text-[12px] sm:text-[12.5px] text-white/70 font-light leading-relaxed max-w-[190px]">
+                      <p className="text-[11.5px] sm:text-[12.5px] text-white/70 font-light leading-relaxed max-w-[190px]">
                         {workingProcessSteps[0].desc}
                       </p>
                     </div>
@@ -324,14 +324,14 @@ export default function ServicePageTemplate({
 
                   {/* Step 03 */}
                   <ScrollReveal direction="up" distance={70} duration={1.0}>
-                    <div className="w-[260px] h-[260px] sm:w-[280px] sm:h-[280px] rounded-full border border-white/15 bg-[#17123A]/55 backdrop-blur-md flex flex-col items-center justify-center p-6 sm:p-7 text-center shadow-[0_12px_40px_rgba(0,0,0,0.35)] hover:border-[#854CFF]/60 hover:scale-105 transition-all duration-300">
-                      <span className="text-[38px] sm:text-[42px] font-bold text-white leading-none mb-2">
+                    <div className="w-[230px] h-[230px] xs:w-[260px] xs:h-[260px] sm:w-[280px] sm:h-[280px] rounded-full border border-white/15 bg-[#17123A]/55 backdrop-blur-md flex flex-col items-center justify-center p-5 sm:p-7 text-center shadow-[0_12px_40px_rgba(0,0,0,0.35)] hover:border-[#854CFF]/60 hover:scale-105 transition-all duration-300">
+                      <span className="text-[34px] sm:text-[42px] font-bold text-white leading-none mb-2">
                         {workingProcessSteps[2].step}
                       </span>
-                      <h3 className="text-[16px] sm:text-[17px] font-semibold text-white leading-snug mb-1.5">
+                      <h3 className="text-[15px] sm:text-[17px] font-semibold text-white leading-snug mb-1.5">
                         {workingProcessSteps[2].title}
                       </h3>
-                      <p className="text-[12px] sm:text-[12.5px] text-white/70 font-light leading-relaxed max-w-[190px]">
+                      <p className="text-[11.5px] sm:text-[12.5px] text-white/70 font-light leading-relaxed max-w-[190px]">
                         {workingProcessSteps[2].desc}
                       </p>
                     </div>
@@ -342,14 +342,14 @@ export default function ServicePageTemplate({
                 <div className="flex flex-col gap-8 sm:gap-10 sm:pt-14 lg:pt-16">
                   {/* Step 02 */}
                   <ScrollReveal direction="down" distance={70} duration={1.1}>
-                    <div className="w-[260px] h-[260px] sm:w-[280px] sm:h-[280px] rounded-full border border-white/15 bg-[#17123A]/55 backdrop-blur-md flex flex-col items-center justify-center p-6 sm:p-7 text-center shadow-[0_12px_40px_rgba(0,0,0,0.35)] hover:border-[#854CFF]/60 hover:scale-105 transition-all duration-300">
-                      <span className="text-[38px] sm:text-[42px] font-bold text-white leading-none mb-2">
+                    <div className="w-[230px] h-[230px] xs:w-[260px] xs:h-[260px] sm:w-[280px] sm:h-[280px] rounded-full border border-white/15 bg-[#17123A]/55 backdrop-blur-md flex flex-col items-center justify-center p-5 sm:p-7 text-center shadow-[0_12px_40px_rgba(0,0,0,0.35)] hover:border-[#854CFF]/60 hover:scale-105 transition-all duration-300">
+                      <span className="text-[34px] sm:text-[42px] font-bold text-white leading-none mb-2">
                         {workingProcessSteps[1].step}
                       </span>
-                      <h3 className="text-[16px] sm:text-[17px] font-semibold text-white leading-snug mb-1.5">
+                      <h3 className="text-[15px] sm:text-[17px] font-semibold text-white leading-snug mb-1.5">
                         {workingProcessSteps[1].title}
                       </h3>
-                      <p className="text-[12px] sm:text-[12.5px] text-white/70 font-light leading-relaxed max-w-[190px]">
+                      <p className="text-[11.5px] sm:text-[12.5px] text-white/70 font-light leading-relaxed max-w-[190px]">
                         {workingProcessSteps[1].desc}
                       </p>
                     </div>
@@ -357,14 +357,14 @@ export default function ServicePageTemplate({
 
                   {/* Step 04 */}
                   <ScrollReveal direction="up" distance={70} duration={1.1}>
-                    <div className="w-[260px] h-[260px] sm:w-[280px] sm:h-[280px] rounded-full border border-white/15 bg-[#17123A]/55 backdrop-blur-md flex flex-col items-center justify-center p-6 sm:p-7 text-center shadow-[0_12px_40px_rgba(0,0,0,0.35)] hover:border-[#854CFF]/60 hover:scale-105 transition-all duration-300">
-                      <span className="text-[38px] sm:text-[42px] font-bold text-white leading-none mb-2">
+                    <div className="w-[230px] h-[230px] xs:w-[260px] xs:h-[260px] sm:w-[280px] sm:h-[280px] rounded-full border border-white/15 bg-[#17123A]/55 backdrop-blur-md flex flex-col items-center justify-center p-5 sm:p-7 text-center shadow-[0_12px_40px_rgba(0,0,0,0.35)] hover:border-[#854CFF]/60 hover:scale-105 transition-all duration-300">
+                      <span className="text-[34px] sm:text-[42px] font-bold text-white leading-none mb-2">
                         {workingProcessSteps[3].step}
                       </span>
-                      <h3 className="text-[16px] sm:text-[17px] font-semibold text-white leading-snug mb-1.5">
+                      <h3 className="text-[15px] sm:text-[17px] font-semibold text-white leading-snug mb-1.5">
                         {workingProcessSteps[3].title}
                       </h3>
-                      <p className="text-[12px] sm:text-[12.5px] text-white/70 font-light leading-relaxed max-w-[190px]">
+                      <p className="text-[11.5px] sm:text-[12.5px] text-white/70 font-light leading-relaxed max-w-[190px]">
                         {workingProcessSteps[3].desc}
                       </p>
                     </div>

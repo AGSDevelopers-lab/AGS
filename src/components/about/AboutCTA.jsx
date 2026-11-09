@@ -7,14 +7,14 @@ export default function AboutCTA() {
   const { openForm } = useCtaForm();
 
   return (
-    <section className="relative z-10 w-full bg-[#0A0B14] py-20 sm:py-24 border-t border-white/10 overflow-x-clip">
+    <section className="relative z-10 w-full bg-[#0A0B14] py-20 sm:py-24 border-t border-white/10 overflow-hidden">
       <div className="mx-auto max-w-[1380px] px-6 sm:px-10 lg:px-14">
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10 lg:gap-16 overflow-x-clip">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10 lg:gap-16 overflow-hidden">
           {/* Left Column: Heading and Description (Sliding in from Left) */}
           <SlideIn from="left" distance={40} className="max-w-[720px]">
             <div>
               <h2 className="text-4xl sm:text-5xl lg:text-[56px] font-light tracking-tight text-white leading-[1.12]">
-                Let's work with{" "}
+                Let&apos;s work with{" "}
                 <span className="bg-gradient-to-r from-white via-[#E0D7FF] to-[#BE9FFF] bg-clip-text text-transparent font-normal">
                   Us
                 </span>
