@@ -7,7 +7,7 @@ const directors = [
   {
     name: "Tushar De",
     role: "Co-Founder & CEO",
-    image: "/tushar.jpeg",
+    image: "/tushar-de.jpeg",
     linkedin: "https://www.linkedin.com/in/0xtd",
   },
   {
