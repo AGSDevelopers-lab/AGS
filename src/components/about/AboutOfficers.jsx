@@ -3,22 +3,27 @@
 import { useState } from "react";
 import Image from "next/image";
 
+// Active displayed advisors / leadership on the About page
 const officers = [
-  {
-    name: "Suman Ghosh",
-    role: "Chief Financial Officer",
-    bio: "Drives customer acquisition while expanding market revenue.",
-    image: "/ags about page/suman ghosh.png",
-    linkedin: "https://www.linkedin.com/company/the-ags/",
-    twitter: "https://x.com/",
-    email: "mailto:contact@amrutglobalsolutions.com",
-  },
   {
     name: "Atish Roy",
     role: "Advisor – Brand & Growth Strategy",
     bio: "Advising on brand positioning, market growth strategies, and enterprise partnerships.",
     image: "/ags about page/atish roy.png",
     linkedin: "https://www.linkedin.com/in/atishroy/",
+    twitter: "https://x.com/",
+    email: "mailto:contact@amrutglobalsolutions.com",
+  },
+];
+
+// Preserved officer profiles for future re-activation
+export const PRESERVED_OFFICERS = [
+  {
+    name: "Suman Ghosh",
+    role: "Chief Financial Officer",
+    bio: "Drives customer acquisition while expanding market revenue.",
+    image: "/ags about page/suman ghosh.png",
+    linkedin: "https://www.linkedin.com/company/the-ags/",
     twitter: "https://x.com/",
     email: "mailto:contact@amrutglobalsolutions.com",
   },
@@ -55,12 +60,15 @@ export default function AboutOfficers() {
         {/* Centered Heading */}
         <div className="text-center max-w-[600px] mx-auto">
           <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-normal tracking-tight text-[#101015]">
-            Our <span className="text-[#6040FF]">Officers & Advisors</span>
+            Our <span className="text-[#6040FF]">Strategic Advisory</span>
           </h2>
+          <p className="mt-2.5 sm:mt-3 text-xs sm:text-sm text-[#656B7A] tracking-wide uppercase font-medium">
+            Guiding Our Vision And Shaping Strategic Market Growth
+          </p>
         </div>
 
-        {/* 4-Column Portrait Grid */}
-        <div className="mt-8 sm:mt-10 lg:mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7 lg:gap-8">
+        {/* Portrait Grid (Centered when 1 advisor, responsive grid when multiple) */}
+        <div className={`mt-8 sm:mt-10 lg:mt-12 ${officers.length === 1 ? "flex justify-center" : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7 lg:gap-8"}`}>
           {officers.map((officer, index) => {
             const isTouchActive = activeTouchIndex === index;
 
@@ -68,7 +76,7 @@ export default function AboutOfficers() {
               <div
                 key={officer.name}
                 onClick={() => toggleTouch(index)}
-                className="group relative w-full aspect-[7/10] overflow-hidden rounded-[2px] bg-[#E5E6EB] shadow-xs cursor-pointer select-none"
+                className={`group relative w-full aspect-[7/10] overflow-hidden rounded-[2px] bg-[#E5E6EB] shadow-xs cursor-pointer select-none ${officers.length === 1 ? "max-w-[340px] sm:max-w-[360px]" : ""}`}
               >
                 {/* Portrait Photograph (Default Grayscale, Color on Hover) */}
                 <Image
