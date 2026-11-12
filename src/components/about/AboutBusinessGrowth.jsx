@@ -215,77 +215,75 @@ export default function AboutBusinessGrowth() {
       {/* ── PART A: Centered Kinetic Typography & Monogram matching Picture7.png ── */}
       <div
         ref={root}
-        className="relative flex items-center justify-center overflow-hidden bg-white py-12 sm:py-16 lg:py-20"
+        className="relative w-full flex items-center justify-center overflow-hidden bg-white py-14 sm:py-20 lg:py-24"
       >
-        <div className="mx-auto max-w-[1280px] px-6 sm:px-10 lg:px-12 w-full flex items-center justify-center gap-6 sm:gap-10 lg:gap-14">
-          {/* Left: AGS Monogram Outline Logo Watermark (Matching Picture7.png) */}
+        {/* Subtle Background Watermark (Positioned absolutely so typography stays 100% centrally aligned with equal spacing on both sides) */}
+        <div
+          data-line
+          data-from="left"
+          className="absolute left-[3vw] sm:left-[6vw] lg:left-[9vw] top-1/2 -translate-y-1/2 pointer-events-none select-none w-[70px] sm:w-[95px] md:w-[115px] lg:w-[135px] aspect-[140/409] opacity-20 z-0"
+        >
+          <Image
+            src="/ags-monogram-tight.png"
+            alt="AGS Monogram"
+            fill
+            sizes="(max-width: 768px) 95px, 135px"
+            className="object-contain"
+            priority
+          />
+        </div>
+
+        {/* Centered Typography Container: Equal spacing on both left & right matching Picture7.png */}
+        <div className="relative z-10 mx-auto px-4 sm:px-6 flex flex-col items-start font-sans text-[36px] xs:text-[44px] sm:text-[62px] md:text-[76px] lg:text-[92px] xl:text-[104px] font-normal leading-[1.08] tracking-[-0.03em] text-black">
+          {/* Line 1: Fuel Your + Pill Arrow Button */}
           <div
             data-line
             data-from="left"
-            className="relative shrink-0 w-[60px] sm:w-[85px] md:w-[105px] lg:w-[125px] aspect-[140/409] opacity-25"
+            className="flex items-center gap-3 sm:gap-5 lg:gap-6"
           >
-            <Image
-              src="/ags-monogram-tight.png"
-              alt="AGS Monogram"
-              fill
-              sizes="(max-width: 768px) 80px, 125px"
-              className="object-contain"
-              priority
-            />
+            <span>Fuel Your</span>
+            <span className="flex h-[32px] xs:h-[38px] sm:h-[48px] md:h-[58px] lg:h-[70px] w-[56px] xs:w-[68px] sm:w-[90px] md:w-[110px] lg:w-[130px] items-center justify-center rounded-full border border-[#8B5CF6]/50 shrink-0">
+              <svg
+                className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8 text-[#8B5CF6]"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <line x1="7" y1="17" x2="17" y2="7" />
+                <polyline points="7 7 17 7 17 17" />
+              </svg>
+            </span>
           </div>
 
-          {/* Right: 3 Kinetic Typography Lines matching Picture7.png */}
-          <div className="flex flex-col items-start font-sans text-[36px] xs:text-[44px] sm:text-[62px] md:text-[76px] lg:text-[92px] xl:text-[104px] font-normal leading-[1.08] tracking-[-0.03em] text-black">
-            {/* Line 1: Fuel Your + Pill Arrow Button */}
-            <div
-              data-line
-              data-from="left"
-              className="flex items-center gap-3 sm:gap-5 lg:gap-6"
-            >
-              <span>Fuel Your</span>
-              <span className="flex h-[32px] xs:h-[38px] sm:h-[48px] md:h-[58px] lg:h-[70px] w-[56px] xs:w-[68px] sm:w-[90px] md:w-[110px] lg:w-[130px] items-center justify-center rounded-full border border-[#8B5CF6]/50 shrink-0">
-                <svg
-                  className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8 text-[#8B5CF6]"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <line x1="7" y1="17" x2="17" y2="7" />
-                  <polyline points="7 7 17 7 17 17" />
-                </svg>
-              </span>
+          {/* Line 2: Team Image tucked cleanly beside Business (Matching Picture7.png alignment) */}
+          <div
+            data-line
+            data-from="right"
+            className="flex items-center gap-3 sm:gap-4 lg:gap-5"
+          >
+            <div className="relative h-[28px] xs:h-[34px] sm:h-[46px] md:h-[58px] lg:h-[68px] aspect-[1.55/1] shrink-0 overflow-hidden rounded-[3px] shadow-sm">
+              <Image
+                src="/figma-exports/Markeo.png"
+                alt="Business Team"
+                fill
+                sizes="(max-width: 768px) 80px, 150px"
+                className="object-cover object-center"
+                priority
+              />
             </div>
+            <span>Business</span>
+          </div>
 
-            {/* Line 2: Team Image tucked under 'Fuel' + Business */}
-            <div
-              data-line
-              data-from="right"
-              className="flex items-center gap-3 sm:gap-4 lg:gap-5"
-            >
-              <div className="relative h-[32px] xs:h-[38px] sm:h-[50px] md:h-[62px] lg:h-[74px] w-[52px] xs:w-[64px] sm:w-[82px] md:w-[102px] lg:w-[122px] shrink-0 overflow-hidden rounded-[2px] shadow-sm">
-                <Image
-                  src="/figma-exports/Markeo.png"
-                  alt="Business Team"
-                  fill
-                  sizes="(max-width: 768px) 80px, 150px"
-                  className="object-cover object-center"
-                  priority
-                />
-              </div>
-              <span>Business</span>
-            </div>
-
-            {/* Line 3: Expansion (aligned cleanly under 'Business') */}
-            <div
-              data-line
-              data-from="left"
-              className="pl-[58px] xs:pl-[70px] sm:pl-[92px] md:pl-[114px] lg:pl-[136px]"
-            >
-              Expansion
-            </div>
+          {/* Line 3: Expansion (Indented slightly so it centers under Line 2 and right-aligns with Business matching Picture7.png) */}
+          <div
+            data-line
+            data-from="left"
+            className="pl-[16px] sm:pl-[24px] lg:pl-[32px]"
+          >
+            Expansion
           </div>
         </div>
       </div>
