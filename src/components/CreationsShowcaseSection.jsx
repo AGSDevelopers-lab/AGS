@@ -284,14 +284,14 @@ export default function CreationsShowcaseSection() {
 
                   {/* Card Footer matching Picture 5 */}
                   <div className="flex items-center justify-between px-5 sm:px-7 py-3 sm:py-3.5 bg-white border-t border-gray-100 select-none">
-                    <div className="flex items-center gap-2 font-medium text-gray-950">
+                    <div className="flex items-center gap-1.5 font-medium text-gray-950">
                       <span className="text-sm sm:text-base">{slide.title}</span>
                       <Image
                         src="/ags about page/Vector.png"
                         alt=""
-                        width={14}
-                        height={14}
-                        className="w-3.5 h-3.5 sm:w-4 sm:h-4 object-contain shrink-0"
+                        width={12}
+                        height={12}
+                        className="w-[10px] h-[10px] sm:w-[12px] sm:h-[12px] object-contain shrink-0"
                       />
                     </div>
                     <span className="text-xs sm:text-sm font-medium tracking-wider uppercase text-gray-400">
