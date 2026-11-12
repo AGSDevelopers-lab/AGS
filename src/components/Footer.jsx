@@ -130,16 +130,16 @@ export default function Footer() {
   return (
     <footer
       ref={footerRef}
-      className="relative w-full bg-[#080911] text-white border-t border-white/10 pt-16 pb-12"
+      className="relative w-full bg-[#0C0E1A] text-white border-t border-white/5 pt-16 sm:pt-20 pb-12"
     >
       <div className="mx-auto max-w-[1380px] px-6 sm:px-8 lg:px-14">
-        {/* Main 3-column Links Section */}
+        {/* Main 3-column Links Section matching Figma */}
         <div
           ref={columnsRef}
-          className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr] lg:gap-16 pb-14"
+          className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-[1.8fr_1fr_1fr] lg:gap-20 pb-12 sm:pb-16"
         >
-          {/* Col 1: AGS Logo + Tagline */}
-          <div className="max-w-[400px]">
+          {/* Col 1: AGS Logo + Tagline + MSME Registered Badge */}
+          <div className="max-w-[420px]">
             <Link href="/" className="inline-flex items-center">
               <Image
                 src="/ags_logo.png"
@@ -147,12 +147,32 @@ export default function Footer() {
                 width={132}
                 height={48}
                 className="h-auto w-[110px] sm:w-[124px]"
+                priority
               />
             </Link>
-            <p className="mt-5 text-sm sm:text-[15px] leading-relaxed text-white/70 font-normal">
+            <p className="mt-5 text-[14px] sm:text-[15px] leading-[1.65] text-white/75 font-normal max-w-[380px]">
               Modern design, seamless user experience, and optimized SEO to turn
               your ideas into high-performing digital platforms.
             </p>
+
+            {/* MSME Registered under Govt of India Badge */}
+            <div className="mt-7 flex items-center gap-3.5">
+              <Image
+                src="/msme-logo.png"
+                alt="Registered under MSME, Govt of India"
+                width={109}
+                height={54}
+                className="h-auto w-[88px] sm:w-[98px] object-contain shrink-0"
+              />
+              <div className="flex flex-col text-left leading-[1.35]">
+                <span className="text-[11px] sm:text-[12px] font-normal text-white/75">
+                  Registered under
+                </span>
+                <span className="text-[11px] sm:text-[12px] font-medium text-white/95">
+                  MSME ,Govt of India
+                </span>
+              </div>
+            </div>
           </div>
 
           {/* Col 2: Company */}
@@ -160,12 +180,12 @@ export default function Footer() {
             <h3 className="text-base font-semibold text-white tracking-wide">
               Company
             </h3>
-            <ul className="mt-5 space-y-3">
+            <ul className="mt-5 space-y-3.5">
               {COMPANY_LINKS.map((item) => (
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="text-sm text-white/60 transition-colors hover:text-white"
+                    className="text-[14px] sm:text-[15px] text-white/60 transition-colors hover:text-white"
                   >
                     {item.label}
                   </Link>
@@ -179,12 +199,12 @@ export default function Footer() {
             <h3 className="text-base font-semibold text-white tracking-wide">
               Services
             </h3>
-            <ul className="mt-5 space-y-3">
+            <ul className="mt-5 space-y-3.5">
               {SERVICE_LINKS.map((item) => (
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="text-sm text-white/60 transition-colors hover:text-white"
+                    className="text-[14px] sm:text-[15px] text-white/60 transition-colors hover:text-white"
                   >
                     {item.label}
                   </Link>
@@ -194,10 +214,10 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar */}
+        {/* Bottom Bar — Clean borderless baseline matching Figma */}
         <div
           ref={bottomBarRef}
-          className="flex flex-col gap-6 border-t border-white/10 pt-8 sm:flex-row sm:items-center sm:justify-between text-xs sm:text-sm text-white/50"
+          className="flex flex-col gap-6 pt-8 sm:pt-10 sm:flex-row sm:items-center sm:justify-between text-xs sm:text-[13.5px] text-white/55 font-normal"
         >
           {/* Copyright */}
           <div>
@@ -205,12 +225,12 @@ export default function Footer() {
           </div>
 
           {/* Legal Links */}
-          <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+          <div className="flex flex-wrap items-center gap-6 sm:gap-8">
             {LEGAL_LINKS.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className="transition-colors hover:text-white/80"
+                className="transition-colors hover:text-white"
               >
                 {item.label}
               </Link>
