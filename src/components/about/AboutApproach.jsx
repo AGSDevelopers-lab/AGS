@@ -81,7 +81,7 @@ export default function AboutApproach() {
       className="relative z-10 w-full bg-[#FFFFFF] pt-12 sm:pt-16 pb-8 sm:pb-12 lg:pb-14 overflow-hidden"
     >
       <div className="mx-auto max-w-[1380px] px-6 sm:px-10 lg:px-14">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-start overflow-hidden">
           {/* Left Column: Photograph (Slides in from Left) */}
           <div ref={imageColRef} className="w-full">
             <div className="relative w-full aspect-[630/622] max-w-[580px] mx-auto lg:mx-0 overflow-hidden rounded-[2px] shadow-sm">
@@ -104,10 +104,10 @@ export default function AboutApproach() {
                 Our Approach
               </span>
 
-              {/* Main Heading — exact 48px matching Picture1.png */}
+              {/* Main Heading — exact 48px matching Picture1.png & Screenshot 5 */}
               <h2 className="mt-3 sm:mt-4 text-[32px] sm:text-[40px] lg:text-[48px] font-medium tracking-tight text-[#111111] leading-[1.15]">
-                Turning Ideas Into Digital
-                <span className="block text-[#111111]">Impact</span>
+                Turning Ideas Into
+                <span className="block text-[#111111]">Digital Impact</span>
               </h2>
 
               {/* Supporting Copy — exact 20px matching Picture1.png */}
