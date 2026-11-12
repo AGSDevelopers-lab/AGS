@@ -11,7 +11,7 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
 }
 
-// Client website projects ONLY per Picture 4 & 5 (No in-house product screenshots)
+// Client website projects with pristine 1920x1080 high-res Canva assets
 const clientProjects = [
   {
     id: "molifera",
@@ -20,7 +20,7 @@ const clientProjects = [
     url: "https://www.moliferamedia.com/",
     isExternal: true,
     tagline: "Crafting Innovations, Creating Results — 360° Partner for Strategy, Marketing & Brand Growth",
-    image: "/product-1.png",
+    image: "/showcase/molifera-media.png",
     alt: "Molifera Media - Crafting Innovations Creating Results",
   },
   {
@@ -30,7 +30,7 @@ const clientProjects = [
     url: "https://dhunseritea.com/",
     isExternal: true,
     tagline: "Pure Leaf. Bold Brew. Centuries-Old Heritage Of Excellence & Handpicked Blends",
-    image: "/product-3.png",
+    image: "/showcase/dhunseri-tea.png",
     alt: "Dhunseri Tea - Pure Leaf Bold Brew",
   },
   {
@@ -40,7 +40,7 @@ const clientProjects = [
     url: "#",
     isExternal: false,
     tagline: "Everything You Need for Sacred Rites — Authentic Puja Materials & Traditional Products",
-    image: "/mangal-materials.png",
+    image: "/showcase/mangal-materials.png",
     alt: "Mangal Materials - Sacred Rites Puja Store",
   },
   {
@@ -50,7 +50,7 @@ const clientProjects = [
     url: "#",
     isExternal: false,
     tagline: "Influencer Platform for Freelancing — Find & Hire Top UGC Creators",
-    image: "/product-5.png",
+    image: "/showcase/bhairal-connect.png",
     alt: "Bhairal - Connect Influence Creator Platform",
   },
 ];
@@ -257,8 +257,8 @@ export default function CreationsShowcaseSection() {
                     transformOrigin: "center center",
                   }}
                 >
-                  {/* Website Screenshot */}
-                  <div className="relative w-full aspect-[16/9.5] overflow-hidden bg-gray-50">
+                  {/* Website Screenshot — Exact 16:9 ratio matching 1920x1080 canvas */}
+                  <div className="relative w-full aspect-[16/9] overflow-hidden bg-gray-50">
                     <Image
                       src={slide.image}
                       alt={slide.alt}
