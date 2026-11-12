@@ -102,61 +102,28 @@ export default function AboutDigitalExperiences() {
       className="relative z-10 w-full bg-[#FFFFFF] py-16 sm:py-20 lg:py-24 overflow-hidden"
     >
       <div className="mx-auto max-w-[1380px] px-6 sm:px-10 lg:px-14">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center overflow-hidden">
-          {/* Left Column: Stacked Photography with Floating Query Card (Matching Picture3 & 4) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start overflow-hidden">
+          {/* Left Column: Single Frame Photography Container matching Figma Container (6) */}
           <div ref={imageColRef} className="relative w-full lg:col-span-6">
-            {/* Upper Image with Query Card */}
-            <div className="relative w-full aspect-[16/10] rounded-[2px] overflow-hidden shadow-sm">
+            <div className="relative w-full aspect-[604/319] max-w-[620px] mx-auto lg:mx-0 rounded-[2px] overflow-hidden shadow-sm">
               <Image
-                src="/ags about page/have any query .png"
-                alt="Woman with Tablet Working at AGS"
+                src="/ags about page/Container (6).png"
+                alt="Building Digital Experiences - Have Any Query?"
                 fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover object-center"
+                sizes="(max-width: 1024px) 100vw, 604px"
+                className="object-contain object-top"
                 priority
               />
-            </div>
 
-            {/* Floating Contact/Query Card overlapping lower-right edge (Compact height & gradient matching Picture3) */}
-            <div className="relative -mt-8 sm:-mt-10 mr-0 sm:mr-2 ml-auto z-20 w-fit max-w-[92%]">
+              {/* Clickable Hotspot Overlay over the 'Have Any Query? +91 90381 30595' Card */}
               <a
                 href="tel:+919038130595"
-                className="group flex items-center gap-3.5 bg-gradient-to-r from-[#4361EE] to-[#7038FF] text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-[3px] shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.01]"
+                title="Have Any Query? Call +91 90381 30595"
+                aria-label="Have Any Query? Call +91 90381 30595"
+                className="absolute bottom-0 right-0 w-[52%] h-[32%] cursor-pointer z-10 transition-colors duration-200 hover:bg-white/5 rounded-br-[2px]"
               >
-                {/* White Circle with Phone Icon */}
-                <div className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-white text-[#4361EE] shrink-0 shadow-sm transition-transform duration-300 group-hover:scale-105">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.4"
-                    className="w-4 h-4 sm:w-4.5 sm:h-4.5"
-                  >
-                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-                  </svg>
-                </div>
-
-                {/* Label & Phone Number */}
-                <div className="flex flex-col text-left">
-                  <span className="text-[11px] sm:text-xs font-normal tracking-wide text-white/90">
-                    Have Any Query?
-                  </span>
-                  <span className="text-sm sm:text-[15px] font-bold tracking-wider text-white">
-                    +91 90381 30595
-                  </span>
-                </div>
+                <span className="sr-only">Call +91 90381 30595</span>
               </a>
-            </div>
-
-            {/* Lower Image */}
-            <div className="mt-6 sm:mt-8 relative w-full aspect-[604/459] rounded-[2px] overflow-hidden shadow-sm">
-              <Image
-                src="/ags about page/building digital experience.png"
-                alt="Reviewing Analytics and Charts at Desk"
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover object-center"
-              />
             </div>
           </div>
 
