@@ -9,7 +9,7 @@ const officers = [
     name: "Atish Roy",
     role: "Advisor – Brand & Growth Strategy",
     bio: "Advising on brand positioning, market growth strategies, and enterprise partnerships.",
-    image: "/ags about page/atish roy.png",
+    image: "/ags about page/atish-roy.png",
     linkedin: "https://www.linkedin.com/in/atishroy/",
     twitter: "https://x.com/",
     email: "mailto:contact@amrutglobalsolutions.com",

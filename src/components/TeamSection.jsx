@@ -13,15 +13,13 @@ const directors = [
   {
     name: "Sharmistha Chatterjee",
     role: "Co-Founder & COO",
-    image:
-      "https://res.cloudinary.com/dhxgwo5r4/image/upload/q_auto/f_auto/v1775113883/Sharmistha_Ma_am_gtmxsq.png",
+    image: "/sharmistha.png",
     linkedin: "https://www.linkedin.com/in/c-sharmistha/",
   },
   {
     name: "Atish Roy",
     role: "Advisor – Brand & Growth Strategy",
-    image:
-      "https://res.cloudinary.com/dhxgwo5r4/image/upload/q_auto/f_auto/v1775113883/Atish_Sir_qcjmrn.png",
+    image: "/atish.png",
     linkedin: "https://www.linkedin.com/in/atishroy/",
   },
 ];

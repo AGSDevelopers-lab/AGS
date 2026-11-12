@@ -17,7 +17,7 @@ const founders = [
     name: "Sharmistha Chatterjee",
     role: "Co-Founder & COO",
     bio: "Executes workflows on the ground, while scaling them across the company.",
-    image: "/ags about page/Sharmistha chatterjee.png",
+    image: "/ags about page/sharmistha-chatterjee.png",
     linkedin: "https://www.linkedin.com/in/c-sharmistha/",
     twitter: "https://x.com/",
     email: "mailto:contact@amrutglobalsolutions.com",
