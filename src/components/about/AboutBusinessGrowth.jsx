@@ -75,15 +75,15 @@ function AlternatingMetricsRow() {
       className="pt-10 sm:pt-14 border-t border-black/[0.08]"
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-black/[0.08]">
-        {/* Col 1: Appears from bottom to that place */}
+        {/* Col 1: Number + Label on top, Description on bottom (Matching Picture2.png) */}
         <div
           ref={col1Ref}
-          className="flex flex-col justify-between py-6 sm:py-8 lg:py-10 px-4 sm:px-6 lg:px-8 will-change-transform"
+          className="flex flex-col justify-between py-6 sm:py-8 lg:py-10 px-4 sm:px-6 lg:px-8 will-change-transform min-h-[220px]"
         >
           <div>
             <div className="flex items-baseline gap-1 text-4xl sm:text-5xl lg:text-[58px] font-light text-[#101015] tracking-tight leading-none">
               <span>250</span>
-              <span className="text-[#6040FF] font-normal text-3xl sm:text-4xl lg:text-[44px]">
+              <span className="text-[#8B5CF6] font-normal text-3xl sm:text-4xl lg:text-[44px]">
                 +
               </span>
             </div>
@@ -91,20 +91,23 @@ function AlternatingMetricsRow() {
               PROJECTS COMPLETED
             </p>
           </div>
-          <p className="mt-6 sm:mt-10 text-xs sm:text-[13px] text-[#6E7485] leading-relaxed max-w-[240px]">
+          <p className="mt-8 text-xs sm:text-[13px] text-[#6E7485] leading-relaxed max-w-[240px]">
             Delivering high-impact digital solutions worldwide.
           </p>
         </div>
 
-        {/* Col 2: Same layout alignment — Appears from top to that place */}
+        {/* Col 2: Description on top, Number + Label on bottom (Matching Picture2.png) */}
         <div
           ref={col2Ref}
-          className="flex flex-col justify-between py-6 sm:py-8 lg:py-10 px-4 sm:px-6 lg:px-8 will-change-transform"
+          className="flex flex-col justify-between py-6 sm:py-8 lg:py-10 px-4 sm:px-6 lg:px-8 will-change-transform min-h-[220px]"
         >
-          <div>
+          <p className="text-xs sm:text-[13px] text-[#6E7485] leading-relaxed max-w-[240px]">
+            Recognized for excellence in design and innovation.
+          </p>
+          <div className="mt-8">
             <div className="flex items-baseline gap-1 text-4xl sm:text-5xl lg:text-[58px] font-light text-[#101015] tracking-tight leading-none">
               <span>150</span>
-              <span className="text-[#6040FF] font-normal text-3xl sm:text-4xl lg:text-[44px]">
+              <span className="text-[#8B5CF6] font-normal text-3xl sm:text-4xl lg:text-[44px]">
                 +
               </span>
             </div>
@@ -112,20 +115,17 @@ function AlternatingMetricsRow() {
               AWARDS WINNING
             </p>
           </div>
-          <p className="mt-6 sm:mt-10 text-xs sm:text-[13px] text-[#6E7485] leading-relaxed max-w-[240px]">
-            Recognized for excellence in design and innovation.
-          </p>
         </div>
 
-        {/* Col 3: Appears from bottom to that place */}
+        {/* Col 3: Number + Label on top, Description on bottom (Matching Picture2.png) */}
         <div
           ref={col3Ref}
-          className="flex flex-col justify-between py-6 sm:py-8 lg:py-10 px-4 sm:px-6 lg:px-8 will-change-transform"
+          className="flex flex-col justify-between py-6 sm:py-8 lg:py-10 px-4 sm:px-6 lg:px-8 will-change-transform min-h-[220px]"
         >
           <div>
             <div className="flex items-baseline gap-1 text-4xl sm:text-5xl lg:text-[58px] font-light text-[#101015] tracking-tight leading-none">
               <span>98</span>
-              <span className="text-[#6040FF] font-normal text-3xl sm:text-4xl lg:text-[44px]">
+              <span className="text-[#8B5CF6] font-normal text-3xl sm:text-4xl lg:text-[44px]">
                 %
               </span>
             </div>
@@ -133,20 +133,23 @@ function AlternatingMetricsRow() {
               CLIENT SATISFACTION
             </p>
           </div>
-          <p className="mt-6 sm:mt-10 text-xs sm:text-[13px] text-[#6E7485] leading-relaxed max-w-[240px]">
+          <p className="mt-8 text-xs sm:text-[13px] text-[#6E7485] leading-relaxed max-w-[240px]">
             Long-term partnerships built on trust and results.
           </p>
         </div>
 
-        {/* Col 4: Same layout alignment — Appears from top to that place */}
+        {/* Col 4: Description on top, Number + Label on bottom (Matching Picture2.png) */}
         <div
           ref={col4Ref}
-          className="flex flex-col justify-between py-6 sm:py-8 lg:py-10 px-4 sm:px-6 lg:px-8 will-change-transform"
+          className="flex flex-col justify-between py-6 sm:py-8 lg:py-10 px-4 sm:px-6 lg:px-8 will-change-transform min-h-[220px]"
         >
-          <div>
+          <p className="text-xs sm:text-[13px] text-[#6E7485] leading-relaxed max-w-[240px]">
+            Continuous growth and technological leadership.
+          </p>
+          <div className="mt-8">
             <div className="flex items-baseline gap-1 text-4xl sm:text-5xl lg:text-[58px] font-light text-[#101015] tracking-tight leading-none">
               <span>03</span>
-              <span className="text-[#6040FF] font-normal text-3xl sm:text-4xl lg:text-[44px]">
+              <span className="text-[#8B5CF6] font-normal text-3xl sm:text-4xl lg:text-[44px]">
                 +
               </span>
             </div>
@@ -154,9 +157,6 @@ function AlternatingMetricsRow() {
               YEARS OF EXPERIENCES
             </p>
           </div>
-          <p className="mt-6 sm:mt-10 text-xs sm:text-[13px] text-[#6E7485] leading-relaxed max-w-[240px]">
-            Continuous growth and technological leadership.
-          </p>
         </div>
       </div>
     </div>
@@ -212,44 +212,44 @@ export default function AboutBusinessGrowth() {
 
   return (
     <section className="relative w-full bg-white overflow-hidden pt-8 sm:pt-12 lg:pt-16 pb-16 sm:pb-24">
-      {/* ── PART A: Exact Same Design & Image Effect as Homepage Digital Excellence ── */}
+      {/* ── PART A: Centered Kinetic Typography & Monogram matching Picture7.png ── */}
       <div
         ref={root}
-        className="relative flex items-center justify-center overflow-hidden bg-white pb-16 sm:pb-24 lg:pb-28"
+        className="relative flex items-center justify-center overflow-hidden bg-white py-12 sm:py-16 lg:py-20"
       >
-        <div className="flex items-center justify-center px-4 sm:px-6 md:px-8 max-w-full">
-          {/* Left: AGS Monogram Outline Logo Watermark (20% Opacity) */}
+        <div className="mx-auto max-w-[1280px] px-6 sm:px-10 lg:px-12 w-full flex items-center justify-center gap-6 sm:gap-10 lg:gap-14">
+          {/* Left: AGS Monogram Outline Logo Watermark (Matching Picture7.png) */}
           <div
             data-line
             data-from="left"
-            className="relative shrink-0 w-[12vw] sm:w-[12.5vw] lg:w-[13vw] max-w-[190px] min-w-[55px] aspect-[140/409] mr-[4vw] sm:mr-[5vw] opacity-20"
+            className="relative shrink-0 w-[60px] sm:w-[85px] md:w-[105px] lg:w-[125px] aspect-[140/409] opacity-25"
           >
             <Image
               src="/ags-monogram-tight.png"
               alt="AGS Monogram"
               fill
-              sizes="(max-width: 768px) 80px, 190px"
+              sizes="(max-width: 768px) 80px, 125px"
               className="object-contain"
               priority
             />
           </div>
 
-          {/* Right: 3 Kinetic Typography Lines (Manrope 400, 150px, line-height 160px, letter-spacing -0.32px) */}
-          <div className="flex flex-col items-start font-sans text-[8.5vw] sm:text-[10vw] lg:text-[150px] font-normal leading-[1.07] lg:leading-[160px] tracking-[-0.32px] text-black">
-            {/* Line 1: Fuel Your + Pill Arrow (indented so team image goes under 'F' by ~1.9vw) */}
+          {/* Right: 3 Kinetic Typography Lines matching Picture7.png */}
+          <div className="flex flex-col items-start font-sans text-[36px] xs:text-[44px] sm:text-[62px] md:text-[76px] lg:text-[92px] xl:text-[104px] font-normal leading-[1.08] tracking-[-0.03em] text-black">
+            {/* Line 1: Fuel Your + Pill Arrow Button */}
             <div
               data-line
               data-from="left"
-              className="flex items-center gap-[2vw] pl-[10.8vw]"
+              className="flex items-center gap-3 sm:gap-5 lg:gap-6"
             >
               <span>Fuel Your</span>
-              <span className="flex h-[6vw] sm:h-[6.2vw] w-[12.8vw] sm:w-[13.2vw] items-center justify-center rounded-full border border-[#8B5CF6]/80 shrink-0">
+              <span className="flex h-[32px] xs:h-[38px] sm:h-[48px] md:h-[58px] lg:h-[70px] w-[56px] xs:w-[68px] sm:w-[90px] md:w-[110px] lg:w-[130px] items-center justify-center rounded-full border border-[#8B5CF6]/50 shrink-0">
                 <svg
-                  className="h-[3.2vw] w-[3.2vw] text-[#8B5CF6]"
+                  className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8 text-[#8B5CF6]"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  strokeWidth="1.5"
+                  strokeWidth="1.8"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 >
@@ -259,30 +259,30 @@ export default function AboutBusinessGrowth() {
               </span>
             </div>
 
-            {/* Line 2: Team Image tucked into indent and overlapping under 'F' + Business */}
+            {/* Line 2: Team Image tucked under 'Fuel' + Business */}
             <div
               data-line
               data-from="right"
-              className="flex items-center gap-[1.6vw]"
+              className="flex items-center gap-3 sm:gap-4 lg:gap-5"
             >
-              <div className="relative h-[8vw] sm:h-[8.2vw] w-[12.5vw] sm:w-[12.7vw] shrink-0 overflow-hidden">
+              <div className="relative h-[32px] xs:h-[38px] sm:h-[50px] md:h-[62px] lg:h-[74px] w-[52px] xs:w-[64px] sm:w-[82px] md:w-[102px] lg:w-[122px] shrink-0 overflow-hidden rounded-[2px] shadow-sm">
                 <Image
                   src="/figma-exports/Markeo.png"
                   alt="Business Team"
                   fill
-                  sizes="(max-width: 768px) 70px, 180px"
-                  className="object-contain object-center"
+                  sizes="(max-width: 768px) 80px, 150px"
+                  className="object-cover object-center"
                   priority
                 />
               </div>
               <span>Business</span>
             </div>
 
-            {/* Line 3: Expansion (indented flush with 'Fuel Your') */}
+            {/* Line 3: Expansion (aligned cleanly under 'Business') */}
             <div
               data-line
               data-from="left"
-              className="pl-[10.8vw]"
+              className="pl-[58px] xs:pl-[70px] sm:pl-[92px] md:pl-[114px] lg:pl-[136px]"
             >
               Expansion
             </div>

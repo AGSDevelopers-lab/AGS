@@ -78,10 +78,10 @@ export default function AboutApproach() {
   return (
     <section
       ref={sectionRef}
-      className="relative z-10 w-full bg-[#FFFFFF] py-16 sm:py-24 lg:py-28 overflow-hidden"
+      className="relative z-10 w-full bg-[#FFFFFF] pt-12 sm:pt-16 pb-8 sm:pb-12 lg:pb-14 overflow-hidden"
     >
       <div className="mx-auto max-w-[1380px] px-6 sm:px-10 lg:px-14">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center overflow-hidden">
           {/* Left Column: Photograph (Slides in from Left) */}
           <div ref={imageColRef} className="w-full">
             <div className="relative w-full aspect-[630/622] max-w-[580px] mx-auto lg:mx-0 overflow-hidden rounded-[2px] shadow-sm">
@@ -98,35 +98,35 @@ export default function AboutApproach() {
 
           {/* Right Column: Content (Slides in from Right) */}
           <div ref={textColRef} className="w-full">
-            <div className="max-w-[560px]">
+            <div className="max-w-[580px]">
               {/* Eyebrow */}
-              <span className="text-xs sm:text-[13px] font-semibold uppercase tracking-[0.18em] text-[#6040FF]">
+              <span className="text-[14px] sm:text-[15px] font-semibold text-[#8B5CF6] tracking-wide">
                 Our Approach
               </span>
 
-              {/* Main Heading */}
-              <h2 className="mt-3.5 sm:mt-4 text-3xl sm:text-4xl md:text-[44px] font-normal tracking-tight text-[#101015] leading-[1.14]">
-                Turning Ideas Into
-                <span className="block text-[#101015]">Digital Impact</span>
+              {/* Main Heading — exact 48px matching Picture1.png */}
+              <h2 className="mt-3 sm:mt-4 text-[32px] sm:text-[40px] lg:text-[48px] font-medium tracking-tight text-[#111111] leading-[1.15]">
+                Turning Ideas Into Digital
+                <span className="block text-[#111111]">Impact</span>
               </h2>
 
-              {/* Supporting Copy */}
-              <p className="mt-5 sm:mt-6 text-sm sm:text-[15px] text-[#555A68] font-normal leading-relaxed">
+              {/* Supporting Copy — exact 20px matching Picture1.png */}
+              <p className="mt-5 sm:mt-6 text-[15px] sm:text-[17px] lg:text-[20px] text-[#555A68] font-normal leading-[1.6]">
                 The whole model of our business revolves around these two terms. We believe
                 in driving digital solutions by leveraging the power of Technology and
                 Innovative minds. But, the solution must be transparent to our clients and
                 the quotes must be honest.
               </p>
 
-              {/* Distinctive CTA Button with Left Arrow Tile */}
-              <div className="mt-8 sm:mt-9">
+              {/* Distinctive CTA Button with Left Arrow Tile matching Picture1.png gradient */}
+              <div className="mt-7 sm:mt-8">
                 <button
                   type="button"
                   onClick={() => openForm()}
                   className="group inline-flex items-stretch rounded-[2px] overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.01]"
                 >
                   {/* Left Arrow Tile */}
-                  <div className="w-10 sm:w-11 bg-[#F4EEFF] flex items-center justify-center border-r border-[#6040FF]/25 text-[#6040FF] transition-colors group-hover:bg-[#ECE2FF]">
+                  <div className="w-11 sm:w-12 bg-white flex items-center justify-center border border-[#7C3AED]/30 text-[#4F46E5] transition-colors group-hover:bg-[#F5F3FF]">
                     <svg
                       viewBox="0 0 24 24"
                       fill="none"
@@ -139,7 +139,7 @@ export default function AboutApproach() {
                   </div>
 
                   {/* Main Gradient Body */}
-                  <div className="bg-gradient-to-r from-[#6040FF] to-[#5900B8] px-5 sm:px-6 py-2.5 sm:py-3 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.16em] text-white flex items-center">
+                  <div className="bg-gradient-to-r from-[#4F46E5] to-[#7C3AED] px-6 sm:px-7 py-3 text-[12px] sm:text-[13px] font-semibold uppercase tracking-[0.14em] text-white flex items-center shadow-md">
                     <span>GET STARTED</span>
                   </div>
                 </button>
