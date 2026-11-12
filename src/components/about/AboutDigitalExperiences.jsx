@@ -102,27 +102,28 @@ export default function AboutDigitalExperiences() {
       className="relative z-10 w-full bg-[#FFFFFF] py-16 sm:py-20 lg:py-24 overflow-hidden"
     >
       <div className="mx-auto max-w-[1380px] px-6 sm:px-10 lg:px-14">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+        {/* CSS Grid with items-stretch ensuring both columns match heights perfectly */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-stretch">
           
-          {/* ── LEFT COLUMN: Precision 2-Photo Stack + Overlapping 'Have Any Query' Card (Exact Figma Match) ── */}
-          <div ref={leftColRef} className="w-full lg:col-span-6 flex flex-col">
+          {/* ── LEFT COLUMN: Precision 2-Photo Stack + Overlapping 'Have Any Query' Card ── */}
+          <div ref={leftColRef} className="w-full lg:col-span-6 flex flex-col justify-between">
             
             {/* Top Photo + Overlapping Card Container */}
             <div className="relative w-full">
-              {/* Upper Image (74% width flush left, matching Figma coordinates) */}
-              <div className="relative w-[74%] sm:w-[74%] aspect-[1.45/1] rounded-[2px] overflow-hidden shadow-sm bg-gray-100">
+              {/* Upper Image (72% width flush left, matching Figma coordinates) */}
+              <div className="relative w-[72%] sm:w-[72%] aspect-[1.46/1] rounded-[2px] overflow-hidden shadow-sm bg-gray-100">
                 <Image
                   src="/ags about page/have any query .png"
                   alt="Woman working on tablet at marble desk"
                   fill
-                  sizes="(max-width: 1024px) 74vw, 440px"
+                  sizes="(max-width: 1024px) 72vw, 440px"
                   className="object-cover object-center"
                   priority
                 />
               </div>
 
-              {/* Overlapping 'Have Any Query?' Card (Right-aligned, overlapping bottom-right of upper photo) */}
-              <div className="relative -mt-10 sm:-mt-12 mr-0 ml-auto z-20 w-[62%] sm:w-[56%] max-w-[280px]">
+              {/* Overlapping 'Have Any Query?' Card (Positioned absolutely in bottom right of upper block, overlapping without pushing down lower photo) */}
+              <div className="absolute bottom-1 sm:bottom-2 right-0 z-20 w-[58%] sm:w-[54%] max-w-[280px]">
                 <a
                   href="tel:+919038130595"
                   title="Have Any Query? Call +91 90381 30595"
@@ -154,8 +155,8 @@ export default function AboutDigitalExperiences() {
               </div>
             </div>
 
-            {/* Lower Image (Full width of column, flush with left and right edges matching Figma) */}
-            <div className="mt-5 sm:mt-6 relative w-full aspect-[604/459] rounded-[2px] overflow-hidden shadow-sm bg-gray-100">
+            {/* Lower Image (Calibrated aspect ratio so bottom edge aligns flush with bottom of right column) */}
+            <div className="mt-6 sm:mt-8 relative w-full aspect-[604/415] rounded-[2px] overflow-hidden shadow-sm bg-gray-100">
               <Image
                 src="/ags about page/building digital experience.png"
                 alt="Reviewing Analytics and Charts at Desk"
@@ -167,25 +168,27 @@ export default function AboutDigitalExperiences() {
             </div>
           </div>
 
-          {/* ── RIGHT COLUMN: Heading, Subtitle & 4 Features (Exact Figma Spacing & Typography) ── */}
-          <div ref={rightColRef} className="w-full lg:col-span-6 flex flex-col justify-start">
-            <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-normal tracking-tight text-[#101015] leading-[1.18]">
-              Building Digital Experiences
-              <br />
-              That <span className="text-[#8B5CF6]">Drive Results</span>
-            </h2>
+          {/* ── RIGHT COLUMN: Heading, Subtitle & 4 Features (Flex-stretched for exact flush bottom) ── */}
+          <div ref={rightColRef} className="w-full lg:col-span-6 flex flex-col justify-between">
+            <div>
+              <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-normal tracking-tight text-[#101015] leading-[1.18]">
+                Building Digital Experiences
+                <br />
+                That <span className="text-[#8B5CF6]">Drive Results</span>
+              </h2>
 
-            <p className="mt-4 sm:mt-5 text-[15px] sm:text-[16px] text-[#555A68] leading-[1.65] font-normal max-w-[560px]">
-              At AGS, we bring design, technology, and strategy together to
-              create meaningful digital experiences for modern businesses.
-            </p>
+              <p className="mt-4 sm:mt-5 text-[15px] sm:text-[16px] text-[#555A68] leading-[1.65] font-normal max-w-[560px]">
+                At AGS, we bring design, technology, and strategy together to
+                create meaningful digital experiences for modern businesses.
+              </p>
+            </div>
 
-            {/* 4 Feature Items with Dividers (Matching Figma Checkmarks & Line-Heights) */}
-            <div className="mt-8 sm:mt-10 border-t border-black/[0.08]">
+            {/* 4 Feature Items with Dividers (Distributed evenly so bottom border matches bottom of left photo) */}
+            <div className="mt-8 sm:mt-10 border-t border-black/[0.08] flex-1 flex flex-col justify-between">
               {features.map((feature) => (
                 <div
                   key={feature.title}
-                  className="py-5 sm:py-6 border-b border-black/[0.08] flex items-start gap-4"
+                  className="flex-1 flex items-start gap-4 py-5 sm:py-5.5 lg:py-6 border-b border-black/[0.08]"
                 >
                   {/* Purple Circle with White Checkmark */}
                   <div className="mt-0.5 flex h-5.5 w-5.5 sm:h-6 sm:w-6 shrink-0 items-center justify-center rounded-full bg-[#7C3AED] text-white shadow-xs">

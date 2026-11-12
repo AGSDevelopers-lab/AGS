@@ -82,9 +82,9 @@ export default function AboutApproach() {
     >
       <div className="mx-auto max-w-[1380px] px-6 sm:px-10 lg:px-14">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-start overflow-hidden">
-          {/* Left Column: Photograph (Slides in from Left) */}
+          {/* Left Column: Photograph (Clean crop without ghost line or transparent padding) */}
           <div ref={imageColRef} className="w-full">
-            <div className="relative w-full aspect-[630/622] max-w-[580px] mx-auto lg:mx-0 overflow-hidden rounded-[2px] shadow-sm">
+            <div className="relative w-full aspect-[630/464] max-w-[580px] mx-auto lg:mx-0 overflow-hidden rounded-[2px]">
               <Image
                 src="/ags about page/Our approach.png"
                 alt="AGS Team Collaborating around Laptop"
@@ -96,11 +96,11 @@ export default function AboutApproach() {
             </div>
           </div>
 
-          {/* Right Column: Content (Slides in from Right) */}
+          {/* Right Column: Content (Top aligned flush with photo top) */}
           <div ref={textColRef} className="w-full">
             <div className="max-w-[580px]">
-              {/* Eyebrow */}
-              <span className="text-[14px] sm:text-[15px] font-semibold text-[#8B5CF6] tracking-wide">
+              {/* Eyebrow — aligned flush at top */}
+              <span className="text-[14px] sm:text-[15px] font-semibold text-[#8B5CF6] tracking-wide inline-block leading-none pt-0.5">
                 Our Approach
               </span>
 
