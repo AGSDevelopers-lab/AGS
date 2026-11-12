@@ -188,7 +188,7 @@ export default function ServicePageTemplate({
               duration={1.1}
               className="lg:col-span-6"
             >
-              <div className="relative w-full h-[380px] sm:h-[480px] lg:h-[540px] rounded-none overflow-hidden shadow-lg border border-[#F0F2F6]">
+              <div className="relative w-full aspect-[577/607] rounded-none overflow-hidden shadow-lg border border-[#F0F2F6]">
                 <Image
                   src="/full-stack/Image.png"
                   alt={`${titleGradient} ${titleRest} Engineering Workflow`}
@@ -450,7 +450,7 @@ export default function ServicePageTemplate({
                 <div className="group flex flex-col">
                   <Link
                     href={projects[0].link}
-                    className="relative w-full h-[260px] sm:h-[300px] overflow-hidden rounded-none shadow-sm block"
+                    className="relative w-full aspect-[16/10] overflow-hidden rounded-none shadow-sm block"
                   >
                     <Image
                       src={projects[0].image}
@@ -481,7 +481,7 @@ export default function ServicePageTemplate({
                 <div className="group flex flex-col">
                   <Link
                     href={projects[1].link}
-                    className="relative w-full h-[260px] sm:h-[300px] overflow-hidden rounded-none shadow-sm block"
+                    className="relative w-full aspect-[16/10] overflow-hidden rounded-none shadow-sm block"
                   >
                     <Image
                       src={projects[1].image}

@@ -271,7 +271,7 @@ export default function AboutBusinessGrowth() {
                   alt="Business Team"
                   fill
                   sizes="(max-width: 768px) 70px, 180px"
-                  className="object-cover object-center"
+                  className="object-contain object-center"
                   priority
                 />
               </div>

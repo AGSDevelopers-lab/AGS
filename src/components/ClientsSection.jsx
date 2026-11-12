@@ -11,7 +11,7 @@ const clientLogos = [
     alt: "Renuka Eye Institute",
     width: 782,
     height: 271,
-    aspectClass: "h-11 sm:h-13 md:h-15 lg:h-16 w-auto max-w-[220px] sm:max-w-[260px] md:max-w-[300px]",
+    aspectClass: "h-11 sm:h-[52px] md:h-[60px] lg:h-16 w-auto max-w-[220px] sm:max-w-[260px] md:max-w-[300px]",
   },
   {
     name: "JPNR",
@@ -19,7 +19,7 @@ const clientLogos = [
     alt: "JPNR Corporate Consultants Pvt Ltd",
     width: 568,
     height: 287,
-    aspectClass: "h-11 sm:h-13 md:h-15 lg:h-16 w-auto max-w-[190px] sm:max-w-[230px] md:max-w-[260px]",
+    aspectClass: "h-11 sm:h-[52px] md:h-[60px] lg:h-16 w-auto max-w-[190px] sm:max-w-[230px] md:max-w-[260px]",
   },
   {
     name: "Farz Academy",
@@ -27,7 +27,7 @@ const clientLogos = [
     alt: "Farz Academy",
     width: 660,
     height: 251,
-    aspectClass: "h-11 sm:h-13 md:h-15 lg:h-16 w-auto max-w-[200px] sm:max-w-[240px] md:max-w-[280px]",
+    aspectClass: "h-11 sm:h-[52px] md:h-[60px] lg:h-16 w-auto max-w-[200px] sm:max-w-[240px] md:max-w-[280px]",
   },
   {
     name: "Molifera Media",
@@ -35,7 +35,7 @@ const clientLogos = [
     alt: "Molifera Media",
     width: 634,
     height: 123,
-    aspectClass: "h-9 sm:h-11 md:h-13 lg:h-14 w-auto max-w-[210px] sm:max-w-[250px] md:max-w-[290px]",
+    aspectClass: "h-9 sm:h-11 md:h-[52px] lg:h-14 w-auto max-w-[210px] sm:max-w-[250px] md:max-w-[290px]",
   },
   {
     name: "Himalaya",
@@ -43,7 +43,7 @@ const clientLogos = [
     alt: "Himalaya Darpan",
     width: 815,
     height: 194,
-    aspectClass: "h-10 sm:h-12 md:h-14 lg:h-15 w-auto max-w-[210px] sm:max-w-[250px] md:max-w-[290px]",
+    aspectClass: "h-10 sm:h-12 md:h-14 lg:h-[60px] w-auto max-w-[210px] sm:max-w-[250px] md:max-w-[290px]",
   },
   {
     name: "Dhunseri",
@@ -51,7 +51,7 @@ const clientLogos = [
     alt: "Dhunseri Tea & Industries Limited",
     width: 821,
     height: 207,
-    aspectClass: "h-11 sm:h-13 md:h-15 lg:h-16 w-auto max-w-[220px] sm:max-w-[260px] md:max-w-[300px]",
+    aspectClass: "h-11 sm:h-[52px] md:h-[60px] lg:h-16 w-auto max-w-[220px] sm:max-w-[260px] md:max-w-[300px]",
   },
 ];
 

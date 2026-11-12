@@ -84,7 +84,7 @@ export default function AboutApproach() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center overflow-hidden">
           {/* Left Column: Photograph (Slides in from Left) */}
           <div ref={imageColRef} className="w-full">
-            <div className="relative w-full aspect-[1.12/1] sm:aspect-[1.15/1] max-w-[580px] mx-auto lg:mx-0 overflow-hidden rounded-[2px] shadow-sm">
+            <div className="relative w-full aspect-[630/622] max-w-[580px] mx-auto lg:mx-0 overflow-hidden rounded-[2px] shadow-sm">
               <Image
                 src="/ags about page/Our approach.png"
                 alt="AGS Team Collaborating around Laptop"
