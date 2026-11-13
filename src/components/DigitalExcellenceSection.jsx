@@ -60,37 +60,37 @@ export function DigitalExcellence() {
   return (
     <section
       ref={root}
-      className="relative flex items-center justify-center overflow-hidden bg-white pt-8 sm:pt-12 lg:pt-16 pb-20 sm:pb-28 lg:pb-32"
+      className="relative flex items-center justify-center overflow-hidden bg-white pt-6 sm:pt-10 lg:pt-12 pb-6 sm:pb-8 lg:pb-10"
     >
-      <div className="flex items-center justify-center px-4 sm:px-6 md:px-8 max-w-full">
-        {/* Left: AGS Monogram Outline Logo Watermark (Figma: 20% Opacity) */}
-        <div
-          data-line
-          data-from="left"
-          className="relative shrink-0 w-[12vw] sm:w-[12.5vw] lg:w-[13vw] max-w-[190px] min-w-[55px] aspect-[140/409] mr-[4vw] sm:mr-[5vw] opacity-20"
-        >
-          <Image
-            src="/ags-monogram-tight.png"
-            alt="AGS Monogram"
-            fill
-            sizes="(max-width: 768px) 80px, 190px"
-            className="object-contain"
-            priority
-          />
-        </div>
+      {/* Absolute AGS Monogram Outline Logo Watermark (Left side, does not offset centered text) */}
+      <div
+        data-line
+        data-from="left"
+        className="pointer-events-none absolute left-[3vw] sm:left-[5vw] lg:left-[8vw] top-1/2 -translate-y-1/2 z-0 w-[12vw] sm:w-[12.5vw] lg:w-[13vw] max-w-[190px] min-w-[55px] aspect-[140/409] opacity-20 select-none"
+      >
+        <Image
+          src="/ags-monogram-tight.png"
+          alt="AGS Monogram"
+          fill
+          sizes="(max-width: 768px) 80px, 190px"
+          className="object-contain"
+          priority
+        />
+      </div>
 
-        {/* Right: 3 Kinetic Typography Lines (Figma: Manrope 400, 150px, line-height 160px, letter-spacing -0.32px) */}
-        <div className="flex flex-col items-start font-sans text-[8.5vw] sm:text-[10vw] lg:text-[150px] font-normal leading-[1.07] lg:leading-[160px] tracking-[-0.32px] text-black">
-          {/* Line 1: Digital + Pill Arrow (indented so the team image goes under 'D' by ~1.9vw) */}
+      {/* Centered 3 Kinetic Typography Lines matching Picture 3 reference */}
+      <div className="relative z-10 mx-auto flex flex-col items-center justify-center px-4 sm:px-6 md:px-8 max-w-full">
+        <div className="flex flex-col items-start font-sans text-[8.5vw] sm:text-[9.5vw] lg:text-[135px] xl:text-[145px] font-normal leading-[1.07] lg:leading-[150px] tracking-[-0.32px] text-black">
+          {/* Line 1: Digital + Pill Arrow */}
           <div
             data-line
             data-from="left"
-            className="flex items-center gap-[2vw] pl-[10.8vw]"
+            className="flex items-center gap-[2vw] pl-[9vw] sm:pl-[10vw]"
           >
             <span>Digital</span>
-            <span className="flex h-[6vw] sm:h-[6.2vw] w-[12.8vw] sm:w-[13.2vw] items-center justify-center rounded-full border border-[#8B5CF6]/80 shrink-0">
+            <span className="flex h-[5.8vw] sm:h-[6vw] w-[12vw] sm:w-[12.5vw] max-w-[140px] items-center justify-center rounded-full border border-[#8B5CF6]/80 shrink-0">
               <svg
-                className="h-[3.2vw] w-[3.2vw] text-[#8B5CF6]"
+                className="h-[3vw] w-[3vw] max-h-[34px] max-w-[34px] text-[#8B5CF6]"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -104,13 +104,13 @@ export function DigitalExcellence() {
             </span>
           </div>
 
-          {/* Line 2: Team Image tucked into indent and overlapping under 'D' + Excellence */}
+          {/* Line 2: Team Image tucked into indent + Excellence */}
           <div
             data-line
             data-from="right"
             className="flex items-center gap-[1.6vw]"
           >
-            <div className="relative h-[8vw] sm:h-[8.2vw] w-[12.5vw] sm:w-[12.7vw] shrink-0 overflow-hidden">
+            <div className="relative h-[7.6vw] sm:h-[7.8vw] w-[12vw] sm:w-[12.2vw] max-w-[140px] shrink-0 overflow-hidden rounded-full">
               <Image
                 src="/figma-exports/Markeo.png"
                 alt="Team members collaborating"
@@ -127,7 +127,7 @@ export function DigitalExcellence() {
           <div
             data-line
             data-from="left"
-            className="pl-[10.8vw]"
+            className="pl-[9vw] sm:pl-[10vw]"
           >
             Delivered
           </div>
@@ -205,6 +205,7 @@ export default function DigitalExcellenceSection() {
   const [outgoingNum, setOutgoingNum] = useState(null);
   const [incomingOpacity, setIncomingOpacity] = useState(1);
   const [outgoingOpacity, setOutgoingOpacity] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   const getService = (num) => services.find((s) => s.num === num) || services[0];
 
@@ -221,6 +222,28 @@ export default function DigitalExcellenceSection() {
     });
   };
 
+  // Continuous auto-slide per design file (pauses on user interaction/hover)
+  useEffect(() => {
+    if (isPaused) return;
+    const interval = setInterval(() => {
+      setActiveNum((prev) => {
+        const curIdx = services.findIndex((s) => s.num === prev);
+        const nextIdx = (curIdx + 1) % services.length;
+        const nextNum = services[nextIdx].num;
+        setOutgoingNum(prev);
+        setOutgoingOpacity(1);
+        setIncomingOpacity(0);
+        requestAnimationFrame(() => {
+          setOutgoingOpacity(0);
+          setIncomingOpacity(1);
+        });
+        return nextNum;
+      });
+    }, 3800);
+
+    return () => clearInterval(interval);
+  }, [isPaused]);
+
   useEffect(() => {
     if (outgoingNum !== null) {
       const timer = setTimeout(() => {
@@ -235,13 +258,17 @@ export default function DigitalExcellenceSection() {
       {/* ── PART A: One-Way Scroll Triggered Kinetic Typography ── */}
       <DigitalExcellence />
 
-      {/* ── PART B: Interactive Editorial Services Section ── */}
-      <section className="relative w-full bg-white py-16 sm:py-28 lg:py-36">
+      {/* ── PART B: Interactive Editorial Services Section (Reduced whitespace & balanced alignment) ── */}
+      <section
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        className="relative w-full bg-white pt-2 sm:pt-4 pb-12 sm:pb-16 lg:pb-20"
+      >
         <div className="mx-auto max-w-[1560px] 2xl:max-w-[1680px] px-6 sm:px-10 lg:px-16 2xl:px-20">
-          <div className="grid grid-cols-1 items-center gap-10 sm:gap-16 lg:grid-cols-12 lg:gap-20 xl:gap-24">
+          <div className="grid grid-cols-1 items-center gap-10 sm:gap-14 lg:grid-cols-12 lg:gap-16 xl:gap-20">
             
             {/* Left Column: Enlarged Single Composition with Crossfading Image */}
-            <div className="lg:col-span-5 xl:col-span-5 relative w-full h-[320px] sm:h-[500px] lg:h-[700px] xl:h-[740px]">
+            <div className="lg:col-span-5 xl:col-span-5 relative w-full h-[320px] sm:h-[480px] lg:h-[640px] xl:h-[680px]">
               {outgoingNum !== null && (
                 <div
                   className="absolute inset-0 transition-opacity duration-500 ease-in-out pointer-events-none"
@@ -266,9 +293,12 @@ export default function DigitalExcellenceSection() {
                 return (
                   <div
                     key={item.num}
-                    onMouseEnter={() => handleServiceChange(item.num)}
+                    onMouseEnter={() => {
+                      setIsPaused(true);
+                      handleServiceChange(item.num);
+                    }}
                     onClick={() => handleServiceChange(item.num)}
-                    className="group py-5 sm:py-9 transition-colors duration-300 cursor-pointer border-b border-gray-200"
+                    className="group py-4 sm:py-7 lg:py-8 transition-colors duration-300 cursor-pointer border-b border-gray-200"
                   >
                     <div className="flex w-full items-center">
                       <div className="flex items-center gap-2.5 sm:gap-4">

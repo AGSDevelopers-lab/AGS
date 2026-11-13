@@ -104,17 +104,17 @@ export default function AboutMetricsSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative z-10 w-full bg-white pt-12 sm:pt-16 lg:pt-20 pb-12 sm:pb-16 lg:pb-20 text-gray-900 overflow-hidden"
+      className="relative z-10 w-full bg-white pt-10 sm:pt-14 lg:pt-16 pb-10 sm:pb-14 lg:pb-16 text-gray-900 overflow-hidden"
     >
       <div className="mx-auto max-w-[1560px] 2xl:max-w-[1680px] px-6 sm:px-10 lg:px-16 2xl:px-20">
-        {/* Top 2-Column: Photo Left + Content Right - Height-Matched Alignment per Picture 1 */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 lg:items-stretch overflow-hidden">
-          {/* Left: Typing Laptop Image - Height matches right text block per Picture 1 */}
+        {/* Top 2-Column: Photo Left + Content Right - Height-Matched Alignment per Picture 2 */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 lg:items-center overflow-hidden">
+          {/* Left: Typing Laptop Image - Preserves natural aspect ratio to prevent squashing */}
           <div
             ref={imageColRef}
-            className="lg:col-span-6 relative w-full h-[280px] sm:h-[320px] lg:h-auto min-h-[260px] overflow-hidden rounded-none bg-gray-50 flex items-stretch"
+            className="lg:col-span-6 relative w-full aspect-[593/298] overflow-hidden rounded-none bg-gray-50 flex items-center shadow-sm"
           >
-            <div className="relative w-full h-full min-h-[260px] overflow-hidden rounded-none">
+            <div className="relative w-full h-full overflow-hidden rounded-none">
               <Image
                 src="/about-laptop.png"
                 alt="Team member working on laptop in modern office"
@@ -124,7 +124,7 @@ export default function AboutMetricsSection() {
                 priority
               />
 
-              {/* Video Play Button Overlay matching Picture 1 */}
+              {/* Video Play Button Overlay matching Picture 2 */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <div className="flex h-11 w-11 sm:h-13 sm:w-13 items-center justify-center rounded-full bg-white/40 backdrop-blur-sm text-white transition-all duration-300 border border-white/70 shadow-md">
                   <svg className="ml-0.5 h-5 w-5 fill-current text-white" viewBox="0 0 24 24">
@@ -154,7 +154,7 @@ export default function AboutMetricsSection() {
               We are a dynamic team of innovators, storytellers, and visionaries dedicated to transforming ideas into extraordinary experiences.
             </p>
 
-            {/* Segmented Button: Tightly spaced below description per Picture 1 */}
+            {/* Segmented Button: Tightly spaced below description per Picture 2 */}
             <div className="mt-6 sm:mt-7">
               <Link
                 href="/about"
@@ -164,7 +164,7 @@ export default function AboutMetricsSection() {
                 <span className="flex items-center justify-center border border-[#545AFF] bg-[#F5F6FF] px-5 sm:px-6 py-3 sm:py-3.5 text-[#545AFF] text-lg font-light group-hover:bg-[#545AFF] group-hover:text-white transition-colors duration-300 rounded-none">
                   →
                 </span>
-                {/* Blue-to-purple gradient label cell matching Picture 1 */}
+                {/* Blue-to-purple gradient label cell matching Picture 2 */}
                 <span className="flex items-center justify-center bg-gradient-to-r from-[#545AFF] to-[#3B0764] px-6 sm:px-8 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold uppercase tracking-wider text-white hover:opacity-95 transition-all duration-300 rounded-none">
                   KNOW MORE
                 </span>
@@ -173,19 +173,19 @@ export default function AboutMetricsSection() {
           </div>
         </div>
 
-        {/* Bottom Row: 4 Metrics with reduced comfortable gap matching Picture 3 */}
-        <div className="mt-12 sm:mt-16 lg:mt-20">
-          <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        {/* Bottom Row: 4 Metrics with reduced comfortable gap matching Picture 2 */}
+        <div className="mt-10 sm:mt-14 lg:mt-16">
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {metrics.map((metric) => (
               <div key={metric.label} className="flex flex-col">
-                {/* Number with Up Arrow */}
-                <div className="flex items-start gap-2.5">
-                  <span className="text-2xl sm:text-3xl font-light text-gray-400 mt-1 sm:mt-2">
+                {/* Number with Up Arrow - Light/Regular weight matching Picture 2 reference */}
+                <div className="flex items-start gap-2 sm:gap-2.5">
+                  <span className="text-xl sm:text-2xl font-light text-gray-400 mt-1 sm:mt-1.5 select-none">
                     ↑
                   </span>
-                  <div className="text-5xl sm:text-6xl lg:text-[70px] font-bold tracking-tight text-gray-950 leading-none">
+                  <div className="text-4xl sm:text-5xl lg:text-[62px] xl:text-[66px] font-normal tracking-tight text-gray-950 leading-none">
                     <span>{metric.targetNum}</span>
-                    <span className="text-[#545AFF] font-semibold ml-1">
+                    <span className="text-[#545AFF] font-normal ml-0.5">
                       {metric.suffix}
                     </span>
                   </div>

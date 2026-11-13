@@ -78,7 +78,7 @@ export default function AwsEcosystemBanner() {
   return (
     <section
       ref={sectionRef}
-      className="relative z-10 w-full min-h-[420px] sm:min-h-[480px] lg:min-h-[520px] bg-[#050414] py-14 sm:py-18 lg:py-22 text-white overflow-hidden border-t border-gray-100 flex items-center"
+      className="relative z-10 w-full min-h-[380px] sm:min-h-[440px] lg:min-h-[480px] bg-[#050414] py-10 sm:py-14 lg:py-16 text-white overflow-hidden border-t border-gray-100 flex items-center"
     >
       {/* Background Layer: Cloud Hologram Background Image coming from right */}
       <div

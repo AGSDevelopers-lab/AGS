@@ -182,7 +182,7 @@ export default function CreationsShowcaseSection() {
     <section
       id="portfolio"
       ref={sectionRef}
-      className="relative z-10 w-full bg-white py-16 sm:py-24 text-gray-900 border-t border-gray-100 overflow-hidden"
+      className="relative z-10 w-full bg-white py-12 sm:py-16 lg:py-20 text-gray-900 border-t border-gray-100 overflow-hidden"
     >
       <div className="mx-auto max-w-[1380px] px-6 sm:px-8 lg:px-14">
         

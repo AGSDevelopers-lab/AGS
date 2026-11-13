@@ -9,6 +9,7 @@ import { useCtaForm } from "@/components/CtaFormProvider";
 const navItems = [
   { name: "About", href: "/about" },
   { name: "Services", href: "/services" },
+  { name: "Solutions", href: "/services/digital-solutions" },
   { name: "Portfolio", href: "/portfolio" },
   { name: "Careers", href: "/careers" },
   { name: "Contact Us", href: "/contact" },

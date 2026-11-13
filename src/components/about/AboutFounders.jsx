@@ -8,7 +8,7 @@ const founders = [
     name: "Tushar De",
     role: "Co-Founder & CEO",
     bio: "Executes workflows on the ground, while driving the overall vision across the market.",
-    image: "/tushar-de.jpeg",
+    image: "/ags about page/IMG-20261113-WA0008.jpg.jpeg",
     linkedin: "https://www.linkedin.com/in/0xtd",
     twitter: "https://x.com/",
     email: "mailto:contact@amrutglobalsolutions.com",

@@ -35,6 +35,28 @@ const heroSlides = [
   },
   {
     id: 3,
+    type: "vidlens",
+    hasLiveDot: true,
+    badge: "LAUNCHING SOON",
+    bgImage: "/AGS Landing Page Images/VidLens Laptop on a Futuristic Gradient.png",
+    alt: "VidLens - YouTube Analytics and Optimization",
+    title: "VidLens",
+    subtitle: "Is a comprehensive YouTube video analytics and optimization tool designed to help creators grow their channels and maximize views.",
+    isWaitlist: true,
+  },
+  {
+    id: 4,
+    type: "lynkbeats",
+    hasLiveDot: true,
+    badge: "LAUNCHING SOON",
+    bgImage: "/AGS Landing Page Images/LynkBeats Tablet on Abstract Gradient.png",
+    alt: "LynkBeats - Editorial Intelligence Platform",
+    title: "LynkBeats",
+    subtitle: "Is a comprehensive editorial intelligence platform to track what readers are reading and engaging with your content.",
+    isWaitlist: true,
+  },
+  {
+    id: 5,
     type: "creative",
     bgImage: "/image3.png",
     alt: "Creative Solutions That Drive Growth",
@@ -44,7 +66,7 @@ const heroSlides = [
     buttonText: "Get Started",
   },
   {
-    id: 4,
+    id: 6,
     type: "healthcare",
     bgImage: "/image4.png",
     alt: "Healthcare Through Innovation",
@@ -54,7 +76,7 @@ const heroSlides = [
     buttonText: "Explore",
   },
   {
-    id: 5,
+    id: 7,
     type: "media",
     bgImage: "/image5.png",
     alt: "Digital Solutions for Media & News Platforms",
@@ -64,7 +86,7 @@ const heroSlides = [
     buttonText: "Explore News",
   },
   {
-    id: 6,
+    id: 8,
     type: "ecommerce",
     bgImage: "/image6.png",
     alt: "eCommerce Solutions for Growing Brands",
@@ -74,7 +96,7 @@ const heroSlides = [
     buttonText: "Get Started",
   },
   {
-    id: 7,
+    id: 9,
     type: "elearning",
     bgImage: "/image7.png",
     alt: "Refined Solutions for eLearning Brands",
@@ -87,6 +109,7 @@ const heroSlides = [
 
 export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [emailInputs, setEmailInputs] = useState({});
   const { openForm } = useCtaForm();
 
   const totalSlides = heroSlides.length;
@@ -144,14 +167,24 @@ export default function HeroSection() {
                     : "opacity-0 translate-y-[-46%] pointer-events-none z-0 invisible"
                 }`}
               >
-                {/* Compact Partnership Badge matching Figma */}
-                {slide.badge && (
+                {/* Compact Partnership Badge matching Figma / Launching Soon Pill */}
+                {slide.hasLiveDot ? (
                   <div className="mb-4 sm:mb-6 w-fit self-start">
-                    <div className="border border-white/40 bg-black/40 backdrop-blur-sm px-3.5 py-1 sm:px-5 sm:py-2 text-[11px] sm:text-sm font-normal tracking-wide text-white/90 rounded-[2px]">
+                    <div className="inline-flex items-center gap-2 border border-white/30 bg-black/50 backdrop-blur-md px-3.5 py-1 sm:px-4 sm:py-1.5 text-[10px] sm:text-xs font-medium tracking-wider text-white uppercase rounded-full">
+                      <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                      </span>
+                      <span>{slide.badge}</span>
+                    </div>
+                  </div>
+                ) : slide.badge ? (
+                  <div className="mb-4 sm:mb-6 w-fit self-start">
+                    <div className="border border-white/40 bg-black/40 backdrop-blur-sm px-3.5 py-1 sm:px-4 sm:py-1.5 text-[11px] sm:text-xs font-normal tracking-wide text-white/90 rounded-[2px]">
                       {slide.badge}
                     </div>
                   </div>
-                )}
+                ) : null}
 
                 {/* SLIDE 1: AWS Specific Layout */}
                 {slide.type === "aws" && (
@@ -219,8 +252,17 @@ export default function HeroSection() {
                   </div>
                 )}
 
-                {/* SLIDES 3-7: General Industry Headlines */}
-                {slide.type !== "aws" && slide.type !== "google" && (
+                {/* PRODUCT SLIDES: VidLens & LynkBeats */}
+                {slide.isWaitlist && (
+                  <div>
+                    <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-normal tracking-tight text-white leading-none">
+                      {slide.title}
+                    </h1>
+                  </div>
+                )}
+
+                {/* OTHER SLIDES: General Industry Headlines */}
+                {slide.type !== "aws" && slide.type !== "google" && !slide.isWaitlist && (
                   <div className="space-y-1 sm:space-y-1.5">
                     <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[60px] font-normal tracking-tight leading-[1.12]">
                       <span className="block text-[#9B86EB]">
@@ -238,21 +280,58 @@ export default function HeroSection() {
                   {slide.subtitle}
                 </p>
 
-                {/* Prominent CTA Button matching Figma exactly */}
-                <div className="mt-7 sm:mt-8">
-                  <button
-                    type="button"
-                    onClick={() => openForm()}
-                    className="group inline-flex items-center gap-3.5 rounded-[2px] bg-white px-6 py-3 sm:px-7 sm:py-3.5 text-sm sm:text-base font-medium text-black transition-all duration-300 hover:bg-white/90 hover:scale-[1.01]"
+                {/* CTA Form for Waitlist Products vs Standard Button */}
+                {slide.isWaitlist ? (
+                  <form
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      openForm({ email: emailInputs[slide.id] || "" });
+                    }}
+                    className="mt-7 sm:mt-8 flex items-center max-w-[460px] w-full bg-black/40 backdrop-blur-md border border-white/30 rounded-[2px] p-1 sm:p-1.5 shadow-2xl transition-all focus-within:border-white/60"
                   >
-                    <span>{slide.buttonText}</span>
-                    <span className="flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center rounded-full border border-black/70 text-black transition-transform duration-300 group-hover:rotate-45">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" className="w-3 h-3 sm:w-3.5 sm:h-3.5">
-                        <path d="M7 17L17 7M17 7H7M17 7V17" />
-                      </svg>
-                    </span>
-                  </button>
-                </div>
+                    <input
+                      type="email"
+                      placeholder="Your work email"
+                      value={emailInputs[slide.id] || ""}
+                      onChange={(e) =>
+                        setEmailInputs({ ...emailInputs, [slide.id]: e.target.value })
+                      }
+                      className="bg-transparent text-white placeholder-white/50 text-xs sm:text-sm px-3.5 py-2 sm:py-2.5 outline-none flex-1 min-w-0 font-normal"
+                    />
+                    <button
+                      type="submit"
+                      className="group inline-flex items-center justify-center gap-2 bg-white px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-medium text-black rounded-[2px] transition-all duration-300 hover:bg-white/90 hover:scale-[1.01] shrink-0"
+                    >
+                      <span>Notify me</span>
+                      <span className="flex h-4 w-4 items-center justify-center text-black transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2.5"
+                          className="w-3.5 h-3.5"
+                        >
+                          <path d="M7 17L17 7M17 7H7M17 7V17" />
+                        </svg>
+                      </span>
+                    </button>
+                  </form>
+                ) : (
+                  <div className="mt-7 sm:mt-8">
+                    <button
+                      type="button"
+                      onClick={() => openForm()}
+                      className="group inline-flex items-center gap-3.5 rounded-[2px] bg-white px-6 py-3 sm:px-7 sm:py-3.5 text-sm sm:text-base font-medium text-black transition-all duration-300 hover:bg-white/90 hover:scale-[1.01]"
+                    >
+                      <span>{slide.buttonText}</span>
+                      <span className="flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center rounded-full border border-black/70 text-black transition-transform duration-300 group-hover:rotate-45">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" className="w-3 h-3 sm:w-3.5 sm:h-3.5">
+                          <path d="M7 17L17 7M17 7H7M17 7V17" />
+                        </svg>
+                      </span>
+                    </button>
+                  </div>
+                )}
               </div>
             );
           })}

@@ -187,7 +187,7 @@ export default function InnovativeProductsSection() {
     <section
       id="products"
       ref={sectionRef}
-      className="relative z-10 w-full bg-[#08061E] py-24 sm:py-32 text-white overflow-hidden"
+      className="relative z-10 w-full bg-[#08061E] py-14 sm:py-20 lg:py-24 text-white overflow-hidden"
     >
       {/* Background radial ambient lights */}
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
@@ -197,7 +197,7 @@ export default function InnovativeProductsSection() {
       <div className="relative z-10 mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-16">
         
         {/* Centered Editorial Heading */}
-        <div ref={headingRef} className="text-center max-w-5xl mx-auto mb-16 sm:mb-20">
+        <div ref={headingRef} className="text-center max-w-5xl mx-auto mb-10 sm:mb-14">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[55px] font-normal tracking-[1px] text-white leading-tight lg:leading-[70px]">
             <span className="block whitespace-normal sm:whitespace-nowrap">
               Powering Businesses With
@@ -265,7 +265,7 @@ export default function InnovativeProductsSection() {
                   <CardTag
                     key={prod.id}
                     {...cardProps}
-                    className="group relative flex flex-col justify-between overflow-hidden rounded-[24px] aspect-[4/5] min-h-[480px] sm:min-h-[520px] p-7 sm:p-9 border border-white/10 shadow-2xl transition-all duration-300 hover:border-purple-500/50 cursor-pointer shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-22px)] block"
+                    className="group relative flex flex-col justify-between overflow-hidden rounded-none aspect-[4/5] min-h-[480px] sm:min-h-[520px] p-7 sm:p-9 border border-white/10 shadow-2xl transition-all duration-300 hover:border-purple-500/50 cursor-pointer shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-22px)] block"
                   >
                   {/* Background Image */}
                   <Image

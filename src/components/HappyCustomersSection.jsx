@@ -43,11 +43,11 @@ export default function HappyCustomersSection() {
 
   return (
     <section
-      className="relative z-10 w-full bg-white py-16 sm:py-24 lg:py-28 text-gray-900 overflow-hidden"
+      className="relative z-10 w-full bg-white py-12 sm:py-16 lg:py-20 text-gray-900 overflow-hidden"
     >
       <div className="mx-auto max-w-[1380px] px-6 sm:px-8 lg:px-14">
         {/* Heading sliding in from left with tint */}
-        <SlideIn from="left" distance={40} tint={true} className="mb-12 sm:mb-16 max-w-[890px]">
+        <SlideIn from="left" distance={40} tint={true} className="mb-8 sm:mb-12 max-w-[890px]">
           <h2 className="text-3xl sm:text-4xl lg:text-[54px] font-normal tracking-tight text-gray-950 leading-[1.12]">
             Trusted By{" "}
             <span className="text-[#8B5CF6] font-medium">25,000+</span>
