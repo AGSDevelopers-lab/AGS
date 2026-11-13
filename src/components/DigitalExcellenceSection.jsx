@@ -25,30 +25,28 @@ export function DigitalExcellence() {
 
       mm.add("(prefers-reduced-motion: no-preference)", () => {
         const isMobile = window.innerWidth < 768;
-        const dist = isMobile ? "20vw" : "60vw";
+        const dist = isMobile ? 15 : 30;
         gsap.set(lines, {
-          x: (_, el) => (el.dataset.from === "right" ? dist : `-${dist}`),
+          x: (_, el) => (el.dataset.from === "right" ? dist : -dist),
           autoAlpha: 0,
-          color: "#c9c9c9",
         });
 
         const st = ScrollTrigger.create({
           trigger: root.current,
-          start: "top 75%",
+          start: "top 80%",
           once: true,
           onEnter: () =>
             gsap.to(lines, {
               x: 0,
               autoAlpha: 1,
-              color: "#000",
-              duration: 1.6,
-              ease: "power3.out",
-              stagger: 0.12,
+              duration: 1.0,
+              ease: "power2.out",
+              stagger: 0.1,
             }),
         });
 
         if (st.progress > 0) {
-          gsap.set(lines, { x: 0, autoAlpha: 1, color: "#000" });
+          gsap.set(lines, { x: 0, autoAlpha: 1 });
         }
       });
 
@@ -60,46 +58,29 @@ export function DigitalExcellence() {
   return (
     <section
       ref={root}
-      className="relative flex items-center justify-center overflow-hidden bg-white pt-4 sm:pt-6 lg:pt-8 pb-4 sm:pb-6 lg:pb-8"
+      className="relative flex items-center justify-center overflow-hidden bg-white pt-8 sm:pt-12 lg:pt-14 pb-6 sm:pb-8 lg:pb-10"
     >
-      {/* High-Resolution AGS Logo Watermark (Retina 826x373 resolution) */}
-      <div
-        data-line
-        data-from="left"
-        className="pointer-events-none absolute left-[3vw] sm:left-[5vw] lg:left-[7vw] top-1/2 -translate-y-1/2 z-0 w-[14vw] sm:w-[15vw] lg:w-[16vw] max-w-[210px] min-w-[70px] aspect-[826/373] opacity-15 select-none"
-      >
-        <Image
-          src="/ags_logo_black.png"
-          alt="AGS"
-          fill
-          sizes="(max-width: 768px) 120px, 210px"
-          className="object-contain object-left"
-          priority
-        />
-      </div>
-
-      {/* Centered 3 Kinetic Typography Lines matching Picture 3 / Picture 3 - Copy */}
+      {/* Centered 3 Kinetic Typography Lines matching Picture 3 - Copy */}
       <div className="relative z-10 mx-auto flex flex-col items-center justify-center px-4 sm:px-6 md:px-8 max-w-full">
-        <div className="flex flex-col items-center text-center font-sans text-[8.5vw] sm:text-[9.5vw] lg:text-[130px] xl:text-[142px] font-normal leading-[1.07] lg:leading-[146px] tracking-[-0.32px] text-black">
+        <div className="flex flex-col items-center text-center font-sans text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-[84px] xl:text-[94px] font-normal leading-[1.12] tracking-[-0.02em] text-black">
           {/* Line 1: Digital + Pill Arrow */}
           <div
             data-line
             data-from="left"
-            className="flex items-center justify-center gap-[2vw]"
+            className="flex items-center justify-center gap-3 sm:gap-4 md:gap-5"
           >
             <span>Digital</span>
-            <span className="flex h-[5.5vw] sm:h-[5.8vw] w-[11.5vw] sm:w-[12vw] max-w-[135px] items-center justify-center rounded-full border border-[#8B5CF6]/80 shrink-0">
+            <span className="flex h-7 w-14 sm:h-9 sm:w-18 md:h-11 md:w-22 items-center justify-center rounded-full border border-[#8B5CF6]/80 shrink-0">
               <svg
-                className="h-[2.8vw] w-[2.8vw] max-h-[32px] max-w-[32px] text-[#8B5CF6]"
+                className="h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5 text-[#8B5CF6]"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="1.5"
+                strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               >
-                <line x1="7" y1="17" x2="17" y2="7" />
-                <polyline points="7 7 17 7 17 17" />
+                <path d="M7 17L17 7M17 7H7M17 7V17" />
               </svg>
             </span>
           </div>
@@ -108,14 +89,14 @@ export function DigitalExcellence() {
           <div
             data-line
             data-from="right"
-            className="flex items-center justify-center gap-[1.6vw]"
+            className="flex items-center justify-center gap-3 sm:gap-4 md:gap-5 mt-1 sm:mt-2"
           >
-            <div className="relative h-[7.2vw] sm:h-[7.5vw] w-[11.5vw] sm:w-[12vw] max-w-[135px] shrink-0 overflow-hidden rounded-full">
+            <div className="relative h-7 w-13 sm:h-9 sm:w-17 md:h-11 md:w-20 shrink-0 overflow-hidden rounded-full shadow-sm">
               <Image
                 src="/figma-exports/Markeo.png"
                 alt="Team members collaborating"
                 fill
-                sizes="(max-width: 768px) 70px, 180px"
+                sizes="(max-width: 768px) 70px, 120px"
                 className="object-cover object-center"
                 priority
               />
@@ -127,7 +108,7 @@ export function DigitalExcellence() {
           <div
             data-line
             data-from="left"
-            className="flex items-center justify-center"
+            className="flex items-center justify-center mt-1 sm:mt-2"
           >
             Delivered
           </div>
