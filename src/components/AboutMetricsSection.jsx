@@ -107,12 +107,12 @@ export default function AboutMetricsSection() {
       className="relative z-10 w-full bg-white pt-10 sm:pt-14 lg:pt-16 pb-10 sm:pb-14 lg:pb-16 text-gray-900 overflow-hidden"
     >
       <div className="mx-auto max-w-[1560px] 2xl:max-w-[1680px] px-6 sm:px-10 lg:px-16 2xl:px-20">
-        {/* Top 2-Column: Photo Left + Content Right - Height-Matched Alignment per Picture 2 */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 lg:items-center overflow-hidden">
-          {/* Left: Typing Laptop Image - Preserves natural aspect ratio to prevent squashing */}
+        {/* Top 2-Column: Photo Left + Content Right - Clean Aspect & Vertical Alignment per Picture 2 */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 lg:items-center">
+          {/* Left: Typing Laptop Image - Clean proportional height to prevent squashing */}
           <div
             ref={imageColRef}
-            className="lg:col-span-6 relative w-full aspect-[593/298] overflow-hidden rounded-none bg-gray-50 flex items-center shadow-sm"
+            className="lg:col-span-6 relative w-full h-[260px] xs:h-[300px] sm:h-[340px] md:h-[380px] lg:h-[400px] overflow-hidden rounded-none bg-gray-50 flex items-center shadow-sm"
           >
             <div className="relative w-full h-full overflow-hidden rounded-none">
               <Image
@@ -178,29 +178,24 @@ export default function AboutMetricsSection() {
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {metrics.map((metric) => (
               <div key={metric.label} className="flex flex-col">
-                {/* Number with Up Arrow - Light/Regular weight matching Picture 2 reference */}
-                <div className="flex items-start gap-2 sm:gap-2.5">
-                  <span className="text-xl sm:text-2xl font-light text-gray-400 mt-1 sm:mt-1.5 select-none">
-                    ↑
+                {/* Number: Thin, elegant, light font weight matching Picture 2 reference without bold weight */}
+                <div className="text-4xl sm:text-5xl lg:text-[62px] xl:text-[66px] font-light tracking-tight text-gray-950 leading-none">
+                  <span className="font-[300] font-light">{metric.targetNum}</span>
+                  <span className="text-[#545AFF] font-[300] font-light ml-0.5">
+                    {metric.suffix}
                   </span>
-                  <div className="text-4xl sm:text-5xl lg:text-[62px] xl:text-[66px] font-normal tracking-tight text-gray-950 leading-none">
-                    <span>{metric.targetNum}</span>
-                    <span className="text-[#545AFF] font-normal ml-0.5">
-                      {metric.suffix}
-                    </span>
-                  </div>
                 </div>
 
                 {/* Divider Line */}
                 <div className="mt-4 sm:mt-5 border-t border-gray-200 w-full" />
 
-                {/* Metric Label */}
-                <span className="mt-3.5 text-xs sm:text-sm font-semibold uppercase tracking-wider text-gray-900">
+                {/* Metric Label - font-medium rather than excessive font-semibold */}
+                <span className="mt-3.5 text-xs sm:text-sm font-medium uppercase tracking-wider text-gray-900">
                   {metric.label}
                 </span>
 
                 {/* Subtext description */}
-                <p className="mt-2 text-xs sm:text-sm text-gray-500 leading-[25.6px] max-w-[280px]">
+                <p className="mt-2 text-xs sm:text-sm text-gray-500 font-normal leading-[25.6px] max-w-[280px]">
                   {metric.description}
                 </p>
               </div>

@@ -105,93 +105,91 @@ export default function CertifiedExcellence() {
             </div>
           </SlideIn>
 
-          {/* Right Column: 3-Panel Coverflow Certificates Carousel */}
-          {/* Left peeking, Middle enlarged main focus, Right peeking */}
-          <SlideIn from="right" distance={25} className="relative overflow-visible lg:pt-1">
+          {/* Right Column: Sliding Certificates Track with Progress Indicator matching Picture 2 - Copy (2) */}
+          <SlideIn from="right" distance={25} className="relative w-full lg:pt-1">
             <div
-              className="relative w-full h-[280px] sm:h-[340px] md:h-[370px] lg:h-[390px] overflow-hidden sm:overflow-visible select-none"
+              className="relative w-full select-none"
               onMouseEnter={() => setIsPaused(true)}
               onMouseLeave={() => setIsPaused(false)}
               onTouchStart={handleTouchStart}
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
             >
-              {certificates.map((cert, index) => {
-                const N = certificates.length;
-                const diff = (index - activeIdx + N) % N;
+              {/* Carousel Track Viewport */}
+              <div className="overflow-hidden w-full pb-4 pt-1">
+                <div
+                  className="flex transition-transform duration-600 ease-[cubic-bezier(0.25,1,0.5,1)] will-change-transform gap-5 sm:gap-6"
+                  style={{
+                    transform: `translateX(-${activeIdx * 100}%)`,
+                  }}
+                >
+                  {certificates.map((cert, index) => {
+                    const isActive = index === activeIdx;
+                    return (
+                      <div
+                        key={cert.id}
+                        onClick={() => setActiveIdx((index + 1) % certificates.length)}
+                        title={cert.alt}
+                        className={`w-full shrink-0 aspect-[482/328] rounded-[2px] overflow-hidden bg-white border transition-all duration-500 cursor-pointer ${
+                          isActive
+                            ? "border-[#567EFF]/50 shadow-[10px_12px_24px_-4px_rgba(71,85,105,0.22)] scale-[1.0]"
+                            : "border-gray-200 shadow-md opacity-75 hover:opacity-100 scale-[0.98]"
+                        }`}
+                      >
+                        <div className="relative w-full h-full p-2 bg-white">
+                          <Image
+                            src={cert.image}
+                            alt={cert.alt}
+                            fill
+                            sizes="(max-width: 1024px) 90vw, 640px"
+                            className="object-contain object-center"
+                            priority={index === 0}
+                          />
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
 
-                const isCenter = diff === 0;
-                const isRight = diff === 1;
-                const isLeft = diff === N - 1;
-
-                let transformStyle = "translateX(-50%) scale(0.6)";
-                let opacityStyle = "opacity-0 pointer-events-none z-0";
-                let shadowClass = "shadow-[8px_10px_0px_0px_#475569]";
-
-                if (isCenter) {
-                  transformStyle = "translateX(-50%) scale(1.0)";
-                  opacityStyle = "opacity-100 z-20 pointer-events-auto cursor-pointer";
-                  shadowClass = "shadow-[12px_14px_0px_0px_#475569] sm:shadow-[14px_16px_0px_0px_#475569]";
-                } else if (isRight) {
-                  transformStyle = "translateX(calc(-50% + 52%)) scale(0.74)";
-                  opacityStyle = "opacity-75 hover:opacity-100 z-10 pointer-events-auto cursor-pointer";
-                  shadowClass = "shadow-[8px_10px_0px_0px_#64748b]";
-                } else if (isLeft) {
-                  transformStyle = "translateX(calc(-50% - 52%)) scale(0.74)";
-                  opacityStyle = "opacity-75 hover:opacity-100 z-10 pointer-events-auto cursor-pointer";
-                  shadowClass = "shadow-[8px_10px_0px_0px_#64748b]";
-                }
-
-                return (
+              {/* Bottom Progress Bar & Navigation Controls matching Picture 2 - Copy (2) */}
+              <div className="mt-5 flex items-center justify-between gap-6">
+                {/* Horizontal Progress Slider Bar */}
+                <div className="relative flex-1 h-[3px] bg-gray-200 rounded-full overflow-hidden">
                   <div
-                    key={cert.id}
-                    onClick={() => {
-                      if (isRight) nextCert();
-                      if (isLeft) prevCert();
-                      if (isCenter) nextCert();
-                    }}
-                    title={cert.alt}
-                    className={`absolute top-0 left-1/2 w-[72vw] sm:w-[380px] md:w-[420px] lg:w-[440px] aspect-[482/328] rounded-[2px] overflow-hidden bg-white border border-gray-200 transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] ${shadowClass} ${opacityStyle}`}
+                    className="absolute top-0 bottom-0 left-0 bg-[#567EFF] rounded-full transition-all duration-500 ease-out"
                     style={{
-                      transform: transformStyle,
-                      transformOrigin: "center center",
+                      width: `${100 / certificates.length}%`,
+                      transform: `translateX(${activeIdx * 100}%)`,
                     }}
+                  />
+                </div>
+
+                {/* Left & Right Arrow Buttons */}
+                <div className="flex items-center gap-2 shrink-0">
+                  <button
+                    type="button"
+                    onClick={prevCert}
+                    aria-label="Previous certificate"
+                    className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-white text-gray-800 shadow-sm border border-gray-200 transition-all duration-300 hover:border-gray-400 hover:scale-105 active:scale-95 cursor-pointer"
                   >
-                    <Image
-                      src={cert.image}
-                      alt={cert.alt}
-                      fill
-                      sizes="(max-width: 1024px) 72vw, 440px"
-                      className="object-contain bg-white"
-                      priority={index < 2}
-                    />
-                  </div>
-                );
-              })}
+                    <svg className="w-3.5 h-3.5 text-gray-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <path d="M15 19l-7-7 7-7" />
+                    </svg>
+                  </button>
 
-              {/* Navigation Left Arrow Button */}
-              <button
-                type="button"
-                onClick={prevCert}
-                aria-label="Previous certificate"
-                className="absolute left-1 sm:left-2 top-1/2 -translate-y-1/2 z-30 flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-white/95 text-gray-800 shadow-lg border border-gray-200/90 transition-all duration-300 hover:scale-105 active:scale-95"
-              >
-                <svg className="w-4 h-4 text-gray-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
-                  <path d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
-
-              {/* Navigation Right Arrow Button */}
-              <button
-                type="button"
-                onClick={nextCert}
-                aria-label="Next certificate"
-                className="absolute right-1 sm:right-2 top-1/2 -translate-y-1/2 z-30 flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-white/95 text-gray-800 shadow-lg border border-gray-200/90 transition-all duration-300 hover:scale-105 active:scale-95"
-              >
-                <svg className="w-4 h-4 text-gray-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
-                  <path d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
+                  <button
+                    type="button"
+                    onClick={nextCert}
+                    aria-label="Next certificate"
+                    className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-white text-gray-800 shadow-sm border border-gray-200 transition-all duration-300 hover:border-gray-400 hover:scale-105 active:scale-95 cursor-pointer"
+                  >
+                    <svg className="w-3.5 h-3.5 text-gray-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <path d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
             </div>
           </SlideIn>
 

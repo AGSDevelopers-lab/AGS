@@ -213,7 +213,7 @@ export default function ProductsSection() {
   return (
     <section id="products" className="relative z-10 w-full overflow-hidden pb-12 pt-8 scroll-mt-20 sm:pb-20 sm:pt-12">
       <div className="relative w-full px-6 sm:px-8 lg:px-26">
-        <div className="relative mx-auto max-w-[1280px] overflow-hidden rounded-[28px] px-4 py-4 sm:px-6 sm:py-6 lg:px-8 lg:py-8">
+        <div className="relative mx-auto max-w-[1280px] overflow-hidden rounded-none px-4 py-4 sm:px-6 sm:py-6 lg:px-8 lg:py-8">
           {/* Header */}
           <div className="relative flex flex-col gap-5 pb-4 sm:gap-6 sm:pb-6 md:flex-row md:items-start md:justify-between">
             <div className="max-w-[720px]">

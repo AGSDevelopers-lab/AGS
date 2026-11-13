@@ -60,37 +60,37 @@ export function DigitalExcellence() {
   return (
     <section
       ref={root}
-      className="relative flex items-center justify-center overflow-hidden bg-white pt-6 sm:pt-10 lg:pt-12 pb-6 sm:pb-8 lg:pb-10"
+      className="relative flex items-center justify-center overflow-hidden bg-white pt-4 sm:pt-6 lg:pt-8 pb-4 sm:pb-6 lg:pb-8"
     >
-      {/* Absolute AGS Monogram Outline Logo Watermark (Left side, does not offset centered text) */}
+      {/* High-Resolution AGS Logo Watermark (Retina 826x373 resolution) */}
       <div
         data-line
         data-from="left"
-        className="pointer-events-none absolute left-[3vw] sm:left-[5vw] lg:left-[8vw] top-1/2 -translate-y-1/2 z-0 w-[12vw] sm:w-[12.5vw] lg:w-[13vw] max-w-[190px] min-w-[55px] aspect-[140/409] opacity-20 select-none"
+        className="pointer-events-none absolute left-[3vw] sm:left-[5vw] lg:left-[7vw] top-1/2 -translate-y-1/2 z-0 w-[14vw] sm:w-[15vw] lg:w-[16vw] max-w-[210px] min-w-[70px] aspect-[826/373] opacity-15 select-none"
       >
         <Image
-          src="/ags-monogram-tight.png"
-          alt="AGS Monogram"
+          src="/ags_logo_black.png"
+          alt="AGS"
           fill
-          sizes="(max-width: 768px) 80px, 190px"
-          className="object-contain"
+          sizes="(max-width: 768px) 120px, 210px"
+          className="object-contain object-left"
           priority
         />
       </div>
 
-      {/* Centered 3 Kinetic Typography Lines matching Picture 3 reference */}
+      {/* Centered 3 Kinetic Typography Lines matching Picture 3 / Picture 3 - Copy */}
       <div className="relative z-10 mx-auto flex flex-col items-center justify-center px-4 sm:px-6 md:px-8 max-w-full">
-        <div className="flex flex-col items-start font-sans text-[8.5vw] sm:text-[9.5vw] lg:text-[135px] xl:text-[145px] font-normal leading-[1.07] lg:leading-[150px] tracking-[-0.32px] text-black">
+        <div className="flex flex-col items-center text-center font-sans text-[8.5vw] sm:text-[9.5vw] lg:text-[130px] xl:text-[142px] font-normal leading-[1.07] lg:leading-[146px] tracking-[-0.32px] text-black">
           {/* Line 1: Digital + Pill Arrow */}
           <div
             data-line
             data-from="left"
-            className="flex items-center gap-[2vw] pl-[9vw] sm:pl-[10vw]"
+            className="flex items-center justify-center gap-[2vw]"
           >
             <span>Digital</span>
-            <span className="flex h-[5.8vw] sm:h-[6vw] w-[12vw] sm:w-[12.5vw] max-w-[140px] items-center justify-center rounded-full border border-[#8B5CF6]/80 shrink-0">
+            <span className="flex h-[5.5vw] sm:h-[5.8vw] w-[11.5vw] sm:w-[12vw] max-w-[135px] items-center justify-center rounded-full border border-[#8B5CF6]/80 shrink-0">
               <svg
-                className="h-[3vw] w-[3vw] max-h-[34px] max-w-[34px] text-[#8B5CF6]"
+                className="h-[2.8vw] w-[2.8vw] max-h-[32px] max-w-[32px] text-[#8B5CF6]"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -104,13 +104,13 @@ export function DigitalExcellence() {
             </span>
           </div>
 
-          {/* Line 2: Team Image tucked into indent + Excellence */}
+          {/* Line 2: Team Image + Excellence */}
           <div
             data-line
             data-from="right"
-            className="flex items-center gap-[1.6vw]"
+            className="flex items-center justify-center gap-[1.6vw]"
           >
-            <div className="relative h-[7.6vw] sm:h-[7.8vw] w-[12vw] sm:w-[12.2vw] max-w-[140px] shrink-0 overflow-hidden rounded-full">
+            <div className="relative h-[7.2vw] sm:h-[7.5vw] w-[11.5vw] sm:w-[12vw] max-w-[135px] shrink-0 overflow-hidden rounded-full">
               <Image
                 src="/figma-exports/Markeo.png"
                 alt="Team members collaborating"
@@ -123,11 +123,11 @@ export function DigitalExcellence() {
             <span>Excellence</span>
           </div>
 
-          {/* Line 3: Delivered (indented flush with 'Digital') */}
+          {/* Line 3: Delivered (Centered directly below) */}
           <div
             data-line
             data-from="left"
-            className="pl-[9vw] sm:pl-[10vw]"
+            className="flex items-center justify-center"
           >
             Delivered
           </div>
@@ -206,6 +206,7 @@ export default function DigitalExcellenceSection() {
   const [incomingOpacity, setIncomingOpacity] = useState(1);
   const [outgoingOpacity, setOutgoingOpacity] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const sectionRef = useRef(null);
 
   const getService = (num) => services.find((s) => s.num === num) || services[0];
 
@@ -221,6 +222,47 @@ export default function DigitalExcellenceSection() {
       setIncomingOpacity(1);
     });
   };
+
+  // Scroll-driven animation: smoothly slides through the services as the user scrolls down
+  useGSAP(
+    () => {
+      if (!sectionRef.current) return;
+      const mm = gsap.matchMedia();
+
+      mm.add("(min-width: 768px)", () => {
+        ScrollTrigger.create({
+          trigger: sectionRef.current,
+          start: "top 70%",
+          end: "bottom 30%",
+          onUpdate: (self) => {
+            if (isPaused) return;
+            const progress = self.progress;
+            const idx = Math.min(
+              Math.floor(progress * services.length),
+              services.length - 1
+            );
+            const targetNum = services[idx].num;
+            setActiveNum((prev) => {
+              if (prev !== targetNum) {
+                setOutgoingNum(prev);
+                setOutgoingOpacity(1);
+                setIncomingOpacity(0);
+                requestAnimationFrame(() => {
+                  setOutgoingOpacity(0);
+                  setIncomingOpacity(1);
+                });
+                return targetNum;
+              }
+              return prev;
+            });
+          },
+        });
+      });
+
+      return () => mm.revert();
+    },
+    { scope: sectionRef, dependencies: [isPaused] }
+  );
 
   // Continuous auto-slide per design file (pauses on user interaction/hover)
   useEffect(() => {
@@ -260,9 +302,10 @@ export default function DigitalExcellenceSection() {
 
       {/* ── PART B: Interactive Editorial Services Section (Reduced whitespace & balanced alignment) ── */}
       <section
+        ref={sectionRef}
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
-        className="relative w-full bg-white pt-2 sm:pt-4 pb-12 sm:pb-16 lg:pb-20"
+        className="relative w-full bg-white pt-2 sm:pt-3 pb-10 sm:pb-14 lg:pb-16"
       >
         <div className="mx-auto max-w-[1560px] 2xl:max-w-[1680px] px-6 sm:px-10 lg:px-16 2xl:px-20">
           <div className="grid grid-cols-1 items-center gap-10 sm:gap-14 lg:grid-cols-12 lg:gap-16 xl:gap-20">
