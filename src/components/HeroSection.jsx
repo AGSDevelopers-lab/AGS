@@ -36,23 +36,39 @@ const heroSlides = [
   {
     id: 3,
     type: "vidlens",
-    hasLiveDot: true,
+    isProductHero: true,
     badge: "LAUNCHING SOON",
     bgImage: "/AGS Landing Page Images/VidLens Laptop on a Futuristic Gradient.png",
-    alt: "VidLens - YouTube Analytics and Optimization",
+    alt: "VidLens - Video Intelligence That Drives Results",
     title: "VidLens",
-    subtitle: "Is a comprehensive YouTube video analytics and optimization tool designed to help creators grow their channels and maximize views.",
+    subtitleLine1: "is almost here.",
+    descriptionLine1: "Paste any channel. See why videos win and grow.",
+    descriptionLine2: "Get early access when we launch.",
+    features: [
+      "Views & growth tracking",
+      "Competitor benchmarking",
+      "Keyword discovery",
+      "AI-powered insights",
+    ],
     isWaitlist: true,
   },
   {
     id: 4,
     type: "lynkbeats",
-    hasLiveDot: true,
+    isProductHero: true,
     badge: "LAUNCHING SOON",
     bgImage: "/AGS Landing Page Images/LynkBeats Tablet on Abstract Gradient.png",
     alt: "LynkBeats - Editorial Intelligence Platform",
     title: "LynkBeats",
-    subtitle: "Is a comprehensive editorial intelligence platform to track what readers are reading and engaging with your content.",
+    subtitleLine1: "is almost here.",
+    descriptionLine1: "Track story performance and editorial KPIs in real time.",
+    descriptionLine2: "Get early access when we launch.",
+    features: [
+      "Real-time story tracking",
+      "Editorial KPI benchmarking",
+      "Traffic source analysis",
+      "AI audience intelligence",
+    ],
     isWaitlist: true,
   },
   {
@@ -143,16 +159,24 @@ export default function HeroSection() {
               fill
               priority={index === 0}
               sizes="100vw"
-              className="object-cover object-center"
+              className={`object-cover ${
+                slide.isProductHero ? "object-right sm:object-center lg:object-right" : "object-center"
+              }`}
             />
-            {/* Left Scrim & Vignette for Perfect Figma Contrast */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 to-transparent" />
-            <div className="absolute inset-0 bg-black/15" />
+            {/* Scrim only for non-product slides (product slides already have rich gradient & dark left side per design) */}
+            {!slide.isProductHero ? (
+              <>
+                <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 to-transparent" />
+                <div className="absolute inset-0 bg-black/15" />
+              </>
+            ) : (
+              <div className="absolute inset-0 bg-gradient-to-r from-[#07051A]/85 via-[#07051A]/40 to-transparent sm:hidden" />
+            )}
           </div>
         );
       })}
 
-      {/* Foreground Content Container — Vertically centered matching design layout in Picture 1 */}
+      {/* Foreground Content Container — Vertically centered matching design layout */}
       <div className="relative z-20 mx-auto flex h-full max-w-[1680px] 2xl:max-w-[1780px] flex-col justify-center px-4 sm:px-12 lg:px-20 2xl:px-24 pt-20 sm:pt-24 lg:pt-28 pb-10 sm:pb-12">
         <div className="relative w-full max-w-[850px] lg:max-w-[940px] 2xl:max-w-[1020px] min-h-[340px] sm:min-h-[420px] lg:min-h-[460px] flex items-center">
           {heroSlides.map((slide, index) => {
@@ -167,14 +191,17 @@ export default function HeroSection() {
                     : "opacity-0 translate-y-[-46%] pointer-events-none z-0 invisible"
                 }`}
               >
-                {/* Compact Partnership Badge matching Figma / Launching Soon Pill */}
-                {slide.hasLiveDot ? (
+                {/* Badge: Yellow glowing dot + LAUNCHING SOON for products / slim box for partnership */}
+                {slide.isProductHero ? (
                   <div className="mb-4 sm:mb-6 w-fit self-start">
-                    <div className="inline-flex items-center gap-2 border border-white/30 bg-black/50 backdrop-blur-md px-3.5 py-1 sm:px-4 sm:py-1.5 text-[10px] sm:text-xs font-medium tracking-wider text-white uppercase rounded-full">
-                      <span className="relative flex h-2 w-2">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                        <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-                      </span>
+                    <div className="inline-flex items-center gap-2 border border-white/20 bg-black/40 backdrop-blur-md px-3.5 py-1.5 text-[11px] font-medium tracking-[0.1em] text-white uppercase rounded-[2px]">
+                      <span
+                        className="inline-block h-2.5 w-2.5 rounded-full"
+                        style={{
+                          backgroundColor: "#EED616",
+                          boxShadow: "0 0 10px #EED616",
+                        }}
+                      />
                       <span>{slide.badge}</span>
                     </div>
                   </div>
@@ -252,17 +279,20 @@ export default function HeroSection() {
                   </div>
                 )}
 
-                {/* PRODUCT SLIDES: VidLens & LynkBeats */}
-                {slide.isWaitlist && (
+                {/* PRODUCT SLIDES: VidLens & LynkBeats matching design exactly */}
+                {slide.isProductHero && (
                   <div>
-                    <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-normal tracking-tight text-white leading-none">
+                    <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[78px] xl:text-[84px] font-normal tracking-tight text-white leading-none">
                       {slide.title}
                     </h1>
+                    <p className="mt-2.5 sm:mt-3.5 text-2xl sm:text-3xl md:text-4xl lg:text-[44px] font-normal tracking-tight text-[#9B86EB] leading-tight">
+                      {slide.subtitleLine1}
+                    </p>
                   </div>
                 )}
 
                 {/* OTHER SLIDES: General Industry Headlines */}
-                {slide.type !== "aws" && slide.type !== "google" && !slide.isWaitlist && (
+                {slide.type !== "aws" && slide.type !== "google" && !slide.isProductHero && (
                   <div className="space-y-1 sm:space-y-1.5">
                     <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[60px] font-normal tracking-tight leading-[1.12]">
                       <span className="block text-[#9B86EB]">
@@ -275,20 +305,40 @@ export default function HeroSection() {
                   </div>
                 )}
 
-                {/* Subtitle */}
-                <p className="mt-4 sm:mt-5 text-sm sm:text-base lg:text-[17px] text-white/80 font-normal leading-relaxed max-w-[640px]">
-                  {slide.subtitle}
-                </p>
+                {/* Subtitle / Description */}
+                {slide.isProductHero ? (
+                  <div className="mt-4 sm:mt-5 text-sm sm:text-base lg:text-[17px] text-white/85 font-normal leading-relaxed max-w-[560px]">
+                    <p>{slide.descriptionLine1}</p>
+                    <p>{slide.descriptionLine2}</p>
+                  </div>
+                ) : (
+                  <p className="mt-4 sm:mt-5 text-sm sm:text-base lg:text-[17px] text-white/80 font-normal leading-relaxed max-w-[640px]">
+                    {slide.subtitle}
+                  </p>
+                )}
 
-                {/* CTA Form for Waitlist Products vs Standard Button */}
+                {/* 4 Feature Bullet Items for Product Slides */}
+                {slide.features && (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2.5 mt-5 sm:mt-6 text-xs sm:text-sm text-white/90 font-normal">
+                    {slide.features.map((feat) => (
+                      <div key={feat} className="flex items-center gap-2.5">
+                        <span className="text-[#9B86EB] font-light text-base select-none">|</span>
+                        <span>{feat}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {/* CTA Form: 2 Separate Boxes for Waitlist vs Standard Button */}
                 {slide.isWaitlist ? (
                   <form
                     onSubmit={(e) => {
                       e.preventDefault();
                       openForm({ email: emailInputs[slide.id] || "" });
                     }}
-                    className="mt-7 sm:mt-8 flex items-center max-w-[460px] w-full bg-black/40 backdrop-blur-md border border-white/30 rounded-[2px] p-1 sm:p-1.5 shadow-2xl transition-all focus-within:border-white/60"
+                    className="mt-7 sm:mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full max-w-[560px]"
                   >
+                    {/* Box 1: Email Input */}
                     <input
                       type="email"
                       placeholder="Your work email"
@@ -296,20 +346,22 @@ export default function HeroSection() {
                       onChange={(e) =>
                         setEmailInputs({ ...emailInputs, [slide.id]: e.target.value })
                       }
-                      className="bg-transparent text-white placeholder-white/50 text-xs sm:text-sm px-3.5 py-2 sm:py-2.5 outline-none flex-1 min-w-0 font-normal"
+                      className="w-full sm:w-[220px] md:w-[240px] bg-black/40 border border-white/30 px-4 py-3 text-sm text-white placeholder-white/50 outline-none rounded-[2px] transition-colors focus:border-white/70 font-normal"
                     />
+
+                    {/* Box 2: Button */}
                     <button
                       type="submit"
-                      className="group inline-flex items-center justify-center gap-2 bg-white px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-medium text-black rounded-[2px] transition-all duration-300 hover:bg-white/90 hover:scale-[1.01] shrink-0"
+                      className="group inline-flex items-center justify-center gap-3 bg-white px-5 sm:px-6 py-3 text-sm font-medium text-black rounded-[2px] transition-all duration-300 hover:bg-white/90 hover:scale-[1.01] shrink-0 cursor-pointer"
                     >
-                      <span>Notify me</span>
-                      <span className="flex h-4 w-4 items-center justify-center text-black transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                      <span>Notify me at launch</span>
+                      <span className="flex h-5 w-5 items-center justify-center rounded-full border border-black/80 text-black transition-transform duration-300 group-hover:rotate-45">
                         <svg
                           viewBox="0 0 24 24"
                           fill="none"
                           stroke="currentColor"
                           strokeWidth="2.5"
-                          className="w-3.5 h-3.5"
+                          className="w-3 h-3"
                         >
                           <path d="M7 17L17 7M17 7H7M17 7V17" />
                         </svg>

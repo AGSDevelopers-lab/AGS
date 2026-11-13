@@ -98,10 +98,15 @@ export default function Navbar() {
           {/* CTA Button */}
           <button
             type="button"
-            className="group hidden md:flex items-center justify-center border border-white/80 bg-transparent px-5 py-2 text-sm font-normal tracking-[0.02em] text-white rounded-[2px] transition-all duration-300 hover:border-white hover:bg-white hover:text-black"
+            className="group hidden md:flex items-center gap-2.5 border border-white/80 bg-transparent px-5 py-2 text-sm font-normal tracking-[0.02em] text-white rounded-[2px] transition-all duration-300 hover:border-white hover:bg-white hover:text-black"
             onClick={() => openForm()}
           >
             <span>Get Started</span>
+            <span className="flex h-4 w-4 items-center justify-center rounded-full border border-current text-[10px] transition-transform duration-300 group-hover:rotate-45">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-2.5 h-2.5">
+                <path d="M7 17L17 7M17 7H7M17 7V17" />
+              </svg>
+            </span>
           </button>
 
           {/* Mobile menu button */}
