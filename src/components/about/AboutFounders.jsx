@@ -8,10 +8,9 @@ const founders = [
     name: "Tushar De",
     role: "Co-Founder & CEO",
     bio: "Executes workflows on the ground, while driving the overall vision across the market.",
-    image: "/ags about page/Tushar de.png",
+    image: "/ags about page/tushar.png",
     linkedin: "https://www.linkedin.com/in/0xtd",
-    twitter: "https://x.com/",
-    email: "mailto:contact@amrutglobalsolutions.com",
+    email: "mailto:tushar.de@amrutglobalsolutions.com",
   },
   {
     name: "Sharmistha Chatterjee",
@@ -19,8 +18,7 @@ const founders = [
     bio: "Executes workflows on the ground, while scaling them across the company.",
     image: "/ags about page/Sharmistha chatterjee.png",
     linkedin: "https://www.linkedin.com/in/c-sharmistha/",
-    twitter: "https://x.com/",
-    email: "mailto:contact@amrutglobalsolutions.com",
+    email: "mailto:sharmistha@amrutglobalsolutions.com",
   },
 ];
 
@@ -93,7 +91,7 @@ export default function AboutFounders() {
                       {/* Social/Contact Icons */}
                       <div className="mt-4 flex items-center gap-3">
                         {/* Twitter/X */}
-                        <a
+                        {/* <a
                           href={founder.twitter}
                           target="_blank"
                           rel="noreferrer"
@@ -104,7 +102,7 @@ export default function AboutFounders() {
                           <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5">
                             <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                           </svg>
-                        </a>
+                        </a> */}
 
                         {/* LinkedIn */}
                         <a
