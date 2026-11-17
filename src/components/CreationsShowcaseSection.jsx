@@ -182,12 +182,12 @@ export default function CreationsShowcaseSection() {
     <section
       id="portfolio"
       ref={sectionRef}
-      className="relative z-10 w-full bg-white py-12 sm:py-16 lg:py-20 text-gray-900 border-t border-gray-100 overflow-hidden"
+      className="relative z-10 w-full bg-white py-8 sm:py-12 lg:py-14 text-gray-900 border-t border-gray-100 overflow-hidden"
     >
       <div className="mx-auto max-w-[1380px] px-6 sm:px-8 lg:px-14">
         
         {/* Header with 'Achieve Goals' highlighted in purple */}
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between mb-12 sm:mb-16 overflow-hidden">
+        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between mb-8 sm:mb-10 overflow-hidden">
           <div ref={headingTextRef}>
             <h2 className="text-3xl sm:text-4xl lg:text-[52px] font-normal tracking-tight text-gray-950 leading-[1.15]">
               Empowering Businesses To
@@ -200,12 +200,28 @@ export default function CreationsShowcaseSection() {
           <div ref={buttonRef} className="shrink-0">
             <Link
               href="/portfolio"
-              className="inline-flex items-stretch shadow-sm transition-all duration-300 hover:shadow-md group"
+              className="inline-flex items-stretch shadow-sm transition-all duration-300 hover:shadow-md group rounded-none whitespace-nowrap"
             >
-              <span className="flex items-center justify-center border border-[#8B5CF6]/50 bg-[#F5F6FF] px-5 py-3 text-[#545AFF] text-lg font-light group-hover:bg-[#545AFF] group-hover:text-white transition-colors duration-300">
-                →
+              <span className="flex items-center justify-center border border-[#8B5CF6]/50 bg-[#F5F6FF] px-5 sm:px-6 text-[#545AFF] group-hover:bg-[#545AFF] group-hover:text-white transition-colors duration-300 rounded-none shrink-0">
+                <svg
+                  width="15"
+                  height="12"
+                  viewBox="0 0 15 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-[15px] h-[12px] text-current transition-transform duration-300 group-hover:translate-x-0.5"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M1 6H13.5M13.5 6L8.5 1M13.5 6L8.5 11"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
               </span>
-              <span className="flex items-center justify-center bg-gradient-to-r from-[#4361EE] via-[#4F46E5] to-[#2E0854] px-6 sm:px-8 py-3 text-xs sm:text-[13px] font-semibold uppercase tracking-wider text-white hover:opacity-95 transition-all">
+              <span className="flex items-center justify-center bg-gradient-to-r from-[#4361EE] via-[#4F46E5] to-[#2E0854] px-6 sm:px-8 py-3 text-xs sm:text-[13px] font-semibold uppercase tracking-wider text-white hover:opacity-95 transition-all rounded-none">
                 VIEW ALL PROJECTS
               </span>
             </Link>
@@ -251,20 +267,20 @@ export default function CreationsShowcaseSection() {
                     if (isRight) nextSlide();
                     if (isLeft) prevSlide();
                   }}
-                  className={`absolute top-0 left-1/2 w-[76vw] sm:w-[620px] md:w-[720px] lg:w-[840px] rounded-xl overflow-hidden shadow-2xl border border-gray-200/90 bg-white transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] flex flex-col ${opacityStyle}`}
+                  className={`absolute top-0 left-1/2 w-[76vw] sm:w-[620px] md:w-[720px] lg:w-[840px] rounded-none overflow-hidden shadow-2xl border border-gray-200/90 bg-white transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] flex flex-col ${opacityStyle}`}
                   style={{
                     transform: transformStyle,
                     transformOrigin: "center center",
                   }}
                 >
                   {/* Website Screenshot — Exact 16:9 ratio matching 1920x1080 canvas */}
-                  <div className="relative w-full aspect-[16/9] overflow-hidden bg-gray-50">
+                  <div className="relative w-full aspect-[16/9] overflow-hidden bg-gray-50 rounded-none">
                     <Image
                       src={slide.image}
                       alt={slide.alt}
                       fill
                       sizes="(max-width: 1024px) 76vw, 840px"
-                      className="object-cover object-top"
+                      className="object-cover object-top rounded-none"
                       priority={idx < 2}
                     />
 
@@ -302,24 +318,24 @@ export default function CreationsShowcaseSection() {
               );
             })}
 
-            {/* Left Circular Navigation Button matching Picture 5 */}
+            {/* Left Navigation Button matching Picture 5 */}
             <button
               type="button"
               onClick={prevSlide}
               aria-label="Previous client website"
-              className="absolute left-2 sm:left-4 md:left-8 lg:left-12 top-1/2 -translate-y-1/2 z-30 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-white text-gray-800 shadow-xl border border-gray-200/80 transition-all duration-300 hover:scale-105 active:scale-95"
+              className="absolute left-2 sm:left-4 md:left-8 lg:left-12 top-1/2 -translate-y-1/2 z-30 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-none bg-white text-gray-800 shadow-xl border border-gray-200/80 transition-all duration-300 hover:scale-105 active:scale-95"
             >
               <svg className="w-5 h-5 text-gray-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
                 <path d="M15 19l-7-7 7-7" />
               </svg>
             </button>
 
-            {/* Right Circular Navigation Button matching Picture 5 */}
+            {/* Right Navigation Button matching Picture 5 */}
             <button
               type="button"
               onClick={nextSlide}
               aria-label="Next client website"
-              className="absolute right-2 sm:right-4 md:right-8 lg:right-12 top-1/2 -translate-y-1/2 z-30 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-white text-gray-800 shadow-xl border border-gray-200/80 transition-all duration-300 hover:scale-105 active:scale-95"
+              className="absolute right-2 sm:right-4 md:right-8 lg:right-12 top-1/2 -translate-y-1/2 z-30 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-none bg-white text-gray-800 shadow-xl border border-gray-200/80 transition-all duration-300 hover:scale-105 active:scale-95"
             >
               <svg className="w-5 h-5 text-gray-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
                 <path d="M9 5l7 7-7 7" />
@@ -334,10 +350,10 @@ export default function CreationsShowcaseSection() {
                 key={p.id}
                 onClick={() => setActiveSlide(idx)}
                 aria-label={`Jump to ${p.title}`}
-                className={`transition-all duration-300 rounded-full ${
+                className={`transition-all duration-300 rounded-none ${
                   idx === activeSlide
-                    ? "w-8 h-2.5 bg-[#8B5CF6]"
-                    : "w-2.5 h-2.5 bg-gray-300 hover:bg-gray-400"
+                    ? "w-8 h-1.5 bg-[#8B5CF6]"
+                    : "w-2.5 h-1.5 bg-gray-300 hover:bg-gray-400"
                 }`}
               />
             ))}

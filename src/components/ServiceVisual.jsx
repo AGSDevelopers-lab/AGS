@@ -14,7 +14,7 @@ export default function ServiceVisual({ variant = "web", label }) {
 
   return (
     <div
-      className="service-visual-root group relative aspect-[4/3] w-full overflow-hidden rounded-lg border border-white/10 bg-[#06060f] transition duration-500 hover:border-[#9795FF]/35 hover:shadow-[0_0_48px_-12px_rgba(151,149,255,0.45)]"
+      className="service-visual-root group relative aspect-[4/3] w-full overflow-hidden rounded-none border border-white/10 bg-[#06060f] transition duration-500 hover:border-[#9795FF]/35 hover:shadow-[0_0_48px_-12px_rgba(151,149,255,0.45)]"
       aria-hidden={label ? undefined : true}
       role={label ? "img" : undefined}
       aria-label={label}
@@ -55,8 +55,8 @@ function WebVisual() {
   return (
     <div className="absolute inset-0 flex items-center justify-center p-8 sm:p-10">
       <div className="service-visual-float relative w-[80%] max-w-[340px]">
-        <div className="absolute -inset-4 rounded-2xl bg-[#9795FF]/10 blur-2xl" />
-        <div className="relative overflow-hidden rounded-xl border border-white/15 bg-white/[0.05] shadow-[0_0_80px_rgba(151,149,255,0.2)] backdrop-blur-md">
+        <div className="absolute -inset-4 rounded-none bg-[#9795FF]/10 blur-2xl" />
+        <div className="relative overflow-hidden rounded-none border border-white/15 bg-white/[0.05] shadow-[0_0_80px_rgba(151,149,255,0.2)] backdrop-blur-md">
           <div className="flex items-center gap-1.5 border-b border-white/10 px-4 py-3">
             <span className="h-2 w-2 rounded-full bg-[#9795FF]" />
             <span className="h-2 w-2 rounded-full bg-white/25" />
@@ -70,7 +70,7 @@ function WebVisual() {
               <span className="service-visual-cursor h-3 w-0.5 bg-[#9795FF]" />
             </div>
             <div
-              className="service-visual-shimmer relative h-24 overflow-hidden rounded-lg border border-white/10 bg-gradient-to-br from-[#9795FF]/30 via-[#9795FF]/10 to-transparent"
+              className="service-visual-shimmer relative h-24 overflow-hidden rounded-none border border-white/10 bg-gradient-to-br from-[#9795FF]/30 via-[#9795FF]/10 to-transparent"
               style={{ animationDelay: "0.3s" }}
             >
               <div className="service-visual-shine absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
@@ -79,7 +79,7 @@ function WebVisual() {
               {[0, 1, 2].map((i) => (
                 <div
                   key={i}
-                  className="service-visual-pulse h-9 rounded-md bg-white/10"
+                  className="service-visual-pulse h-9 rounded-none bg-white/10"
                   style={{ animationDelay: `${i * 0.35}s` }}
                 />
               ))}
@@ -91,7 +91,7 @@ function WebVisual() {
           </div>
         </div>
         <div className="service-visual-orbit absolute -right-5 -top-5 h-16 w-16 rounded-full border border-[#9795FF]/40 bg-[#9795FF]/15 shadow-[0_0_20px_rgba(151,149,255,0.3)]" />
-        <div className="service-visual-orbit-reverse absolute -bottom-4 -left-4 h-11 w-11 rounded-lg border border-white/20 bg-white/8" />
+        <div className="service-visual-orbit-reverse absolute -bottom-4 -left-4 h-11 w-11 rounded-none border border-white/20 bg-white/8" />
       </div>
       <svg className="absolute inset-0 h-full w-full" viewBox="0 0 400 300" fill="none">
         <path className="service-visual-dash" d="M30 230 Q130 110 210 150 T370 70" stroke="#9795FF" strokeWidth="1" strokeOpacity="0.45" />
@@ -109,7 +109,7 @@ function DesignVisual({ variant }) {
         {[0, 1, 2].map((layer) => (
           <div
             key={layer}
-            className="service-visual-float absolute inset-0 rounded-2xl border border-white/14 bg-white/[0.04] backdrop-blur-sm"
+            className="service-visual-float absolute inset-0 rounded-none border border-white/14 bg-white/[0.04] backdrop-blur-sm"
             style={{
               transform: `translate(${layer * 16}px, ${layer * -14}px)`,
               animationDelay: `${layer * 0.55}s`,
@@ -127,7 +127,7 @@ function DesignVisual({ variant }) {
                   />
                 ))}
               </div>
-              <div className="h-14 rounded-lg border border-dashed border-white/18 bg-white/[0.02]" />
+              <div className="h-14 rounded-none border border-dashed border-white/18 bg-white/[0.02]" />
               <div className="flex gap-2">
                 <div className="h-9 w-9 rounded-full border border-white/25" />
                 <div className="flex-1 space-y-2 pt-1">
@@ -206,9 +206,9 @@ function DigitalVisual({ variant }) {
           <circle key={i} cx={node.x} cy={node.y} r={node.r} fill="#9795FF" fillOpacity={i === 0 ? 0.85 : 0.5} className="service-visual-pulse" style={{ animationDelay: `${i * 0.2}s` }} />
         ))}
       </svg>
-      <div className="service-visual-shimmer absolute bottom-[16%] right-[14%] flex h-9 w-28 items-center gap-2 rounded-md border border-white/12 bg-white/[0.06] px-2">
+      <div className="service-visual-shimmer absolute bottom-[16%] right-[14%] flex h-9 w-28 items-center gap-2 rounded-none border border-white/12 bg-white/[0.06] px-2">
         <div className="h-1.5 flex-1 rounded-full bg-[#9795FF]/40" />
-        <div className="h-4 w-4 rounded bg-white/10" />
+        <div className="h-4 w-4 rounded-none bg-white/10" />
       </div>
     </div>
   );
@@ -218,17 +218,17 @@ function MobileVisual() {
   return (
     <div className="absolute inset-0 flex items-center justify-center p-8">
       <div className="service-visual-float relative">
-        <div className="absolute -inset-6 rounded-[40px] bg-[#9795FF]/15 blur-3xl" />
-        <div className="absolute left-1/2 top-1/2 h-[260px] w-[130px] -translate-x-1/2 -translate-y-1/2 rounded-[32px] border border-white/8 bg-white/[0.02] rotate-6 scale-95 opacity-40" />
-        <div className="relative h-[250px] w-[124px] rounded-[30px] border-2 border-white/25 bg-gradient-to-b from-white/10 to-white/[0.02] p-2 shadow-[0_0_60px_rgba(151,149,255,0.25)]">
+        <div className="absolute -inset-6 rounded-none bg-[#9795FF]/15 blur-3xl" />
+        <div className="absolute left-1/2 top-1/2 h-[260px] w-[130px] -translate-x-1/2 -translate-y-1/2 rounded-none border border-white/8 bg-white/[0.02] rotate-6 scale-95 opacity-40" />
+        <div className="relative h-[250px] w-[124px] rounded-none border-2 border-white/25 bg-gradient-to-b from-white/10 to-white/[0.02] p-2 shadow-[0_0_60px_rgba(151,149,255,0.25)]">
           <div className="absolute left-1/2 top-3 h-1.5 w-11 -translate-x-1/2 rounded-full bg-white/25" />
           <div className="service-visual-pulse absolute -right-1 top-8 h-3 w-3 rounded-full border-2 border-[#06060f] bg-[#9795FF]" style={{ animationDuration: "1.5s" }} />
-          <div className="mt-7 space-y-2.5 rounded-[22px] bg-[#0a0a16] p-3.5">
+          <div className="mt-7 space-y-2.5 rounded-none bg-[#0a0a16] p-3.5">
             <div className="service-visual-shimmer h-2 w-14 rounded-full bg-[#9795FF]/55" />
-            <div className="service-visual-pulse h-16 rounded-xl bg-gradient-to-br from-[#9795FF]/25 to-[#BE9FFF]/10 border border-white/10" />
+            <div className="service-visual-pulse h-16 rounded-none bg-gradient-to-br from-[#9795FF]/25 to-[#BE9FFF]/10 border border-white/10" />
             <div className="grid grid-cols-2 gap-2">
               {[0, 1, 2, 3].map((i) => (
-                <div key={i} className="h-7 rounded-lg bg-white/10" style={{ opacity: 0.5 + (i % 2) * 0.2 }} />
+                <div key={i} className="h-7 rounded-none bg-white/10" style={{ opacity: 0.5 + (i % 2) * 0.2 }} />
               ))}
             </div>
             <div className="mx-auto h-1 w-10 rounded-full bg-white/20" />
@@ -348,11 +348,11 @@ function SecurityVisual({ variant }) {
             </g>
           ))}
         </svg>
-        <div className="service-visual-shimmer absolute -right-2 top-6 flex items-center gap-2 rounded-md border border-white/12 bg-white/[0.06] px-2.5 py-1.5">
+        <div className="service-visual-shimmer absolute -right-2 top-6 flex items-center gap-2 rounded-none border border-white/12 bg-white/[0.06] px-2.5 py-1.5">
           <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 service-visual-pulse" />
           <span className="font-mono text-[0.55rem] text-white/50">SECURE</span>
         </div>
-        <div className="service-visual-shimmer absolute -left-1 bottom-8 rounded-md border border-white/10 bg-white/[0.04] px-2 py-1 font-mono text-[0.5rem] text-[#9795FF]/80" style={{ animationDelay: "0.5s" }}>
+        <div className="service-visual-shimmer absolute -left-1 bottom-8 rounded-none border border-white/10 bg-white/[0.04] px-2 py-1 font-mono text-[0.5rem] text-[#9795FF]/80" style={{ animationDelay: "0.5s" }}>
           VAPT SCAN
         </div>
       </div>

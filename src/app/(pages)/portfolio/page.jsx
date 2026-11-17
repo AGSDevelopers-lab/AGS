@@ -102,17 +102,20 @@ function HeroCTA() {
     <button
       type="button"
       onClick={() => openForm()}
-      className="group inline-flex items-center gap-3 bg-white px-7 py-3.5 text-[15px] font-medium text-[#111111] shadow-xl transition-all duration-300 hover:bg-white/95 hover:scale-[1.02] cursor-pointer"
+      className="group inline-flex items-center gap-3.5 bg-white px-7 py-3.5 text-[15px] font-medium text-[#111111] shadow-xl transition-all duration-300 hover:bg-white/95 hover:scale-[1.02] cursor-pointer rounded-none"
     >
       <span>Get Started</span>
-      <Image
-        src="/portfolio/uil_arrow-up.png"
-        alt=""
-        width={22}
-        height={22}
-        className="w-5 h-5 object-contain transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-        aria-hidden="true"
-      />
+      <span className="flex h-5 w-5 sm:h-5.5 sm:w-5.5 items-center justify-center shrink-0 rounded-full border border-black/80 text-black transition-transform duration-300 group-hover:rotate-45">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.2"
+          className="w-3 h-3 sm:w-3.5 sm:h-3.5"
+        >
+          <path d="M7 17L17 7M17 7H7M17 7V17" />
+        </svg>
+      </span>
     </button>
   );
 }
@@ -236,29 +239,23 @@ export default function PortfolioPage() {
           {/* Bottom gradient fade into page */}
           <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black to-transparent pointer-events-none" />
 
-          {/* Heading with exact specs:
-              background: linear-gradient(91.16deg, #9795FF 1.74%, #FFFFFF 43.71%, #FFFFFF 61.62%, #BE9FFF 102.48%);
-              font-family: DM Sans;
-              font-weight: 400;
-              font-size: 68px;
-              line-height: 75px;
-              letter-spacing: 0%;
-              text-align: center;
-              max-width: 794px;
-          */}
-          <h1
-            className={`${dmSans.className} relative z-10 text-[32px] xs:text-[42px] sm:text-[54px] md:text-[68px] leading-[1.12] md:leading-[75px] font-normal tracking-[0%] text-center max-w-[794px] mx-auto bg-[linear-gradient(91.16deg,#9795FF_1.74%,#FFFFFF_43.71%,#FFFFFF_61.62%,#BE9FFF_102.48%)] bg-clip-text text-transparent`}
-          >
-            Our Portfolio
-          </h1>
+          {/* Centered Hero Content Container */}
+          <div className="relative z-10 w-full max-w-[820px] mx-auto px-4 flex flex-col items-center justify-center text-center">
+            {/* Heading with exact specs */}
+            <h1
+              className={`${dmSans.className} text-[32px] xs:text-[42px] sm:text-[54px] md:text-[68px] leading-[1.12] md:leading-[75px] font-normal tracking-[0%] text-center max-w-[794px] mx-auto bg-[linear-gradient(91.16deg,#9795FF_1.74%,#FFFFFF_43.71%,#FFFFFF_61.62%,#BE9FFF_102.48%)] bg-clip-text text-transparent`}
+            >
+              Our Portfolio
+            </h1>
 
-          {/* Subtitle from media_1793779932734_0d082a03.jpg */}
-          <p className="relative z-10 mx-auto mt-5 max-w-[794px] text-[15px] sm:text-[17px] md:text-[18px] leading-relaxed text-white/85 font-light">
-            A diverse portfolio of digital solutions — websites, applications, and brands we&apos;ve crafted for our clients across industries.
-          </p>
+            {/* Subtitle centered */}
+            <p className="mt-5 max-w-[680px] text-[15px] sm:text-[17px] md:text-[18px] leading-relaxed text-white/85 font-light text-center mx-auto">
+              A diverse portfolio of digital solutions — websites, applications, and brands we&apos;ve crafted for our clients across industries.
+            </p>
 
-          <div className="relative z-10 mt-8 sm:mt-10">
-            <HeroCTA />
+            <div className="mt-8 sm:mt-10 flex justify-center items-center w-full text-center">
+              <HeroCTA />
+            </div>
           </div>
         </section>
       </div>
@@ -448,7 +445,7 @@ export default function PortfolioPage() {
                   type="button"
                   onClick={() => openForm()}
                   aria-label="Start your project with AGS"
-                  className="w-[160px] h-[160px] sm:w-[200px] sm:h-[200px] max-w-[200px] rounded-full bg-gradient-to-br from-[#7A3BFF] to-[#480090] text-white flex items-center justify-center shadow-2xl hover:scale-105 hover:shadow-purple-500/25 transition-all duration-300 group cursor-pointer"
+                  className="w-[160px] h-[160px] sm:w-[200px] sm:h-[200px] max-w-[200px] rounded-none bg-gradient-to-br from-[#7A3BFF] to-[#480090] text-white flex items-center justify-center shadow-2xl hover:scale-105 hover:shadow-purple-500/25 transition-all duration-300 group cursor-pointer"
                 >
                   <Image
                     src="/portfolio/link image.png"

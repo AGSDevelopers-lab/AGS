@@ -163,14 +163,21 @@ export default function HeroSection() {
                 slide.isProductHero ? "object-right sm:object-center lg:object-right" : "object-center"
               }`}
             />
-            {/* Scrim only for non-product slides (product slides already have rich gradient & dark left side per design) */}
+            {/* Scrim: Product slides get dedicated mobile scrim to guarantee high contrast over bright laptop/tablet screen */}
             {!slide.isProductHero ? (
               <>
                 <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 to-transparent" />
                 <div className="absolute inset-0 bg-black/15" />
               </>
             ) : (
-              <div className="absolute inset-0 bg-gradient-to-r from-[#07051A]/85 via-[#07051A]/40 to-transparent sm:hidden" />
+              <>
+                {/* Mobile: Full-coverage dark scrim + vertical gradient so bright screen elements never clash with text */}
+                <div className="absolute inset-0 bg-[#07051A]/70 sm:hidden" />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#07051A]/85 via-transparent to-[#07051A]/90 sm:hidden" />
+
+                {/* Desktop: Gentle left-to-right gradient so laptop/tablet stays vibrant on the right side */}
+                <div className="hidden sm:block absolute inset-0 bg-gradient-to-r from-[#07051A]/90 via-[#07051A]/40 to-transparent" />
+              </>
             )}
           </div>
         );
@@ -194,7 +201,7 @@ export default function HeroSection() {
                 {/* Badge: Yellow glowing dot + LAUNCHING SOON for products / slim box for partnership */}
                 {slide.isProductHero ? (
                   <div className="mb-4 sm:mb-6 w-fit self-start">
-                    <div className="inline-flex items-center gap-2 border border-white/20 bg-black/40 backdrop-blur-md px-3.5 py-1.5 text-[11px] font-medium tracking-[0.1em] text-white uppercase rounded-[2px]">
+                    <div className="inline-flex items-center gap-2 border border-white/20 bg-black/40 backdrop-blur-md px-3.5 py-1.5 text-[11px] font-medium tracking-[0.1em] text-white uppercase rounded-none">
                       <span
                         className="inline-block h-2.5 w-2.5 rounded-full"
                         style={{
@@ -207,7 +214,7 @@ export default function HeroSection() {
                   </div>
                 ) : slide.badge ? (
                   <div className="mb-4 sm:mb-6 w-fit self-start">
-                    <div className="border border-white/40 bg-black/40 backdrop-blur-sm px-3.5 py-1 sm:px-4 sm:py-1.5 text-[11px] sm:text-xs font-normal tracking-wide text-white/90 rounded-[2px]">
+                    <div className="border border-white/40 bg-black/40 backdrop-blur-sm px-3.5 py-1 sm:px-4 sm:py-1.5 text-[11px] sm:text-xs font-normal tracking-wide text-white/90 rounded-none">
                       {slide.badge}
                     </div>
                   </div>
@@ -282,10 +289,10 @@ export default function HeroSection() {
                 {/* PRODUCT SLIDES: VidLens & LynkBeats matching design exactly */}
                 {slide.isProductHero && (
                   <div>
-                    <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[78px] xl:text-[84px] font-normal tracking-tight text-white leading-none">
+                    <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[78px] xl:text-[84px] font-normal tracking-tight text-white leading-none drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">
                       {slide.title}
                     </h1>
-                    <p className="mt-2.5 sm:mt-3.5 text-2xl sm:text-3xl md:text-4xl lg:text-[44px] font-normal tracking-tight text-[#9B86EB] leading-tight">
+                    <p className="mt-2.5 sm:mt-3.5 text-2xl sm:text-3xl md:text-4xl lg:text-[44px] font-normal tracking-tight text-[#C4B5FD] sm:text-[#9B86EB] leading-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.85)]">
                       {slide.subtitleLine1}
                     </p>
                   </div>
@@ -307,7 +314,7 @@ export default function HeroSection() {
 
                 {/* Subtitle / Description */}
                 {slide.isProductHero ? (
-                  <div className="mt-4 sm:mt-5 text-sm sm:text-base lg:text-[17px] text-white/85 font-normal leading-relaxed max-w-[560px]">
+                  <div className="mt-4 sm:mt-5 text-sm sm:text-base lg:text-[17px] text-white/95 sm:text-white/85 font-normal leading-relaxed max-w-[560px] drop-shadow-[0_1px_8px_rgba(0,0,0,0.9)]">
                     <p>{slide.descriptionLine1}</p>
                     <p>{slide.descriptionLine2}</p>
                   </div>
@@ -319,10 +326,10 @@ export default function HeroSection() {
 
                 {/* 4 Feature Bullet Items for Product Slides */}
                 {slide.features && (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2.5 mt-5 sm:mt-6 text-xs sm:text-sm text-white/90 font-normal">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2.5 mt-5 sm:mt-6 text-xs sm:text-sm text-white font-medium drop-shadow-[0_1px_6px_rgba(0,0,0,0.9)]">
                     {slide.features.map((feat) => (
                       <div key={feat} className="flex items-center gap-2.5">
-                        <span className="text-[#9B86EB] font-light text-base select-none">|</span>
+                        <span className="text-[#C4B5FD] sm:text-[#9B86EB] font-bold text-base select-none">|</span>
                         <span>{feat}</span>
                       </div>
                     ))}
@@ -346,16 +353,16 @@ export default function HeroSection() {
                       onChange={(e) =>
                         setEmailInputs({ ...emailInputs, [slide.id]: e.target.value })
                       }
-                      className="w-full sm:w-[220px] md:w-[240px] bg-black/40 border border-white/30 px-4 py-3 text-sm text-white placeholder-white/50 outline-none rounded-[2px] transition-colors focus:border-white/70 font-normal"
+                      className="w-full sm:w-[220px] md:w-[240px] bg-black/65 sm:bg-black/40 border border-white/40 px-4 py-3 text-sm text-white placeholder-white/60 outline-none rounded-none transition-colors focus:border-white/80 font-normal backdrop-blur-md"
                     />
 
                     {/* Box 2: Button */}
                     <button
                       type="submit"
-                      className="group inline-flex items-center justify-center gap-3 bg-white px-5 sm:px-6 py-3 text-sm font-medium text-black rounded-[2px] transition-all duration-300 hover:bg-white/90 hover:scale-[1.01] shrink-0 cursor-pointer"
+                      className="group inline-flex items-center justify-center gap-3 bg-white px-5 sm:px-6 py-3 text-sm font-medium text-black rounded-none transition-all duration-300 hover:bg-white/90 hover:scale-[1.01] shrink-0 cursor-pointer whitespace-nowrap"
                     >
                       <span>Notify me at launch</span>
-                      <span className="flex h-5 w-5 items-center justify-center rounded-full border border-black/80 text-black transition-transform duration-300 group-hover:rotate-45">
+                      <span className="flex h-5 w-5 items-center justify-center shrink-0 rounded-full border border-black/80 text-black transition-transform duration-300 group-hover:rotate-45">
                         <svg
                           viewBox="0 0 24 24"
                           fill="none"
@@ -373,10 +380,10 @@ export default function HeroSection() {
                     <button
                       type="button"
                       onClick={() => openForm()}
-                      className="group inline-flex items-center gap-3.5 rounded-[2px] bg-white px-6 py-3 sm:px-7 sm:py-3.5 text-sm sm:text-base font-medium text-black transition-all duration-300 hover:bg-white/90 hover:scale-[1.01]"
+                      className="group inline-flex items-center gap-3.5 rounded-none bg-white px-6 py-3 sm:px-7 sm:py-3.5 text-sm sm:text-base font-medium text-black transition-all duration-300 hover:bg-white/90 hover:scale-[1.01] shrink-0 whitespace-nowrap"
                     >
                       <span>{slide.buttonText}</span>
-                      <span className="flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center rounded-full border border-black/70 text-black transition-transform duration-300 group-hover:rotate-45">
+                      <span className="flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center shrink-0 rounded-full border border-black/70 text-black transition-transform duration-300 group-hover:rotate-45">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" className="w-3 h-3 sm:w-3.5 sm:h-3.5">
                           <path d="M7 17L17 7M17 7H7M17 7V17" />
                         </svg>

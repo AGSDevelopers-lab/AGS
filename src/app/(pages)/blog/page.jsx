@@ -181,19 +181,20 @@ export default function BlogPage() {
               <button
                 type="button"
                 onClick={() => openForm()}
-                className="group inline-flex items-center gap-3 bg-white px-7 py-3.5 text-[15px] font-medium text-[#111111] transition-all duration-300 hover:bg-white/95 hover:scale-[1.02] shadow-xl rounded-none cursor-pointer"
+                className="group inline-flex items-center gap-3.5 bg-white px-7 py-3.5 text-[15px] font-medium text-[#111111] transition-all duration-300 hover:bg-white/95 hover:scale-[1.02] shadow-xl rounded-none cursor-pointer"
               >
                 <span>Get Started</span>
-                <div className="w-5 h-5 rounded-full border border-black/40 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-                  <Image
-                    src="/full-stack/uil_arrow-up.png"
-                    alt=""
-                    width={11}
-                    height={11}
-                    className="w-2.5 h-2.5 rotate-45 object-contain"
-                    aria-hidden="true"
-                  />
-                </div>
+                <span className="flex h-5 w-5 items-center justify-center shrink-0 rounded-full border border-black/80 text-black transition-transform duration-300 group-hover:rotate-45">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.2"
+                    className="w-3 h-3"
+                  >
+                    <path d="M7 17L17 7M17 7H7M17 7V17" />
+                  </svg>
+                </span>
               </button>
             </div>
           </ScrollReveal>

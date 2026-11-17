@@ -55,7 +55,7 @@ export default function AcademyHero() {
             ].map((badge) => (
               <span
                 key={badge}
-                className="px-3 py-1.5 rounded-sm border border-white/10 bg-white/5 text-xs font-medium text-white/80"
+                className="px-3 py-1.5 rounded-none border border-white/10 bg-white/5 text-xs font-medium text-white/80"
               >
                 {badge}
               </span>
@@ -70,7 +70,7 @@ export default function AcademyHero() {
             </div>
             <a
               href="#pricing"
-              className="bg-[#7B5CFF] hover:bg-[#6a4cef] text-white px-8 py-3.5 rounded-sm text-[15px] font-medium transition-colors"
+              className="bg-[#7B5CFF] hover:bg-[#6a4cef] text-white px-8 py-3.5 rounded-none text-[15px] font-medium transition-colors"
             >
               Reserve Your Seat Now — Batch Filling Fast
             </a>
@@ -90,7 +90,7 @@ export default function AcademyHero() {
 
         {/* Right Content / Floating Card */}
         <div className="w-full lg:w-[40%]">
-          <div className="bg-[#0D101E] border border-white/10 rounded-xl p-6 sm:p-8 w-full max-w-md mx-auto lg:mr-0 relative z-20 shadow-[0_0_50px_rgba(123,92,255,0.1)]">
+          <div className="bg-[#0D101E] border border-white/10 rounded-none p-6 sm:p-8 w-full max-w-md mx-auto lg:mr-0 relative z-20 shadow-[0_0_50px_rgba(123,92,255,0.1)]">
             <h3 className="text-xs font-bold tracking-widest text-white/50 uppercase mb-4 text-center">
               ENROLLMENT CLOSES IN
             </h3>
@@ -103,7 +103,7 @@ export default function AcademyHero() {
                 { label: "Mins", value: "37" },
                 { label: "Secs", value: "04" },
               ].map((time, idx) => (
-                <div key={idx} className="flex-1 bg-[#14172B] rounded-lg p-3 text-center border border-white/5">
+                <div key={idx} className="flex-1 bg-[#14172B] rounded-none p-3 text-center border border-white/5">
                   <div className="text-2xl sm:text-3xl font-bold text-white mb-1">{time.value}</div>
                   <div className="text-[10px] sm:text-xs text-white/50 uppercase">{time.label}</div>
                 </div>
@@ -120,7 +120,7 @@ export default function AcademyHero() {
               ].map((badge) => (
                 <span
                   key={badge}
-                  className="px-2 py-1.5 rounded-sm border border-white/10 bg-white/5 text-[11px] font-medium text-white/80 text-center"
+                  className="px-2 py-1.5 rounded-none border border-white/10 bg-white/5 text-[11px] font-medium text-white/80 text-center"
                 >
                   {badge}
                 </span>
@@ -154,13 +154,13 @@ export default function AcademyHero() {
               <div className="text-4xl font-bold text-white">₹4,000</div>
               <div className="pb-1">
                 <div className="text-sm text-white/40 line-through font-medium">₹12,000</div>
-                <div className="text-xs text-[#00E676] bg-[#00E676]/10 px-2 py-0.5 rounded-sm font-semibold mt-1 inline-block">92% OFF</div>
+                <div className="text-xs text-[#00E676] bg-[#00E676]/10 px-2 py-0.5 rounded-none font-semibold mt-1 inline-block">92% OFF</div>
               </div>
             </div>
 
             <a
               href="#pricing"
-              className="block w-full bg-[#7B5CFF] hover:bg-[#6a4cef] text-white text-center py-3.5 rounded-sm text-[15px] font-medium transition-colors"
+              className="block w-full bg-[#7B5CFF] hover:bg-[#6a4cef] text-white text-center py-3.5 rounded-none text-[15px] font-medium transition-colors"
             >
               Start Your AI Career — ₹4,000 →
             </a>

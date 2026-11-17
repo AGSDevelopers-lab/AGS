@@ -76,18 +76,18 @@ export default function AdCube() {
             {faces.map((face, index) => (
               <div
                 key={index}
-                className="absolute inset-0 w-full h-full border border-white/10 rounded-xl overflow-hidden shadow-[0_0_50px_rgba(123,92,255,0.2)] backface-hidden"
+                className="absolute inset-0 w-full h-full border border-white/10 rounded-none overflow-hidden shadow-[0_0_50px_rgba(123,92,255,0.2)] backface-hidden"
                 style={{ 
                   transform: face.transform,
                   backfaceVisibility: "hidden" // Prevents flickering
                 }}
               >
-                <Link href={face.href} className="block w-full h-full group relative cursor-pointer">
+                <Link href={face.href} className="block w-full h-full group relative cursor-pointer rounded-none">
                   <Image
                     src={face.image}
                     alt={face.title}
                     fill
-                    className="object-cover"
+                    className="object-cover rounded-none"
                     priority
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#05070D] via-transparent to-transparent opacity-80" />
@@ -105,7 +105,7 @@ export default function AdCube() {
       <div className="absolute top-1/2 left-4 md:left-12 -translate-y-1/2 z-20">
         <button
           onClick={() => setRotation((prev) => prev + 120)}
-          className="w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur border border-white/20 flex items-center justify-center text-white transition-all hover:scale-110"
+          className="w-12 h-12 rounded-none bg-white/10 hover:bg-white/20 backdrop-blur border border-white/20 flex items-center justify-center text-white transition-all hover:scale-110"
           aria-label="Previous"
         >
           <ChevronLeft className="w-6 h-6" />
@@ -115,7 +115,7 @@ export default function AdCube() {
       <div className="absolute top-1/2 right-4 md:right-12 -translate-y-1/2 z-20">
         <button
           onClick={() => setRotation((prev) => prev - 120)}
-          className="w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur border border-white/20 flex items-center justify-center text-white transition-all hover:scale-110"
+          className="w-12 h-12 rounded-none bg-white/10 hover:bg-white/20 backdrop-blur border border-white/20 flex items-center justify-center text-white transition-all hover:scale-110"
           aria-label="Next"
         >
           <ChevronRight className="w-6 h-6" />
@@ -123,14 +123,14 @@ export default function AdCube() {
       </div>
 
       {/* Seat Registration CTA */}
-      <div className="relative z-10 bg-[#0D101E] border border-white/10 p-8 rounded-2xl max-w-3xl w-[90%] mx-auto flex flex-col md:flex-row items-center justify-between gap-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+      <div className="relative z-10 bg-[#0D101E] border border-white/10 p-8 rounded-none max-w-3xl w-[90%] mx-auto flex flex-col md:flex-row items-center justify-between gap-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
         <div>
           <h3 className="text-white font-bold text-xl mb-2">Ready to secure your spot?</h3>
           <p className="text-white/60 text-sm">Next batch starts soon. Explore {activeFace.title}.</p>
         </div>
         <Link 
           href={activeFace.href}
-          className="bg-[#7B5CFF] hover:bg-[#6a4cef] text-white px-8 py-3.5 rounded-lg text-[14px] font-bold transition-all shadow-[0_0_20px_rgba(123,92,255,0.3)] whitespace-nowrap"
+          className="bg-[#7B5CFF] hover:bg-[#6a4cef] text-white px-8 py-3.5 rounded-none text-[14px] font-bold transition-all shadow-[0_0_20px_rgba(123,92,255,0.3)] whitespace-nowrap"
         >
           Explore Program →
         </Link>

@@ -76,7 +76,7 @@ export default function AcademyNavbar() {
         <a
           href="#pricing"
           onClick={(e) => handleSmoothScroll(e, "#pricing")}
-          className="bg-[#7B5CFF] hover:bg-[#6a4cef] text-white px-4 py-2 sm:px-6 sm:py-2.5 rounded-sm text-sm sm:text-[15px] font-medium transition-colors inline-flex items-center gap-2"
+          className="bg-[#7B5CFF] hover:bg-[#6a4cef] text-white px-4 py-2 sm:px-6 sm:py-2.5 rounded-none text-sm sm:text-[15px] font-medium transition-colors inline-flex items-center gap-2"
         >
           <span className="hidden sm:inline">Reserve Your Seat</span>
           <span className="sm:hidden">Enroll Now</span>

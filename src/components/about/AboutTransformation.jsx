@@ -133,8 +133,8 @@ export default function AboutTransformation() {
                   onClick={() => setModalOpen(true)}
                   className="group inline-flex items-center gap-4 sm:gap-5 cursor-pointer focus:outline-hidden"
                 >
-                  {/* Circular Button with Thin Gray Border & Purple Play Triangle */}
-                  <span className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full border border-gray-300/80 bg-white shadow-xs transition-all duration-300 group-hover:border-[#7B5CFF] group-hover:scale-105 group-hover:shadow-md">
+                  {/* Presentation Button with Thin Gray Border & Purple Play Triangle */}
+                  <span className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-none border border-gray-300/80 bg-white shadow-xs transition-all duration-300 group-hover:border-[#7B5CFF] group-hover:scale-105 group-hover:shadow-md">
                     <svg
                       viewBox="0 0 24 24"
                       fill="currentColor"
@@ -168,7 +168,7 @@ export default function AboutTransformation() {
                     type="button"
                     onClick={() => setActiveRow(index)}
                     onMouseEnter={() => setActiveRow(index)}
-                    className={`w-full text-left transition-all duration-300 rounded-[2px] py-5 sm:py-6 px-6 sm:px-10 flex items-center cursor-pointer focus:outline-hidden ${
+                    className={`w-full text-left transition-all duration-300 rounded-none py-5 sm:py-6 px-6 sm:px-10 flex items-center cursor-pointer focus:outline-hidden ${
                       isActive
                         ? "bg-gradient-to-r from-[#3B46F1] via-[#5035F5] to-[#7B1BD7] text-white shadow-md"
                         : "bg-transparent hover:bg-gray-50/80 text-[#9CA3AF]"
@@ -208,7 +208,7 @@ export default function AboutTransformation() {
           onClick={() => setModalOpen(false)}
         >
           <div
-            className="relative w-full max-w-3xl overflow-hidden rounded-[4px] bg-[#10111D] border border-white/10 shadow-2xl p-6 sm:p-8"
+            className="relative w-full max-w-3xl overflow-hidden rounded-none bg-[#10111D] border border-white/10 shadow-2xl p-6 sm:p-8"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
@@ -224,7 +224,7 @@ export default function AboutTransformation() {
               <button
                 type="button"
                 onClick={() => setModalOpen(false)}
-                className="text-white/60 hover:text-white p-2 rounded-full hover:bg-white/10 transition-colors"
+                className="text-white/60 hover:text-white p-2 rounded-none hover:bg-white/10 transition-colors"
                 aria-label="Close modal"
               >
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5">
@@ -234,7 +234,7 @@ export default function AboutTransformation() {
             </div>
 
             {/* Video Presentation Canvas */}
-            <div className="relative mt-5 aspect-video w-full rounded bg-black flex items-center justify-center overflow-hidden border border-white/5">
+            <div className="relative mt-5 aspect-video w-full rounded-none bg-black flex items-center justify-center overflow-hidden border border-white/5">
               <video
                 controls
                 autoPlay

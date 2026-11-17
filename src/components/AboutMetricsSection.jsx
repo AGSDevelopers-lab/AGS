@@ -104,7 +104,7 @@ export default function AboutMetricsSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative z-10 w-full bg-white pt-10 sm:pt-14 lg:pt-16 pb-10 sm:pb-14 lg:pb-16 text-gray-900 overflow-hidden"
+      className="relative z-10 w-full bg-white pt-8 sm:pt-10 lg:pt-12 pb-8 sm:pb-10 lg:pb-12 text-gray-900 overflow-hidden"
     >
       <div className="mx-auto max-w-[1560px] 2xl:max-w-[1680px] px-6 sm:px-10 lg:px-16 2xl:px-20">
         {/* Top 2-Column: Photo Left + Content Right - Clean Aspect & Vertical Alignment per Picture 2 */}
@@ -126,7 +126,7 @@ export default function AboutMetricsSection() {
 
               {/* Video Play Button Overlay matching Picture 2 */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="flex h-11 w-11 sm:h-13 sm:w-13 items-center justify-center rounded-full bg-white/40 backdrop-blur-sm text-white transition-all duration-300 border border-white/70 shadow-md">
+                <div className="flex h-11 w-11 sm:h-13 sm:w-13 items-center justify-center rounded-none bg-white/40 backdrop-blur-sm text-white transition-all duration-300 border border-white/70 shadow-md">
                   <svg className="ml-0.5 h-5 w-5 fill-current text-white" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z" />
                   </svg>
@@ -158,11 +158,27 @@ export default function AboutMetricsSection() {
             <div className="mt-6 sm:mt-7">
               <Link
                 href="/about"
-                className="inline-flex items-stretch rounded-none transition-transform duration-300 hover:-translate-y-0.5 group shadow-sm"
+                className="inline-flex items-stretch rounded-none transition-transform duration-300 hover:-translate-y-0.5 group shadow-sm whitespace-nowrap"
               >
-                {/* White/soft arrow cell with 1px border */}
-                <span className="flex items-center justify-center border border-[#545AFF] bg-[#F5F6FF] px-5 sm:px-6 py-3 sm:py-3.5 text-[#545AFF] text-lg font-light group-hover:bg-[#545AFF] group-hover:text-white transition-colors duration-300 rounded-none">
-                  →
+                {/* White/soft arrow cell with 1px border - perfectly centered SVG arrow */}
+                <span className="flex items-center justify-center border border-[#545AFF] bg-[#F5F6FF] px-5 sm:px-6 text-[#545AFF] group-hover:bg-[#545AFF] group-hover:text-white transition-colors duration-300 rounded-none shrink-0">
+                  <svg
+                    width="15"
+                    height="12"
+                    viewBox="0 0 15 12"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-[15px] h-[12px] text-current transition-transform duration-300 group-hover:translate-x-0.5"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M1 6H13.5M13.5 6L8.5 1M13.5 6L8.5 11"
+                      stroke="currentColor"
+                      strokeWidth="1.6"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
                 </span>
                 {/* Blue-to-purple gradient label cell matching Picture 2 */}
                 <span className="flex items-center justify-center bg-gradient-to-r from-[#545AFF] to-[#3B0764] px-6 sm:px-8 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold uppercase tracking-wider text-white hover:opacity-95 transition-all duration-300 rounded-none">
@@ -174,8 +190,8 @@ export default function AboutMetricsSection() {
         </div>
 
         {/* Bottom Row: 4 Metrics with reduced comfortable gap matching Picture 2 */}
-        <div className="mt-10 sm:mt-14 lg:mt-16">
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 sm:mt-12 lg:mt-14">
+          <div className="grid grid-cols-1 gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {metrics.map((metric) => (
               <div key={metric.label} className="flex flex-col">
                 {/* Number: Thin, elegant, light font weight matching Picture 2 reference without bold weight */}
@@ -187,15 +203,15 @@ export default function AboutMetricsSection() {
                 </div>
 
                 {/* Divider Line */}
-                <div className="mt-4 sm:mt-5 border-t border-gray-200 w-full" />
+                <div className="mt-3 sm:mt-4 border-t border-gray-200 w-full" />
 
                 {/* Metric Label - font-medium rather than excessive font-semibold */}
-                <span className="mt-3.5 text-xs sm:text-sm font-medium uppercase tracking-wider text-gray-900">
+                <span className="mt-2.5 sm:mt-3 text-xs sm:text-sm font-medium uppercase tracking-wider text-gray-900">
                   {metric.label}
                 </span>
 
                 {/* Subtext description */}
-                <p className="mt-2 text-xs sm:text-sm text-gray-500 font-normal leading-[25.6px] max-w-[280px]">
+                <p className="mt-1.5 text-xs sm:text-sm text-gray-500 font-normal leading-[24px] max-w-[280px]">
                   {metric.description}
                 </p>
               </div>

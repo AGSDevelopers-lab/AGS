@@ -182,17 +182,20 @@ export default function ContactPage() {
               <button
                 type="button"
                 onClick={scrollToForm}
-                className="group inline-flex items-center gap-3 bg-white text-[#111111] px-8 py-3.5 font-medium text-[15px] shadow-xl hover:bg-white/95 hover:scale-[1.02] transition-all duration-300 rounded-none cursor-pointer"
+                className="group inline-flex items-center gap-3.5 bg-white text-[#111111] px-7 sm:px-8 py-3.5 font-medium text-[15px] shadow-xl hover:bg-white/95 hover:scale-[1.02] transition-all duration-300 rounded-none cursor-pointer"
               >
                 <span>Get Started</span>
-                <Image
-                  src="/contact/uil_arrow-up.png"
-                  alt=""
-                  width={20}
-                  height={20}
-                  className="w-5 h-5 object-contain transition-transform duration-300 group-hover:scale-110"
-                  aria-hidden="true"
-                />
+                <span className="flex h-5 w-5 sm:h-5.5 sm:w-5.5 items-center justify-center shrink-0 rounded-full border border-black/80 text-black transition-transform duration-300 group-hover:rotate-45">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.2"
+                    className="w-3 h-3 sm:w-3.5 sm:h-3.5"
+                  >
+                    <path d="M7 17L17 7M17 7H7M17 7V17" />
+                  </svg>
+                </span>
               </button>
             </div>
           </ScrollReveal>

@@ -33,10 +33,10 @@ export default function AboutCTA() {
               <button
                 type="button"
                 onClick={() => openForm()}
-                className="group inline-flex items-center gap-3.5 bg-white hover:bg-white/90 text-black px-7 sm:px-8 py-3.5 sm:py-4 rounded-[2px] text-sm sm:text-[15px] font-medium transition-all duration-300 shadow-xl hover:scale-[1.01]"
+                className="group inline-flex items-center gap-3.5 bg-white hover:bg-white/90 text-black px-7 sm:px-8 py-3.5 sm:py-4 rounded-none text-sm sm:text-[15px] font-medium transition-all duration-300 shadow-xl hover:scale-[1.01] whitespace-nowrap"
               >
                 <span>Know More</span>
-                <span className="flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center rounded-full border border-black/80 text-black transition-transform duration-300 group-hover:rotate-45">
+                <span className="flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center shrink-0 rounded-full border border-black/80 text-black transition-transform duration-300 group-hover:rotate-45">
                   <svg
                     viewBox="0 0 24 24"
                     fill="none"

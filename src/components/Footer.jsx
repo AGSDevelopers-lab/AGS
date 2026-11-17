@@ -130,13 +130,13 @@ export default function Footer() {
   return (
     <footer
       ref={footerRef}
-      className="relative w-full bg-[#0C0E1A] text-white border-t border-white/5 pt-16 sm:pt-20 pb-12"
+      className="relative w-full bg-[#0C0E1A] text-white border-t border-white/5 pt-10 sm:pt-14 pb-8"
     >
       <div className="mx-auto max-w-[1380px] px-6 sm:px-8 lg:px-14">
         {/* Main 3-column Links Section matching Figma */}
         <div
           ref={columnsRef}
-          className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-[1.8fr_1fr_1fr] lg:gap-20 pb-12 sm:pb-16"
+          className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-[1.8fr_1fr_1fr] lg:gap-20 pb-8 sm:pb-10"
         >
           {/* Col 1: AGS Logo + Tagline + MSME Registered Badge */}
           <div className="max-w-[420px]">

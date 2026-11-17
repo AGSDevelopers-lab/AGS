@@ -66,7 +66,7 @@ export default function PortfolioDetailClient({ project }) {
             {/* Left: text */}
             <ScrollReveal direction="left" delay={100} className="flex flex-col items-start">
               <span
-                className="inline-flex rounded-full border px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.1em]"
+                className="inline-flex rounded-none border px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.1em]"
                 style={{
                   borderColor: `${project.accentColor}40`,
                   backgroundColor: `${project.accentColor}15`,
@@ -101,13 +101,13 @@ export default function PortfolioDetailClient({ project }) {
             {/* Right: hero image */}
             {project.heroImage && (
               <ScrollReveal direction="right" delay={200}>
-                <div className="relative w-full aspect-[4/3] rounded-sm overflow-hidden border border-white/8 shadow-[0_30px_80px_rgba(0,0,0,0.6)] bg-[#111]">
+                <div className="relative w-full aspect-[4/3] rounded-none overflow-hidden border border-white/8 shadow-[0_30px_80px_rgba(0,0,0,0.6)] bg-[#111]">
                   <Image
                     src={project.heroImage}
                     alt={`${project.name} showcase`}
                     fill
                     sizes="(min-width: 1024px) 50vw, 100vw"
-                    className="object-contain p-2"
+                    className="object-contain p-2 rounded-none"
                     priority
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
@@ -256,15 +256,15 @@ export default function PortfolioDetailClient({ project }) {
                         <span className="h-2 w-2 rounded-full" style={{ backgroundColor: `${project.accentColor}60` }} />
                         <span className="h-2 w-2 rounded-full bg-white/15" />
                         <span className="h-2 w-2 rounded-full bg-white/10" />
-                        <span className="ml-auto h-1.5 w-20 rounded bg-white/8" />
+                        <span className="ml-auto h-1.5 w-20 rounded-none bg-white/8" />
                       </div>
                       <div className="grid grid-cols-3 gap-3 mt-4 flex-1 items-end">
-                        <div className="h-full min-h-[40px] rounded border border-white/8 bg-white/[0.03]" />
-                        <div className="col-span-2 h-full min-h-[40px] rounded border border-white/8 bg-white/[0.03] flex items-center justify-center">
+                        <div className="h-full min-h-[40px] rounded-none border border-white/8 bg-white/[0.03]" />
+                        <div className="col-span-2 h-full min-h-[40px] rounded-none border border-white/8 bg-white/[0.03] flex items-center justify-center">
                           <div className="w-2/3 space-y-2">
-                            <div className="h-1.5 w-full rounded bg-white/10" />
-                            <div className="h-1.5 w-3/4 rounded bg-white/7" />
-                            <div className="h-6 w-1/2 rounded mt-3" style={{ backgroundColor: `${project.accentColor}20`, border: `1px solid ${project.accentColor}30` }} />
+                            <div className="h-1.5 w-full rounded-none bg-white/10" />
+                            <div className="h-1.5 w-3/4 rounded-none bg-white/7" />
+                            <div className="h-6 w-1/2 rounded-none mt-3" style={{ backgroundColor: `${project.accentColor}20`, border: `1px solid ${project.accentColor}30` }} />
                           </div>
                         </div>
                       </div>
@@ -306,22 +306,22 @@ export default function PortfolioDetailClient({ project }) {
                       style={{ background: `linear-gradient(135deg, ${project.accentColor}10 0%, #0a0a14 60%, #121225 100%)` }}
                     >
                       {/* Laptop frame */}
-                      <div className="absolute inset-x-[12%] top-[14%] bottom-[8%] bg-[#08080f] rounded-t-lg border border-white/10 overflow-hidden shadow-2xl">
+                      <div className="absolute inset-x-[12%] top-[14%] bottom-[8%] bg-[#08080f] rounded-none border border-white/10 overflow-hidden shadow-2xl">
                         {/* Browser chrome */}
                         <div className="flex items-center gap-1.5 px-3 py-2 border-b border-white/8">
                           <span className="h-1.5 w-1.5 rounded-full bg-white/25" />
                           <span className="h-1.5 w-1.5 rounded-full bg-white/15" />
                           <span className="h-1.5 w-1.5 rounded-full bg-white/15" />
-                          <div className="ml-3 h-1.5 w-24 rounded bg-white/8" />
+                          <div className="ml-3 h-1.5 w-24 rounded-none bg-white/8" />
                         </div>
                         {/* Screen content */}
                         <div className="p-3 space-y-2">
-                          <div className="h-2 w-1/3 rounded bg-white/12" />
-                          <div className="h-14 rounded" style={{ backgroundColor: `${project.accentColor}12`, border: `1px solid ${project.accentColor}20` }} />
+                          <div className="h-2 w-1/3 rounded-none bg-white/12" />
+                          <div className="h-14 rounded-none" style={{ backgroundColor: `${project.accentColor}12`, border: `1px solid ${project.accentColor}20` }} />
                           <div className="grid grid-cols-3 gap-2">
-                            <div className="h-6 rounded bg-white/5" />
-                            <div className="h-6 rounded bg-white/5" />
-                            <div className="h-6 rounded bg-white/5" />
+                            <div className="h-6 rounded-none bg-white/5" />
+                            <div className="h-6 rounded-none bg-white/5" />
+                            <div className="h-6 rounded-none bg-white/5" />
                           </div>
                         </div>
                       </div>
@@ -360,7 +360,7 @@ export default function PortfolioDetailClient({ project }) {
                   <ScrollReveal key={color.name} direction="up">
                     <div className="border border-white/6 bg-white/[0.015] p-5 flex items-center gap-5">
                       <div
-                        className="h-14 w-14 rounded shrink-0 border border-white/10 shadow-lg"
+                        className="h-14 w-14 rounded-none shrink-0 border border-white/10 shadow-lg"
                         style={{ backgroundColor: color.hex }}
                       />
                       <div className="flex-1 min-w-0">

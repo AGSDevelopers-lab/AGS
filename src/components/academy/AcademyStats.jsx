@@ -20,7 +20,7 @@ export default function AcademyStats() {
               key={index} 
               className={`flex-col items-center justify-center text-center ${
                 index >= 2 ? "hidden lg:flex" : "flex"
-              } lg:p-0 p-6 ${index < 2 ? 'bg-[#0D101E] lg:bg-transparent border border-white/5 lg:border-none rounded-lg' : ''}`}
+              } lg:p-0 p-6 ${index < 2 ? 'bg-[#0D101E] lg:bg-transparent border border-white/5 lg:border-none rounded-none' : ''}`}
             >
               <div className="text-4xl md:text-5xl font-bold text-white mb-2">{stat.value}</div>
               <div className="text-xs md:text-sm text-white/60 font-medium max-w-[150px]">

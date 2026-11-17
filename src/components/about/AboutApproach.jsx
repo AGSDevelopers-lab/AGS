@@ -84,7 +84,7 @@ export default function AboutApproach() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-start overflow-hidden">
           {/* Left Column: Photograph (Clean crop without ghost line or transparent padding) */}
           <div ref={imageColRef} className="w-full">
-            <div className="relative w-full aspect-[630/464] max-w-[580px] mx-auto lg:mx-0 overflow-hidden rounded-[2px]">
+            <div className="relative w-full aspect-[630/464] max-w-[580px] mx-auto lg:mx-0 overflow-hidden rounded-none">
               <Image
                 src="/ags about page/Our approach.png"
                 alt="AGS Team Collaborating around Laptop"
@@ -123,7 +123,7 @@ export default function AboutApproach() {
                 <button
                   type="button"
                   onClick={() => openForm()}
-                  className="group inline-flex items-stretch rounded-[2px] overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.01]"
+                  className="group inline-flex items-stretch rounded-none overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.01]"
                 >
                   {/* Left Arrow Tile */}
                   <div className="w-11 sm:w-12 bg-white flex items-center justify-center border border-[#7C3AED]/30 text-[#4F46E5] transition-colors group-hover:bg-[#F5F3FF]">

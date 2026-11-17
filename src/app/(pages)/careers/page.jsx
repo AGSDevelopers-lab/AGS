@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { DM_Sans } from "next/font/google";
 import { useCtaForm } from "@/components/CtaFormProvider";
 import CTASection from "@/components/CTASection";
@@ -91,59 +91,44 @@ const benefits = [
 const testimonials = [
   {
     id: 1,
+    name: "Sarah Jenkins",
+    role: "Frontend Engineer",
     quote:
-      "I do admire the company culture and, I like that. AGS is truly the place where good attitudes have blended with proficiency. If you’re going to craft something great and you have a strong eagerness to do that, AGS will remove all hassles in your journey.",
-    name: "James Olson",
-    role: "Product Designer",
+      "Working here has completely transformed my career trajectory. The emphasis on continuous learning and the supportive environment are unparalleled. Every day brings a new challenge and an opportunity to excel with cutting-edge tools.",
     linkedin: "https://www.linkedin.com",
+    image: "/careers/Rectangle 5522.jpg",
+    stripImage: "/careers/Rectangle 5522-strip.png",
   },
   {
     id: 2,
+    name: "Elena Rodriguez",
+    role: "Project Manager",
     quote:
-      "Working here has completely transformed my career trajectory. The emphasis on continuous learning and the supportive environment are unparalleled. Every day brings a new challenge and an opportunity to excel with cutting-edge tools.",
-    name: "Sarah Jenkins",
-    role: "Frontend Engineer",
+      "Collaboration is at the heart of everything we do. I've never worked with a more dedicated, passionate, and intelligent group of people. Delivery is streamlined, and feedback is always constructive.",
     linkedin: "https://www.linkedin.com",
+    image: "/careers/Rectangle 5524-feature.png",
+    stripImage: "/careers/Rectangle 5524.png",
   },
   {
     id: 3,
+    name: "James Olson",
+    role: "Product Designer",
     quote:
-      "The leadership team genuinely cares about our well-being and professional growth. We are given the autonomy to make impactful decisions while having a safety net of brilliant colleagues.",
-    name: "Marcus Chen",
-    role: "Backend Architect",
+      "I do admire the company culture and, I like that. AGS is truly the place where good attitudes have blended with proficiency. If you’re going to craft something great and you have a strong eagerness to do that, AGS will remove all hassles in your journey.",
     linkedin: "https://www.linkedin.com",
+    image: "/careers/Rectangle 5525-feature.png",
+    stripImage: "/careers/Rectangle 5525.png",
   },
   {
     id: 4,
+    name: "Marcus Chen",
+    role: "Backend Architect",
     quote:
-      "Collaboration is at the heart of everything we do. I've never worked with a more dedicated, passionate, and intelligent group of people. Delivery is streamlined, and feedback is always constructive.",
-    name: "Elena Rodriguez",
-    role: "Project Manager",
+      "The leadership team genuinely cares about our well-being and professional growth. We are given the autonomy to make impactful decisions while having a safety net of brilliant colleagues.",
     linkedin: "https://www.linkedin.com",
+    image: "/careers/Rectangle 5526-feature.png",
+    stripImage: "/careers/Rectangle 5526.png",
   },
-  {
-    id: 5,
-    quote:
-      "Innovation isn't just a buzzword here; it's practically built into our daily routines. The freedom to experiment and push the boundaries of what's possible is truly liberating.",
-    name: "David Kim",
-    role: "UX Researcher",
-    linkedin: "https://www.linkedin.com",
-  },
-  {
-    id: 6,
-    quote:
-      "I've been here for three years, and the growth I've experienced is astounding. We are solving real-world enterprise problems with high-performance architectures and real-time data engineering.",
-    name: "Aisha Patel",
-    role: "Data Scientist",
-    linkedin: "https://www.linkedin.com",
-  },
-];
-
-// Exact 3 right teammate photos from Figma (Rectangle 5524, Rectangle 5525, Rectangle 5526)
-const rightTeammateImages = [
-  { src: "/careers/Rectangle 5524.png", alt: "Teammate 1" },
-  { src: "/careers/Rectangle 5525.png", alt: "Teammate 2" },
-  { src: "/careers/Rectangle 5526.png", alt: "Teammate 3" },
 ];
 
 // 4. Timeline (Section 6: How to become a AGS'er?)
@@ -268,8 +253,8 @@ const blogStories = [
     date: "May 20th 2020",
     description:
       "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that....",
-    image: "/careers/Image.jpg",
-    authorImg: "/ags1/career take a peep at what goes on ags 1.png",
+    image: "/careers/Image.png",
+    authorImg: "/careers/author-kaljuma.png",
   },
   {
     id: 2,
@@ -278,8 +263,8 @@ const blogStories = [
     date: "May 20th 2020",
     description:
       "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that....",
-    image: "/careers/Image (1).jpg",
-    authorImg: "/ags1/career take a peep at what goes on ags 2.png",
+    image: "/careers/Image (1).png",
+    authorImg: "/careers/author-tuulik.png",
   },
   {
     id: 3,
@@ -288,18 +273,28 @@ const blogStories = [
     date: "May 20th 2020",
     description:
       "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that....",
-    image: "/careers/Image (2).jpg",
-    authorImg: "/ags1/career take a peep at what goes on ags 3.png",
+    image: "/careers/Image (2).png",
+    authorImg: "/careers/author-siilivask.png",
   },
   {
     id: 4,
-    title: "What I Learned Getting Hired",
+    title: "What I Learned From Getting Hired",
     author: "Mazdak Shakiba",
     date: "May 20th 2020",
     description:
       "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that....",
-    image: "/careers/Image (3).jpg",
-    authorImg: "/ags1/career take a peep at what goes on ags 4.png",
+    image: "/careers/Image (3).png",
+    authorImg: "/careers/author-shakiba.png",
+  },
+  {
+    id: 5,
+    title: "Motion Design Doesn’t Have to be Hard",
+    author: "Kaur Kaljuma",
+    date: "May 20th 2020",
+    description:
+      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that....",
+    image: "/careers/Modern Presentation Dashboard UI.png",
+    authorImg: "/careers/author-kaljuma.png",
   },
 ];
 
@@ -333,6 +328,93 @@ export default function CareersPage() {
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });
     }
+  };
+
+  const [currentStory, setCurrentStory] = useState(0);
+  const storiesTrackRef = useRef(null);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+  const isDragging = useRef(false);
+  const dragStartX = useRef(0);
+  const dragScrollLeft = useRef(0);
+
+  const scrollToStory = (index) => {
+    const track = storiesTrackRef.current;
+    if (!track) return;
+    const targetIndex = (index + blogStories.length) % blogStories.length;
+    const cards = track.querySelectorAll("[data-story-card]");
+    if (cards[targetIndex]) {
+      const card = cards[targetIndex];
+      const scrollPos = card.offsetLeft - track.offsetLeft;
+      track.scrollTo({
+        left: scrollPos,
+        behavior: "smooth",
+      });
+      setCurrentStory(targetIndex);
+    }
+  };
+
+  const handleTrackScroll = () => {
+    const track = storiesTrackRef.current;
+    if (!track) return;
+    const cards = track.querySelectorAll("[data-story-card]");
+    if (!cards.length) return;
+    const trackLeft = track.scrollLeft;
+    let closestIndex = 0;
+    let minDiff = Infinity;
+    cards.forEach((card, idx) => {
+      const diff = Math.abs(card.offsetLeft - track.offsetLeft - trackLeft);
+      if (diff < minDiff) {
+        minDiff = diff;
+        closestIndex = idx;
+      }
+    });
+    setCurrentStory(closestIndex);
+  };
+
+  const nextStory = () => {
+    scrollToStory(currentStory + 1);
+  };
+
+  const prevStory = () => {
+    scrollToStory(currentStory - 1);
+  };
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    const diff = touchStartX.current - touchEndX.current;
+    if (diff > 45) {
+      nextStory();
+    } else if (diff < -45) {
+      prevStory();
+    }
+  };
+
+  const handleMouseDown = (e) => {
+    if (!storiesTrackRef.current) return;
+    isDragging.current = true;
+    dragStartX.current = e.pageX - storiesTrackRef.current.offsetLeft;
+    dragScrollLeft.current = storiesTrackRef.current.scrollLeft;
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging.current || !storiesTrackRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - storiesTrackRef.current.offsetLeft;
+    const walk = (x - dragStartX.current) * 1.5;
+    storiesTrackRef.current.scrollLeft = dragScrollLeft.current - walk;
+  };
+
+  const handleMouseUpOrLeave = () => {
+    isDragging.current = false;
   };
 
   return (
@@ -398,14 +480,17 @@ export default function CareersPage() {
               className="group inline-flex items-center justify-center text-white font-medium text-[15px] backdrop-blur-sm transition-all duration-300 hover:bg-[#504CFF]/20 hover:scale-[1.02] cursor-pointer rounded-none"
             >
               <span className="whitespace-nowrap">Get Started</span>
-              <Image
-                src="/careers/uil_arrow-up.png"
-                alt=""
-                width={20}
-                height={20}
-                className="w-5 h-5 object-contain brightness-0 invert transition-transform duration-300 group-hover:scale-110"
-                aria-hidden="true"
-              />
+              <span className="flex h-5 w-5 items-center justify-center shrink-0 rounded-full border border-white/80 text-white transition-transform duration-300 group-hover:rotate-45">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.2"
+                  className="w-3 h-3"
+                >
+                  <path d="M7 17L17 7M17 7H7M17 7V17" />
+                </svg>
+              </span>
             </button>
           </div>
         </div>
@@ -414,7 +499,7 @@ export default function CareersPage() {
       {/* ─────────────────────────────────────────────────────────────
           2. CULTURE CARDS ("What make AGS a great place to work?")
           ───────────────────────────────────────────────────────────── */}
-      <section className="relative z-10 w-full py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
+      <section className="relative z-10 w-full pt-14 sm:pt-20 pb-4 sm:pb-6 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
         <div className="max-w-[1290px] mx-auto">
           {/* Text appearing from top to its original place */}
           <ScrollReveal direction="down" distance={110} duration={1.1}>
@@ -425,7 +510,7 @@ export default function CareersPage() {
 
           {/* Images below coming from down towards up */}
           <ScrollReveal direction="up" distance={130} duration={1.2} delay={60}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-[1290px] mx-auto mt-12 sm:mt-16">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-[1290px] mx-auto mt-10 sm:mt-14">
               {cultureCards.map((card, idx) => (
                 <div
                   key={idx}
@@ -455,8 +540,9 @@ export default function CareersPage() {
 
       {/* ─────────────────────────────────────────────────────────────
           3. BENEFITS ("What benefits are waiting for you?")
+          Seamless tight spacing to features section matching Figma
           ───────────────────────────────────────────────────────────── */}
-      <section className="relative z-10 w-full py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-white border-t border-[#F0EDF6] overflow-hidden">
+      <section className="relative z-10 w-full pt-4 sm:pt-6 pb-14 sm:pb-20 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
         <div className="max-w-[1290px] mx-auto">
           {/* Text coming from the right */}
           <ScrollReveal direction="right" distance={140} duration={1.2}>
@@ -470,7 +556,7 @@ export default function CareersPage() {
 
           {/* 9 Benefit Cards in 5-column layout matching Figma */}
           <ScrollReveal direction="up" distance={120} duration={1.1} delay={80}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3.5 sm:gap-4 max-w-[1290px] mx-auto mt-12 sm:mt-16">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3.5 sm:gap-4 max-w-[1290px] mx-auto mt-8 sm:mt-10">
               {benefits.map((b, idx) => (
                 <div
                   key={idx}
@@ -498,11 +584,11 @@ export default function CareersPage() {
       {/* ─────────────────────────────────────────────────────────────
           4. PHOTO COLLAGE ("Take a peep at what goes on at AGS")
           ───────────────────────────────────────────────────────────── */}
-      <section className="relative z-10 w-full py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-[#0A0D17] text-white overflow-hidden">
+      <section className="relative z-10 w-full py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#0A0D17] text-white overflow-hidden">
         <div className="max-w-[1290px] mx-auto">
           {/* Text appearing from top up above to the perfect place */}
           <ScrollReveal direction="down" distance={110} duration={1.1}>
-            <h2 className="font-manrope font-normal text-[32px] sm:text-[42px] lg:text-[48px] text-center tracking-tight mb-14 sm:mb-18">
+            <h2 className="font-manrope font-normal text-[32px] sm:text-[42px] lg:text-[48px] text-center tracking-tight mb-10 sm:mb-14">
               Take a peep at what goes on at AGS
             </h2>
           </ScrollReveal>
@@ -512,14 +598,14 @@ export default function CareersPage() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 max-w-[1290px] mx-auto items-stretch">
               {/* Left Column (Span 6): Top Big Coder + Bottom Split (2 photos) */}
               <div className="lg:col-span-6 flex flex-col gap-4 sm:gap-6">
-                {/* Top Big Coder Photo (Img 1.jpg) */}
-                <div className="relative w-full aspect-[592/428] overflow-hidden rounded-none group bg-neutral-900">
+                {/* Top Big Coder Photo (Img 1.jpg) - 592x206 matching Figma */}
+                <div className="relative w-full aspect-[592/206] overflow-hidden rounded-none group bg-neutral-900">
                   <Image
                     src="/careers/Img 1.jpg"
                     alt="AGS Engineer at desk"
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
                   />
                 </div>
 
@@ -531,7 +617,7 @@ export default function CareersPage() {
                       alt="Engineer sitting at standing desk with bonsai"
                       fill
                       sizes="(max-width: 1024px) 50vw, 25vw"
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
                     />
                   </div>
                   <div className="relative w-full aspect-[287/206] overflow-hidden rounded-none group bg-neutral-900">
@@ -540,62 +626,59 @@ export default function CareersPage() {
                       alt="Team members chatting in purple lounge chairs"
                       fill
                       sizes="(max-width: 1024px) 50vw, 25vw"
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
                     />
                   </div>
                 </div>
               </div>
 
-              {/* Middle Column (Span 3): Top Woman + Bottom Patchwork Chair */}
-              <div className="lg:col-span-3 flex flex-col gap-4 sm:gap-6">
-                {/* Top: Woman smiling in floral dress (Group 4904.jpg) */}
-                <div className="relative w-full aspect-[288/206] overflow-hidden rounded-none group bg-neutral-900">
-                  <Image
-                    src="/careers/Group 4904.jpg"
-                    alt="Teammate smiling in office meeting"
-                    fill
-                    sizes="(max-width: 1024px) 50vw, 25vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                </div>
-                {/* Bottom: Colorful patchwork chair in hallway (Imag 5.jpg) */}
-                <div className="relative w-full aspect-[287/428] overflow-hidden rounded-none group bg-neutral-900">
+              {/* Middle Column (Span 3): Single Full-Height Patchwork Chair (Imag 5.jpg) */}
+              <div className="lg:col-span-3 flex flex-col">
+                <div className="relative w-full h-full min-h-[300px] sm:min-h-[420px] lg:min-h-0 aspect-[287/428] lg:aspect-auto overflow-hidden rounded-none group bg-neutral-900 flex-1">
                   <Image
                     src="/careers/Imag 5.jpg"
-                    alt="Modern office corridor lounge"
+                    alt="Modern office corridor lounge with patchwork chair"
                     fill
                     sizes="(max-width: 1024px) 50vw, 25vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
                   />
                 </div>
               </div>
 
-              {/* Right Column (Span 3): Top Two Smiling Coders + Bottom "Explore more →" tile */}
+              {/* Right Column (Span 3): Top Laptop Meeting Photo + Bottom "Explore About Us ↗" tile */}
               <div className="lg:col-span-3 flex flex-col gap-4 sm:gap-6">
-                {/* Top: Two men smiling at desk with laptops (Img 6.jpg) */}
-                <div className="relative w-full aspect-[287/428] overflow-hidden rounded-none group bg-neutral-900">
+                {/* Top: Two people typing on laptops in meeting (Img 6.jpg) */}
+                <div className="relative w-full aspect-[287/206] overflow-hidden rounded-none group bg-neutral-900">
                   <Image
                     src="/careers/Img 6.jpg"
-                    alt="Engineers collaborating with laptops"
+                    alt="Engineers collaborating with laptops in meeting"
                     fill
                     sizes="(max-width: 1024px) 50vw, 25vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="object-cover object-bottom transition-transform duration-700 group-hover:scale-105"
                   />
                 </div>
 
-                {/* Bottom: Interactive dark tile matching Figma */}
-                <button
-                  type="button"
-                  onClick={() => openForm()}
-                  className="relative w-full aspect-[287/206] bg-[#181B26] p-6 sm:p-7 rounded-none flex flex-col justify-between items-start text-left border border-white/5 hover:border-white/20 hover:bg-[#202534] transition-all duration-300 group cursor-pointer"
+                {/* Bottom: Interactive dark tile navigating to About Us (Exact Figma Spec) */}
+                <Link
+                  href="/about"
+                  className="relative w-full aspect-[287/206] bg-[#212430] hover:bg-[#282B3B] p-6 sm:p-7 lg:p-8 rounded-none flex items-end justify-start border border-white/5 hover:border-white/20 transition-all duration-300 group cursor-pointer"
                 >
-                  <span className="text-white font-manrope text-[18px] sm:text-[20px] font-normal leading-snug">
-                    Explore more
+                  <span className="inline-flex items-center gap-2 text-white font-manrope text-[16px] sm:text-[18px] lg:text-[20px] font-normal leading-tight">
+                    <span>Explore About Us</span>
+                    <svg
+                      className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 shrink-0"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <line x1="7" y1="17" x2="17" y2="7" />
+                      <polyline points="7 7 17 7 17 17" />
+                    </svg>
                   </span>
-                  <span className="text-white text-2xl font-light transition-transform duration-300 group-hover:translate-x-2">
-                    →
-                  </span>
-                </button>
+                </Link>
               </div>
             </div>
           </ScrollReveal>
@@ -625,14 +708,15 @@ export default function CareersPage() {
             >
               {/* Carousel Viewport: Left Main Portrait + Overlapping Center White Card + Right Teammate Vertical Strips */}
               <div className="relative flex flex-col lg:flex-row items-center justify-center">
-                {/* 1. Left Main Portrait (Rectangle 5522.jpg - 302x422) */}
-                <div className="hidden lg:block relative w-[302px] h-[422px] shrink-0 overflow-hidden shadow-lg z-0 bg-neutral-100 rounded-none">
+                {/* 1. Left Main Portrait */}
+                <div className="hidden lg:block relative w-[302px] h-[422px] shrink-0 overflow-hidden shadow-lg z-0 bg-neutral-100 rounded-none transition-all duration-500">
                   <Image
-                    src="/careers/Rectangle 5522.jpg"
-                    alt="James Olson"
+                    key={testimonials[activeTestimonial].image}
+                    src={testimonials[activeTestimonial].image}
+                    alt={testimonials[activeTestimonial].name}
                     fill
                     sizes="302px"
-                    className="object-cover"
+                    className="object-cover transition-opacity duration-300"
                     priority
                   />
                 </div>
@@ -677,7 +761,7 @@ export default function CareersPage() {
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 mt-3.5 text-[13px] text-[#4B5563] hover:text-[#0A66C2] transition-colors"
                       >
-                        <span className="w-4 h-4 bg-[#0A66C2] rounded-[2px] flex items-center justify-center text-white text-[10px] font-bold font-sans">
+                        <span className="w-4 h-4 bg-[#0A66C2] rounded-none flex items-center justify-center text-white text-[10px] font-bold font-sans">
                           in
                         </span>
                         <span className="font-manrope font-normal">LinkedIn profile</span>
@@ -685,10 +769,10 @@ export default function CareersPage() {
                     </div>
 
                     {/* Compact thumbnail for mobile/tablet */}
-                    <div className="lg:hidden relative w-14 h-14 rounded-full overflow-hidden border border-neutral-200 shrink-0">
+                    <div className="lg:hidden relative w-14 h-14 rounded-none overflow-hidden border border-neutral-200 shrink-0">
                       <Image
-                        src="/careers/Rectangle 5522.jpg"
-                        alt=""
+                        src={testimonials[activeTestimonial].image}
+                        alt={testimonials[activeTestimonial].name}
                         fill
                         className="object-cover"
                       />
@@ -696,22 +780,29 @@ export default function CareersPage() {
                   </div>
                 </div>
 
-                {/* 3. Right Teammate Vertical Strips (Exact 3 Photos: Rectangle 5524, 5525, 5526) */}
+                {/* 3. Right Teammate Vertical Strips (Queue of next teammates: clicking any strip or Next switches to it) */}
                 <div className="hidden lg:flex items-center gap-2.5 z-10 shrink-0">
-                  {rightTeammateImages.map((item, idx) => (
-                    <div
-                      key={idx}
-                      className="relative w-[92px] xl:w-[98px] h-[422px] overflow-hidden bg-neutral-100 rounded-none shadow-sm"
-                    >
-                      <Image
-                        src={item.src}
-                        alt={item.alt}
-                        fill
-                        sizes="100px"
-                        className="object-cover"
-                      />
-                    </div>
-                  ))}
+                  {[1, 2, 3].map((offset) => {
+                    const teammateIndex = (activeTestimonial + offset) % testimonials.length;
+                    const teammate = testimonials[teammateIndex];
+                    return (
+                      <button
+                        key={teammate.id}
+                        type="button"
+                        onClick={() => setActiveTestimonial(teammateIndex)}
+                        className="relative w-[92px] xl:w-[98px] h-[422px] overflow-hidden bg-neutral-100 rounded-none shadow-sm cursor-pointer group transition-all duration-300 hover:brightness-105 focus:outline-none"
+                        title={`View feedback from ${teammate.name}`}
+                      >
+                        <Image
+                          src={teammate.stripImage}
+                          alt={teammate.name}
+                          fill
+                          sizes="100px"
+                          className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
 
@@ -844,7 +935,7 @@ export default function CareersPage() {
                       onClick={() => setSelectedCategory(cat.key)}
                       className={`text-left pl-5 py-3 font-manrope text-[15px] sm:text-[16px] transition-all cursor-pointer ${
                         isActive
-                          ? "font-semibold text-[#111111] border-l-2 border-[#2C5BF2] -ml-[1.5px]"
+                          ? "font-semibold text-[#111111] border-l-2 border-[#0052FF] -ml-[1.5px]"
                           : "text-[#555E70] hover:text-[#111111] font-normal"
                       }`}
                     >
@@ -863,7 +954,7 @@ export default function CareersPage() {
                 <button
                   type="button"
                   onClick={() => openForm()}
-                  className="inline-flex items-center justify-center px-6 py-3 border border-neutral-900 text-neutral-900 font-manrope font-medium text-[13.5px] hover:bg-neutral-900 hover:text-white transition-colors cursor-pointer"
+                  className="inline-flex items-center justify-center px-6 py-3 border border-neutral-400 bg-white text-neutral-900 font-manrope font-medium text-[13.5px] hover:border-black hover:bg-neutral-50 transition-colors cursor-pointer rounded-none"
                 >
                   Share your LinkedIn profile
                 </button>
@@ -897,15 +988,15 @@ export default function CareersPage() {
                     {job.description}
                   </p>
 
-                  {/* Action Button */}
-                  <div className="flex justify-start">
+                  {/* Action Button: right-aligned with black default and vivid blue hover matching Figma */}
+                  <div className="flex justify-end mt-2">
                     <button
                       type="button"
                       onClick={() => openForm()}
-                      className="inline-flex items-center gap-2 bg-black text-white px-6 py-2.5 font-manrope font-medium text-[13.5px] hover:bg-neutral-800 transition-colors group cursor-pointer"
+                      className="inline-flex items-center gap-2.5 bg-black hover:bg-[#0052FF] text-white px-7 py-3 font-manrope font-medium text-[14px] rounded-none transition-all duration-200 group cursor-pointer"
                     >
                       <span>See positions</span>
-                      <span className="transition-transform group-hover:translate-x-1">→</span>
+                      <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
                     </button>
                   </div>
                 </div>
@@ -954,46 +1045,122 @@ export default function CareersPage() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────
-          9. STORIES BY AGS!
+          9. STORIES BY AGS! (Horizontal Carousel matching Figma)
           ───────────────────────────────────────────────────────────── */}
-      <section className="relative z-10 w-full py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-[#0A0D17] text-white overflow-hidden">
-        <div className="max-w-[1290px] mx-auto">
-          {/* Heading coming from top */}
-          <ScrollReveal direction="down" distance={110} duration={1.1}>
-            <h2 className="font-manrope font-normal text-[32px] sm:text-[44px] lg:text-[52px] text-center tracking-tight">
-              Stories by AGS!
-            </h2>
-            <p className="mt-3 text-white/60 font-manrope font-light text-[15px] sm:text-[16px] text-center mb-14 sm:mb-16">
-              Read more on our blog
-            </p>
+      <section className="relative z-10 w-full pt-16 pb-20 sm:pt-24 sm:pb-28 bg-[#0A0D17] text-white overflow-hidden">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
+          {/* Centered Editorial Heading Matching Figma */}
+          <ScrollReveal direction="down" distance={60} duration={1.0}>
+            <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+              <h2 className="font-manrope font-normal text-[32px] sm:text-[44px] lg:text-[52px] tracking-tight text-white leading-tight">
+                Stories by AGS!
+              </h2>
+              <p className="mt-2 text-white/60 font-manrope font-light text-[15px] sm:text-[16px]">
+                Read more on our blog
+              </p>
+            </div>
           </ScrollReveal>
 
-          <ScrollReveal direction="up" distance={130} duration={1.2} delay={60}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-[1290px] mx-auto items-stretch">
+          {/* Carousel Track with Floating Controls */}
+          <div className="relative">
+            {/* Desktop / Tablet Left Arrow Button */}
+            <button
+              type="button"
+              onClick={prevStory}
+              aria-label="Previous story"
+              className="hidden sm:flex absolute -left-2 lg:-left-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full border border-white/20 bg-[#0A0D17]/85 backdrop-blur-md text-white items-center justify-center hover:bg-white hover:text-black transition-all duration-200 shadow-2xl cursor-pointer hover:scale-105 group"
+            >
+              <svg
+                width="16"
+                height="12"
+                viewBox="0 0 16 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-4 h-3 text-current transition-transform duration-200 group-hover:-translate-x-0.5"
+                aria-hidden="true"
+              >
+                <path
+                  d="M14.5 6H1.5M6 1.5L1.5 6L6 10.5"
+                  stroke="currentColor"
+                  strokeWidth="1.75"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+
+            {/* Desktop / Tablet Right Arrow Button */}
+            <button
+              type="button"
+              onClick={nextStory}
+              aria-label="Next story"
+              className="hidden sm:flex absolute -right-2 lg:-right-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full border border-white/20 bg-[#0A0D17]/85 backdrop-blur-md text-white items-center justify-center hover:bg-white hover:text-black transition-all duration-200 shadow-2xl cursor-pointer hover:scale-105 group"
+            >
+              <svg
+                width="16"
+                height="12"
+                viewBox="0 0 16 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-4 h-3 text-current transition-transform duration-200 group-hover:translate-x-0.5"
+                aria-hidden="true"
+              >
+                <path
+                  d="M1.5 6H14.5M10 1.5L14.5 6L10 10.5"
+                  stroke="currentColor"
+                  strokeWidth="1.75"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+
+            {/* Horizontal Scrollable Track */}
+            <div
+              ref={storiesTrackRef}
+              onScroll={handleTrackScroll}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+              onMouseDown={handleMouseDown}
+              onMouseMove={handleMouseMove}
+              onMouseUp={handleMouseUpOrLeave}
+              onMouseLeave={handleMouseUpOrLeave}
+              className="flex items-stretch gap-6 overflow-x-auto pt-2 pb-6 px-1 scroll-smooth select-none cursor-grab active:cursor-grabbing no-scrollbar snap-x snap-mandatory"
+              style={{
+                scrollbarWidth: "none",
+                msOverflowStyle: "none",
+                WebkitOverflowScrolling: "touch",
+              }}
+            >
               {blogStories.map((story) => (
                 <div
                   key={story.id}
-                  className="bg-[#181B26] border border-white/5 rounded-none overflow-hidden flex flex-col justify-between hover:border-white/20 transition-all duration-300 hover:-translate-y-1 h-full group"
+                  data-story-card
+                  className="w-[85vw] max-w-[340px] sm:w-[340px] shrink-0 snap-start bg-[#161B26] border border-white/10 rounded-none overflow-hidden flex flex-col justify-between hover:border-white/25 transition-all duration-300 hover:-translate-y-1 shadow-xl group"
                 >
-                  <div className="relative w-full aspect-[16/10] overflow-hidden bg-neutral-900 rounded-none">
+                  {/* Card Feature Image */}
+                  <div className="relative w-full aspect-[340/215] overflow-hidden bg-[#1D2230]">
                     <Image
                       src={story.image}
                       alt={story.title}
                       fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      quality={90}
+                      sizes="(max-width: 640px) 85vw, 340px"
                       className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     />
                   </div>
 
-                  <div className="p-6 flex flex-col flex-grow justify-between">
+                  {/* Card Body */}
+                  <div className="p-6 sm:p-7 flex flex-col flex-1 justify-between">
                     <div>
-                      <h3 className="text-white font-manrope font-medium text-[17px] leading-snug mb-4">
+                      <h3 className="text-white font-manrope font-semibold text-[19px] sm:text-[21px] leading-[1.3] mb-4">
                         {story.title}
                       </h3>
 
                       {/* Author Row */}
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="relative w-9 h-9 rounded-full overflow-hidden shrink-0 bg-neutral-800">
+                      <div className="flex items-center gap-3.5 mb-4">
+                        <div className="relative w-10 h-10 rounded-full overflow-hidden shrink-0 border border-white/15 bg-neutral-800">
                           <Image
                             src={story.authorImg}
                             alt={story.author}
@@ -1002,10 +1169,10 @@ export default function CareersPage() {
                           />
                         </div>
                         <div>
-                          <div className="text-white text-[13.5px] font-medium leading-tight">
+                          <div className="text-white text-[14px] font-semibold leading-tight">
                             {story.author}
                           </div>
-                          <div className="text-white/50 text-[11px] mt-0.5">
+                          <div className="text-white/50 text-[12px] mt-0.5">
                             {story.date}
                           </div>
                         </div>
@@ -1016,18 +1183,91 @@ export default function CareersPage() {
                       </p>
                     </div>
 
-                    <Link
-                      href="/blog"
-                      className="inline-flex items-center gap-2 self-start bg-white text-black px-4 py-2 font-manrope font-medium text-[13px] hover:bg-white/90 transition-colors rounded-none"
-                    >
-                      <span>Read more</span>
-                      <span>→</span>
-                    </Link>
+                    {/* Button with sharp corners */}
+                    <div className="pt-2">
+                      <Link
+                        href="/blog"
+                        className="inline-flex items-center gap-2.5 self-start bg-white text-black px-5 py-2.5 rounded-none font-manrope font-medium text-[13px] hover:bg-neutral-200 transition-colors group/btn cursor-pointer shadow-sm"
+                      >
+                        <span>Read more</span>
+                        <span className="transition-transform duration-200 group-hover/btn:translate-x-1">→</span>
+                      </Link>
+                    </div>
                   </div>
                 </div>
               ))}
             </div>
-          </ScrollReveal>
+          </div>
+
+          {/* Bottom Controls: Dots & Mobile Buttons */}
+          <div className="flex items-center justify-between sm:justify-center gap-5 mt-8 sm:mt-10 px-4">
+            {/* Mobile Prev Button */}
+            <button
+              type="button"
+              onClick={prevStory}
+              aria-label="Previous story"
+              className="w-10 h-10 rounded-full border border-white/20 text-white flex items-center justify-center hover:bg-white hover:text-black transition-colors duration-200 cursor-pointer sm:hidden"
+            >
+              <svg
+                width="14"
+                height="10"
+                viewBox="0 0 16 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-3.5 h-2.5 text-current"
+              >
+                <path
+                  d="M14.5 6H1.5M6 1.5L1.5 6L6 10.5"
+                  stroke="currentColor"
+                  strokeWidth="1.75"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+
+            {/* Pagination Indicators */}
+            <div className="flex items-center gap-2">
+              {blogStories.map((_, idx) => (
+                <button
+                  key={idx}
+                  type="button"
+                  onClick={() => scrollToStory(idx)}
+                  aria-label={`Go to slide ${idx + 1}`}
+                  className={`transition-all duration-300 rounded-full cursor-pointer ${
+                    currentStory === idx
+                      ? "w-8 h-2 bg-white"
+                      : "w-2 h-2 bg-white/25 hover:bg-white/50"
+                  }`}
+                />
+              ))}
+            </div>
+
+            {/* Mobile Next Button */}
+            <button
+              type="button"
+              onClick={nextStory}
+              aria-label="Next story"
+              className="w-10 h-10 rounded-full border border-white/20 text-white flex items-center justify-center hover:bg-white hover:text-black transition-colors duration-200 cursor-pointer sm:hidden"
+            >
+              <svg
+                width="14"
+                height="10"
+                viewBox="0 0 16 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-3.5 h-2.5 text-current"
+              >
+                <path
+                  d="M1.5 6H14.5M10 1.5L14.5 6L10 10.5"
+                  stroke="currentColor"
+                  strokeWidth="1.75"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
       </section>
 

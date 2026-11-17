@@ -40,7 +40,7 @@ export default function TargetAudience() {
           {audiences.map((aud, idx) => (
             <div
               key={idx}
-              className="bg-[#0D101E] border border-white/5 rounded-xl p-8 flex flex-col min-h-[220px] text-left hover:border-white/20 transition-colors"
+              className="bg-[#0D101E] border border-white/5 rounded-none p-8 flex flex-col min-h-[220px] text-left hover:border-white/20 transition-colors"
             >
               <h4 className="text-white font-bold text-lg mb-4">
                 {aud.title}

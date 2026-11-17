@@ -78,7 +78,7 @@ export default function AwsEcosystemBanner() {
   return (
     <section
       ref={sectionRef}
-      className="relative z-10 w-full min-h-[380px] sm:min-h-[440px] lg:min-h-[480px] bg-[#050414] py-10 sm:py-14 lg:py-16 text-white overflow-hidden border-t border-gray-100 flex items-center"
+      className="relative z-10 w-full min-h-[380px] sm:min-h-[380px] lg:min-h-[420px] bg-[#050414] py-10 sm:py-12 lg:py-14 text-white overflow-hidden border-t border-gray-100 flex items-center"
     >
       {/* Background Layer: Cloud Hologram Background Image coming from right */}
       <div
@@ -91,33 +91,41 @@ export default function AwsEcosystemBanner() {
           fill
           sizes="100vw"
           priority
-          className="object-cover object-right"
+          className="object-cover object-[85%_bottom] sm:object-right"
         />
         {/* Subtle radial glow to enhance vibrancy */}
         <div className="absolute right-[-5%] top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle,rgba(56,189,248,0.18)_0%,rgba(123,92,255,0.12)_45%,transparent_70%)] blur-[90px]" />
       </div>
 
+      {/* Dedicated Scrim Overlays for High-Contrast Readability (matching HeroSection) */}
+      {/* Mobile: Full-coverage dark scrim + vertical gradient so bright cloud never washes out text */}
+      <div className="absolute inset-0 bg-[#050414]/75 sm:hidden z-[1] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#050414]/95 via-[#050414]/65 to-[#050414]/90 sm:hidden z-[1] pointer-events-none" />
+
+      {/* Desktop: Gentle left-to-right gradient so cloud hologram stays vibrant on the right side */}
+      <div className="hidden sm:block absolute inset-0 bg-gradient-to-r from-[#050414] via-[#050414]/85 to-transparent w-[70%] lg:w-[60%] z-[1] pointer-events-none" />
+
       <div className="relative z-10 mx-auto w-full max-w-[1560px] 2xl:max-w-[1680px] px-6 sm:px-12 lg:px-20">
         {/* Left Column: Text & Logos (slides in from left side to center) */}
-        <div ref={contentRef} className="max-w-3xl xl:max-w-4xl flex flex-col items-start">
-          <span className="text-xs sm:text-sm font-semibold text-[#60A5FA] tracking-wider uppercase">
+        <div ref={contentRef} className="max-w-3xl xl:max-w-4xl flex flex-col items-start pt-1 sm:pt-0">
+          <span className="text-xs sm:text-sm font-semibold text-[#60A5FA] tracking-wider uppercase drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
             Partnership Announcement
           </span>
 
-          <h2 className="mt-2.5 sm:mt-3 text-2xl sm:text-3xl md:text-4xl lg:text-[47.1px] font-normal tracking-tight text-white leading-tight lg:leading-[72px] whitespace-normal sm:whitespace-nowrap">
+          <h2 className="mt-2.5 sm:mt-3 text-2xl sm:text-3xl md:text-4xl lg:text-[47.1px] font-normal tracking-tight text-white leading-tight lg:leading-[72px] whitespace-normal sm:whitespace-nowrap drop-shadow-[0_2px_14px_rgba(0,0,0,0.95)]">
             We Are Officially AWS Partner
           </h2>
 
-          <p className="mt-1 sm:mt-2 text-base sm:text-xl lg:text-[28px] font-normal text-white leading-snug lg:leading-[48px] whitespace-normal sm:whitespace-nowrap">
+          <p className="mt-1 sm:mt-2 text-base sm:text-xl lg:text-[28px] font-normal text-white leading-snug lg:leading-[48px] whitespace-normal sm:whitespace-nowrap drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">
             In Association with Redington Limited
           </p>
 
-          <p className="mt-2 sm:mt-2.5 text-xs sm:text-sm md:text-base text-white/70 font-light max-w-xl leading-relaxed">
+          <p className="mt-2 sm:mt-2.5 text-xs sm:text-sm md:text-base text-white/80 font-light max-w-xl leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
             Delivering cloud excellence and innovation to drive your business forward.
           </p>
 
           {/* Badges Row: AWS + Partner Network text X Redington logo per Picture 2 */}
-          <div className="mt-8 sm:mt-10 flex items-center gap-5 sm:gap-7 flex-wrap pt-1">
+          <div className="mt-6 sm:mt-10 flex items-center gap-3.5 sm:gap-7 flex-wrap pt-1 bg-black/45 sm:bg-transparent backdrop-blur-md sm:backdrop-blur-none px-3.5 py-2 sm:p-0 rounded-none border border-white/10 sm:border-transparent w-fit">
             {/* AWS Smile Logo with tightly spaced 'Partner Network' text at 20px */}
             <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
               <div className="relative h-8 sm:h-10 lg:h-11 w-16 sm:w-20 lg:w-[82px] shrink-0">

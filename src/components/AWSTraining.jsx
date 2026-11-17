@@ -41,7 +41,7 @@ const marqueeBadges = [...badges, ...badges];
 
 export default function AWSTraining() {
   return (
-    <section className="relative z-10 w-full bg-white pt-10 pb-12 sm:pt-12 sm:pb-16 text-gray-900 overflow-hidden">
+    <section className="relative z-10 w-full bg-white pt-8 pb-10 sm:pt-10 sm:pb-12 text-gray-900 overflow-hidden">
       <div className="mx-auto max-w-[1380px] px-6 sm:px-8 lg:px-14">
         <SlideIn from="left" distance={40} className="mb-6 sm:mb-8">
           <span className="text-sm sm:text-base font-semibold uppercase tracking-wider text-[#7C3AED]">

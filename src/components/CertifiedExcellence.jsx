@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import SlideIn from "@/components/SlideIn";
 
@@ -15,37 +15,87 @@ const certificates = [
     image: "/aws-certificate-2.png",
     alt: "AWS Partner: Public Sector for Sellers - Business Completion Certificate",
   },
-  {
-    id: 3,
-    image: "/Academy/certificate.png",
-    alt: "AGS Academy Certificate of Completion",
-  },
+];
+
+// Replicate the certificates into a circular buffer for a seamless infinite loop
+// Indexes 0..1, 2..3 (initial base pair), 4..5, 6..7
+const CERT_LOOP = [
+  ...certificates,
+  ...certificates,
+  ...certificates,
+  ...certificates,
 ];
 
 export default function CertifiedExcellence() {
-  const [activeIdx, setActiveIdx] = useState(0);
+  // Start at index 2 (Card 1 of base pair)
+  const [currentIndex, setCurrentIndex] = useState(2);
+  const [withTransition, setWithTransition] = useState(true);
   const [isPaused, setIsPaused] = useState(false);
+  const [cardWidth, setCardWidth] = useState(520);
+  const [gapWidth, setGapWidth] = useState(32);
 
+  const cardRef = useRef(null);
+  const trackRef = useRef(null);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
 
-  // Auto-slide every 3.8 seconds
+  const updateDimensions = useCallback(() => {
+    if (cardRef.current) {
+      setCardWidth(cardRef.current.offsetWidth);
+    }
+    if (trackRef.current) {
+      const computed = window.getComputedStyle(trackRef.current);
+      const gap = parseFloat(computed.columnGap || computed.gap);
+      if (!isNaN(gap)) {
+        setGapWidth(gap);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    updateDimensions();
+    window.addEventListener("resize", updateDimensions);
+    return () => window.removeEventListener("resize", updateDimensions);
+  }, [updateDimensions]);
+
+  // When transition was temporarily disabled for instant wrap-around snap,
+  // re-enable it on the next animation frame so subsequent movements animate smoothly.
+  useEffect(() => {
+    if (!withTransition) {
+      const frame1 = requestAnimationFrame(() => {
+        const frame2 = requestAnimationFrame(() => {
+          setWithTransition(true);
+        });
+        return () => cancelAnimationFrame(frame2);
+      });
+      return () => cancelAnimationFrame(frame1);
+    }
+  }, [withTransition]);
+
+  // Auto-slide every 4 seconds
   useEffect(() => {
     if (isPaused) return;
     const timer = setInterval(() => {
-      setActiveIdx((prev) => (prev + 1) % certificates.length);
-    }, 3800);
+      setWithTransition(true);
+      setCurrentIndex((prev) => prev + 1);
+    }, 4000);
 
     return () => clearInterval(timer);
   }, [isPaused]);
 
-  const nextCert = () => {
-    setActiveIdx((prev) => (prev + 1) % certificates.length);
+  // Handle seamless snap at the loop boundaries
+  const handleTransitionEnd = (e) => {
+    if (e.target !== trackRef.current) return;
+    if (currentIndex >= 4) {
+      setWithTransition(false);
+      setCurrentIndex((currentIndex % 2) + 2);
+    } else if (currentIndex < 2) {
+      setWithTransition(false);
+      setCurrentIndex((currentIndex % 2) + 2);
+    }
   };
 
-  const prevCert = () => {
-    setActiveIdx((prev) => (prev - 1 + certificates.length) % certificates.length);
-  };
+  const offset = currentIndex * (cardWidth + gapWidth);
 
   // Touch handlers for mobile swipe
   const handleTouchStart = (e) => {
@@ -58,45 +108,53 @@ export default function CertifiedExcellence() {
     if (!touchStartX.current || !touchEndX.current) return;
     const dist = touchStartX.current - touchEndX.current;
     if (dist > 45) {
-      nextCert();
+      setWithTransition(true);
+      setCurrentIndex((prev) => prev + 1);
     } else if (dist < -45) {
-      prevCert();
+      setWithTransition(true);
+      setCurrentIndex((prev) => prev - 1);
     }
     touchStartX.current = 0;
     touchEndX.current = 0;
   };
 
+  const handleCardClick = (index) => {
+    if (index === currentIndex) return;
+    setWithTransition(true);
+    setCurrentIndex(index);
+  };
+
   return (
     <section
       id="certified-excellence"
-      className="relative z-10 w-full bg-white py-10 sm:py-14 text-gray-900 overflow-hidden"
+      className="relative z-10 w-full bg-white py-8 sm:py-12 lg:py-14 text-gray-900 overflow-hidden"
     >
-      <div className="relative mx-auto max-w-[1380px] px-6 sm:px-8 lg:px-14">
-        {/* 2-Column Layout matching Picture 3 / Picture 7 */}
-        <div className="grid grid-cols-1 lg:grid-cols-[0.40fr_0.60fr] gap-8 lg:gap-10 items-start">
+      <div className="relative mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-14">
+        {/* 2-Column Layout matching user reference design precisely */}
+        <div className="grid grid-cols-1 lg:grid-cols-[0.40fr_0.60fr] gap-8 lg:gap-14 items-center">
           
-          {/* Left Column: Heading + Subtitle + AWS Sales Accreditation (Unified with tight gap) */}
-          <SlideIn from="left" distance={30} tint={true} className="flex flex-col items-start">
+          {/* Left Column: Heading + Subtitle + AWS Sales Accreditation */}
+          <SlideIn from="left" distance={25} className="flex flex-col items-start z-10">
             {/* Top Section Header */}
             <div>
               <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-normal tracking-tight text-gray-950 leading-[1.12]">
                 Certified Excellence
               </h2>
-              <p className="mt-2 text-sm sm:text-base text-gray-500 font-normal">
+              <p className="mt-2.5 sm:mt-3 text-sm sm:text-base text-gray-500 font-normal">
                 Industry-recognized credentials that validate our expertise.
               </p>
             </div>
 
-            {/* AWS Sales Accreditation: Tightly spaced directly below header */}
-            <div className="mt-7 sm:mt-8">
-              <h3 className="text-2xl sm:text-3xl lg:text-[38px] font-normal leading-[1.18] tracking-tight text-gray-950">
+            {/* AWS Sales Accreditation */}
+            <div className="mt-8 sm:mt-10 lg:mt-12">
+              <h3 className="text-2xl sm:text-3xl lg:text-[36px] font-normal leading-[1.18] tracking-tight text-gray-950">
                 We&rsquo;ve Got{" "}
-                <span className="text-[#567EFF] font-medium">AWS Sales</span>
-                <br />
+                <span className="text-[#504CFF] font-medium">AWS Sales</span>
+                <br className="hidden sm:inline" />
                 Accreditation
               </h3>
 
-              <p className="mt-4 sm:mt-5 text-sm sm:text-base leading-relaxed text-gray-600 font-normal max-w-md">
+              <p className="mt-4 sm:mt-5 text-[15px] sm:text-base leading-relaxed text-gray-500 font-normal max-w-[420px]">
                 Being appreciated by the clients we work with means the world to
                 us. It also translates beautifully into our official ratings and
                 awards, matching our commitment to align cloud infrastructure
@@ -105,10 +163,10 @@ export default function CertifiedExcellence() {
             </div>
           </SlideIn>
 
-          {/* Right Column: Sliding Certificates Track with Progress Indicator matching Picture 2 - Copy (2) */}
-          <SlideIn from="right" distance={25} className="relative w-full lg:pt-1">
+          {/* Right Column: Sliding Certificates Track (Clipped so it never overlaps left text, but right side peeks continuously) */}
+          <SlideIn from="right" distance={25} className="relative w-full overflow-hidden">
             <div
-              className="relative w-full select-none"
+              className="relative w-full select-none overflow-hidden"
               onMouseEnter={() => setIsPaused(true)}
               onMouseLeave={() => setIsPaused(false)}
               onTouchStart={handleTouchStart}
@@ -116,78 +174,46 @@ export default function CertifiedExcellence() {
               onTouchEnd={handleTouchEnd}
             >
               {/* Carousel Track Viewport */}
-              <div className="overflow-hidden w-full pb-4 pt-1">
+              <div className="overflow-hidden w-full py-4 px-1">
                 <div
-                  className="flex transition-transform duration-600 ease-[cubic-bezier(0.25,1,0.5,1)] will-change-transform gap-5 sm:gap-6"
+                  ref={trackRef}
+                  onTransitionEnd={handleTransitionEnd}
+                  className={`flex will-change-transform gap-5 sm:gap-7 lg:gap-8 ${
+                    withTransition
+                      ? "transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]"
+                      : "transition-none"
+                  }`}
                   style={{
-                    transform: `translateX(-${activeIdx * 100}%)`,
+                    transform: `translateX(-${offset}px)`,
                   }}
                 >
-                  {certificates.map((cert, index) => {
-                    const isActive = index === activeIdx;
+                  {CERT_LOOP.map((cert, index) => {
+                    const isActive = index === currentIndex;
                     return (
                       <div
-                        key={cert.id}
-                        onClick={() => setActiveIdx((index + 1) % certificates.length)}
+                        ref={index === 0 ? cardRef : null}
+                        key={`${cert.id}-${index}`}
+                        onClick={() => handleCardClick(index)}
                         title={cert.alt}
-                        className={`w-full shrink-0 aspect-[482/328] rounded-[2px] overflow-hidden bg-white border transition-all duration-500 cursor-pointer ${
+                        className={`w-[82%] sm:w-[78%] lg:w-[480px] xl:w-[520px] shrink-0 aspect-[482/328] rounded-none bg-white shadow-[0_14px_34px_rgba(0,0,0,0.20)] cursor-pointer transition-all duration-300 ${
                           isActive
-                            ? "border-[#567EFF]/50 shadow-[10px_12px_24px_-4px_rgba(71,85,105,0.22)] scale-[1.0]"
-                            : "border-gray-200 shadow-md opacity-75 hover:opacity-100 scale-[0.98]"
+                            ? "opacity-100 scale-100"
+                            : "opacity-80 hover:opacity-100 scale-[0.98]"
                         }`}
                       >
-                        <div className="relative w-full h-full p-2 bg-white">
+                        <div className="relative w-full h-full bg-white p-1">
                           <Image
                             src={cert.image}
                             alt={cert.alt}
                             fill
-                            sizes="(max-width: 1024px) 90vw, 640px"
+                            sizes="(max-width: 1024px) 82vw, 520px"
                             className="object-contain object-center"
-                            priority={index === 0}
+                            priority={index < 4}
                           />
                         </div>
                       </div>
                     );
                   })}
-                </div>
-              </div>
-
-              {/* Bottom Progress Bar & Navigation Controls matching Picture 2 - Copy (2) */}
-              <div className="mt-5 flex items-center justify-between gap-6">
-                {/* Horizontal Progress Slider Bar */}
-                <div className="relative flex-1 h-[3px] bg-gray-200 rounded-full overflow-hidden">
-                  <div
-                    className="absolute top-0 bottom-0 left-0 bg-[#567EFF] rounded-full transition-all duration-500 ease-out"
-                    style={{
-                      width: `${100 / certificates.length}%`,
-                      transform: `translateX(${activeIdx * 100}%)`,
-                    }}
-                  />
-                </div>
-
-                {/* Left & Right Arrow Buttons */}
-                <div className="flex items-center gap-2 shrink-0">
-                  <button
-                    type="button"
-                    onClick={prevCert}
-                    aria-label="Previous certificate"
-                    className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-white text-gray-800 shadow-sm border border-gray-200 transition-all duration-300 hover:border-gray-400 hover:scale-105 active:scale-95 cursor-pointer"
-                  >
-                    <svg className="w-3.5 h-3.5 text-gray-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                      <path d="M15 19l-7-7 7-7" />
-                    </svg>
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={nextCert}
-                    aria-label="Next certificate"
-                    className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-white text-gray-800 shadow-sm border border-gray-200 transition-all duration-300 hover:border-gray-400 hover:scale-105 active:scale-95 cursor-pointer"
-                  >
-                    <svg className="w-3.5 h-3.5 text-gray-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                      <path d="M9 5l7 7-7 7" />
-                    </svg>
-                  </button>
                 </div>
               </div>
             </div>

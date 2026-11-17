@@ -72,88 +72,94 @@ function AlternatingMetricsRow() {
   return (
     <div
       ref={containerRef}
-      className="pt-10 sm:pt-14 border-t border-black/[0.08]"
+      className="pt-6 sm:pt-8 lg:pt-10 border-t border-black/[0.08]"
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-black/[0.08]">
-        {/* Col 1: Number + Label on top, Description on bottom (Matching Picture2.png) */}
+        {/* Col 1: Number + Label on top, Description on bottom */}
         <div
           ref={col1Ref}
-          className="flex flex-col justify-between py-6 sm:py-8 lg:py-10 px-4 sm:px-6 lg:px-8 will-change-transform min-h-[220px]"
+          className="flex flex-col justify-start lg:justify-between py-4 sm:py-5 lg:py-6 px-4 sm:px-5 lg:px-7 will-change-transform min-h-0 lg:min-h-[145px] xl:min-h-[155px]"
         >
           <div>
-            <div className="flex items-baseline gap-1 text-4xl sm:text-5xl lg:text-[58px] font-light text-[#101015] tracking-tight leading-none">
+            <div className="flex items-baseline gap-1 text-3xl sm:text-4xl lg:text-[52px] xl:text-[56px] font-light text-[#101015] tracking-tight leading-none">
               <span>250</span>
-              <span className="text-[#8B5CF6] font-normal text-3xl sm:text-4xl lg:text-[44px]">
+              <span className="text-[#8B5CF6] font-normal text-2xl sm:text-3xl lg:text-[40px]">
                 +
               </span>
             </div>
-            <p className="mt-3.5 text-xs sm:text-[13px] font-semibold uppercase tracking-[0.16em] text-[#101015]">
+            <p className="mt-2 sm:mt-2.5 text-xs sm:text-[13px] font-semibold uppercase tracking-[0.16em] text-[#101015]">
               PROJECTS COMPLETED
             </p>
           </div>
-          <p className="mt-8 text-xs sm:text-[13px] text-[#6E7485] leading-relaxed max-w-[240px]">
+          <p className="mt-2 sm:mt-2.5 lg:mt-5 text-xs sm:text-[13px] text-[#6E7485] leading-relaxed max-w-[260px]">
             Delivering high-impact digital solutions worldwide.
           </p>
         </div>
 
-        {/* Col 2: Description on top, Number + Label on bottom (Matching Picture2.png) */}
+        {/* Col 2: Number + Label on top & Description below on mobile, Alternating on desktop */}
         <div
           ref={col2Ref}
-          className="flex flex-col justify-between py-6 sm:py-8 lg:py-10 px-4 sm:px-6 lg:px-8 will-change-transform min-h-[220px]"
+          className="flex flex-col justify-start lg:justify-between py-4 sm:py-5 lg:py-6 px-4 sm:px-5 lg:px-7 will-change-transform min-h-0 lg:min-h-[145px] xl:min-h-[155px]"
         >
-          <p className="text-xs sm:text-[13px] text-[#6E7485] leading-relaxed max-w-[240px]">
+          {/* Description: below on mobile (order-2 lg:order-1), top on desktop (lg:order-1) */}
+          <p className="order-2 lg:order-1 mt-2 sm:mt-2.5 lg:mt-0 text-xs sm:text-[13px] text-[#6E7485] leading-relaxed max-w-[260px]">
             Recognized for excellence in design and innovation.
           </p>
-          <div className="mt-8">
-            <div className="flex items-baseline gap-1 text-4xl sm:text-5xl lg:text-[58px] font-light text-[#101015] tracking-tight leading-none">
+
+          {/* Metric: top on mobile (order-1 lg:order-2), bottom on desktop (lg:order-2) */}
+          <div className="order-1 lg:order-2 lg:mt-5">
+            <div className="flex items-baseline gap-1 text-3xl sm:text-4xl lg:text-[52px] xl:text-[56px] font-light text-[#101015] tracking-tight leading-none">
               <span>150</span>
-              <span className="text-[#8B5CF6] font-normal text-3xl sm:text-4xl lg:text-[44px]">
+              <span className="text-[#8B5CF6] font-normal text-2xl sm:text-3xl lg:text-[40px]">
                 +
               </span>
             </div>
-            <p className="mt-3.5 text-xs sm:text-[13px] font-semibold uppercase tracking-[0.16em] text-[#101015]">
+            <p className="mt-2 sm:mt-2.5 text-xs sm:text-[13px] font-semibold uppercase tracking-[0.16em] text-[#101015]">
               AWARDS WINNING
             </p>
           </div>
         </div>
 
-        {/* Col 3: Number + Label on top, Description on bottom (Matching Picture2.png) */}
+        {/* Col 3: Number + Label on top, Description on bottom */}
         <div
           ref={col3Ref}
-          className="flex flex-col justify-between py-6 sm:py-8 lg:py-10 px-4 sm:px-6 lg:px-8 will-change-transform min-h-[220px]"
+          className="flex flex-col justify-start lg:justify-between py-4 sm:py-5 lg:py-6 px-4 sm:px-5 lg:px-7 will-change-transform min-h-0 lg:min-h-[145px] xl:min-h-[155px]"
         >
           <div>
-            <div className="flex items-baseline gap-1 text-4xl sm:text-5xl lg:text-[58px] font-light text-[#101015] tracking-tight leading-none">
+            <div className="flex items-baseline gap-1 text-3xl sm:text-4xl lg:text-[52px] xl:text-[56px] font-light text-[#101015] tracking-tight leading-none">
               <span>98</span>
-              <span className="text-[#8B5CF6] font-normal text-3xl sm:text-4xl lg:text-[44px]">
+              <span className="text-[#8B5CF6] font-normal text-2xl sm:text-3xl lg:text-[40px]">
                 %
               </span>
             </div>
-            <p className="mt-3.5 text-xs sm:text-[13px] font-semibold uppercase tracking-[0.16em] text-[#101015]">
+            <p className="mt-2 sm:mt-2.5 text-xs sm:text-[13px] font-semibold uppercase tracking-[0.16em] text-[#101015]">
               CLIENT SATISFACTION
             </p>
           </div>
-          <p className="mt-8 text-xs sm:text-[13px] text-[#6E7485] leading-relaxed max-w-[240px]">
+          <p className="mt-2 sm:mt-2.5 lg:mt-5 text-xs sm:text-[13px] text-[#6E7485] leading-relaxed max-w-[260px]">
             Long-term partnerships built on trust and results.
           </p>
         </div>
 
-        {/* Col 4: Description on top, Number + Label on bottom (Matching Picture2.png) */}
+        {/* Col 4: Number + Label on top & Description below on mobile, Alternating on desktop */}
         <div
           ref={col4Ref}
-          className="flex flex-col justify-between py-6 sm:py-8 lg:py-10 px-4 sm:px-6 lg:px-8 will-change-transform min-h-[220px]"
+          className="flex flex-col justify-start lg:justify-between py-4 sm:py-5 lg:py-6 px-4 sm:px-5 lg:px-7 will-change-transform min-h-0 lg:min-h-[145px] xl:min-h-[155px]"
         >
-          <p className="text-xs sm:text-[13px] text-[#6E7485] leading-relaxed max-w-[240px]">
+          {/* Description: below on mobile (order-2 lg:order-1), top on desktop (lg:order-1) */}
+          <p className="order-2 lg:order-1 mt-2 sm:mt-2.5 lg:mt-0 text-xs sm:text-[13px] text-[#6E7485] leading-relaxed max-w-[260px]">
             Continuous growth and technological leadership.
           </p>
-          <div className="mt-8">
-            <div className="flex items-baseline gap-1 text-4xl sm:text-5xl lg:text-[58px] font-light text-[#101015] tracking-tight leading-none">
+
+          {/* Metric: top on mobile (order-1 lg:order-2), bottom on desktop (lg:order-2) */}
+          <div className="order-1 lg:order-2 lg:mt-5">
+            <div className="flex items-baseline gap-1 text-3xl sm:text-4xl lg:text-[52px] xl:text-[56px] font-light text-[#101015] tracking-tight leading-none">
               <span>03</span>
-              <span className="text-[#8B5CF6] font-normal text-3xl sm:text-4xl lg:text-[44px]">
+              <span className="text-[#8B5CF6] font-normal text-2xl sm:text-3xl lg:text-[40px]">
                 +
               </span>
             </div>
-            <p className="mt-3.5 text-xs sm:text-[13px] font-semibold uppercase tracking-[0.16em] text-[#101015]">
+            <p className="mt-2 sm:mt-2.5 text-xs sm:text-[13px] font-semibold uppercase tracking-[0.16em] text-[#101015]">
               YEARS OF EXPERIENCES
             </p>
           </div>
@@ -170,38 +176,55 @@ export default function AboutBusinessGrowth() {
   useGSAP(
     () => {
       const lines = gsap.utils.toArray("[data-line]");
+      const logo = root.current?.querySelector("[data-logo]");
       const mm = gsap.matchMedia();
 
       mm.add("(prefers-reduced-motion: reduce)", () => {
         gsap.set(lines, { x: 0, autoAlpha: 1, color: "#000" });
+        if (logo) gsap.set(logo, { autoAlpha: 0.9, x: 0 });
       });
 
       mm.add("(prefers-reduced-motion: no-preference)", () => {
         const isMobile = window.innerWidth < 768;
-        const dist = isMobile ? "20vw" : "60vw";
+        const dist = isMobile ? 35 : 70;
+
         gsap.set(lines, {
-          x: (_, el) => (el.dataset.from === "right" ? dist : `-${dist}`),
+          x: (_, el) => (el.dataset.from === "right" ? dist : -dist),
           autoAlpha: 0,
-          color: "#c9c9c9",
+          color: "#9ca3af",
         });
+
+        if (logo) {
+          gsap.set(logo, { autoAlpha: 0.3, x: -20 });
+        }
 
         const st = ScrollTrigger.create({
           trigger: root.current,
           start: "top 75%",
           once: true,
-          onEnter: () =>
+          onEnter: () => {
             gsap.to(lines, {
               x: 0,
               autoAlpha: 1,
               color: "#000",
-              duration: 1.6,
+              duration: 1.2,
               ease: "power3.out",
-              stagger: 0.12,
-            }),
+              stagger: 0.1,
+            });
+            if (logo) {
+              gsap.to(logo, {
+                x: 0,
+                autoAlpha: 0.9,
+                duration: 1.4,
+                ease: "power2.out",
+              });
+            }
+          },
         });
 
         if (st.progress > 0) {
           gsap.set(lines, { x: 0, autoAlpha: 1, color: "#000" });
+          if (logo) gsap.set(logo, { autoAlpha: 0.9, x: 0 });
         }
       });
 
@@ -211,79 +234,79 @@ export default function AboutBusinessGrowth() {
   );
 
   return (
-    <section className="relative w-full bg-white overflow-hidden pt-8 sm:pt-12 lg:pt-16 pb-16 sm:pb-24">
+    <section className="relative w-full bg-white overflow-hidden pt-6 sm:pt-8 lg:pt-10 pb-12 sm:pb-16 lg:pb-20">
       {/* ── PART A: Centered Kinetic Typography & Monogram matching Picture7.png ── */}
       <div
         ref={root}
-        className="relative w-full flex items-center justify-center overflow-hidden bg-white py-14 sm:py-20 lg:py-24"
+        className="relative flex items-center justify-center overflow-x-clip bg-white py-6 sm:py-10 lg:py-14"
       >
-        {/* Subtle Background Watermark (Positioned absolutely so typography stays 100% centrally aligned with equal spacing on both sides) */}
-        <div
-          data-line
-          data-from="left"
-          className="absolute left-[3vw] sm:left-[6vw] lg:left-[9vw] top-1/2 -translate-y-1/2 pointer-events-none select-none w-[70px] sm:w-[95px] md:w-[115px] lg:w-[135px] aspect-[140/409] opacity-20 z-0"
-        >
-          <Image
-            src="/ags-monogram-tight.png"
-            alt="AGS Monogram"
-            fill
-            sizes="(max-width: 768px) 95px, 135px"
-            className="object-contain"
-            priority
-          />
-        </div>
-
-        {/* Centered Typography Container: Equal spacing on both left & right matching Picture7.png */}
-        <div className="relative z-10 mx-auto px-4 sm:px-6 flex flex-col items-start font-sans text-[36px] xs:text-[44px] sm:text-[62px] md:text-[76px] lg:text-[92px] xl:text-[104px] font-normal leading-[1.08] tracking-[-0.03em] text-black">
-          {/* Line 1: Fuel Your + Pill Arrow Button */}
+        <div className="relative z-10 mx-auto flex items-center justify-center px-4 sm:px-6 md:px-8 max-w-[1440px]">
+          {/* Left: Outline AGS Monogram Watermark on the side matching design */}
           <div
-            data-line
-            data-from="left"
-            className="flex items-center gap-3 sm:gap-5 lg:gap-6"
+            data-logo
+            className="relative shrink-0 w-[36px] xs:w-[46px] sm:w-[65px] md:w-[85px] lg:w-[110px] xl:w-[125px] aspect-[140/409] select-none mr-3 xs:mr-4 sm:mr-7 md:mr-10 lg:mr-14 xl:mr-16"
           >
-            <span>Fuel Your</span>
-            <span className="flex h-[32px] xs:h-[38px] sm:h-[48px] md:h-[58px] lg:h-[70px] w-[56px] xs:w-[68px] sm:w-[90px] md:w-[110px] lg:w-[130px] items-center justify-center rounded-full border border-[#8B5CF6]/50 shrink-0">
-              <svg
-                className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8 text-[#8B5CF6]"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <line x1="7" y1="17" x2="17" y2="7" />
-                <polyline points="7 7 17 7 17 17" />
-              </svg>
-            </span>
+            <Image
+              src="/ags-monogram-hd.png"
+              alt="AGS Monogram"
+              fill
+              sizes="(max-width: 640px) 46px, (max-width: 1024px) 85px, 125px"
+              className="object-contain object-center opacity-90"
+              priority
+            />
           </div>
 
-          {/* Line 2: Team Image tucked cleanly beside Business (Matching Picture7.png alignment) */}
-          <div
-            data-line
-            data-from="right"
-            className="flex items-center gap-3 sm:gap-4 lg:gap-5"
-          >
-            <div className="relative h-[28px] xs:h-[34px] sm:h-[46px] md:h-[58px] lg:h-[68px] aspect-[1.55/1] shrink-0 overflow-hidden rounded-[3px] shadow-sm">
-              <Image
-                src="/figma-exports/Markeo.png"
-                alt="Business Team"
-                fill
-                sizes="(max-width: 768px) 80px, 150px"
-                className="object-cover object-center"
-                priority
-              />
+          {/* Right: 3-Line Kinetic Typography */}
+          <div className="flex flex-col items-start font-sans text-[30px] xs:text-[38px] sm:text-[54px] md:text-[72px] lg:text-[92px] xl:text-[104px] font-normal leading-[1.08] tracking-[-0.03em] text-black">
+            {/* Line 1: Fuel Your + Pill Arrow Button */}
+            <div
+              data-line
+              data-from="left"
+              className="flex items-center gap-2 xs:gap-2.5 sm:gap-3.5 md:gap-4 lg:gap-5"
+            >
+              <span>Fuel Your</span>
+              <span className="flex h-[24px] xs:h-[28px] sm:h-[36px] md:h-[45px] lg:h-[54px] xl:h-[62px] w-[44px] xs:w-[54px] sm:w-[70px] md:w-[88px] lg:w-[110px] xl:w-[126px] items-center justify-center rounded-full border border-[#8B5CF6]/70 shrink-0">
+                <svg
+                  className="w-3 h-3 xs:w-3.5 xs:h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 text-[#8B5CF6]"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M7 17L17 7M17 7H7M17 7V17" />
+                </svg>
+              </span>
             </div>
-            <span>Business</span>
-          </div>
 
-          {/* Line 3: Expansion (Indented slightly so it centers under Line 2 and right-aligns with Business matching Picture7.png) */}
-          <div
-            data-line
-            data-from="left"
-            className="pl-[16px] sm:pl-[24px] lg:pl-[32px]"
-          >
-            Expansion
+            {/* Line 2: Team Image (strictly rectangular, rounded-none) tucked cleanly beside Business */}
+            <div
+              data-line
+              data-from="right"
+              className="flex items-center gap-2 xs:gap-2.5 sm:gap-3.5 md:gap-4 lg:gap-5"
+            >
+              <div className="relative shrink-0 overflow-hidden rounded-none shadow-none w-[42px] xs:w-[54px] sm:w-[74px] md:w-[98px] lg:w-[125px] xl:w-[145px] h-[27px] xs:h-[35px] sm:h-[48px] md:h-[63px] lg:h-[80px] xl:h-[94px]">
+                <Image
+                  src="/figma-exports/Markeo.png"
+                  alt="Business Team"
+                  fill
+                  sizes="(max-width: 640px) 54px, (max-width: 1024px) 98px, 145px"
+                  className="object-cover object-center rounded-none"
+                  priority
+                />
+              </div>
+              <span>Business</span>
+            </div>
+
+            {/* Line 3: Expansion (Indented slightly so it aligns under Business) */}
+            <div
+              data-line
+              data-from="left"
+              className="pl-[10px] sm:pl-[16px] md:pl-[20px] lg:pl-[24px]"
+            >
+              Expansion
+            </div>
           </div>
         </div>
       </div>
@@ -293,7 +316,7 @@ export default function AboutBusinessGrowth() {
         <AlternatingMetricsRow />
 
         {/* Lower: Supporting Business-Growth Statement (2-Column) */}
-        <div className="mt-16 sm:mt-24 pt-12 sm:pt-16 border-t border-black/[0.06] grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center overflow-hidden">
+        <div className="mt-10 sm:mt-14 lg:mt-16 pt-8 sm:pt-10 lg:pt-12 border-t border-black/[0.06] grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center overflow-hidden">
           {/* Left Heading (Slides in from Left) */}
           <SlideIn from="left" distance={30}>
             <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-normal tracking-tight text-[#101015] leading-[1.2]">
@@ -318,7 +341,7 @@ export default function AboutBusinessGrowth() {
                 <button
                   type="button"
                   onClick={() => openForm()}
-                  className="group inline-flex items-stretch rounded-[2px] overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.01]"
+                  className="group inline-flex items-stretch rounded-none overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.01]"
                 >
                   <div className="w-10 sm:w-11 bg-[#F4EEFF] flex items-center justify-center border-r border-[#6040FF]/25 text-[#6040FF] transition-colors group-hover:bg-[#ECE2FF]">
                     <svg

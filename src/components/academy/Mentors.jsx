@@ -34,7 +34,7 @@ export default function Mentors() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {mentors.map((mentor, idx) => (
-            <div key={idx} className="bg-[#0D101E] border border-white/5 rounded-sm overflow-hidden hover:border-white/10 transition-colors flex flex-col">
+            <div key={idx} className="bg-[#0D101E] border border-white/5 rounded-none overflow-hidden hover:border-white/10 transition-colors flex flex-col">
               {/* Photo Placeholder */}
               <div className="w-full h-56 md:h-64 bg-gradient-to-br from-[#14172B] to-[#0A0C16] relative border-b border-white/5 p-4 flex items-center justify-center group overflow-hidden">
                  {/* Decorative background glow */}

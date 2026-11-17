@@ -168,14 +168,14 @@ function ServiceArt({ type }) {
   if (type === "browser") {
     return (
       <div className="absolute inset-y-0 right-0 w-[54%] overflow-hidden">
-        <div className="absolute left-6 right-4 top-6 h-[78%] rounded-[18px] border border-white/15 bg-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.2)]">
+        <div className="absolute left-6 right-4 top-6 h-[78%] rounded-none border border-white/15 bg-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.2)]">
           <div className="flex gap-1 px-4 py-3">
             <span className="h-1.5 w-1.5 rounded-full bg-white/35" />
             <span className="h-1.5 w-1.5 rounded-full bg-white/20" />
             <span className="h-1.5 w-1.5 rounded-full bg-white/20" />
           </div>
           <div className="mx-4 mt-3 h-3 rounded-full bg-white/10" />
-          <div className="mx-4 mt-5 h-24 rounded-xl bg-white/14" />
+          <div className="mx-4 mt-5 h-24 rounded-none bg-white/14" />
           <div className="mx-4 mt-4 h-2 w-28 rounded-full bg-white/10" />
           <div className="mx-4 mt-2 h-2 w-20 rounded-full bg-white/10" />
         </div>
@@ -186,15 +186,15 @@ function ServiceArt({ type }) {
   if (type === "wireframe") {
     return (
       <div className="absolute inset-y-0 right-0 w-[42%] overflow-hidden">
-        <div className="absolute bottom-0 right-4 top-5 w-[76%] rounded-t-[18px] border border-white/10 bg-white/10">
-          <div className="mx-4 mt-5 h-7 rounded-[10px] bg-white/13" />
+        <div className="absolute bottom-0 right-4 top-5 w-[76%] rounded-none-[18px] border border-white/10 bg-white/10">
+          <div className="mx-4 mt-5 h-7 rounded-none bg-white/13" />
           <div className="mx-4 mt-4 h-2 rounded-full bg-white/12" />
           <div className="mx-4 mt-2 h-2 w-3/4 rounded-full bg-white/12" />
           <div className="mx-4 mt-4 grid grid-cols-2 gap-2">
-            <div className="h-8 rounded-lg bg-white/10" />
-            <div className="h-8 rounded-lg bg-white/10" />
+            <div className="h-8 rounded-none bg-white/10" />
+            <div className="h-8 rounded-none bg-white/10" />
           </div>
-          <div className="mx-4 mt-4 h-10 rounded-[10px] bg-white/10" />
+          <div className="mx-4 mt-4 h-10 rounded-none bg-white/10" />
         </div>
       </div>
     );
@@ -203,8 +203,8 @@ function ServiceArt({ type }) {
   if (type === "device") {
     return (
       <div className="absolute inset-y-0 right-0 w-[46%] overflow-hidden">
-        <div className="absolute -bottom-5 right-4 h-40 w-32 rounded-[28px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.18),rgba(255,255,255,0.04))] rotate-[18deg]" />
-        <div className="absolute bottom-0 right-14 h-36 w-24 rounded-t-[120px] bg-white/8 blur-[1px]" />
+        <div className="absolute -bottom-5 right-4 h-40 w-32 rounded-none border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.18),rgba(255,255,255,0.04))] rotate-[18deg]" />
+        <div className="absolute bottom-0 right-14 h-36 w-24 rounded-none-[120px] bg-white/8 blur-[1px]" />
       </div>
     );
   }
@@ -212,7 +212,7 @@ function ServiceArt({ type }) {
   if (type === "robot") {
     return (
       <div className="absolute inset-y-0 right-0 w-[50%] overflow-hidden">
-        <div className="absolute right-6 top-6 h-20 w-20 rounded-[18px] border border-white/15 bg-white/10">
+        <div className="absolute right-6 top-6 h-20 w-20 rounded-none border border-white/15 bg-white/10">
           <div className="mx-3 mt-3 grid grid-cols-3 gap-1">
             {[...Array(9)].map((_, i) => (
               <span key={i} className="h-2 w-2 rounded-full bg-white/20" />
@@ -230,11 +230,11 @@ function ServiceArt({ type }) {
     return (
       <div className="absolute inset-y-0 right-0 w-[50%] overflow-hidden">
         <div className="absolute bottom-6 right-4 flex items-end gap-2">
-          <div className="h-10 w-5 rounded-t bg-white/12" />
-          <div className="h-16 w-5 rounded-t bg-white/18" />
-          <div className="h-8 w-5 rounded-t bg-white/10" />
-          <div className="h-20 w-5 rounded-t bg-white/15" />
-          <div className="h-12 w-5 rounded-t bg-white/12" />
+          <div className="h-10 w-5 rounded-none bg-white/12" />
+          <div className="h-16 w-5 rounded-none bg-white/18" />
+          <div className="h-8 w-5 rounded-none bg-white/10" />
+          <div className="h-20 w-5 rounded-none bg-white/15" />
+          <div className="h-12 w-5 rounded-none bg-white/12" />
         </div>
         <div className="absolute right-5 top-5 h-2 w-16 rounded-full bg-white/10" />
         <div className="absolute right-8 top-10 h-2 w-10 rounded-full bg-white/10" />
@@ -245,8 +245,8 @@ function ServiceArt({ type }) {
   if (type === "shield") {
     return (
       <div className="absolute inset-y-0 right-0 w-[50%] overflow-hidden">
-        <div className="absolute right-8 top-5 h-24 w-20 rounded-t-[40px] border border-white/15 bg-white/10" />
-        <div className="absolute right-11 top-10 h-14 w-14 rounded-t-[28px] border border-white/10 bg-white/8" />
+        <div className="absolute right-8 top-5 h-24 w-20 rounded-none-[40px] border border-white/15 bg-white/10" />
+        <div className="absolute right-11 top-10 h-14 w-14 rounded-none-[28px] border border-white/10 bg-white/8" />
         <div className="absolute bottom-6 right-6 h-2 w-18 rounded-full bg-white/10" />
         <div className="absolute bottom-3 right-9 h-2 w-12 rounded-full bg-white/10" />
       </div>
@@ -256,7 +256,7 @@ function ServiceArt({ type }) {
   if (type === "book") {
     return (
       <div className="absolute inset-y-0 right-0 w-[50%] overflow-hidden">
-        <div className="absolute right-6 top-5 h-[72%] w-20 rounded-[10px] border border-white/15 bg-white/10">
+        <div className="absolute right-6 top-5 h-[72%] w-20 rounded-none border border-white/15 bg-white/10">
           <div className="mx-3 mt-4 h-2 rounded-full bg-white/18" />
           <div className="mx-3 mt-2 h-2 rounded-full bg-white/12" />
           <div className="mx-3 mt-2 h-2 w-3/4 rounded-full bg-white/12" />
@@ -269,9 +269,9 @@ function ServiceArt({ type }) {
 
   return (
     <div className="absolute inset-y-0 right-0 w-[52%] overflow-hidden">
-      <div className="absolute -bottom-12 right-7 h-44 w-32 rounded-[26px] border border-white/10 bg-white/8 rotate-[16deg]" />
+      <div className="absolute -bottom-12 right-7 h-44 w-32 rounded-none border border-white/10 bg-white/8 rotate-[16deg]" />
       <div className="absolute right-20 top-5 h-24 w-24 rounded-full border-[10px] border-white/18" />
-      <div className="absolute bottom-0 right-0 h-32 w-32 rounded-tl-[110px] bg-white/10" />
+      <div className="absolute bottom-0 right-0 h-32 w-32 rounded-none bg-white/10" />
     </div>
   );
 }
@@ -366,7 +366,7 @@ function ServiceCard({ service, className = "" }) {
 
   return (
     <article
-      className={`relative min-h-70 overflow-hidden rounded-xs border border-white/6 px-5 py-6 transition-all duration-300 hover:border-white/10 hover:shadow-[0_0_30px_rgba(255,255,255,0.05)] sm:px-6 sm:py-7 ${themeClasses[service.theme]} ${className}`}
+      className={`relative min-h-70 overflow-hidden rounded-none border border-white/6 px-5 py-6 transition-all duration-300 hover:border-white/10 hover:shadow-[0_0_30px_rgba(255,255,255,0.05)] sm:px-6 sm:py-7 ${themeClasses[service.theme]} ${className}`}
     >
       <div className="pointer-events-none absolute -left-8 top-10 h-24 w-24 rounded-full bg-[#5f8cff]/20 blur-[50px]" />
       <ServiceArt type={service.type} />

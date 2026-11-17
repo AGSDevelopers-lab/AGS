@@ -41,7 +41,7 @@ export default function Testimonials() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {testimonials.map((test, idx) => (
-            <div key={idx} className="bg-[#0D101E] border border-white/5 rounded-sm p-8 flex flex-col hover:border-white/10 transition-colors">
+            <div key={idx} className="bg-[#0D101E] border border-white/5 rounded-none p-8 flex flex-col hover:border-white/10 transition-colors">
               <div className="flex gap-1 text-[#FDB022] mb-6">
                 {[1, 2, 3, 4, 5].map((star) => (
                   <svg key={star} width="16" height="16" viewBox="0 0 24 24" fill="currentColor">

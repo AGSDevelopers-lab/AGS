@@ -47,41 +47,43 @@ export default function ServiceDetailClient({ data }) {
       </div>
 
       {/* 1. HERO SECTION */}
-      <section className="relative w-full h-[100vh] min-h-[600px] flex items-center pt-24 border-b border-white/10">
+      <section className="relative w-full min-h-[340px] sm:min-h-[400px] flex items-center pt-28 pb-12 border-b border-white/10">
         <div className="absolute inset-0 z-0">
           <Image
             src={data.heroImage || "/serviceswebsite development.png"}
             alt="Hero Background"
             fill
             sizes="100vw"
-            className="object-cover opacity-60 mix-blend-lighten"
+            className="object-cover opacity-40 mix-blend-lighten"
             priority
           />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0a0d1e]/90 via-[#0a0d1e]/70 to-transparent" />
         </div>
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-26 w-full">
           <div className="max-w-2xl text-left">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-light tracking-tight mb-6 leading-[1.1] bg-[linear-gradient(90deg,#9795FF_0%,#FFFFFF_60%)] bg-clip-text text-transparent">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight mb-4 leading-[1.15] bg-[linear-gradient(90deg,#9795FF_0%,#FFFFFF_100%)] bg-clip-text text-transparent">
               {data.title}
             </h1>
-            <p className="text-white/90 text-[1.1rem] font-light leading-relaxed mb-10 max-w-xl">
+            <p className="text-white/80 text-[0.95rem] font-light leading-relaxed mb-8 max-w-xl">
               {data.intro}
             </p>
             <button
               onClick={() => openForm({ service: data.title })}
-              className="group inline-flex items-center gap-3 border border-white bg-white px-8 py-3.5 font-semibold text-black transition-all duration-500 hover:bg-transparent hover:text-white"
+              className="group inline-flex items-center gap-3.5 border border-white/30 bg-transparent px-7 py-3 font-medium text-white text-[14px] tracking-wide transition-all duration-300 hover:bg-white hover:text-black cursor-pointer rounded-none"
             >
               <span>Get Started</span>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1">
-                <circle cx="12" cy="12" r="10" />
-                <path d="M8 16L16 8M16 8H10M16 8V14" />
-              </svg>
+              <span className="flex h-5 w-5 items-center justify-center shrink-0 rounded-full border border-current transition-transform duration-300 group-hover:rotate-45">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" className="w-3 h-3">
+                  <path d="M7 17L17 7M17 7H7M17 7V17" />
+                </svg>
+              </span>
             </button>
           </div>
         </div>
       </section>
 
       {/* 2. SERVICES ACCORDION SECTION */}
-      <section className="w-full py-24 border-b border-white/5 relative">
+      <section className="w-full py-12 sm:py-16 border-b border-white/5 relative">
         <div className="absolute left-[10%] top-[20%] w-96 h-96 bg-[#7b5cff]/10 rounded-full blur-[120px] pointer-events-none" />
         <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-26 flex flex-col lg:flex-row gap-16 relative z-10">
           <div className="w-full lg:w-1/2">
@@ -148,15 +150,15 @@ export default function ServiceDetailClient({ data }) {
       </section>
 
       {/* 3. CLIENTS TICKER */}
-      <section className="py-24 border-b border-white/5 overflow-hidden relative">
-        <div className="text-center mb-16 px-6 relative z-10">
+      <section className="py-12 sm:py-16 border-b border-white/5 overflow-hidden relative">
+        <div className="text-center mb-10 px-6 relative z-10">
           <span className="text-[0.85rem] font-medium tracking-[0.2em] uppercase text-[#a4a4af]">Clients</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-white mt-4 leading-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-white mt-3 leading-tight">
             Delivering Value Through Collaboration
           </h2>
         </div>
         <div className="relative w-full max-w-[1400px] mx-auto z-10">
-          <div className="flex gap-16 md:gap-24 w-max animate-auto-scroll items-center py-6 px-8">
+          <div className="flex gap-16 md:gap-24 w-max animate-auto-scroll items-center py-4 px-8">
             {[1, 2, 3, 4].map((group) => (
               <div key={group} className="flex gap-16 md:gap-24 items-center flex-shrink-0">
                 <Image src="/molifera.png" alt="Molifera Media" width={140} height={60} className="h-10 md:h-14 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0" />
@@ -172,9 +174,9 @@ export default function ServiceDetailClient({ data }) {
       </section>
 
       {/* 4. INDUSTRIES CAROUSEL */}
-      <section className="py-24 border-b border-white/5 relative">
+      <section className="py-12 sm:py-16 border-b border-white/5 relative">
         <div className="absolute right-[5%] top-[10%] w-80 h-80 bg-[#4828b8]/10 rounded-full blur-[100px] pointer-events-none" />
-        <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-26 mb-12 relative z-10">
+        <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-26 mb-8 relative z-10">
           <div className="flex items-start justify-between gap-8">
             <div>
               <span className="text-[0.85rem] font-medium tracking-[0.2em] uppercase text-[#7B8CFF]">Industries</span>
@@ -213,7 +215,7 @@ export default function ServiceDetailClient({ data }) {
               {industryCards.map((card, index) => (
                 <div key={index} className="w-full lg:w-[75%] flex-shrink-0 flex items-center h-[350px] gap-6">
                   {/* Text Card (Left, Smaller Height) */}
-                  <div className="w-[50%] md:w-[48%] h-[240px] md:h-[280px] bg-[linear-gradient(135deg,rgba(15,15,35,0.98)_0%,rgba(20,18,40,0.95)_100%)] border border-white/5 p-6 md:p-10 flex flex-col justify-center rounded-sm">
+                  <div className="w-[50%] md:w-[48%] h-[240px] md:h-[280px] bg-[linear-gradient(135deg,rgba(15,15,35,0.98)_0%,rgba(20,18,40,0.95)_100%)] border border-white/5 p-6 md:p-10 flex flex-col justify-center rounded-none">
                     <h3 className="text-xl md:text-2xl font-semibold text-white mb-4">{card.title}</h3>
                     <p className="text-[0.85rem] md:text-[0.95rem] text-white/60 leading-[1.7] font-light">
                       {card.desc}
@@ -221,13 +223,13 @@ export default function ServiceDetailClient({ data }) {
                   </div>
 
                   {/* Image Card (Right, Larger Height) */}
-                  <div className="w-[50%] md:w-[48%] h-[280px] md:h-[320px] relative shadow-[20px_0_40px_rgba(0,0,0,0.5)] rounded-sm overflow-hidden">
+                  <div className="w-[50%] md:w-[48%] h-[280px] md:h-[320px] relative shadow-[20px_0_40px_rgba(0,0,0,0.5)] rounded-none overflow-hidden">
                     <Image
                       src={card.image}
                       alt={card.title}
                       fill
                       sizes="(max-width: 1024px) 100vw, 50vw"
-                      className="object-cover"
+                      className="object-cover rounded-none"
                     />
                   </div>
                 </div>
@@ -238,17 +240,17 @@ export default function ServiceDetailClient({ data }) {
       </section>
 
       {/* 4.5 BENCHMARKS OF EXCELLENCE */}
-      <section className="py-24 border-b border-white/5 relative overflow-hidden">
+      <section className="py-12 sm:py-16 border-b border-white/5 relative overflow-hidden">
         <div className="absolute left-[-10%] top-[20%] w-[800px] h-[800px] bg-[radial-gradient(circle_at_center,rgba(86,126,255,0.15)_0%,rgba(120,96,255,0.1)_40%,transparent_70%)] pointer-events-none blur-2xl" />
         <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-26 relative z-10">
-          <h2 className="text-4xl md:text-5xl font-light mb-4 bg-[linear-gradient(90deg,#9795FF_0%,#FFFFFF_60%)] bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-light mb-3 bg-[linear-gradient(90deg,#9795FF_0%,#FFFFFF_60%)] bg-clip-text text-transparent">
             Benchmarks of Excellence
           </h2>
-          <p className="text-[#a4a4af] text-[0.95rem] max-w-xl mb-16 leading-relaxed">
+          <p className="text-[#a4a4af] text-[0.95rem] max-w-xl mb-10 leading-relaxed">
             From seamless integration to robust infrastructure, we are dedicated to setting new benchmarks of excellence in the industry.
           </p>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 items-center justify-items-center mt-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 items-center justify-items-center mt-8">
             {[
               "/aws-cloud-quest-cloud-practitioner-training-badge.png",
               "/aws-partner-sales-accreditation-training-badge.png",
@@ -270,10 +272,10 @@ export default function ServiceDetailClient({ data }) {
       </section>
 
       {/* 5. IMPORTANCE SECTION */}
-      <section className="py-24 bg-[#010103] relative border-b border-white/5 overflow-hidden">
+      <section className="py-12 sm:py-16 bg-[#010103] relative border-b border-white/5 overflow-hidden">
         <div className="absolute left-[-10%] top-[10%] w-[800px] h-[800px] bg-[radial-gradient(circle_at_center,rgba(86,126,255,0.12)_0%,rgba(120,96,255,0.08)_40%,transparent_70%)] pointer-events-none blur-2xl" />
         <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-26 relative z-10">
-          <h2 className="text-4xl md:text-5xl font-light mb-20 text-left bg-[linear-gradient(90deg,#9795FF_0%,#FFFFFF_60%)] bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-light mb-12 text-left bg-[linear-gradient(90deg,#9795FF_0%,#FFFFFF_60%)] bg-clip-text text-transparent">
             Importance of {data.title}
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 relative">

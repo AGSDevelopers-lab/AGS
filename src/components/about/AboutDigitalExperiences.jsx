@@ -111,7 +111,7 @@ export default function AboutDigitalExperiences() {
             {/* Top Photo + Overlapping Card Container */}
             <div className="relative w-full">
               {/* Upper Image (72% width flush left, matching Figma coordinates) */}
-              <div className="relative w-[72%] sm:w-[72%] aspect-[1.46/1] rounded-[2px] overflow-hidden shadow-sm bg-gray-100">
+              <div className="relative w-[72%] sm:w-[72%] aspect-[1.46/1] rounded-none overflow-hidden shadow-sm bg-gray-100">
                 <Image
                   src="/ags about page/have any query .png"
                   alt="Woman working on tablet at marble desk"
@@ -127,10 +127,10 @@ export default function AboutDigitalExperiences() {
                 <a
                   href="tel:+919038130595"
                   title="Have Any Query? Call +91 90381 30595"
-                  className="group flex items-center gap-3.5 bg-gradient-to-r from-[#4361EE] to-[#7038FF] text-white px-5 sm:px-6 py-3 sm:py-3.5 rounded-[4px] shadow-xl shadow-[#4361EE]/25 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]"
+                  className="group flex items-center gap-3.5 bg-gradient-to-r from-[#4361EE] to-[#7038FF] text-white px-5 sm:px-6 py-3 sm:py-3.5 rounded-none shadow-xl shadow-[#4361EE]/25 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]"
                 >
-                  {/* White Circle with Phone Icon */}
-                  <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full bg-white text-[#4361EE] shrink-0 shadow-md transition-transform duration-300 group-hover:scale-105">
+                  {/* White Icon Box with Phone Icon */}
+                  <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-none bg-white text-[#4361EE] shrink-0 shadow-md transition-transform duration-300 group-hover:scale-105">
                     <svg
                       viewBox="0 0 24 24"
                       fill="none"
@@ -156,7 +156,7 @@ export default function AboutDigitalExperiences() {
             </div>
 
             {/* Lower Image (Calibrated aspect ratio so bottom edge aligns flush with bottom of right column) */}
-            <div className="mt-6 sm:mt-8 relative w-full aspect-[604/415] rounded-[2px] overflow-hidden shadow-sm bg-gray-100">
+            <div className="mt-6 sm:mt-8 relative w-full aspect-[604/415] rounded-none overflow-hidden shadow-sm bg-gray-100">
               <Image
                 src="/ags about page/building digital experience.png"
                 alt="Reviewing Analytics and Charts at Desk"
@@ -190,8 +190,8 @@ export default function AboutDigitalExperiences() {
                   key={feature.title}
                   className="flex-1 flex items-start gap-4 py-5 sm:py-5.5 lg:py-6 border-b border-black/[0.08]"
                 >
-                  {/* Purple Circle with White Checkmark */}
-                  <div className="mt-0.5 flex h-5.5 w-5.5 sm:h-6 sm:w-6 shrink-0 items-center justify-center rounded-full bg-[#7C3AED] text-white shadow-xs">
+                  {/* Purple Accent Box with White Checkmark */}
+                  <div className="mt-0.5 flex h-5.5 w-5.5 sm:h-6 sm:w-6 shrink-0 items-center justify-center rounded-none bg-[#7C3AED] text-white shadow-xs">
                     <svg
                       viewBox="0 0 24 24"
                       fill="none"

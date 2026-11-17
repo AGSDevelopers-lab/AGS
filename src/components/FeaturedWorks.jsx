@@ -51,10 +51,10 @@ function PortfolioButton() {
   return (
     <Link 
       href="/portfolio"
-      className="group inline-flex items-center gap-3 bg-white px-5 py-3 text-sm font-medium text-black transition hover:bg-white/90"
+      className="group inline-flex items-center gap-3 bg-white px-5 py-3 text-sm font-medium text-black transition hover:bg-white/90 rounded-none"
     >
       <span>All Portfolio</span>
-      <span className="flex h-4 w-4 items-center justify-center rounded-full border border-black text-[9px] transition-transform duration-500 group-hover:rotate-45">
+      <span className="flex h-4 w-4 items-center justify-center rounded-none border border-black text-[9px] transition-transform duration-500 group-hover:rotate-45">
         <svg
           width="9"
           height="9"
@@ -105,7 +105,7 @@ function WorkCard({ work }) {
               target="_blank"
               rel="noreferrer"
               title="View Figma Prototype"
-              className="absolute right-3 top-3 flex h-6 w-6 items-center justify-center rounded-full bg-white text-black hover:bg-white/80 transition-colors shadow-md"
+              className="absolute right-3 top-3 flex h-6 w-6 items-center justify-center rounded-none bg-white text-black hover:bg-white/80 transition-colors shadow-md"
             >
               <svg
                 width="11"
@@ -141,7 +141,7 @@ export default function FeaturedWorks() {
   return (
     <section id="portfolio" className="relative z-10 w-full overflow-hidden pb-12 pt-8 scroll-mt-20 sm:pb-20 sm:pt-12">
       <div className="relative w-full px-6 sm:px-8 lg:px-26">
-        <div className="relative mx-auto max-w-[1280px] overflow-hidden rounded-[28px] px-4 py-4 sm:px-6 sm:py-6 lg:px-8 lg:py-8">
+        <div className="relative mx-auto max-w-[1280px] overflow-hidden rounded-none px-4 py-4 sm:px-6 sm:py-6 lg:px-8 lg:py-8">
           <div className="relative flex flex-col gap-5 pb-4 sm:gap-6 sm:pb-6 md:flex-row md:items-start md:justify-between">
             <div className="max-w-[720px]">
               <h2 className="bg-[linear-gradient(90deg,#9795FF_0%,#FFFFFF_42%,#FFFFFF_59%,#BE9FFF_100%)] bg-clip-text pb-2 pr-2 text-[2.8rem] leading-[1.08] font-normal tracking-[-0.06em] text-transparent sm:text-[4rem] lg:text-[4.9rem]">

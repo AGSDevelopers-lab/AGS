@@ -21,7 +21,7 @@ export default function AcademyFooter() {
           <div className="flex justify-center">
             <a
               href="#pricing"
-              className="inline-flex items-center justify-center bg-[#7B5CFF] hover:bg-[#6a4cef] text-white px-8 py-4 rounded-sm text-[15px] font-bold transition-all shadow-[0_0_20px_rgba(123,92,255,0.4)] hover:shadow-[0_0_30px_rgba(123,92,255,0.6)]"
+              className="inline-flex items-center justify-center bg-[#7B5CFF] hover:bg-[#6a4cef] text-white px-8 py-4 rounded-none text-[15px] font-bold transition-all shadow-[0_0_20px_rgba(123,92,255,0.4)] hover:shadow-[0_0_30px_rgba(123,92,255,0.6)]"
             >
               Reserve Your Seat Now &rarr;
             </a>

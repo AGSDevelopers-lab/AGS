@@ -98,11 +98,11 @@ export default function Navbar() {
           {/* CTA Button */}
           <button
             type="button"
-            className="group hidden md:flex items-center gap-2.5 border border-white/80 bg-transparent px-5 py-2 text-sm font-normal tracking-[0.02em] text-white rounded-[2px] transition-all duration-300 hover:border-white hover:bg-white hover:text-black"
+            className="group hidden md:flex items-center gap-2.5 border border-white/80 bg-transparent px-5 py-2 text-sm font-normal tracking-[0.02em] text-white rounded-none transition-all duration-300 hover:border-white hover:bg-white hover:text-black"
             onClick={() => openForm()}
           >
             <span>Get Started</span>
-            <span className="flex h-4 w-4 items-center justify-center rounded-full border border-current text-[10px] transition-transform duration-300 group-hover:rotate-45">
+            <span className="flex h-4 w-4 items-center justify-center shrink-0 rounded-full border border-current text-[10px] transition-transform duration-300 group-hover:rotate-45">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-2.5 h-2.5">
                 <path d="M7 17L17 7M17 7H7M17 7V17" />
               </svg>
@@ -145,18 +145,18 @@ export default function Navbar() {
 
             <button
               type="button"
-              className="mt-2 inline-flex items-center justify-center gap-2 rounded border border-[#7B5CFF]/60 px-4 py-3 text-sm font-medium text-white transition hover:border-white hover:bg-white hover:text-black"
+              className="mt-2 inline-flex items-center justify-center gap-2 rounded-none border border-[#7B5CFF]/60 px-4 py-3 text-sm font-medium text-white transition hover:border-white hover:bg-white hover:text-black"
               onClick={() => {
                 setMobileMenuOpen(false);
                 openForm();
               }}
             >
               <span>Get Started</span>
-              <div className="flex h-5 w-5 items-center justify-center rounded-full border border-current/50">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <span className="flex h-5 w-5 items-center justify-center shrink-0 rounded-full border border-current text-[11px]">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" className="w-3 h-3">
                   <path d="M7 17L17 7M17 7H7M17 7V17" />
                 </svg>
-              </div>
+              </span>
             </button>
           </div>
         </div>

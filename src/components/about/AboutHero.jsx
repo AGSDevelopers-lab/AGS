@@ -45,7 +45,7 @@ export default function AboutHero() {
             <button
               type="button"
               onClick={() => openForm()}
-              className="group inline-flex items-center gap-3 bg-white hover:bg-white/95 text-black px-6 sm:px-7 py-3 rounded-[2px] text-sm sm:text-[15px] font-medium tracking-normal transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-[1.01]"
+              className="group inline-flex items-center gap-3 bg-white hover:bg-white/95 text-black px-6 sm:px-7 py-3 rounded-none text-sm sm:text-[15px] font-medium tracking-normal transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-[1.01]"
             >
               <span>Get Started</span>
               <span className="flex h-5 w-5 sm:h-5.5 sm:w-5.5 items-center justify-center rounded-full border border-black/80 text-black transition-transform duration-300 group-hover:rotate-45">

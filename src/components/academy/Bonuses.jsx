@@ -46,7 +46,7 @@ export default function Bonuses() {
           {bonuses.map((bonus, idx) => (
             <div
               key={idx}
-              className="bg-[#0D101E] border border-white/5 rounded-sm p-8 hover:border-white/10 transition-colors relative flex flex-col justify-end min-h-[260px]"
+              className="bg-[#0D101E] border border-white/5 rounded-none p-8 hover:border-white/10 transition-colors relative flex flex-col justify-end min-h-[260px]"
             >
               <div className="absolute top-6 right-6 px-3 py-1 rounded-full bg-[#7B5CFF]/20 text-[#9D7AFF] text-[10px] font-bold tracking-wider uppercase">
                 FREE

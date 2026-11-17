@@ -56,7 +56,7 @@ export default function ProgramBenefits() {
 
         {/* Right Side / Certificate Card */}
         <div className="hidden lg:flex w-full lg:w-1/2 items-start justify-center pt-8">
-          <div className="w-full max-w-md bg-[#0D101E] border border-white/5 rounded-sm p-8 md:p-12 relative flex flex-col items-center justify-center min-h-[400px]">
+          <div className="w-full max-w-md bg-[#0D101E] border border-white/5 rounded-none p-8 md:p-12 relative flex flex-col items-center justify-center min-h-[400px]">
             <h4 className="text-center text-white font-bold text-[15px] mb-3">Program Completion Certificate</h4>
             <p className="text-center text-white/50 text-[13px] leading-relaxed max-w-xs">
               Issued by AGS Academy upon successfully meeting all course requirements

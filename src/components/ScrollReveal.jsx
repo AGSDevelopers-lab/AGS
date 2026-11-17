@@ -91,37 +91,40 @@ export default function ScrollReveal({
         autoAlpha: 0,
       });
 
-      // Dedicated ScrollTrigger that runs strictly ONCE on first scroll
-      const st = ScrollTrigger.create({
-        trigger: containerRef.current,
-        start,
-        once: triggerOnce,
-        onEnter: () => {
-          gsap.to(containerRef.current, {
-            x: 0,
-            y: 0,
-            scale: 1,
-            opacity: 1,
-            autoAlpha: 1,
-            duration,
-            delay: delay / 1000,
-            ease,
-            clearProps: "transform,opacity,visibility",
-          });
-        },
-      });
-
-      // Immediate reveal fallback if element is already scrolled past or in view on page mount
-      if (st.progress > 0) {
+      const reveal = (revealDuration = duration, revealDelay = delay / 1000) => {
+        if (!containerRef.current) return;
         gsap.to(containerRef.current, {
           x: 0,
           y: 0,
           scale: 1,
           opacity: 1,
           autoAlpha: 1,
-          duration: 0.3,
+          duration: revealDuration,
+          delay: revealDelay,
+          ease,
           clearProps: "transform,opacity,visibility",
         });
+      };
+
+      // Dedicated ScrollTrigger that runs strictly ONCE on first scroll
+      const st = ScrollTrigger.create({
+        trigger: containerRef.current,
+        start,
+        once: triggerOnce,
+        onEnter: () => reveal(),
+        onEnterBack: () => reveal(),
+        onRefresh: (self) => {
+          if (self.progress > 0) reveal(0.3, 0);
+        },
+      });
+
+      // Immediate reveal fallback if element is already scrolled past or in view on page mount
+      const rect = containerRef.current.getBoundingClientRect();
+      const inView =
+        rect.top < (typeof window !== "undefined" ? window.innerHeight * 0.95 : 800) &&
+        rect.bottom > 0;
+      if (st.progress > 0 || inView) {
+        reveal(0.3, 0);
       }
     },
     {

@@ -18,7 +18,7 @@ export default function InfoPageLayout({
       </div>
 
       <div className="relative z-10 mx-auto max-w-[1040px]">
-        <div className="overflow-hidden rounded-[30px] border border-white/10 bg-white/[0.03] shadow-[0_30px_80px_rgba(0,0,0,0.38)]">
+        <div className="overflow-hidden rounded-none border border-white/10 bg-white/[0.03] shadow-[0_30px_80px_rgba(0,0,0,0.38)]">
           <div className="border-b border-white/10 px-6 py-8 sm:px-8 lg:px-10 lg:py-10">
             <p className="text-[0.75rem] uppercase tracking-[0.24em] text-white/46">
               {eyebrow}
@@ -36,7 +36,7 @@ export default function InfoPageLayout({
               {sections.map((section) => (
                 <section
                   key={section.heading}
-                  className="rounded-[22px] border border-white/8 bg-white/[0.02] px-5 py-5 sm:px-6 sm:py-6"
+                  className="rounded-none border border-white/8 bg-white/[0.02] px-5 py-5 sm:px-6 sm:py-6"
                 >
                   <h2 className="text-[1.3rem] font-medium tracking-[-0.03em] text-white">
                     {section.heading}

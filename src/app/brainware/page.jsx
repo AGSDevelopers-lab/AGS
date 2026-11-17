@@ -86,7 +86,7 @@ function Hero() {
           </div>
           
           <div className="lg:col-span-5 xl:col-span-5 relative mt-8 lg:mt-0">
-            <div className="bg-[#12131C]/90 backdrop-blur-2xl border border-white/5 p-8 relative z-10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] mt-10 lg:mt-[100px] rounded-sm">
+            <div className="bg-[#12131C]/90 backdrop-blur-2xl border border-white/5 p-8 relative z-10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] mt-10 lg:mt-[100px] rounded-none">
               <h3 className="text-white font-bold text-xl mb-2">Seat Registration</h3>
               <p className="text-white/50 text-[12px] mb-6">Next batch starts soon. Secure your spot.</p>
               <div className="flex gap-3 mb-8 justify-between">
@@ -96,7 +96,7 @@ function Hero() {
                   { label: "MINS", value: "22" },
                   { label: "SECS", value: "01" }
                 ].map((time, idx) => (
-                  <div key={idx} className="flex flex-col items-center justify-center bg-[#0C0E14] w-[72px] h-[72px] border border-white/5 shadow-inner rounded-sm">
+                  <div key={idx} className="flex flex-col items-center justify-center bg-[#0C0E14] w-[72px] h-[72px] border border-white/5 shadow-inner rounded-none">
                     <div className="text-[22px] leading-none font-black text-white mb-1.5">{time.value}</div>
                     <div className="text-[9px] text-white/50 tracking-wider font-semibold">{time.label}</div>
                   </div>
@@ -110,7 +110,7 @@ function Hero() {
                   </div>
                 ))}
               </div>
-              <a href="#pricing" className="block w-full bg-[#7B5CFF] hover:bg-[#6a4cef] text-center text-white py-3 text-[14px] font-bold transition-all shadow-[0_0_20px_rgba(123,92,255,0.3)] rounded-sm">
+              <a href="#pricing" className="block w-full bg-[#7B5CFF] hover:bg-[#6a4cef] text-center text-white py-3 text-[14px] font-bold transition-all shadow-[0_0_20px_rgba(123,92,255,0.3)] rounded-none">
                 Reserve Your Seat →
               </a>
             </div>
@@ -122,11 +122,11 @@ function Hero() {
 } /* ───────────────── STATS ───────────────── */
 function Stats() { const statItems = [ { value:"120+", label:"Practical Training Hours" }, { value:"13", label:"Industry Modules" }, { value:"200+", label:"Students Trained" }, { value:"100%", label:"Project-Based Learning" } ]; return ( <section className="py-24 bg-[#0A0D18]"> <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center"> <h4 className="text-white/40 text-[14px] font-bold tracking-[0.2em] uppercase mb-12">WHY 200+ STUDENTS CHOSE AGS ACADEMY</h4> <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12"> {statItems.map((stat, idx) => ( <div key={idx} className="flex flex-col items-center justify-center text-center"> <div className="text-4xl md:text-5xl font-black text-[#7B5CFF] mb-2">{stat.value}</div> <div className="text-[12px] md:text-[13px] text-white/60 font-bold uppercase tracking-widest">{stat.label}</div> </div> ))} </div> </div> </section> );
 } /* ───────────────── THE OPPORTUNITY ───────────────── */
-function Opportunity() { return ( <section className="py-24 bg-[#05070D]"> <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12"> <div className="text-center mb-16 w-full mx-auto"> <h4 className="text-[#7B5CFF] text-[10px] font-bold tracking-widest uppercase mb-4">WHY LEARN AI NOW</h4> <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 md:whitespace-nowrap"> The AI Opportunity Is Growing. <span className="text-[#9D7AFF]">The Competition Is Too.</span> </h2> <p className="text-white/50 text-[14px] leading-relaxed max-w-2xl mx-auto"> Artificial Intelligence is transforming industries and companies are actively looking for professionals who can build real AI solutions. The challenge isn't finding opportunities. It's standing out from the competition. </p> </div> <div className="grid grid-cols-1 md:grid-cols-2 gap-12"> <div> <h3 className="text-[#7B5CFF] font-bold text-[15px] mb-4">The Problem</h3> <p className="text-white/60 text-[13px] leading-relaxed"> Every day, thousands of candidates apply for AI and Machine Learning roles. Many have completed online courses and earned certificates, but very few can demonstrate real projects or hands-on cloud experience. Employers don't hire certificates — they hire proof of skills. </p> </div> <div> <h3 className="text-[#7B5CFF] font-bold text-[15px] mb-4">Our Bridge</h3> <p className="text-white/60 text-[13px] leading-relaxed"> The professionals getting noticed are the ones who can showcase deployed applications, GitHub repositories, and real-world AI projects. In just 12 weeks, you'll build practical AI solutions, gain hands-on AWS experience, and create a portfolio that helps you stand out in interviews. </p> </div> </div> </div> </section> );
+function Opportunity() { return ( <section className="py-24 bg-[#05070D]"> <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12"> <div className="text-center mb-16 w-full mx-auto"> <h4 className="text-[#7B5CFF] text-[10px] font-bold tracking-widest uppercase mb-4">WHY LEARN AI NOW</h4> <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 md:whitespace-nowrap"> The AI Opportunity Is Growing. <span className="text-[#9D7AFF]">The Competition Is Too.</span> </h2> <p className="text-white/50 text-[14px] leading-relaxed max-w-2xl mx-auto"> Artificial Intelligence is transforming industries and companies are actively looking for professionals who can build real AI solutions. The challenge isn&apos;t finding opportunities. It&apos;s standing out from the competition. </p> </div> <div className="grid grid-cols-1 md:grid-cols-2 gap-12"> <div> <h3 className="text-[#7B5CFF] font-bold text-[15px] mb-4">The Problem</h3> <p className="text-white/60 text-[13px] leading-relaxed"> Every day, thousands of candidates apply for AI and Machine Learning roles. Many have completed online courses and earned certificates, but very few can demonstrate real projects or hands-on cloud experience. Employers don&apos;t hire certificates — they hire proof of skills. </p> </div> <div> <h3 className="text-[#7B5CFF] font-bold text-[15px] mb-4">Our Bridge</h3> <p className="text-white/60 text-[13px] leading-relaxed"> The professionals getting noticed are the ones who can showcase deployed applications, GitHub repositories, and real-world AI projects. In just 12 weeks, you&apos;ll build practical AI solutions, gain hands-on AWS experience, and create a portfolio that helps you stand out in interviews. </p> </div> </div> </div> </section> );
 } /* ───────────────── METHODOLOGY ───────────────── */
-function Methodology() { return ( <section className="py-24 bg-[#0A0D18]"> <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12"> <div className="text-center mb-16 w-full mx-auto"> <h4 className="text-[#7B5CFF] text-[10px] font-bold tracking-widest uppercase mb-4">WHY AGS ACADEMY</h4> <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 md:whitespace-nowrap"> We Don't Just Teach AI. <span className="text-[#9D7AFF]">We Teach You to Build With It.</span> </h2> <p className="text-white/50 text-[14px] leading-relaxed max-w-2xl mx-auto"> Anyone can watch AI tutorials. Very few actually build real AI applications. At AGS Academy, every module ends with a hands-on project not just a quiz. </p> </div> <div className="grid grid-cols-1 md:grid-cols-3 gap-6"> <div className="space-y-6"> <div className="bg-[#161029] border border-white/5 p-8 h-40 flex flex-col justify-center"> <h4 className="text-white font-bold text-[14px] mb-2">Live AI Projects</h4> <p className="text-white/40 text-[12px] leading-relaxed">Deployed on AWS, not local notebooks that never see production.</p> </div> <div className="bg-[#161029] border border-white/5 p-8 h-40 flex flex-col justify-center"> <h4 className="text-white font-bold text-[14px] mb-2">Production-Ready Capstone</h4> <p className="text-white/40 text-[12px] leading-relaxed">One complete end-to-end AI application from data to deployment.</p> </div> </div> <div className="space-y-6"> <div className="bg-[#161029] border border-white/5 p-8 h-40 flex flex-col justify-center"> <h4 className="text-white font-bold text-[14px] mb-2">GitHub Portfolio</h4> <p className="text-white/40 text-[12px] leading-relaxed">A professional collection of code recruiters can actually open.</p> </div> <div className="bg-[#161029] border border-white/5 p-8 h-40 flex flex-col justify-center"> <h4 className="text-white font-bold text-[14px] mb-2">Industry Tools</h4> <p className="text-white/40 text-[12px] leading-relaxed">Hands-on experience with the exact stack companies use daily.</p> </div> </div> <div className="space-y-6"> <div className="bg-[#161029] border border-white/5 p-8 h-40 flex flex-col justify-center"> <h4 className="text-white font-bold text-[14px] mb-2">Most courses give a certificate.</h4> <p className="text-white/40 text-[12px] leading-relaxed">We give you proof of your skills at just ₹4,000.</p> </div> <div className="bg-[#161029] border border-white/5 p-8 h-40 flex flex-col justify-center"> <h4 className="text-white font-bold text-[14px] mb-2">Interview Confidence</h4> <p className="text-white/40 text-[12px] leading-relaxed">The ability to demonstrate your work, not just describe it.</p> </div> </div> </div> </div> </section> );
+function Methodology() { return ( <section className="py-24 bg-[#0A0D18]"> <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12"> <div className="text-center mb-16 w-full mx-auto"> <h4 className="text-[#7B5CFF] text-[10px] font-bold tracking-widest uppercase mb-4">WHY AGS ACADEMY</h4> <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 md:whitespace-nowrap"> We Don&apos;t Just Teach AI. <span className="text-[#9D7AFF]">We Teach You to Build With It.</span> </h2> <p className="text-white/50 text-[14px] leading-relaxed max-w-2xl mx-auto"> Anyone can watch AI tutorials. Very few actually build real AI applications. At AGS Academy, every module ends with a hands-on project not just a quiz. </p> </div> <div className="grid grid-cols-1 md:grid-cols-3 gap-6"> <div className="space-y-6"> <div className="bg-[#161029] border border-white/5 p-8 h-40 flex flex-col justify-center"> <h4 className="text-white font-bold text-[14px] mb-2">Live AI Projects</h4> <p className="text-white/40 text-[12px] leading-relaxed">Deployed on AWS, not local notebooks that never see production.</p> </div> <div className="bg-[#161029] border border-white/5 p-8 h-40 flex flex-col justify-center"> <h4 className="text-white font-bold text-[14px] mb-2">Production-Ready Capstone</h4> <p className="text-white/40 text-[12px] leading-relaxed">One complete end-to-end AI application from data to deployment.</p> </div> </div> <div className="space-y-6"> <div className="bg-[#161029] border border-white/5 p-8 h-40 flex flex-col justify-center"> <h4 className="text-white font-bold text-[14px] mb-2">GitHub Portfolio</h4> <p className="text-white/40 text-[12px] leading-relaxed">A professional collection of code recruiters can actually open.</p> </div> <div className="bg-[#161029] border border-white/5 p-8 h-40 flex flex-col justify-center"> <h4 className="text-white font-bold text-[14px] mb-2">Industry Tools</h4> <p className="text-white/40 text-[12px] leading-relaxed">Hands-on experience with the exact stack companies use daily.</p> </div> </div> <div className="space-y-6"> <div className="bg-[#161029] border border-white/5 p-8 h-40 flex flex-col justify-center"> <h4 className="text-white font-bold text-[14px] mb-2">Most courses give a certificate.</h4> <p className="text-white/40 text-[12px] leading-relaxed">We give you proof of your skills at just ₹4,000.</p> </div> <div className="bg-[#161029] border border-white/5 p-8 h-40 flex flex-col justify-center"> <h4 className="text-white font-bold text-[14px] mb-2">Interview Confidence</h4> <p className="text-white/40 text-[12px] leading-relaxed">The ability to demonstrate your work, not just describe it.</p> </div> </div> </div> </div> </section> );
 } /* ───────────────── TECH SKILLS ───────────────── */
-function TechSkills() { const techSkills = ["Python Programming","NumPy & Pandas","Machine Learning","Deep Learning","NLP","Computer Vision"]; const industryTools = ["Amazon Web Services","Amazon SageMaker","Amazon S3","AWS Lambda","API Gateway","MLOps & CI/CD","Model Monitoring","Git & GitHub"]; return ( <section className="py-24 bg-[#05070D]"> <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12"> <div className="text-center mb-16 w-full mx-auto"> <h4 className="text-white/40 text-[10px] font-bold tracking-widest uppercase mb-4">WHAT THE INDUSTRY NEEDS</h4> <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 md:whitespace-nowrap"> Companies Don't Hire Theory. <span className="text-[#9D7AFF]">They Hire Proof.</span> </h2> <p className="text-white/50 text-[14px] leading-relaxed max-w-2xl mx-auto whitespace-normal"> Today's employers expect more than academic knowledge. With AGS Academy, you'll gain practical experience in the technologies companies use every day. </p> </div> <div className="grid grid-cols-1 md:grid-cols-2 gap-16"> <div> <h4 className="text-[#7B5CFF] text-[11px] font-bold mb-6">Technical Skills You'll Build</h4> <div className="flex flex-wrap gap-3"> {techSkills.map((skill, idx) => ( <div key={idx} className="bg-white/5 border border-white/10 text-white/70 text-[11px] px-4 py-2"> {skill} </div> ))} </div> </div> <div> <h4 className="text-[#7B5CFF] text-[11px] font-bold mb-6">Industry Tools You'll Work With</h4> <div className="flex flex-wrap gap-3"> {industryTools.map((tool, idx) => ( <div key={idx} className="bg-white/5 border border-white/10 text-white/70 text-[11px] px-4 py-2"> {tool} </div> ))} </div> </div> </div> </div> </section> );
+function TechSkills() { const techSkills = ["Python Programming","NumPy & Pandas","Machine Learning","Deep Learning","NLP","Computer Vision"]; const industryTools = ["Amazon Web Services","Amazon SageMaker","Amazon S3","AWS Lambda","API Gateway","MLOps & CI/CD","Model Monitoring","Git & GitHub"]; return ( <section className="py-24 bg-[#05070D]"> <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12"> <div className="text-center mb-16 w-full mx-auto"> <h4 className="text-white/40 text-[10px] font-bold tracking-widest uppercase mb-4">WHAT THE INDUSTRY NEEDS</h4> <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 md:whitespace-nowrap"> Companies Don&apos;t Hire Theory. <span className="text-[#9D7AFF]">They Hire Proof.</span> </h2> <p className="text-white/50 text-[14px] leading-relaxed max-w-2xl mx-auto whitespace-normal"> Today&apos;s employers expect more than academic knowledge. With AGS Academy, you&apos;ll gain practical experience in the technologies companies use every day. </p> </div> <div className="grid grid-cols-1 md:grid-cols-2 gap-16"> <div> <h4 className="text-[#7B5CFF] text-[11px] font-bold mb-6">Technical Skills You&apos;ll Build</h4> <div className="flex flex-wrap gap-3"> {techSkills.map((skill, idx) => ( <div key={idx} className="bg-white/5 border border-white/10 text-white/70 text-[11px] px-4 py-2"> {skill} </div> ))} </div> </div> <div> <h4 className="text-[#7B5CFF] text-[11px] font-bold mb-6">Industry Tools You&apos;ll Work With</h4> <div className="flex flex-wrap gap-3"> {industryTools.map((tool, idx) => ( <div key={idx} className="bg-white/5 border border-white/10 text-white/70 text-[11px] px-4 py-2"> {tool} </div> ))} </div> </div> </div> </div> </section> );
 } /* ───────────────── CURRICULUM GRID ───────────────── */
 /* ───────────────── CURRICULUM GRID ───────────────── */
 function Curriculum() {
@@ -401,7 +401,7 @@ function Curriculum() {
 
         <div className="flex flex-wrap gap-3 mb-12">
           {tags.map((tag, idx) => (
-            <div key={idx} className="border border-white/10 text-white/50 text-[12px] px-4 py-2 rounded-sm bg-[#0C0E14]">
+            <div key={idx} className="border border-white/10 text-white/50 text-[12px] px-4 py-2 rounded-none bg-[#0C0E14]">
               {tag}
             </div>
           ))}
@@ -409,9 +409,9 @@ function Curriculum() {
 
         <div className="space-y-4">
           {modules.map((mod, idx) => (
-            <div key={idx} className="bg-[#0C0E14] border border-white/5 p-6 md:p-8 rounded-sm hover:border-white/10 transition-colors flex flex-col md:flex-row gap-6 md:gap-8">
+            <div key={idx} className="bg-[#0C0E14] border border-white/5 p-6 md:p-8 rounded-none hover:border-white/10 transition-colors flex flex-col md:flex-row gap-6 md:gap-8">
               <div className="shrink-0">
-                <div className="w-12 h-12 rounded-xl bg-[#7B5CFF] flex items-center justify-center text-white font-bold text-[15px]">
+                <div className="w-12 h-12 rounded-none bg-[#7B5CFF] flex items-center justify-center text-white font-bold text-[15px]">
                   {mod.num}
                 </div>
               </div>
@@ -448,7 +448,7 @@ function Curriculum() {
 
         <div className="flex flex-wrap gap-3 mb-12">
           {fullStackTags.map((tag, idx) => (
-            <div key={idx} className="border border-white/10 text-white/50 text-[12px] px-4 py-2 rounded-sm bg-[#0C0E14]">
+            <div key={idx} className="border border-white/10 text-white/50 text-[12px] px-4 py-2 rounded-none bg-[#0C0E14]">
               {tag}
             </div>
           ))}
@@ -456,9 +456,9 @@ function Curriculum() {
 
         <div className="space-y-4">
           {fullStackModules.map((mod, idx) => (
-            <div key={idx} className="bg-[#0C0E14] border border-white/5 p-6 md:p-8 rounded-sm hover:border-white/10 transition-colors flex flex-col md:flex-row gap-6 md:gap-8">
+            <div key={idx} className="bg-[#0C0E14] border border-white/5 p-6 md:p-8 rounded-none hover:border-white/10 transition-colors flex flex-col md:flex-row gap-6 md:gap-8">
               <div className="shrink-0">
-                <div className="w-12 h-12 rounded-xl bg-[#7B5CFF] flex items-center justify-center text-white font-bold text-[15px]">
+                <div className="w-12 h-12 rounded-none bg-[#7B5CFF] flex items-center justify-center text-white font-bold text-[15px]">
                   {mod.num}
                 </div>
               </div>
@@ -495,7 +495,7 @@ function Curriculum() {
 
         <div className="flex flex-wrap gap-3 mb-12">
           {designTags.map((tag, idx) => (
-            <div key={idx} className="border border-white/10 text-white/50 text-[12px] px-4 py-2 rounded-sm bg-[#0C0E14]">
+            <div key={idx} className="border border-white/10 text-white/50 text-[12px] px-4 py-2 rounded-none bg-[#0C0E14]">
               {tag}
             </div>
           ))}
@@ -503,9 +503,9 @@ function Curriculum() {
 
         <div className="space-y-4">
           {designModules.map((mod, idx) => (
-            <div key={idx} className="bg-[#0C0E14] border border-white/5 p-6 md:p-8 rounded-sm hover:border-white/10 transition-colors flex flex-col md:flex-row gap-6 md:gap-8">
+            <div key={idx} className="bg-[#0C0E14] border border-white/5 p-6 md:p-8 rounded-none hover:border-white/10 transition-colors flex flex-col md:flex-row gap-6 md:gap-8">
               <div className="shrink-0">
-                <div className="w-12 h-12 rounded-xl bg-[#7B5CFF] flex items-center justify-center text-white font-bold text-[15px]">
+                <div className="w-12 h-12 rounded-none bg-[#7B5CFF] flex items-center justify-center text-white font-bold text-[15px]">
                   {mod.num}
                 </div>
               </div>
@@ -533,8 +533,8 @@ function Curriculum() {
     </section>
   );
 } /* ───────────────── TARGET AUDIENCE ───────────────── */
-function TargetAudience() { const audiences = [ { title:"B.Tech & Engineering Students", desc:"Your college taught you concepts. We teach you what companies actually test in interviews." }, { title:"Aspiring AI & ML Engineers", desc:"A structured, proven path from zero to job-ready." }, { title:"Data Science Enthusiasts", desc:"Every module produces a deliverable you can add to your portfolio." }, { title:"Career Changers", desc:"We help you build proof, even if your background is non-technical." } ]; return ( <section className="py-24 bg-[#05070D]"> <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12"> <div className="mb-16"> <h4 className="text-[#7B5CFF] text-[11px] font-bold tracking-widest uppercase mb-4">WHO IT'S FOR</h4> <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">Built for <span className="text-[#9D7AFF]">Future AI Professionals</span></h2> <p className="text-white/60 text-[16px] max-w-2xl">Whether you're a student, career changer, or enthusiast this program meets you where you are.</p> </div> <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"> {audiences.map((item, idx) => ( <div key={idx} className="bg-[#161029] border border-white/5 p-6 md:p-8 hover:border-white/10 transition-colors flex flex-col"> <div className="w-10 h-10 rounded-xl bg-[#12162A] mb-6"></div> <h3 className="text-white font-bold text-[16px] mb-4 leading-snug">{item.title}</h3> <p className="text-white/50 text-[16px] leading-relaxed">{item.desc}</p> </div> ))} </div> </div> </section> );
-} /* ───────────────── WHAT YOU'LL HAVE ───────────────── */
+function TargetAudience() { const audiences = [ { title:"B.Tech & Engineering Students", desc:"Your college taught you concepts. We teach you what companies actually test in interviews." }, { title:"Aspiring AI & ML Engineers", desc:"A structured, proven path from zero to job-ready." }, { title:"Data Science Enthusiasts", desc:"Every module produces a deliverable you can add to your portfolio." }, { title:"Career Changers", desc:"We help you build proof, even if your background is non-technical." } ]; return ( <section className="py-24 bg-[#05070D]"> <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12"> <div className="mb-16"> <h4 className="text-[#7B5CFF] text-[11px] font-bold tracking-widest uppercase mb-4">WHO IT&apos;S FOR</h4> <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">Built for <span className="text-[#9D7AFF]">Future AI Professionals</span></h2> <p className="text-white/60 text-[16px] max-w-2xl">Whether you&apos;re a student, career changer, or enthusiast this program meets you where you are.</p> </div> <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"> {audiences.map((item, idx) => ( <div key={idx} className="bg-[#161029] border border-white/5 p-6 md:p-8 hover:border-white/10 transition-colors flex flex-col"> <div className="w-10 h-10 rounded-none bg-[#12162A] mb-6"></div> <h3 className="text-white font-bold text-[16px] mb-4 leading-snug">{item.title}</h3> <p className="text-white/50 text-[16px] leading-relaxed">{item.desc}</p> </div> ))} </div> </div> </section> );
+} /* ───────────────── WHAT YOU&apos;LL HAVE ───────────────── */
 function WhatYoullHave() {
   const items = [
     {
@@ -572,12 +572,12 @@ function WhatYoullHave() {
           <div>
             <div className="mb-12">
               <h4 className="text-[#9D7AFF] text-[10px] md:text-[11px] font-bold tracking-[0.2em] uppercase mb-4">
-                WHAT YOU'LL HAVE
+                WHAT YOU&apos;LL HAVE
               </h4>
               <h2 className="text-3xl md:text-4xl lg:text-[2.6rem] font-bold text-white leading-[1.15] tracking-tight">
-                What You'll Have on Day 85
+                What You&apos;ll Have on Day 85
                 <br />
-                That You <span className="text-[#9D7AFF]">Don't Have Today</span>
+                That You <span className="text-[#9D7AFF]">Don&apos;t Have Today</span>
               </h2>
             </div>
             
@@ -848,7 +848,7 @@ function Mentors() {
       <div className="w-full sm:w-[55%] p-6 lg:p-8 flex flex-col border border-l-0 border-white/5">
         <div className="flex flex-row items-center flex-wrap gap-3 mb-2">
           <h3 className="text-lg lg:text-[22px] font-bold text-white tracking-tight leading-none">{mentor.name}</h3>
-          <span className={`px-2 py-0.5 border text-[10px] rounded-sm ${mentor.tagColor}`}>
+          <span className={`px-2 py-0.5 border text-[10px] rounded-none ${mentor.tagColor}`}>
             {mentor.tag}
           </span>
         </div>
@@ -867,7 +867,7 @@ function Mentors() {
           {mentor.badges && mentor.badges.length > 0 ? (
             <div className="flex flex-wrap gap-2 mb-5">
               {mentor.badges.map((badge, i) => (
-                <div key={i} className="flex items-center px-2 py-1 border border-[#7B5CFF]/30 text-[#BE9FFF] text-[10px] bg-[#7B5CFF]/10 rounded-sm">
+                <div key={i} className="flex items-center px-2 py-1 border border-[#7B5CFF]/30 text-[#BE9FFF] text-[10px] bg-[#7B5CFF]/10 rounded-none">
                   {IconMap[badge.icon]}
                   {badge.label}
                 </div>
@@ -988,7 +988,7 @@ function Testimonials() {
             Real Students. Real Projects. <br className="hidden md:block" />
             <span className="text-[#7B5CFF]">Real Outcomes.</span>
           </h2> 
-          <p className="text-white/50 text-[14px] max-w-2xl">These aren't motivational quotes. These are people who came in without AI experience and left with deployed projects and job-ready portfolios.</p> 
+          <p className="text-white/50 text-[14px] max-w-2xl">These aren&apos;t motivational quotes. These are people who came in without AI experience and left with deployed projects and job-ready portfolios.</p> 
         </div> 
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6"> 
@@ -996,7 +996,7 @@ function Testimonials() {
             <div key={idx} className="bg-[#0A0D18] border border-white/5 p-8 flex flex-col justify-between"> 
               <div> 
                 <div className="text-yellow-500 text-sm mb-6 tracking-widest">★★★★★</div> 
-                <p className="text-white/40 text-[14px] leading-relaxed mb-8">"{student.text}"</p> 
+                <p className="text-white/40 text-[14px] leading-relaxed mb-8">&ldquo;{student.text}&rdquo;</p> 
               </div> 
               <div className="flex items-center gap-4"> 
                 <div className="w-8 h-8 rounded-full bg-[#7B5CFF] flex items-center justify-center text-white font-bold text-[10px]"> 
@@ -1018,7 +1018,7 @@ function Pricing() { const features = ["120+ Hours of Live, Hands-On Training","
 } /* ───────────────── FAQ ───────────────── */
 function FAQ() { const [openIdx, setOpenIdx] = useState(null); const faqs = [ { q:"Do I need prior AI or ML experience?", a:"No prior AI/ML experience is required, though a basic understanding of programming (like Python) is helpful. We cover the foundations before moving into advanced topics." }, { q:"Is this program practical or mostly theory?", a:"It is intensely practical. We believe in learning by doing, so every module involves hands-on coding, building, and deploying real AI systems rather than just watching lectures." }, { q:"Will I actually build projects?", a:"Yes. You will build multiple industry-grade projects throughout the course, including NLP tools and GenAI applications, which will form a robust portfolio you can show to recruiters." }, { q:"Will I learn AWS?", a:"Absolutely. Deploying models is just as important as building them. You will learn to use AWS services like SageMaker, EC2, and Lambda to host your AI applications in the cloud." }, { q:"Is there a capstone project?", a:"Yes. The program culminates in a comprehensive capstone project where you solve a real-world business problem end-to-end, from data ingestion to a live cloud deployment." }, { q:"Will I get a certificate?", a:"Yes, you will receive an industry-recognized certificate from AGS Academy upon successful completion of your capstone project, validating your practical skills." } ]; const toggleFaq = (idx) => { setOpenIdx(openIdx === idx ? null : idx); }; return ( <section id="faq" className="py-24 bg-[#05070D]"> <div className="max-w-3xl mx-auto px-6 sm:px-8 lg:px-12"> <div className="text-center mb-16"> <h4 className="text-[#7B5CFF] text-[12px] font-bold tracking-widest uppercase mb-4">COMMON QUESTIONS</h4> <h2 className="text-3xl font-bold text-white tracking-tight">Everything You Might Ask</h2> </div> <div className="space-y-2"> {faqs.map((faq, idx) => ( <div key={idx} className="border-b border-white/5 py-5 flex flex-col justify-center cursor-pointer" onClick={() => toggleFaq(idx)}> <div className="flex items-center justify-between"> <span className="text-white/80 font-bold text-[16px] md:text-[18px]">{faq.q}</span> <span className="text-[#7B5CFF] text-2xl transition-transform duration-300" style={{ transform: openIdx === idx ? 'rotate(45deg)' : 'rotate(0deg)' }}>+</span> </div> {openIdx === idx && ( <div className="mt-4 text-white/50 text-[15px] md:text-[16px] leading-relaxed pr-8"> {faq.a} </div> )} </div> ))} </div> </div> </section> );
 } /* ───────────────── FOOTER ───────────────── */
-function Footer() { return ( <footer className="bg-[#05070D]"> <div className="py-24 text-center border-t border-white/5"> <h2 className="text-4xl md:text-5xl font-bold text-white mb-2 tracking-tight">Stop Reading About AI. <span className="text-[#9D7AFF]">Start Building It.</span></h2> <p className="text-white/50 text-[15px] md:text-[16px] max-w-xl mx-auto mb-8 leading-relaxed mt-6"> The next batch is forming now. Seats are limited and once they're gone, enrollment closes until the next intake. If you're serious about getting into AI, this is the program that actually prepares you for it. </p> <a href="#pricing" className="inline-block bg-[#7B5CFF] hover:bg-[#6a4cef] text-white px-8 py-4 text-[15px] md:text-[16px] font-bold transition-all mb-4"> Reserve Your Seat Now — It Takes 60 Seconds </a> <p className="text-white/40 text-[13px]">Join 200+ students who chose projects over theory and portfolios over empty certificates.</p> </div> <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 border-t border-white/5"> <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-8"> <div className="md:col-span-12 lg:col-span-4"> <h3 className="text-white font-bold text-xl mb-4 tracking-tight"><span className="text-[#7B5CFF]">AGS</span> Academy</h3> <p className="text-white/50 text-[12px] leading-relaxed max-w-sm"> A career program for AI & Machine Learning, built around real projects and AWS deployment. </p> </div> <div className="md:col-span-4 lg:col-span-2 lg:col-start-7"> <h4 className="text-white font-bold text-[11px] tracking-widest uppercase mb-6">Program</h4> <ul className="space-y-4"> {["Curriculum","Outcomes","Mentors"].map(link => ( <li key={link}><a href={`#${link.toLowerCase()}`} className="text-white/40 hover:text-white transition-colors text-[13px]">{link}</a></li> ))} </ul> </div> <div className="md:col-span-4 lg:col-span-2"> <h4 className="text-white font-bold text-[11px] tracking-widest uppercase mb-6">Resources</h4> <ul className="space-y-4"> {["FAQ","Pricing","Student Stories"].map(link => ( <li key={link}><a href={`#${link.toLowerCase()}`} className="text-white/40 hover:text-white transition-colors text-[13px]">{link}</a></li> ))} </ul> </div> <div className="md:col-span-4 lg:col-span-2"> <h4 className="text-white font-bold text-[11px] tracking-widest uppercase mb-6">Contact</h4> <ul className="space-y-4"> {["hello@agsacademy.in","+91 98300 98300"].map(link => ( <li key={link}><a href="#" className="text-white/40 hover:text-white transition-colors text-[13px]">{link}</a></li> ))} </ul> </div> </div> <div className="mt-16 pt-8 text-center border-t border-white/5"> <p className="text-white/30 text-[12px]"> © 2026 AGS Academy. All rights reserved. </p> </div> </div> </footer> );
+function Footer() { return ( <footer className="bg-[#05070D]"> <div className="py-24 text-center border-t border-white/5"> <h2 className="text-4xl md:text-5xl font-bold text-white mb-2 tracking-tight">Stop Reading About AI. <span className="text-[#9D7AFF]">Start Building It.</span></h2> <p className="text-white/50 text-[15px] md:text-[16px] max-w-xl mx-auto mb-8 leading-relaxed mt-6"> The next batch is forming now. Seats are limited and once they&apos;re gone, enrollment closes until the next intake. If you&apos;re serious about getting into AI, this is the program that actually prepares you for it. </p> <a href="#pricing" className="inline-block bg-[#7B5CFF] hover:bg-[#6a4cef] text-white px-8 py-4 text-[15px] md:text-[16px] font-bold transition-all mb-4"> Reserve Your Seat Now — It Takes 60 Seconds </a> <p className="text-white/40 text-[13px]">Join 200+ students who chose projects over theory and portfolios over empty certificates.</p> </div> <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 border-t border-white/5"> <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-8"> <div className="md:col-span-12 lg:col-span-4"> <h3 className="text-white font-bold text-xl mb-4 tracking-tight"><span className="text-[#7B5CFF]">AGS</span> Academy</h3> <p className="text-white/50 text-[12px] leading-relaxed max-w-sm"> A career program for AI & Machine Learning, built around real projects and AWS deployment. </p> </div> <div className="md:col-span-4 lg:col-span-2 lg:col-start-7"> <h4 className="text-white font-bold text-[11px] tracking-widest uppercase mb-6">Program</h4> <ul className="space-y-4"> {["Curriculum","Outcomes","Mentors"].map(link => ( <li key={link}><a href={`#${link.toLowerCase()}`} className="text-white/40 hover:text-white transition-colors text-[13px]">{link}</a></li> ))} </ul> </div> <div className="md:col-span-4 lg:col-span-2"> <h4 className="text-white font-bold text-[11px] tracking-widest uppercase mb-6">Resources</h4> <ul className="space-y-4"> {["FAQ","Pricing","Student Stories"].map(link => ( <li key={link}><a href={`#${link.toLowerCase()}`} className="text-white/40 hover:text-white transition-colors text-[13px]">{link}</a></li> ))} </ul> </div> <div className="md:col-span-4 lg:col-span-2"> <h4 className="text-white font-bold text-[11px] tracking-widest uppercase mb-6">Contact</h4> <ul className="space-y-4"> {["hello@agsacademy.in","+91 98300 98300"].map(link => ( <li key={link}><a href="#" className="text-white/40 hover:text-white transition-colors text-[13px]">{link}</a></li> ))} </ul> </div> </div> <div className="mt-16 pt-8 text-center border-t border-white/5"> <p className="text-white/30 text-[12px]"> © 2026 AGS Academy. All rights reserved. </p> </div> </div> </footer> );
 } /* ───────────────── PAGE EXPORT ───────────────── */
 export default function AcademyPage() { return ( <main className="bg-[#05070D] min-h-screen text-white font-sans antialiased selection:bg-[#7B5CFF]/30 selection:text-white"> <Navbar /> <Hero /> <Stats /> {/* <Opportunity /> */} {/* <Methodology /> */} {/* <TechSkills /> */} <Curriculum /> <TargetAudience /> <WhatYoullHave /> <IndustryPrograms /> <Bonuses /> <AWSTraining /> <Mentors /> <Testimonials /> <Pricing /> <FAQ /> <Footer /> </main> );
 }

@@ -39,7 +39,7 @@ export default function Instructors() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {instructors.map((inst, idx) => (
-            <div key={idx} className="bg-[#0D101E] border border-white/5 rounded-sm overflow-hidden hover:border-white/10 transition-colors flex flex-col">
+            <div key={idx} className="bg-[#0D101E] border border-white/5 rounded-none overflow-hidden hover:border-white/10 transition-colors flex flex-col">
               <div className="w-full h-48 md:h-56 bg-gradient-to-b from-[#14172B] to-[#0D101E] relative border-b border-white/5 flex items-center justify-center overflow-hidden group">
                  <div className="absolute inset-0 bg-[#7B5CFF]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none"></div>
                  <Image

@@ -28,12 +28,12 @@ export default function AboutDigitalSolutionsShowcase() {
 
             {/* Overlay Content */}
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8 z-10">
-              <h3 className="text-3xl sm:text-4xl lg:text-[42px] font-normal tracking-tight text-white">
+              <h3 className="text-3xl sm:text-4xl lg:text-[42px] font-normal tracking-tight bg-[linear-gradient(90deg,#9795FF_0%,#FFFFFF_100%)] bg-clip-text text-transparent">
                 Digital Solutions
               </h3>
 
-              {/* Bright Purple Circular Action Button */}
-              <div className="mt-5 sm:mt-6 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-gradient-to-br from-[#6040FF] to-[#5900B8] text-white shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_24px_rgba(96,64,255,0.6)]">
+              {/* Bright Purple Action Button */}
+              <div className="mt-5 sm:mt-6 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-none bg-gradient-to-br from-[#6040FF] to-[#5900B8] text-white shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_24px_rgba(96,64,255,0.6)]">
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"

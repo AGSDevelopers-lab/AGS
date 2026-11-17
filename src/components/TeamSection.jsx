@@ -60,7 +60,7 @@ function DirectorCard({ director, delay = 0 }) {
             target="_blank"
             rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
-            className="absolute right-4 top-4 z-20 flex h-9 w-9 -translate-y-1.5 items-center justify-center rounded border border-white/15 bg-[rgba(10,102,194,0.85)] opacity-0 shadow-lg transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 hover:bg-[rgba(10,102,194,1)]"
+            className="absolute right-4 top-4 z-20 flex h-9 w-9 -translate-y-1.5 items-center justify-center rounded-none border border-white/15 bg-[rgba(10,102,194,0.85)] opacity-0 shadow-lg transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 hover:bg-[rgba(10,102,194,1)]"
           >
             <LinkedInIcon />
           </Link>

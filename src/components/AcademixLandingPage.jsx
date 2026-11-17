@@ -201,7 +201,7 @@ export default function AcademixLandingPage() {
               ].map((src, i) => (
                 <div
                   key={i}
-                  className="relative w-[42px] h-[42px] sm:w-[50px] sm:h-[50px] rounded-full overflow-hidden flex-shrink-0"
+                  className="relative w-[42px] h-[42px] sm:w-[50px] sm:h-[50px] rounded-none overflow-hidden flex-shrink-0"
                 >
                   <Image
                     src={src}
@@ -272,7 +272,7 @@ export default function AcademixLandingPage() {
             />
             {/* Centered Glowing Red Play Button */}
             <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10 transition-colors">
-              <div className="w-16 h-11 sm:w-20 sm:h-14 bg-[#FF0000] rounded-[14px] flex items-center justify-center shadow-[0_4px_25px_rgba(255,0,0,0.5)] group-hover:scale-110 transition-transform">
+              <div className="w-16 h-11 sm:w-20 sm:h-14 bg-[#FF0000] rounded-none flex items-center justify-center shadow-[0_4px_25px_rgba(255,0,0,0.5)] group-hover:scale-110 transition-transform">
                 <svg
                   width="22"
                   height="22"
@@ -471,7 +471,7 @@ export default function AcademixLandingPage() {
             />
             {/* Centered Glowing Red Play Button */}
             <div className="absolute inset-0 flex items-center justify-center bg-black/25 group-hover:bg-black/15 transition-colors">
-              <div className="w-16 h-11 sm:w-20 sm:h-14 bg-[#FF0000] rounded-[14px] flex items-center justify-center shadow-[0_4px_25px_rgba(255,0,0,0.6)] group-hover:scale-110 transition-transform">
+              <div className="w-16 h-11 sm:w-20 sm:h-14 bg-[#FF0000] rounded-none flex items-center justify-center shadow-[0_4px_25px_rgba(255,0,0,0.6)] group-hover:scale-110 transition-transform">
                 <svg
                   width="22"
                   height="22"
@@ -609,7 +609,7 @@ export default function AcademixLandingPage() {
 
           {/* Right Column: Active Graphic Card & Disclaimer */}
           <div className="flex flex-col">
-            <div className="relative w-full aspect-[600/320] rounded-[16px] overflow-hidden border border-white/10 shadow-2xl bg-[#090714]">
+            <div className="relative w-full aspect-[600/320] rounded-none overflow-hidden border border-white/10 shadow-2xl bg-[#090714]">
               <Image
                 key={currentStep.id}
                 src={currentStep.image}
@@ -652,8 +652,8 @@ export default function AcademixLandingPage() {
                   Measure your understanding of the topics covered each week.
                 </p>
               </div>
-              <div className="w-full max-w-[710px] h-[8px] rounded-[9px] bg-[#FFFFFF4D] overflow-hidden">
-                <div className="h-full bg-white rounded-[9px] w-[30%]" />
+              <div className="w-full max-w-[710px] h-[8px] rounded-none bg-[#FFFFFF4D] overflow-hidden">
+                <div className="h-full bg-white rounded-none w-[30%]" />
               </div>
             </div>
 
@@ -668,8 +668,8 @@ export default function AcademixLandingPage() {
                   Evaluate how you apply AWS concepts through hands-on work.
                 </p>
               </div>
-              <div className="w-full max-w-[710px] h-[8px] rounded-[9px] bg-[#FFFFFF4D] overflow-hidden">
-                <div className="h-full bg-white rounded-[9px] w-[25%]" />
+              <div className="w-full max-w-[710px] h-[8px] rounded-none bg-[#FFFFFF4D] overflow-hidden">
+                <div className="h-full bg-white rounded-none w-[25%]" />
               </div>
             </div>
 
@@ -684,8 +684,8 @@ export default function AcademixLandingPage() {
                   Practice exam-style questions and identify areas that need revision.
                 </p>
               </div>
-              <div className="w-full max-w-[710px] h-[8px] rounded-[9px] bg-[#FFFFFF4D] overflow-hidden">
-                <div className="h-full bg-white rounded-[9px] w-[25%]" />
+              <div className="w-full max-w-[710px] h-[8px] rounded-none bg-[#FFFFFF4D] overflow-hidden">
+                <div className="h-full bg-white rounded-none w-[25%]" />
               </div>
             </div>
 
@@ -700,8 +700,8 @@ export default function AcademixLandingPage() {
                   Review your overall understanding at the end of the programme.
                 </p>
               </div>
-              <div className="w-full max-w-[710px] h-[8px] rounded-[9px] bg-[#FFFFFF4D] overflow-hidden">
-                <div className="h-full bg-white rounded-[9px] w-[20%]" />
+              <div className="w-full max-w-[710px] h-[8px] rounded-none bg-[#FFFFFF4D] overflow-hidden">
+                <div className="h-full bg-white rounded-none w-[20%]" />
               </div>
             </div>
 
@@ -1352,8 +1352,8 @@ export default function AcademixLandingPage() {
           <div className="absolute right-0 top-0 bottom-0 w-[580px] pointer-events-none hidden lg:flex flex-col justify-center gap-2 overflow-hidden pr-0">
             {/* Top row */}
             <div className="flex items-end gap-2 translate-y-[-10px]">
-              <div className="w-[200px] h-[52px] rounded-[8px] bg-[#0000004D] flex-shrink-0" />
-              <div className="relative w-[296px] h-[52px] rounded-[8px] overflow-hidden flex-shrink-0">
+              <div className="w-[200px] h-[52px] rounded-none bg-[#0000004D] flex-shrink-0" />
+              <div className="relative w-[296px] h-[52px] rounded-none overflow-hidden flex-shrink-0">
                 <Image
                   src="/Academy/Container (9).png"
                   alt=""
@@ -1366,7 +1366,7 @@ export default function AcademixLandingPage() {
 
             {/* Middle row: 296x175, radius 8px */}
             <div className="flex items-center gap-2">
-              <div className="relative w-[296px] h-[175px] rounded-[8px] overflow-hidden flex-shrink-0 shadow-lg">
+              <div className="relative w-[296px] h-[175px] rounded-none overflow-hidden flex-shrink-0 shadow-lg">
                 <Image
                   src="/Academy/Container (8).png"
                   alt=""
@@ -1375,13 +1375,13 @@ export default function AcademixLandingPage() {
                   className="object-cover"
                 />
               </div>
-              <div className="w-[296px] h-[175px] rounded-[8px] bg-[#0000004D] flex-shrink-0 shadow-lg" />
+              <div className="w-[296px] h-[175px] rounded-none bg-[#0000004D] flex-shrink-0 shadow-lg" />
             </div>
 
             {/* Bottom row */}
             <div className="flex items-start gap-2 translate-y-[10px]">
-              <div className="w-[200px] h-[52px] rounded-[8px] bg-[#0000004D] flex-shrink-0" />
-              <div className="relative w-[296px] h-[52px] rounded-[8px] overflow-hidden flex-shrink-0">
+              <div className="w-[200px] h-[52px] rounded-none bg-[#0000004D] flex-shrink-0" />
+              <div className="relative w-[296px] h-[52px] rounded-none overflow-hidden flex-shrink-0">
                 <Image
                   src="/Academy/Container (10).png"
                   alt=""
@@ -1455,7 +1455,7 @@ export default function AcademixLandingPage() {
                 href="https://twitter.com"
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center transition-colors"
+                className="w-9 h-9 rounded-none bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center transition-colors"
                 title="X (Twitter)"
               >
                 <div className="relative w-4 h-4">
@@ -1472,7 +1472,7 @@ export default function AcademixLandingPage() {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center transition-colors"
+                className="w-9 h-9 rounded-none bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center transition-colors"
                 title="Instagram"
               >
                 <div className="relative w-4 h-4">
@@ -1489,7 +1489,7 @@ export default function AcademixLandingPage() {
                 href="https://facebook.com"
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center transition-colors"
+                className="w-9 h-9 rounded-none bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center transition-colors"
                 title="Facebook"
               >
                 <div className="relative w-4 h-4">
@@ -1517,7 +1517,7 @@ export default function AcademixLandingPage() {
           <div className="relative w-full max-w-4xl bg-[#0F0A20] rounded-none overflow-hidden border border-white/20 shadow-2xl">
             <button
               onClick={() => setVideoModalOpen(false)}
-              className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black transition-colors"
+              className="absolute top-4 right-4 z-10 w-10 h-10 rounded-none bg-black/60 text-white flex items-center justify-center hover:bg-black transition-colors"
             >
               ✕
             </button>

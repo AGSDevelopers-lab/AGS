@@ -580,11 +580,11 @@ const SERVICES_DETAIL_DATA = {
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   if (slug === "aws-training") redirect("/services/aws-training");
-  if (slug === "full-stack" || slug === "fullstack") redirect("/services/full-stack");
-  if (slug === "ui-ux-design") redirect("/services/ui-ux-design");
+  if (slug === "full-stack" || slug === "fullstack" || slug === "website-development" || slug === "web-development") redirect("/services/full-stack");
+  if (slug === "ui-ux-design" || slug === "web-design" || slug === "branding") redirect("/services/ui-ux-design");
   if (slug === "ai-solutions") redirect("/services/ai-solutions");
   if (slug === "cyber-security" || slug === "cyber-security-and-vapt") redirect("/services/cyber-security");
-  if (slug === "digital-solutions") redirect("/services/digital-solutions");
+  if (slug === "digital-solutions" || slug === "digital-marketing" || slug === "cloud-solutions" || slug === "cloud-devops") redirect("/services/digital-solutions");
   if (slug === "mobile-app-development" || slug === "mobile-apps") redirect("/services/mobile-app-development");
   const data = SERVICES_DETAIL_DATA[slug];
 
@@ -617,11 +617,11 @@ export async function generateMetadata({ params }) {
 export default async function ServiceDetailSubPage({ params }) {
   const { slug } = await params;
   if (slug === "aws-training") redirect("/services/aws-training");
-  if (slug === "full-stack" || slug === "fullstack") redirect("/services/full-stack");
-  if (slug === "ui-ux-design") redirect("/services/ui-ux-design");
+  if (slug === "full-stack" || slug === "fullstack" || slug === "website-development" || slug === "web-development") redirect("/services/full-stack");
+  if (slug === "ui-ux-design" || slug === "web-design" || slug === "branding") redirect("/services/ui-ux-design");
   if (slug === "ai-solutions") redirect("/services/ai-solutions");
   if (slug === "cyber-security" || slug === "cyber-security-and-vapt") redirect("/services/cyber-security");
-  if (slug === "digital-solutions") redirect("/services/digital-solutions");
+  if (slug === "digital-solutions" || slug === "digital-marketing" || slug === "cloud-solutions" || slug === "cloud-devops") redirect("/services/digital-solutions");
   if (slug === "mobile-app-development" || slug === "mobile-apps") redirect("/services/mobile-app-development");
   const data = SERVICES_DETAIL_DATA[slug];
 

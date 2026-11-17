@@ -22,7 +22,7 @@ export default function PricingCheckout() {
           </h3>
         </div>
 
-        <div className="bg-[#0D101E] border border-[#7B5CFF]/20 rounded-2xl p-8 md:p-12 relative shadow-[0_0_80px_rgba(123,92,255,0.05)] max-w-2xl mx-auto flex flex-col items-center">
+        <div className="bg-[#0D101E] border border-[#7B5CFF]/20 rounded-none p-8 md:p-12 relative shadow-[0_0_80px_rgba(123,92,255,0.05)] max-w-2xl mx-auto flex flex-col items-center">
           {/* Badge */}
           <div className="absolute top-6 left-6 md:top-8 md:left-8 px-3 py-1.5 rounded-full bg-[#00E676]/10 text-[#00E676] text-[10px] font-bold uppercase tracking-wider">
             LIMITED BATCH OFFER
@@ -59,7 +59,7 @@ export default function PricingCheckout() {
 
           <a
             href="#"
-            className="block w-full bg-[#7B5CFF] hover:bg-[#6a4cef] text-white text-center py-4 rounded-sm text-[15px] font-bold transition-all shadow-[0_0_20px_rgba(123,92,255,0.4)] hover:shadow-[0_0_30px_rgba(123,92,255,0.6)] mb-6"
+            className="block w-full bg-[#7B5CFF] hover:bg-[#6a4cef] text-white text-center py-4 rounded-none text-[15px] font-bold transition-all shadow-[0_0_20px_rgba(123,92,255,0.4)] hover:shadow-[0_0_30px_rgba(123,92,255,0.6)] mb-6"
           >
             Reserve Your Seat Now &rarr;
           </a>

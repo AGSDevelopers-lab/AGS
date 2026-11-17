@@ -10,7 +10,8 @@ import { useGSAP } from "@gsap/react";
 import { useCtaForm } from "@/components/CtaFormProvider";
 import Footer from "@/components/Footer";
 import container6 from "../../public/services/container-6.png";
-import rightContainerStats from "../../public/services/right-container-stats.png";
+import smarterTechTeam from "../../public/services/smarter-tech-team.png";
+import satisfactionTeam from "../../public/services/satisfaction-team-clean.png";
 import heroBg from "../../public/services/hero-bg.png";
 import tabFullStack from "../../public/services/tab-full-stack.png";
 import tabMobileDev from "../../public/services/tab-mobile-dev.png";
@@ -303,7 +304,7 @@ export default function ServicesLandingPage() {
       {/* ─────────────────────────────────────────────────────────────
           1. HERO SECTION
           ───────────────────────────────────────────────────────────── */}
-      <section className="relative w-full min-h-[580px] lg:min-h-[660px] flex items-center justify-center overflow-hidden bg-[#0A0B16]">
+      <section className="relative w-full min-h-[520px] lg:min-h-[600px] flex items-center justify-center overflow-hidden bg-[#0A0B16]">
         {/* Background Image: Cinematic Office Workspace */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -313,20 +314,20 @@ export default function ServicesLandingPage() {
             priority
             unoptimized
             sizes="100vw"
-            className="object-cover object-center brightness-[0.92] contrast-[1.04]"
+            className="object-cover object-center"
           />
-          {/* Subtle vertical guides & dark overlay matching Figma */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#090A15]/50 via-[#0A0B1A]/40 to-[#0A0B16]/70" />
-          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:160px_100%]" />
+          {/* Rich indigo/navy duotone overlay matching Figma */}
+          <div className="absolute inset-0 bg-[#090C1E]/60 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#090B1A]/70 via-[#0B0E24]/55 to-[#0A0D1D]/80" />
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 max-w-4xl mx-auto px-6 pt-32 pb-20 text-center flex flex-col items-center">
-          <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-normal tracking-tight leading-tight">
+        <div className="relative z-10 max-w-4xl mx-auto px-6 pt-28 pb-16 text-center flex flex-col items-center">
+          <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-[64px] font-normal tracking-tight leading-tight">
             Our Services
           </h1>
 
-          <p className="mt-5 text-white max-w-[639px] text-[15px] sm:text-[16px] font-normal leading-[21px] text-center mx-auto opacity-100">
+          <p className="mt-4 sm:mt-5 text-white/85 max-w-[640px] text-[15px] sm:text-[16.5px] font-light leading-relaxed text-center mx-auto">
             Companies that can help you in developing your company for the future. We deliver{" "}
             <br className="hidden sm:inline" />
             end-to-end digital solutions — from design to deployment.
@@ -335,18 +336,20 @@ export default function ServicesLandingPage() {
           <button
             type="button"
             onClick={() => openForm()}
-            className="mt-8 sm:mt-10 inline-flex items-center gap-2.5 bg-white text-black px-7 py-3 text-[15px] font-medium transition-all duration-300 hover:bg-[#854CFF] hover:text-white group cursor-pointer shadow-lg"
+            className="mt-8 sm:mt-10 group inline-flex items-center gap-3.5 rounded-none bg-white px-6 sm:px-7 py-3 sm:py-3.5 text-sm sm:text-base font-medium text-black transition-all duration-300 hover:bg-white/90 hover:scale-[1.01] shrink-0 whitespace-nowrap shadow-md cursor-pointer"
           >
             <span>Get Started</span>
-            <div className="w-[20px] h-[20px] rounded-none border border-[#000000] flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:rotate-45">
-              <img
-                src={ICONS.uilArrowUp}
-                alt=""
-                width="20"
-                height="20"
-                className="w-[20px] h-[20px] object-contain"
-              />
-            </div>
+            <span className="flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center shrink-0 rounded-full border border-black/80 text-black transition-transform duration-300 group-hover:rotate-45">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.2"
+                className="w-3 h-3 sm:w-3.5 sm:h-3.5"
+              >
+                <path d="M7 17L17 7M17 7H7M17 7V17" />
+              </svg>
+            </span>
           </button>
         </div>
       </section>
@@ -475,7 +478,7 @@ export default function ServicesLandingPage() {
             </p>
 
             {/* Deep Purple Feature Card (Figma: width: 600, height: 462.59, bg: #230B4C, py: 51px, px: 32-40px, opacity: 0.997) */}
-            <div className="w-full lg:w-[600px] max-w-[600px] min-h-[462.59px] py-[51px] px-8 sm:px-10 bg-[#230B4C] opacity-[0.997] flex flex-col justify-between gap-[36px] shadow-sm">
+            <div className="w-full lg:w-[600px] max-w-[600px] py-10 px-8 sm:px-10 bg-[#230B4C] opacity-[0.997] flex flex-col justify-between gap-[28px] shadow-sm">
               {/* Feature 1 */}
               <div>
                 <div className="flex items-center gap-3.5 mb-3">
@@ -523,17 +526,36 @@ export default function ServicesLandingPage() {
             </div>
           </div>
 
-          {/* Right Column: Entire Figma Container (specs: width 550px, height 713px, max-width 550px) */}
-          <div ref={sec3ImageRef} className="w-full lg:w-[550px] max-w-[550px] flex-shrink-0 will-change-transform">
+          {/* Right Column: Team photo + 98% satisfaction card */}
+          <div ref={sec3ImageRef} className="w-full lg:w-[550px] max-w-[550px] flex-shrink-0 will-change-transform flex flex-col gap-6">
+            {/* Top: 3 colleagues photo */}
             <Image
-              src={rightContainerStats}
-              alt="Team collaboration and 98% Client Satisfaction"
-              width={550}
-              height={713}
+              src={smarterTechTeam}
+              alt="Team collaboration"
+              width={1004}
+              height={708}
               unoptimized
               priority
-              className="w-full h-auto object-contain"
+              className="w-full h-auto object-cover rounded-none"
             />
+            {/* Bottom: satisfaction card */}
+            <div className="flex items-center gap-5 sm:gap-6">
+              <Image
+                src={satisfactionTeam}
+                alt="Satisfied clients"
+                width={287}
+                height={175}
+                unoptimized
+                className="w-[45%] h-auto object-cover flex-shrink-0 rounded-none"
+              />
+              <div className="flex flex-col items-start">
+                <div className="flex items-baseline">
+                  <span className="text-[#111111] font-manrope font-bold text-[72px] sm:text-[96px] leading-none tracking-tight">98</span>
+                  <span className="text-[#854CFF] font-manrope font-bold text-[32px] sm:text-[40px] leading-none ml-1">%</span>
+                </div>
+                <span className="text-[#111111] font-manrope font-medium text-[13px] sm:text-[15px] tracking-[3px] uppercase mt-1">Client Satisfaction</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -555,7 +577,7 @@ export default function ServicesLandingPage() {
           {/* 2x2 Grid (Figma: Container 1290x354, 2 rows, 2 columns, row gap: 30px, column gap: 30px, each box: 630x162, pl: 69px, pr: 46px) */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-[30px] max-w-[1290px] w-full mx-auto">
             {[
-              { title: "Web Development", href: "/services/website-development" },
+              { title: "Web Development", href: "/services/full-stack" },
               { title: "Mobile Development", href: "/services/mobile-app-development" },
               { title: "Cloud & Digital Solutions", href: "/services/digital-solutions" },
               { title: "AI & Automation", href: "/services/ai-solutions" },
@@ -577,8 +599,9 @@ export default function ServicesLandingPage() {
                 <div
                   style={{
                     borderColor: "rgba(23, 9, 57, 0.4)", // markem.webflow.io/Violet 40% (#170939 40%)
+                    borderRadius: "9999px",
                   }}
-                  className="w-[80px] h-[80px] rounded-none border flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:border-[#854CFF] group-hover:bg-[#854CFF]"
+                  className="w-[80px] h-[80px] rounded-full border flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:border-[#854CFF] group-hover:bg-[#854CFF]"
                 >
                   <svg
                     width="18"
@@ -606,11 +629,11 @@ export default function ServicesLandingPage() {
       {/* ─────────────────────────────────────────────────────────────
           5. EMPOWERING BUSINESSES WITH FUTURE-READY SOLUTIONS
           ───────────────────────────────────────────────────────────── */}
-      <section ref={sec5Ref} className="relative z-10 w-full pt-6 sm:pt-8 pb-1 sm:pb-2 px-4 sm:px-6 lg:px-8 overflow-x-clip">
-        <div className="max-w-[1290px] mx-auto flex flex-col lg:flex-row items-start justify-between gap-8 lg:gap-0">
-          {/* Left Column: Container (6).png (width: 629, height: 779, max-width: 630) */}
-          <div ref={sec5LeftRef} className="w-full lg:w-[580px] max-w-[580px] flex-shrink-0 will-change-transform lg:pr-8 xl:pr-12">
-            <div className="relative w-full max-w-[580px] h-[435px] sm:h-[445px] overflow-hidden shadow-sm border border-[#E9E4F5]">
+      <section ref={sec5Ref} className="relative z-10 w-full pt-12 sm:pt-16 pb-16 sm:pb-24 lg:pb-28 px-4 sm:px-6 lg:px-8 overflow-x-clip">
+        <div className="max-w-[1290px] mx-auto flex flex-col lg:flex-row items-start justify-between gap-10 lg:gap-[60px]">
+          {/* Left Column: Container (6).png */}
+          <div ref={sec5LeftRef} className="w-full lg:w-[550px] max-w-[550px] flex-shrink-0 will-change-transform">
+            <div className="relative w-full h-[480px] sm:h-[520px] overflow-hidden shadow-sm border border-[#E9E4F5]">
               <Image
                 src={container6}
                 alt="Empowering businesses with analytics and cloud consulting"
@@ -623,14 +646,8 @@ export default function ServicesLandingPage() {
             </div>
           </div>
 
-          {/* Vertical Partitioning Line (Figma x=756) */}
-          <div
-            ref={sec5DividerRef}
-            className="hidden lg:block w-[1px] bg-[#00000020] h-[435px] sm:h-[445px] flex-shrink-0 will-change-transform"
-          />
-
           {/* Right Column: Content & Accordion Steps */}
-          <div ref={sec5RightRef} className="w-full lg:w-[550px] max-w-[550px] flex flex-col justify-start will-change-transform lg:pl-8 xl:pl-14">
+          <div ref={sec5RightRef} className="w-full lg:flex-1 max-w-[580px] flex flex-col justify-start will-change-transform">
             <h2 className="text-[#111111] font-manrope font-normal text-[28px] sm:text-[34px] leading-[38px] sm:leading-[46px] tracking-[1.2px] capitalize">
               Empowering Businesses With{" "}
               <br className="hidden sm:inline" />
@@ -642,7 +659,7 @@ export default function ServicesLandingPage() {
             </p>
 
             {/* Action Button: Left white box with Arrow.png (50x59) + Right gradient box (173x59) */}
-            <div className="mt-4 mb-5">
+            <div className="mt-5 mb-7">
               <Link
                 href="/about"
                 className="inline-flex items-center group shadow-sm transition-transform duration-300 hover:scale-[1.01]"
@@ -687,7 +704,7 @@ export default function ServicesLandingPage() {
                 return (
                   <div
                     key={step.number}
-                    className="w-full max-w-[550px] border-t border-[#00000033] py-3.5 cursor-pointer group transition-colors"
+                    className="w-full max-w-[550px] border-t border-[#00000033] py-5 cursor-pointer group transition-colors"
                     onClick={() => toggleStep(index)}
                   >
                     <div className="flex items-center justify-between">
@@ -703,7 +720,8 @@ export default function ServicesLandingPage() {
 
                       {/* Circle: 40x40px, rounded-full, border: 1px solid #00000033 */}
                       <div
-                        className={`w-[40px] h-[40px] rounded-none border border-[#00000033] flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
+                        style={{ borderRadius: "9999px" }}
+                        className={`w-[40px] h-[40px] rounded-full border border-[#00000033] flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
                           isOpen
                             ? "bg-[#545AFF] border-[#545AFF] rotate-90"
                             : "group-hover:border-[#545AFF] group-hover:bg-[#FAF7FF]"
@@ -747,7 +765,7 @@ export default function ServicesLandingPage() {
       {/* ─────────────────────────────────────────────────────────────
           6. TECHNOLOGY BUILT AROUND YOUR BUSINESS (Coder Banner with 4 Tabs)
           ───────────────────────────────────────────────────────────── */}
-      <section ref={sec6Ref} className="relative z-10 w-full pt-1 sm:pt-2 pb-12 sm:pb-14 px-4 sm:px-6 lg:px-8 overflow-x-clip">
+      <section ref={sec6Ref} className="relative z-10 w-full pt-16 sm:pt-24 lg:pt-28 pb-16 sm:pb-20 lg:pb-24 px-4 sm:px-6 lg:px-8 overflow-x-clip">
         <div className="max-w-[1290px] mx-auto">
           {/* Header Row: 2 Columns (Only text appears from left) */}
           <div ref={sec6HeaderRef} className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-4 sm:mb-5 will-change-transform">
@@ -851,8 +869,8 @@ export default function ServicesLandingPage() {
           7. LET'S WORK WITH US (CTA Banner)
           ───────────────────────────────────────────────────────────── */}
       <section className="relative z-10 w-full py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-[#0E101F] text-white">
-        <div className="max-w-[1290px] mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="max-w-xl">
+        <div className="max-w-[1290px] mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+          <div className="max-w-xl text-left">
             <h2 className="text-3xl sm:text-4xl md:text-[46px] font-normal tracking-tight leading-tight">
               <span className="text-[#8B62FF]">Let&apos;s</span> work with Us
             </h2>
@@ -861,22 +879,18 @@ export default function ServicesLandingPage() {
             </p>
           </div>
 
-          <div>
+          <div className="w-full md:w-auto flex justify-start md:justify-end shrink-0">
             <button
               type="button"
               onClick={() => openForm()}
-              className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-3.5 text-[15px] font-medium transition-all duration-300 hover:bg-[#854CFF] hover:text-white group cursor-pointer shadow-lg whitespace-nowrap"
+              className="group inline-flex items-center gap-3.5 bg-white text-black px-7 sm:px-8 py-3.5 text-sm sm:text-[15px] font-medium transition-all duration-300 hover:bg-[#854CFF] hover:text-white cursor-pointer shadow-lg whitespace-nowrap rounded-none"
             >
               <span>Know More</span>
-              <div className="w-[20px] h-[20px] rounded-none border border-[#000000] flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:rotate-45">
-                <img
-                  src={ICONS.uilArrowUp}
-                  alt=""
-                  width="20"
-                  height="20"
-                  className="w-[20px] h-[20px] object-contain"
-                />
-              </div>
+              <span className="flex h-5 w-5 sm:h-5.5 sm:w-5.5 items-center justify-center shrink-0 rounded-full border border-current text-current transition-transform duration-300 group-hover:rotate-45">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" className="w-3 h-3 sm:w-3.5 sm:h-3.5">
+                  <path d="M7 17L17 7M17 7H7M17 7V17" />
+                </svg>
+              </span>
             </button>
           </div>
         </div>
