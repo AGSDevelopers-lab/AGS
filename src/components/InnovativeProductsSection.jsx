@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useCtaForm } from "@/components/CtaFormProvider";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -19,6 +20,7 @@ const products = [
     description: "Equip students with job-ready skills through hands-on project work and career placement prep.",
     image: "/products/academix.png",
     logo: "/products/logo-academyx.png",
+    href: "/ags-academy",
   },
   {
     id: "lumina",
@@ -27,6 +29,7 @@ const products = [
     description: "Streamline class management, lecture uploads, and student assessments on a unified LMS platform.",
     image: "/products/lumina.png",
     logo: "/products/logo-lumina.png",
+    href: "/products/lumina",
   },
   {
     id: "stmet",
@@ -35,6 +38,7 @@ const products = [
     description: "Connect students and faculty with low-latency streaming and real-time collaboration tools.",
     image: "/products/stmet.png",
     logo: "/products/logo-stmet.png",
+    href: "/products/stmet",
   },
   {
     id: "nexus",
@@ -43,6 +47,7 @@ const products = [
     description: "Automate employee onboarding, leave tracking, attendance, and payroll on one central platform.",
     image: "/products/nexus.png",
     logo: "/products/logo-nexus.png",
+    href: "/products/nexus",
   },
   {
     id: "lynkbeats",
@@ -51,7 +56,7 @@ const products = [
     description: "Track real-time story performance and editorial KPIs to optimize newsroom coverage instantly.",
     image: "/products/lynkbeats.png",
     logo: "/products/logo-lynkbeats.png",
-    link: "https://linkbeats.in/",
+    href: "/products/lynkbeats",
   },
   {
     id: "newsbuddies",
@@ -60,7 +65,7 @@ const products = [
     description: "Optimize headlines, regional metadata, and search visibility to drive organic news traffic.",
     image: "/products/newsbuddies.png",
     logo: "/products/logo-newsbuddies.png",
-    link: "https://vidlens.in/",
+    href: "/products/newsbuddies",
   },
   {
     id: "vidlens",
@@ -69,7 +74,7 @@ const products = [
     description: "Analyze competitor channels, track audience retention, and optimize video content strategy effortlessly.",
     image: "/products/vidlens.png",
     logo: "/products/logo-vidlens.png",
-    link: "https://vidlens.in/",
+    href: "/products/vidlens",
   },
 ];
 
@@ -217,10 +222,17 @@ export default function InnovativeProductsSection() {
             type="button"
             onClick={handlePrev}
             aria-label="Previous products"
-            className="absolute left-0 sm:-left-6 lg:-left-12 top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 sm:h-14 sm:w-14 items-center justify-center rounded-none bg-black/70 text-[#8B5CF6] hover:text-white hover:bg-purple-900/60 backdrop-blur-md border border-purple-500/30 transition-all shadow-2xl hover:scale-110 cursor-pointer"
+            style={{ borderRadius: "9999px" }}
+            className="absolute left-0 sm:-left-6 lg:-left-12 top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 sm:h-12 sm:w-12 lg:h-14 lg:w-14 items-center justify-center rounded-full bg-black/70 text-[#8B5CF6] hover:text-white hover:bg-purple-900/60 backdrop-blur-md border border-purple-500/30 transition-all shadow-2xl hover:scale-110 cursor-pointer"
           >
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <path d="M15 19l-7-7 7-7" />
+            <svg width="18" height="14" viewBox="0 0 16 12" fill="none" className="w-4 h-3 text-current">
+              <path
+                d="M14.5 6H1.5M6 1.5L1.5 6L6 10.5"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
           </button>
 
@@ -229,10 +241,17 @@ export default function InnovativeProductsSection() {
             type="button"
             onClick={handleNext}
             aria-label="Next products"
-            className="absolute right-0 sm:-right-6 lg:-right-12 top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 sm:h-14 sm:w-14 items-center justify-center rounded-none bg-black/70 text-[#8B5CF6] hover:text-white hover:bg-purple-900/60 backdrop-blur-md border border-purple-500/30 transition-all shadow-2xl hover:scale-110 cursor-pointer"
+            style={{ borderRadius: "9999px" }}
+            className="absolute right-0 sm:-right-6 lg:-right-12 top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 sm:h-12 sm:w-12 lg:h-14 lg:w-14 items-center justify-center rounded-full bg-black/70 text-[#8B5CF6] hover:text-white hover:bg-purple-900/60 backdrop-blur-md border border-purple-500/30 transition-all shadow-2xl hover:scale-110 cursor-pointer"
           >
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <path d="M9 5l7 7-7 7" />
+            <svg width="18" height="14" viewBox="0 0 16 12" fill="none" className="w-4 h-3 text-current">
+              <path
+                d="M1.5 6H14.5M10 1.5L14.5 6L10 10.5"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
           </button>
 
@@ -250,21 +269,10 @@ export default function InnovativeProductsSection() {
               }}
             >
               {products.map((prod) => {
-                const CardTag = prod.link ? "a" : "div";
-                const cardProps = prod.link
-                  ? {
-                      href: prod.link,
-                      target: "_blank",
-                      rel: "noopener noreferrer",
-                    }
-                  : {
-                      onClick: () => openForm(),
-                    };
-
                 return (
-                  <CardTag
+                  <Link
                     key={prod.id}
-                    {...cardProps}
+                    href={prod.href}
                     className="group relative flex flex-col justify-between overflow-hidden rounded-none aspect-[4/5] min-h-[480px] sm:min-h-[520px] p-7 sm:p-9 border border-white/10 shadow-2xl transition-all duration-300 hover:border-purple-500/50 cursor-pointer shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-22px)] block"
                   >
                   {/* Background Image */}
@@ -282,14 +290,17 @@ export default function InnovativeProductsSection() {
                   {/* Top Row: Circular Logo Badge & Category */}
                   <div className="relative z-10 flex items-center justify-between">
                     {/* Glassmorphic Logo Badge matching Figma Screenshot */}
-                    <div className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-none bg-black/45 backdrop-blur-md border border-white/20 p-2.5 shadow-2xl transition-transform duration-300 group-hover:scale-105">
-                      <div className="relative w-9 h-9 sm:w-10 sm:h-10">
+                    <div
+                      style={{ borderRadius: "9999px" }}
+                      className="flex h-13 w-13 sm:h-15 sm:w-15 items-center justify-center rounded-full bg-black/45 backdrop-blur-md border border-white/20 p-2.5 shadow-2xl transition-transform duration-300 group-hover:scale-105"
+                    >
+                      <div className="relative w-8 h-8 sm:w-9 sm:h-9">
                         <Image
                           src={prod.logo}
                           alt={prod.name}
                           fill
                           sizes="40px"
-                          className="object-contain rounded-none"
+                          className="object-contain"
                         />
                       </div>
                     </div>
@@ -313,7 +324,10 @@ export default function InnovativeProductsSection() {
                       </div>
 
                       {/* Purple Arrow Button with ↗ */}
-                      <div className="flex h-11 w-11 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-none bg-[#6D28D9] group-hover:bg-[#7C3AED] text-white shadow-xl shadow-purple-950/60 transition-transform duration-300 group-hover:scale-110">
+                      <div
+                        style={{ borderRadius: "9999px" }}
+                        className="flex h-11 w-11 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-full bg-[#6D28D9] group-hover:bg-[#7C3AED] text-white shadow-xl shadow-purple-950/60 transition-transform duration-300 group-hover:scale-110"
+                      >
                         <svg
                           width="18"
                           height="18"
@@ -329,7 +343,7 @@ export default function InnovativeProductsSection() {
                     </div>
                   </div>
 
-                </CardTag>
+                </Link>
               );
             })}
             </div>

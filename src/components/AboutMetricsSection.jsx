@@ -107,27 +107,27 @@ export default function AboutMetricsSection() {
       className="relative z-10 w-full bg-white pt-8 sm:pt-10 lg:pt-12 pb-8 sm:pb-10 lg:pb-12 text-gray-900 overflow-hidden"
     >
       <div className="mx-auto max-w-[1560px] 2xl:max-w-[1680px] px-6 sm:px-10 lg:px-16 2xl:px-20">
-        {/* Top 2-Column: Photo Left + Content Right - Clean Aspect & Vertical Alignment per Picture 2 */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 lg:items-center">
-          {/* Left: Typing Laptop Image - Clean proportional height to prevent squashing */}
+        {/* Top 2-Column: Photo Left + Content Right - Clean Aspect & Vertical Alignment per Figma Specs */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 lg:items-stretch">
+          {/* Left: Typing Laptop Image - Exact Figma specs (593x298) */}
           <div
             ref={imageColRef}
-            className="lg:col-span-6 relative w-full h-[260px] xs:h-[300px] sm:h-[340px] md:h-[380px] lg:h-[400px] overflow-hidden rounded-none bg-gray-50 flex items-center shadow-sm"
+            className="lg:col-span-6 relative w-full max-w-[593px] aspect-[593/298] h-[220px] xs:h-[250px] sm:h-[270px] lg:h-[285px] xl:h-[298px] overflow-hidden rounded-none bg-gray-50 flex items-center shadow-sm"
           >
             <div className="relative w-full h-full overflow-hidden rounded-none">
               <Image
                 src="/about-laptop.png"
                 alt="Team member working on laptop in modern office"
                 fill
-                sizes="(max-width: 1024px) 100vw, 760px"
+                sizes="(max-width: 1024px) 100vw, 593px"
                 className="object-cover object-center rounded-none"
                 priority
               />
 
-              {/* Video Play Button Overlay matching Picture 2 */}
+              {/* Video Play Button Overlay matching Figma */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="flex h-11 w-11 sm:h-13 sm:w-13 items-center justify-center rounded-none bg-white/40 backdrop-blur-sm text-white transition-all duration-300 border border-white/70 shadow-md">
-                  <svg className="ml-0.5 h-5 w-5 fill-current text-white" viewBox="0 0 24 24">
+                <div className="flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-black/25 backdrop-blur-sm text-white transition-all duration-300 border border-white/60 shadow-md">
+                  <svg className="ml-0.5 h-4 w-4 fill-current text-white" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z" />
                   </svg>
                 </div>
@@ -135,27 +135,29 @@ export default function AboutMetricsSection() {
             </div>
           </div>
 
-          {/* Right: Who We Are & Learn About us - Compact spacing without excessive button gap */}
+          {/* Right: Who We Are & Learn About us - Button strictly aligned from the bottom with the image beside it */}
           <div
             ref={textColRef}
-            className="lg:col-span-6 flex flex-col justify-center items-start lg:pl-4 xl:pl-8 py-0.5"
+            className="lg:col-span-6 flex flex-col justify-between items-start lg:pl-2 xl:pl-6 pt-0 h-auto lg:h-[285px] xl:h-[298px]"
           >
-            <span className="text-sm sm:text-base font-semibold text-[#545AFF] tracking-wide block">
-              Who We Are
-            </span>
+            <div className="flex flex-col items-start">
+              <span className="text-sm sm:text-base font-semibold text-[#545AFF] tracking-wide block">
+                Who We Are
+              </span>
 
-            {/* "Learn About us" on a single line at a light/regular weight */}
-            <h2 className="mt-2 text-3xl sm:text-4xl lg:text-[44px] xl:text-[48px] font-normal tracking-tight text-gray-950 leading-[1.15]">
-              Learn About us
-            </h2>
+              {/* "Learn About us" on a single line at a light/regular weight */}
+              <h2 className="mt-1.5 sm:mt-2 text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-normal tracking-tight text-gray-950 leading-[1.15]">
+                Learn About us
+              </h2>
 
-            {/* Figma Dev Mode: max-width 536px, Manrope 400, line-height 27px */}
-            <p className="mt-3.5 sm:mt-4 text-base sm:text-[17px] leading-[27px] text-gray-600 font-normal max-w-[536px]">
-              We are a dynamic team of innovators, storytellers, and visionaries dedicated to transforming ideas into extraordinary experiences.
-            </p>
+              {/* Figma Dev Mode: max-width 536px, Manrope 400, line-height 27px */}
+              <p className="mt-3 sm:mt-3.5 text-base sm:text-[17px] leading-[26px] text-gray-600 font-normal max-w-[536px]">
+                We are a dynamic team of innovators, storytellers, and visionaries dedicated to transforming ideas into extraordinary experiences.
+              </p>
+            </div>
 
-            {/* Segmented Button: Tightly spaced below description per Picture 2 */}
-            <div className="mt-6 sm:mt-7">
+            {/* Segmented Button: Aligned strictly with the image beside it from the bottom */}
+            <div className="mt-6 lg:mt-auto">
               <Link
                 href="/about"
                 className="inline-flex items-stretch rounded-none transition-transform duration-300 hover:-translate-y-0.5 group shadow-sm whitespace-nowrap"

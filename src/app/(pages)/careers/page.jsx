@@ -687,158 +687,197 @@ export default function CareersPage() {
 
       {/* ─────────────────────────────────────────────────────────────
           5. TESTIMONIALS ("Don't just take our word for it!")
+          Full-bleed right overflow with zero empty gap on the right
           ───────────────────────────────────────────────────────────── */}
-      <section className="relative z-10 w-full py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-white border-t border-[#F0EDF6] overflow-hidden">
-        <div className="max-w-[1290px] mx-auto">
-          {/* Text coming from top above */}
-          <ScrollReveal direction="down" distance={110} duration={1.1}>
-            <h2 className="text-[#111111] font-manrope font-normal text-[32px] sm:text-[42px] lg:text-[48px] text-center tracking-tight leading-[1.18]">
-              Don&apos;t just take our word for it!
-            </h2>
-            <p className="mt-3 text-[#555E70] font-manrope font-light text-[15px] sm:text-[16px] text-center">
-              See the feedback from your teammates.
-            </p>
-          </ScrollReveal>
-
-          <ScrollReveal direction="up" distance={120} duration={1.15} delay={60}>
-            <div
-              className="max-w-[1240px] mx-auto mt-14 sm:mt-18"
-              onMouseEnter={() => setIsTestimonialHovered(true)}
-              onMouseLeave={() => setIsTestimonialHovered(false)}
-            >
-              {/* Carousel Viewport: Left Main Portrait + Overlapping Center White Card + Right Teammate Vertical Strips */}
-              <div className="relative flex flex-col lg:flex-row items-center justify-center">
-                {/* 1. Left Main Portrait */}
-                <div className="hidden lg:block relative w-[302px] h-[422px] shrink-0 overflow-hidden shadow-lg z-0 bg-neutral-100 rounded-none transition-all duration-500">
-                  <Image
-                    key={testimonials[activeTestimonial].image}
-                    src={testimonials[activeTestimonial].image}
-                    alt={testimonials[activeTestimonial].name}
-                    fill
-                    sizes="302px"
-                    className="object-cover transition-opacity duration-300"
-                    priority
-                  />
-                </div>
-
-                {/* 2. Center White Card (Overlaps Left Portrait & Right Teammate Strips) */}
-                <div className="relative z-20 w-full max-w-[620px] bg-white border border-[#E9EAF0]/60 p-8 sm:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.08)] -mx-0 lg:-ml-16 lg:-mr-12 my-4 lg:my-0 flex flex-col justify-between min-h-[390px] sm:min-h-[422px] rounded-none transition-all duration-300">
-                  {/* Left Quotation Icon */}
-                  <div className="flex items-start gap-4">
-                    <svg
-                      width="32"
-                      height="24"
-                      viewBox="0 0 32 24"
-                      fill="none"
-                      className="text-[#CBD5E1] shrink-0 mt-1 select-none"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M0 13.7143C0 6.13626 5.25368 0 12.3684 0V4.57143C8.42105 4.57143 5.52632 7.77143 5.52632 11.4286H12.3684V24H0V13.7143ZM19.6316 13.7143C19.6316 6.13626 24.8853 0 32 0V4.57143C28.0526 4.57143 25.1579 7.77143 25.1579 11.4286H32V24H19.6316V13.7143Z"
-                        fill="currentColor"
-                      />
-                    </svg>
-
-                    <p className="text-[#222222] font-manrope font-light text-[15.5px] sm:text-[16.5px] leading-[1.68] flex-grow transition-opacity duration-300">
-                      {testimonials[activeTestimonial].quote}
-                    </p>
-                  </div>
-
-                  {/* Author Meta & Mobile Thumbnail */}
-                  <div className="pt-6 mt-6 border-t border-neutral-100 flex items-end justify-between">
-                    <div>
-                      <h4 className="text-[#111111] font-manrope font-bold text-[18px]">
-                        {testimonials[activeTestimonial].name}
-                      </h4>
-                      <p className="text-[#6B7280] font-manrope font-normal text-[14px] mt-0.5">
-                        {testimonials[activeTestimonial].role}
-                      </p>
-
-                      {/* LinkedIn Profile Badge */}
-                      <a
-                        href={testimonials[activeTestimonial].linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 mt-3.5 text-[13px] text-[#4B5563] hover:text-[#0A66C2] transition-colors"
-                      >
-                        <span className="w-4 h-4 bg-[#0A66C2] rounded-none flex items-center justify-center text-white text-[10px] font-bold font-sans">
-                          in
-                        </span>
-                        <span className="font-manrope font-normal">LinkedIn profile</span>
-                      </a>
-                    </div>
-
-                    {/* Compact thumbnail for mobile/tablet */}
-                    <div className="lg:hidden relative w-14 h-14 rounded-none overflow-hidden border border-neutral-200 shrink-0">
-                      <Image
-                        src={testimonials[activeTestimonial].image}
-                        alt={testimonials[activeTestimonial].name}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                {/* 3. Right Teammate Vertical Strips (Queue of next teammates: clicking any strip or Next switches to it) */}
-                <div className="hidden lg:flex items-center gap-2.5 z-10 shrink-0">
-                  {[1, 2, 3].map((offset) => {
-                    const teammateIndex = (activeTestimonial + offset) % testimonials.length;
-                    const teammate = testimonials[teammateIndex];
-                    return (
-                      <button
-                        key={teammate.id}
-                        type="button"
-                        onClick={() => setActiveTestimonial(teammateIndex)}
-                        className="relative w-[92px] xl:w-[98px] h-[422px] overflow-hidden bg-neutral-100 rounded-none shadow-sm cursor-pointer group transition-all duration-300 hover:brightness-105 focus:outline-none"
-                        title={`View feedback from ${teammate.name}`}
-                      >
-                        <Image
-                          src={teammate.stripImage}
-                          alt={teammate.name}
-                          fill
-                          sizes="100px"
-                          className="object-cover transition-transform duration-500 group-hover:scale-105"
-                        />
-                      </button>
-                    );
-                  })}
-                </div>
+      <section className="relative z-10 w-full py-16 sm:py-24 bg-white border-t border-[#F0EDF6] overflow-hidden">
+        {/* Header with Top-Right Navigation Controls */}
+        <div className="max-w-[1290px] mx-auto px-4 sm:px-6 lg:px-8 mb-10 sm:mb-14">
+          <ScrollReveal direction="down" distance={80} duration={1.0}>
+            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
+              <div>
+                <h2 className="text-[#111111] font-manrope font-normal text-[32px] sm:text-[42px] lg:text-[48px] tracking-tight leading-[1.18]">
+                  Don&apos;t just take our word for it!
+                </h2>
+                <p className="mt-3 text-[#555E70] font-manrope font-light text-[15px] sm:text-[16px]">
+                  See the feedback from your teammates.
+                </p>
               </div>
 
-              {/* Controls & Pagination Track: Aligned Under Review Card */}
-              <div className="flex items-center justify-between mt-10 max-w-[620px] mx-auto">
-                <div>
-                  <span className="text-[#333333] font-manrope font-medium text-[14px]">
-                    {activeTestimonial + 1}/{testimonials.length} Testimonials
-                  </span>
-                  <div className="w-28 h-[2px] bg-neutral-200 mt-2 rounded-none overflow-hidden">
-                    <div
-                      className="h-full bg-[#111111] transition-all duration-300"
-                      style={{
-                        width: `${((activeTestimonial + 1) / testimonials.length) * 100}%`,
-                      }}
+              {/* Top Navigation Controls */}
+              <div className="flex items-center gap-4 shrink-0">
+                <span className="text-[#555E70] font-manrope text-[14px]">
+                  <strong className="text-[#111111] font-semibold">{activeTestimonial + 1}</strong> / {testimonials.length} Testimonials
+                </span>
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setActiveTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)
+                    }
+                    aria-label="Previous testimonial"
+                    style={{ borderRadius: "9999px" }}
+                    className="w-10 h-10 rounded-full border border-neutral-300 text-[#111111] flex items-center justify-center hover:bg-[#854CFF] hover:border-[#854CFF] hover:text-white transition-all duration-200 cursor-pointer shadow-xs"
+                  >
+                    <svg width="15" height="12" viewBox="0 0 16 12" fill="none" className="w-3.5 h-3">
+                      <path d="M14.5 6H1.5M6 1.5L1.5 6L6 10.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setActiveTestimonial((prev) => (prev + 1) % testimonials.length)
+                    }
+                    aria-label="Next testimonial"
+                    style={{ borderRadius: "9999px" }}
+                    className="w-10 h-10 rounded-full border border-neutral-300 text-[#111111] flex items-center justify-center hover:bg-[#854CFF] hover:border-[#854CFF] hover:text-white transition-all duration-200 cursor-pointer shadow-xs"
+                  >
+                    <svg width="15" height="12" viewBox="0 0 16 12" fill="none" className="w-3.5 h-3">
+                      <path d="M1.5 6H14.5M10 1.5L14.5 6L10 10.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+
+        {/* Carousel Viewport: Left Content Aligned, Right Strips Bleed to Browser Border */}
+        <ScrollReveal direction="up" distance={90} duration={1.1} delay={60}>
+          <div
+            className="w-full pl-4 sm:pl-6 lg:pl-[max(1.5rem,calc((100vw-1290px)/2))] pr-0 overflow-hidden"
+            onMouseEnter={() => setIsTestimonialHovered(true)}
+            onMouseLeave={() => setIsTestimonialHovered(false)}
+          >
+            <div className="relative flex flex-col lg:flex-row items-center lg:items-stretch justify-start">
+              {/* 1. Left Main Portrait (Full 302x422 Rich Portrait, No White Gaps) */}
+              <div className="hidden lg:block relative w-[302px] h-[422px] shrink-0 overflow-hidden shadow-lg z-0 bg-neutral-100 rounded-none transition-all duration-500">
+                <Image
+                  key={testimonials[activeTestimonial].image}
+                  src={testimonials[activeTestimonial].image}
+                  alt={testimonials[activeTestimonial].name}
+                  fill
+                  sizes="302px"
+                  className="object-cover object-center transition-opacity duration-300"
+                  priority
+                />
+              </div>
+
+              {/* 2. Center White Quote Card (Overlaps Left Portrait & Right Teammate Strips) */}
+              <div className="relative z-20 w-full max-w-[620px] bg-white border border-[#E9EAF0]/60 p-8 sm:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.08)] -mx-0 lg:-ml-16 lg:-mr-12 my-4 lg:my-0 flex flex-col justify-between min-h-[390px] sm:min-h-[422px] rounded-none shrink-0 transition-all duration-300">
+                {/* Left Quotation Icon */}
+                <div className="flex items-start gap-4">
+                  <svg
+                    width="32"
+                    height="24"
+                    viewBox="0 0 32 24"
+                    fill="none"
+                    className="text-[#CBD5E1] shrink-0 mt-1 select-none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M0 13.7143C0 6.13626 5.25368 0 12.3684 0V4.57143C8.42105 4.57143 5.52632 7.77143 5.52632 11.4286H12.3684V24H0V13.7143ZM19.6316 13.7143C19.6316 6.13626 24.8853 0 32 0V4.57143C28.0526 4.57143 25.1579 7.77143 25.1579 11.4286H32V24H19.6316V13.7143Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+
+                  <p className="text-[#222222] font-manrope font-light text-[15.5px] sm:text-[16.5px] leading-[1.68] flex-grow transition-opacity duration-300">
+                    {testimonials[activeTestimonial].quote}
+                  </p>
+                </div>
+
+                {/* Author Meta & Mobile Thumbnail */}
+                <div className="pt-6 mt-6 border-t border-neutral-100 flex items-end justify-between">
+                  <div>
+                    <h4 className="text-[#111111] font-manrope font-bold text-[18px]">
+                      {testimonials[activeTestimonial].name}
+                    </h4>
+                    <p className="text-[#6B7280] font-manrope font-normal text-[14px] mt-0.5">
+                      {testimonials[activeTestimonial].role}
+                    </p>
+
+                    {/* LinkedIn Profile Badge */}
+                    <a
+                      href={testimonials[activeTestimonial].linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 mt-3.5 text-[13px] text-[#4B5563] hover:text-[#0A66C2] transition-colors"
+                    >
+                      <span className="w-4 h-4 bg-[#0A66C2] rounded-none flex items-center justify-center text-white text-[10px] font-bold font-sans">
+                        in
+                      </span>
+                      <span className="font-manrope font-normal">LinkedIn profile</span>
+                    </a>
+                  </div>
+
+                  {/* Compact thumbnail for mobile/tablet */}
+                  <div className="lg:hidden relative w-14 h-14 rounded-none overflow-hidden border border-neutral-200 shrink-0">
+                    <Image
+                      src={testimonials[activeTestimonial].image}
+                      alt={testimonials[activeTestimonial].name}
+                      fill
+                      className="object-cover object-center"
                     />
                   </div>
                 </div>
+              </div>
 
-                {/* Next Button */}
+              {/* 3. Right Teammate Strips (Extends all the way to screen border like grocery/food apps) */}
+              <div className="hidden lg:flex items-center gap-3 xl:gap-4 shrink-0 flex-1 overflow-x-visible pr-0 z-10">
+                {[1, 2, 3].map((offset) => {
+                  const teammateIndex = (activeTestimonial + offset) % testimonials.length;
+                  const teammate = testimonials[teammateIndex];
+                  return (
+                    <button
+                      key={teammate.id}
+                      type="button"
+                      onClick={() => setActiveTestimonial(teammateIndex)}
+                      className="relative w-[110px] sm:w-[130px] lg:w-[145px] xl:w-[175px] 2xl:w-[200px] h-[422px] shrink-0 overflow-hidden bg-neutral-100 rounded-none shadow-sm cursor-pointer group transition-all duration-300 hover:brightness-105 hover:scale-[1.01] focus:outline-none"
+                      title={`View feedback from ${teammate.name}`}
+                    >
+                      <Image
+                        src={teammate.stripImage}
+                        alt={teammate.name}
+                        fill
+                        sizes="200px"
+                        className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Bottom Progress Controls matching design */}
+            <div className="flex items-center justify-between mt-8 max-w-[620px] px-2 sm:px-4">
+              <div>
+                <span className="text-[#333333] font-manrope font-medium text-[13px] sm:text-[14px]">
+                  {activeTestimonial + 1}/{testimonials.length} Testimonials
+                </span>
+                <div className="w-24 sm:w-32 h-[2px] bg-neutral-200 mt-2 rounded-none overflow-hidden">
+                  <div
+                    className="h-full bg-[#111111] transition-all duration-300"
+                    style={{
+                      width: `${((activeTestimonial + 1) / testimonials.length) * 100}%`,
+                    }}
+                  />
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3">
                 <button
                   type="button"
                   onClick={() =>
                     setActiveTestimonial((prev) => (prev + 1) % testimonials.length)
                   }
-                  className="group inline-flex items-center gap-2 text-[#111111] font-manrope font-medium text-[16px] hover:text-[#854CFF] transition-colors cursor-pointer"
+                  className="font-manrope font-medium text-[13px] sm:text-[14px] text-[#111111] hover:text-[#854CFF] transition-colors flex items-center gap-1.5 cursor-pointer"
                 >
                   <span>Next</span>
-                  <span className="transition-transform duration-300 group-hover:translate-x-1">
-                    →
-                  </span>
+                  <span>→</span>
                 </button>
               </div>
             </div>
-          </ScrollReveal>
-        </div>
+          </div>
+        </ScrollReveal>
       </section>
 
       {/* ─────────────────────────────────────────────────────────────
@@ -1045,76 +1084,54 @@ export default function CareersPage() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────
-          9. STORIES BY AGS! (Horizontal Carousel matching Figma)
+          9. STORIES BY AGS! (Horizontal Carousel with Full-Bleed Right Edge)
           ───────────────────────────────────────────────────────────── */}
       <section className="relative z-10 w-full pt-16 pb-20 sm:pt-24 sm:pb-28 bg-[#0A0D17] text-white overflow-hidden">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
-          {/* Centered Editorial Heading Matching Figma */}
+        {/* Header with Top-Right Navigation Controls */}
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 mb-10 sm:mb-14">
           <ScrollReveal direction="down" distance={60} duration={1.0}>
-            <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-              <h2 className="font-manrope font-normal text-[32px] sm:text-[44px] lg:text-[52px] tracking-tight text-white leading-tight">
-                Stories by AGS!
-              </h2>
-              <p className="mt-2 text-white/60 font-manrope font-light text-[15px] sm:text-[16px]">
-                Read more on our blog
-              </p>
+            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
+              <div>
+                <h2 className="font-manrope font-normal text-[32px] sm:text-[44px] lg:text-[52px] tracking-tight text-white leading-tight">
+                  Stories by AGS!
+                </h2>
+                <p className="mt-2 text-white/60 font-manrope font-light text-[15px] sm:text-[16px]">
+                  Read more on our blog
+                </p>
+              </div>
+
+              {/* Top Navigation Controls */}
+              <div className="hidden sm:flex items-center gap-3 shrink-0">
+                <button
+                  type="button"
+                  onClick={prevStory}
+                  aria-label="Previous story"
+                  style={{ borderRadius: "9999px" }}
+                  className="w-11 h-11 rounded-full border border-white/20 bg-white/5 text-white flex items-center justify-center hover:bg-[#854CFF] hover:border-[#854CFF] transition-all duration-200 cursor-pointer shadow-lg hover:scale-105"
+                >
+                  <svg width="16" height="12" viewBox="0 0 16 12" fill="none" className="w-4 h-3 text-current">
+                    <path d="M14.5 6H1.5M6 1.5L1.5 6L6 10.5" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  onClick={nextStory}
+                  aria-label="Next story"
+                  style={{ borderRadius: "9999px" }}
+                  className="w-11 h-11 rounded-full border border-white/20 bg-white/5 text-white flex items-center justify-center hover:bg-[#854CFF] hover:border-[#854CFF] transition-all duration-200 cursor-pointer shadow-lg hover:scale-105"
+                >
+                  <svg width="16" height="12" viewBox="0 0 16 12" fill="none" className="w-4 h-3 text-current">
+                    <path d="M1.5 6H14.5M10 1.5L14.5 6L10 10.5" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+              </div>
             </div>
           </ScrollReveal>
+        </div>
 
-          {/* Carousel Track with Floating Controls */}
+        {/* Carousel Track: Bleeds to Right Screen Edge */}
+        <div className="w-full pl-4 sm:pl-6 lg:pl-[max(1.5rem,calc((100vw-1440px)/2))] pr-0 overflow-hidden">
           <div className="relative">
-            {/* Desktop / Tablet Left Arrow Button */}
-            <button
-              type="button"
-              onClick={prevStory}
-              aria-label="Previous story"
-              className="hidden sm:flex absolute -left-2 lg:-left-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full border border-white/20 bg-[#0A0D17]/85 backdrop-blur-md text-white items-center justify-center hover:bg-white hover:text-black transition-all duration-200 shadow-2xl cursor-pointer hover:scale-105 group"
-            >
-              <svg
-                width="16"
-                height="12"
-                viewBox="0 0 16 12"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-4 h-3 text-current transition-transform duration-200 group-hover:-translate-x-0.5"
-                aria-hidden="true"
-              >
-                <path
-                  d="M14.5 6H1.5M6 1.5L1.5 6L6 10.5"
-                  stroke="currentColor"
-                  strokeWidth="1.75"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </button>
-
-            {/* Desktop / Tablet Right Arrow Button */}
-            <button
-              type="button"
-              onClick={nextStory}
-              aria-label="Next story"
-              className="hidden sm:flex absolute -right-2 lg:-right-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full border border-white/20 bg-[#0A0D17]/85 backdrop-blur-md text-white items-center justify-center hover:bg-white hover:text-black transition-all duration-200 shadow-2xl cursor-pointer hover:scale-105 group"
-            >
-              <svg
-                width="16"
-                height="12"
-                viewBox="0 0 16 12"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-4 h-3 text-current transition-transform duration-200 group-hover:translate-x-0.5"
-                aria-hidden="true"
-              >
-                <path
-                  d="M1.5 6H14.5M10 1.5L14.5 6L10 10.5"
-                  stroke="currentColor"
-                  strokeWidth="1.75"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </button>
-
             {/* Horizontal Scrollable Track */}
             <div
               ref={storiesTrackRef}
@@ -1126,7 +1143,7 @@ export default function CareersPage() {
               onMouseMove={handleMouseMove}
               onMouseUp={handleMouseUpOrLeave}
               onMouseLeave={handleMouseUpOrLeave}
-              className="flex items-stretch gap-6 overflow-x-auto pt-2 pb-6 px-1 scroll-smooth select-none cursor-grab active:cursor-grabbing no-scrollbar snap-x snap-mandatory"
+              className="flex items-stretch gap-6 overflow-x-auto pt-2 pb-6 pr-6 sm:pr-10 scroll-smooth select-none cursor-grab active:cursor-grabbing no-scrollbar snap-x snap-mandatory"
               style={{
                 scrollbarWidth: "none",
                 msOverflowStyle: "none",
@@ -1183,11 +1200,11 @@ export default function CareersPage() {
                       </p>
                     </div>
 
-                    {/* Button with sharp corners */}
+                    {/* Solid White Rectangular Button matching design file */}
                     <div className="pt-2">
                       <Link
                         href="/blog"
-                        className="inline-flex items-center gap-2.5 self-start bg-white text-black px-5 py-2.5 rounded-none font-manrope font-medium text-[13px] hover:bg-neutral-200 transition-colors group/btn cursor-pointer shadow-sm"
+                        className="inline-flex items-center gap-2 self-start bg-white text-black px-4 sm:px-5 py-2 sm:py-2.5 rounded-none font-manrope font-medium text-[12.5px] sm:text-[13px] hover:bg-neutral-100 transition-colors duration-200 group/btn cursor-pointer shadow-sm"
                       >
                         <span>Read more</span>
                         <span className="transition-transform duration-200 group-hover/btn:translate-x-1">→</span>
@@ -1200,7 +1217,7 @@ export default function CareersPage() {
           </div>
 
           {/* Bottom Controls: Dots & Mobile Buttons */}
-          <div className="flex items-center justify-between sm:justify-center gap-5 mt-8 sm:mt-10 px-4">
+          <div className="flex items-center justify-between sm:justify-center gap-5 mt-8 sm:mt-10 max-w-[1440px] px-4">
             {/* Mobile Prev Button */}
             <button
               type="button"
@@ -1208,21 +1225,8 @@ export default function CareersPage() {
               aria-label="Previous story"
               className="w-10 h-10 rounded-full border border-white/20 text-white flex items-center justify-center hover:bg-white hover:text-black transition-colors duration-200 cursor-pointer sm:hidden"
             >
-              <svg
-                width="14"
-                height="10"
-                viewBox="0 0 16 12"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-3.5 h-2.5 text-current"
-              >
-                <path
-                  d="M14.5 6H1.5M6 1.5L1.5 6L6 10.5"
-                  stroke="currentColor"
-                  strokeWidth="1.75"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
+              <svg width="14" height="10" viewBox="0 0 16 12" fill="none" className="w-3.5 h-2.5 text-current">
+                <path d="M14.5 6H1.5M6 1.5L1.5 6L6 10.5" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
 
@@ -1250,21 +1254,8 @@ export default function CareersPage() {
               aria-label="Next story"
               className="w-10 h-10 rounded-full border border-white/20 text-white flex items-center justify-center hover:bg-white hover:text-black transition-colors duration-200 cursor-pointer sm:hidden"
             >
-              <svg
-                width="14"
-                height="10"
-                viewBox="0 0 16 12"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-3.5 h-2.5 text-current"
-              >
-                <path
-                  d="M1.5 6H14.5M10 1.5L14.5 6L10 10.5"
-                  stroke="currentColor"
-                  strokeWidth="1.75"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
+              <svg width="14" height="10" viewBox="0 0 16 12" fill="none" className="w-3.5 h-2.5 text-current">
+                <path d="M1.5 6H14.5M10 1.5L14.5 6L10 10.5" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
           </div>

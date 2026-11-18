@@ -61,7 +61,13 @@ article,
 }
 
 .rounded-full,
-[class*="rounded-full"] {
+[class*="rounded-full"],
+button.rounded-full,
+button[class*="rounded-full"],
+a.rounded-full,
+a[class*="rounded-full"],
+div.rounded-full,
+div[class*="rounded-full"] {
   border-radius: 9999px !important;
 }
 
@@ -96,13 +102,20 @@ article,
     cursor: pointer;
   }
 
-  /* Strict Design Requirement: Zero border-radius on all buttons and images */
-  button,
-  [role="button"],
-  input[type="submit"],
-  input[type="button"],
-  .btn {
+  /* Strict Design Requirement: Zero border-radius on all standard buttons and images (except explicit rounded-full) */
+  button:not(.rounded-full):not([class*="rounded-full"]),
+  [role="button"]:not(.rounded-full):not([class*="rounded-full"]),
+  input[type="submit"]:not(.rounded-full):not([class*="rounded-full"]),
+  input[type="button"]:not(.rounded-full):not([class*="rounded-full"]),
+  .btn:not(.rounded-full):not([class*="rounded-full"]) {
     border-radius: 0px !important;
+  }
+
+  /* Specific rule to guarantee rounded-full buttons are always circular */
+  button.rounded-full,
+  button[class*="rounded-full"],
+  .rounded-full {
+    border-radius: 9999px !important;
   }
 
   img,

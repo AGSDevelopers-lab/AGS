@@ -58,7 +58,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${manrope.variable} ${inter.variable}`} suppressHydrationWarning>
-      <body className="antialiased bg-background text-white">
+      <body className="antialiased bg-background text-white" suppressHydrationWarning>
         <GoogleAnalytics />
         <CtaFormProvider>
           <Navbar />

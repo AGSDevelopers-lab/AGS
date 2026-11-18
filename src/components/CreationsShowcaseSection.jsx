@@ -200,9 +200,9 @@ export default function CreationsShowcaseSection() {
           <div ref={buttonRef} className="shrink-0">
             <Link
               href="/portfolio"
-              className="inline-flex items-stretch shadow-sm transition-all duration-300 hover:shadow-md group rounded-none whitespace-nowrap"
+              className="inline-flex items-stretch shadow-sm transition-all duration-300 hover:shadow-md hover:scale-[1.01] group rounded-none whitespace-nowrap"
             >
-              <span className="flex items-center justify-center border border-[#8B5CF6]/50 bg-[#F5F6FF] px-5 sm:px-6 text-[#545AFF] group-hover:bg-[#545AFF] group-hover:text-white transition-colors duration-300 rounded-none shrink-0">
+              <span className="w-[48px] sm:w-[54px] h-[48px] sm:h-[52px] flex items-center justify-center border border-[#6C38FF]/40 bg-white text-[#545AFF] group-hover:bg-[#FAF7FF] transition-colors duration-300 rounded-none shrink-0">
                 <svg
                   width="15"
                   height="12"
@@ -221,7 +221,7 @@ export default function CreationsShowcaseSection() {
                   />
                 </svg>
               </span>
-              <span className="flex items-center justify-center bg-gradient-to-r from-[#4361EE] via-[#4F46E5] to-[#2E0854] px-6 sm:px-8 py-3 text-xs sm:text-[13px] font-semibold uppercase tracking-wider text-white hover:opacity-95 transition-all rounded-none">
+              <span className="flex items-center justify-center bg-gradient-to-r from-[#504CFF] via-[#480091] to-[#2E0854] px-8 sm:px-12 lg:px-14 h-[48px] sm:h-[52px] min-w-[210px] sm:min-w-[250px] lg:min-w-[280px] text-xs sm:text-[13px] font-semibold uppercase tracking-wider text-white hover:opacity-95 transition-all rounded-none">
                 VIEW ALL PROJECTS
               </span>
             </Link>
@@ -318,27 +318,41 @@ export default function CreationsShowcaseSection() {
               );
             })}
 
-            {/* Left Navigation Button matching Picture 5 */}
+            {/* Left Navigation Button */}
             <button
               type="button"
               onClick={prevSlide}
               aria-label="Previous client website"
-              className="absolute left-2 sm:left-4 md:left-8 lg:left-12 top-1/2 -translate-y-1/2 z-30 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-none bg-white text-gray-800 shadow-xl border border-gray-200/80 transition-all duration-300 hover:scale-105 active:scale-95"
+              style={{ borderRadius: "9999px" }}
+              className="absolute left-2 sm:left-4 md:left-8 lg:left-12 top-1/2 -translate-y-1/2 z-30 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-white text-gray-800 shadow-xl border border-gray-200/80 transition-all duration-300 hover:scale-105 hover:bg-neutral-50 active:scale-95 cursor-pointer"
             >
-              <svg className="w-5 h-5 text-gray-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
-                <path d="M15 19l-7-7 7-7" />
+              <svg width="16" height="12" viewBox="0 0 16 12" fill="none" className="w-4 h-3 text-current">
+                <path
+                  d="M14.5 6H1.5M6 1.5L1.5 6L6 10.5"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             </button>
 
-            {/* Right Navigation Button matching Picture 5 */}
+            {/* Right Navigation Button */}
             <button
               type="button"
               onClick={nextSlide}
               aria-label="Next client website"
-              className="absolute right-2 sm:right-4 md:right-8 lg:right-12 top-1/2 -translate-y-1/2 z-30 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-none bg-white text-gray-800 shadow-xl border border-gray-200/80 transition-all duration-300 hover:scale-105 active:scale-95"
+              style={{ borderRadius: "9999px" }}
+              className="absolute right-2 sm:right-4 md:right-8 lg:right-12 top-1/2 -translate-y-1/2 z-30 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-white text-gray-800 shadow-xl border border-gray-200/80 transition-all duration-300 hover:scale-105 hover:bg-neutral-50 active:scale-95 cursor-pointer"
             >
-              <svg className="w-5 h-5 text-gray-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
-                <path d="M9 5l7 7-7 7" />
+              <svg width="16" height="12" viewBox="0 0 16 12" fill="none" className="w-4 h-3 text-current">
+                <path
+                  d="M1.5 6H14.5M10 1.5L14.5 6L10 10.5"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             </button>
           </div>

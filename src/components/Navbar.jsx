@@ -9,7 +9,7 @@ import { useCtaForm } from "@/components/CtaFormProvider";
 const navItems = [
   { name: "About", href: "/about" },
   { name: "Services", href: "/services" },
-  { name: "Solutions", href: "/services/digital-solutions" },
+  { name: "Solutions", href: "/solutions" },
   { name: "Portfolio", href: "/portfolio" },
   { name: "Careers", href: "/careers" },
   { name: "Contact Us", href: "/contact" },
@@ -98,6 +98,7 @@ export default function Navbar() {
           {/* CTA Button */}
           <button
             type="button"
+            suppressHydrationWarning
             className="group hidden md:flex items-center gap-2.5 border border-white/80 bg-transparent px-5 py-2 text-sm font-normal tracking-[0.02em] text-white rounded-none transition-all duration-300 hover:border-white hover:bg-white hover:text-black"
             onClick={() => openForm()}
           >
@@ -112,6 +113,7 @@ export default function Navbar() {
           {/* Mobile menu button */}
           <button
             type="button"
+            suppressHydrationWarning
             className="md:hidden text-white"
             aria-label="Toggle menu"
             aria-expanded={mobileMenuOpen}
@@ -145,6 +147,7 @@ export default function Navbar() {
 
             <button
               type="button"
+              suppressHydrationWarning
               className="mt-2 inline-flex items-center justify-center gap-2 rounded-none border border-[#7B5CFF]/60 px-4 py-3 text-sm font-medium text-white transition hover:border-white hover:bg-white hover:text-black"
               onClick={() => {
                 setMobileMenuOpen(false);

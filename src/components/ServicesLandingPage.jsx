@@ -629,7 +629,7 @@ export default function ServicesLandingPage() {
       {/* ─────────────────────────────────────────────────────────────
           5. EMPOWERING BUSINESSES WITH FUTURE-READY SOLUTIONS
           ───────────────────────────────────────────────────────────── */}
-      <section ref={sec5Ref} className="relative z-10 w-full pt-12 sm:pt-16 pb-16 sm:pb-24 lg:pb-28 px-4 sm:px-6 lg:px-8 overflow-x-clip">
+      <section ref={sec5Ref} className="relative z-10 w-full pt-10 sm:pt-12 pb-6 sm:pb-8 lg:pb-10 px-4 sm:px-6 lg:px-8 overflow-x-clip">
         <div className="max-w-[1290px] mx-auto flex flex-col lg:flex-row items-start justify-between gap-10 lg:gap-[60px]">
           {/* Left Column: Container (6).png */}
           <div ref={sec5LeftRef} className="w-full lg:w-[550px] max-w-[550px] flex-shrink-0 will-change-transform">
@@ -765,7 +765,7 @@ export default function ServicesLandingPage() {
       {/* ─────────────────────────────────────────────────────────────
           6. TECHNOLOGY BUILT AROUND YOUR BUSINESS (Coder Banner with 4 Tabs)
           ───────────────────────────────────────────────────────────── */}
-      <section ref={sec6Ref} className="relative z-10 w-full pt-16 sm:pt-24 lg:pt-28 pb-16 sm:pb-20 lg:pb-24 px-4 sm:px-6 lg:px-8 overflow-x-clip">
+      <section ref={sec6Ref} className="relative z-10 w-full pt-6 sm:pt-8 lg:pt-10 pb-16 sm:pb-20 lg:pb-24 px-4 sm:px-6 lg:px-8 overflow-x-clip">
         <div className="max-w-[1290px] mx-auto">
           {/* Header Row: 2 Columns (Only text appears from left) */}
           <div ref={sec6HeaderRef} className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-4 sm:mb-5 will-change-transform">

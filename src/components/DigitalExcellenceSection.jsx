@@ -22,7 +22,7 @@ export function DigitalExcellence() {
 
       mm.add("(prefers-reduced-motion: reduce)", () => {
         gsap.set(lines, { x: 0, autoAlpha: 1, color: "#000" });
-        if (logo) gsap.set(logo, { autoAlpha: 0.9, x: 0 });
+        if (logo) gsap.set(logo, { autoAlpha: 0.28, x: 0 });
       });
 
       mm.add("(prefers-reduced-motion: no-preference)", () => {
@@ -36,7 +36,7 @@ export function DigitalExcellence() {
         });
 
         if (logo) {
-          gsap.set(logo, { autoAlpha: 0.3, x: -20 });
+          gsap.set(logo, { autoAlpha: 0.1, x: -20 });
         }
 
         const st = ScrollTrigger.create({
@@ -55,7 +55,7 @@ export function DigitalExcellence() {
             if (logo) {
               gsap.to(logo, {
                 x: 0,
-                autoAlpha: 0.9,
+                autoAlpha: 0.28,
                 duration: 1.4,
                 ease: "power2.out",
               });
@@ -65,7 +65,7 @@ export function DigitalExcellence() {
 
         if (st.progress > 0) {
           gsap.set(lines, { x: 0, autoAlpha: 1, color: "#000" });
-          if (logo) gsap.set(logo, { autoAlpha: 0.9, x: 0 });
+          if (logo) gsap.set(logo, { autoAlpha: 0.28, x: 0 });
         }
       });
 
@@ -90,7 +90,7 @@ export function DigitalExcellence() {
             alt="AGS Monogram"
             fill
             sizes="(max-width: 640px) 54px, (max-width: 1024px) 100px, 140px"
-            className="object-contain object-center opacity-90"
+            className="object-contain object-center opacity-30"
             priority
           />
         </div>
@@ -110,13 +110,13 @@ export function DigitalExcellence() {
               aria-hidden="true"
             />
             <span>Digital</span>
-            <span className="flex h-[24px] xs:h-[28px] sm:h-[36px] md:h-[45px] lg:h-[54px] xl:h-[62px] w-[44px] xs:w-[54px] sm:w-[70px] md:w-[88px] lg:w-[110px] xl:w-[126px] items-center justify-center rounded-full border border-[#8B5CF6]/70 shrink-0">
+            <span className="flex h-[24px] xs:h-[28px] sm:h-[36px] md:h-[45px] lg:h-[54px] xl:h-[62px] w-[44px] xs:w-[54px] sm:w-[70px] md:w-[88px] lg:w-[110px] xl:w-[126px] items-center justify-center rounded-full border border-[#8B5CF6]/50 shrink-0">
               <svg
                 className="w-3 h-3 xs:w-3.5 xs:h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 text-[#8B5CF6]"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="2"
+                strokeWidth="1.8"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               >

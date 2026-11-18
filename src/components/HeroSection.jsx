@@ -7,34 +7,25 @@ import { useCtaForm } from "@/components/CtaFormProvider";
 const heroSlides = [
   {
     id: 1,
-    type: "aws",
-    badge: "Official Partnership Announcement",
-    bgImage: "/image1.png",
-    alt: "AWS Cloud Infrastructure",
-    subtitle: (
-      <>
-        Building Smarter. Scaling Faster. On{" "}
-        <span className="font-semibold text-[#FF9900]">AWS.</span>
-      </>
-    ),
-    buttonText: "Know more",
+    type: "lynkbeats",
+    isProductHero: true,
+    badge: "LAUNCHING SOON",
+    bgImage: "/AGS Landing Page Images/LynkBeats Tablet on Abstract Gradient.png",
+    alt: "LynkBeats - Editorial Intelligence Platform",
+    title: "LynkBeats",
+    subtitleLine1: "is almost here.",
+    descriptionLine1: "Track story performance and editorial KPIs in real time.",
+    descriptionLine2: "Get early access when we launch.",
+    features: [
+      "Real-time story tracking",
+      "Editorial KPI benchmarking",
+      "Traffic source analysis",
+      "AI audience intelligence",
+    ],
+    isWaitlist: true,
   },
   {
     id: 2,
-    type: "google",
-    badge: "Official Partnership Announcement",
-    bgImage: "/image2.png",
-    alt: "Google Cloud Ecosystem",
-    subtitle: (
-      <>
-        Building Smarter. Scaling Faster.{" "}
-        <span className="font-semibold text-[#FBBC05]">Together.</span>
-      </>
-    ),
-    buttonText: "Know more",
-  },
-  {
-    id: 3,
     type: "vidlens",
     isProductHero: true,
     badge: "LAUNCHING SOON",
@@ -53,23 +44,32 @@ const heroSlides = [
     isWaitlist: true,
   },
   {
+    id: 3,
+    type: "aws",
+    badge: "Official Partnership Announcement",
+    bgImage: "/image1.png",
+    alt: "AWS Cloud Infrastructure",
+    subtitle: (
+      <>
+        Building Smarter. Scaling Faster. On{" "}
+        <span className="font-semibold text-[#FF9900]">AWS.</span>
+      </>
+    ),
+    buttonText: "Know more",
+  },
+  {
     id: 4,
-    type: "lynkbeats",
-    isProductHero: true,
-    badge: "LAUNCHING SOON",
-    bgImage: "/AGS Landing Page Images/LynkBeats Tablet on Abstract Gradient.png",
-    alt: "LynkBeats - Editorial Intelligence Platform",
-    title: "LynkBeats",
-    subtitleLine1: "is almost here.",
-    descriptionLine1: "Track story performance and editorial KPIs in real time.",
-    descriptionLine2: "Get early access when we launch.",
-    features: [
-      "Real-time story tracking",
-      "Editorial KPI benchmarking",
-      "Traffic source analysis",
-      "AI audience intelligence",
-    ],
-    isWaitlist: true,
+    type: "google",
+    badge: "Official Partnership Announcement",
+    bgImage: "/image2.png",
+    alt: "Google Cloud Ecosystem",
+    subtitle: (
+      <>
+        Building Smarter. Scaling Faster.{" "}
+        <span className="font-semibold text-[#FBBC05]">Together.</span>
+      </>
+    ),
+    buttonText: "Know more",
   },
   {
     id: 5,

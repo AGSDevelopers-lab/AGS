@@ -91,6 +91,7 @@ export default function ServicePageTemplate({
   descriptionHeading = "Service Description",
   descriptionText,
   checklistItems = [],
+  featureImage,
   benefitsHeading = "Benefits",
   benefits = [],
   workingProcessSteps = DEFAULT_WORKING_PROCESS,
@@ -206,43 +207,45 @@ export default function ServicePageTemplate({
 
           {/* ─────────────────────────────────────────────────────────
               3. CHECKLIST CAPABILITIES + IMAGE SECTION
-              Left: Image.png (strict rounded-none)
+              Left: Feature Image (height aligned with content block)
               Right: 6 Checklist items with square purple checkmarks
-              Tightened gap to 32px matching Figma reference
+              Zero excess whitespace above/below text items
               ───────────────────────────────────────────────────────── */}
-          <div className="mt-6 sm:mt-8 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
-            {/* Left Image: Image.png */}
+          <div className="mt-6 sm:mt-8 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 lg:items-stretch">
+            {/* Left Image: High-res with quality enhancement */}
             <ScrollReveal
               direction="left"
               distance={80}
               duration={1.0}
-              className="lg:col-span-6"
+              className="lg:col-span-6 h-full flex flex-col"
             >
-              <div className="relative w-full aspect-[577/520] sm:aspect-[577/550] lg:aspect-[577/580] max-h-[460px] rounded-none overflow-hidden shadow-lg border border-[#F0F2F6]">
+              <div className="relative w-full h-[320px] sm:h-[380px] lg:h-full min-h-[300px] sm:min-h-[350px] rounded-none overflow-hidden shadow-sm border border-[#F0F2F6]">
                 <Image
-                  src="/full-stack/Image.png"
+                  src={featureImage || "/full-stack/Image.png"}
                   alt={`${titleGradient} ${titleRest} Engineering Workflow`}
                   fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover object-center"
+                  quality={95}
+                  priority
+                  sizes="(max-width: 1024px) 100vw, (max-width: 1440px) 50vw, 650px"
+                  className="object-cover object-center transform-gpu"
                 />
               </div>
             </ScrollReveal>
 
-            {/* Right Checklist Items */}
+            {/* Right Checklist Items: Height strictly aligned to image */}
             <ScrollReveal
               direction="right"
               distance={80}
               duration={1.0}
-              className="lg:col-span-6 flex flex-col justify-center"
+              className="lg:col-span-6 h-full flex flex-col justify-between"
             >
-              <div className="divide-y divide-[#EAECEF]">
+              <div className="h-full flex flex-col justify-between divide-y divide-[#EAECEF]">
                 {checklistItems.map((item, idx) => (
                   <div
                     key={idx}
-                    className="py-2.5 sm:py-3 flex items-center gap-3.5 group"
+                    className="py-3 sm:py-3.5 lg:py-4 flex items-center gap-3.5 sm:gap-4 flex-1 group"
                   >
-                    <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#703EFF] flex items-center justify-center shrink-0 text-white shadow-sm transition-transform duration-300 group-hover:scale-110">
+                    <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#703EFF] flex items-center justify-center shrink-0 text-white shadow-xs transition-transform duration-300 group-hover:scale-110">
                       <svg
                         className="w-3.5 h-3.5 text-white"
                         viewBox="0 0 24 24"
@@ -255,7 +258,7 @@ export default function ServicePageTemplate({
                         <polyline points="20 6 9 17 4 12" />
                       </svg>
                     </div>
-                    <span className="text-[#111111] text-[15px] sm:text-[16.5px] font-medium tracking-tight">
+                    <span className="text-[#111111] text-[15px] sm:text-[16px] font-medium tracking-tight">
                       {item}
                     </span>
                   </div>
