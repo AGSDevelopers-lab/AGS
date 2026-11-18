@@ -98,8 +98,8 @@ export const PRODUCTS = [
     badgeColor: "bg-[#7C3AED]/20 text-[#C084FC] border-[#7C3AED]/40",
     description: "Connect students and faculty with low-latency streaming and real-time collaboration tools.",
     fullDescription: "STmet is an ultra-low-latency streaming and digital classroom environment designed for high-interactivity technical education. With multiplayer digital whiteboards and synchronized coding terminals, it replicates the intimacy of an in-person workshop.",
-    image: "/products/stmet.png",
-    logo: "/products/stmet (2).png",
+    image: "/products/card-stmet.png",
+    logo: "/products/stmet.png",
     accent: "#7C3AED",
     highlights: [
       "Sub-Second Live Video Streaming",
@@ -234,8 +234,8 @@ export const PRODUCTS = [
     badgeColor: "bg-[#F59E0B]/20 text-[#FBBF24] border-[#F59E0B]/40",
     description: "Optimize headlines, regional metadata, and search visibility to drive organic news traffic across syndication networks.",
     fullDescription: "Newsbuddies is a smart editorial distribution tool that automates headline variant testing, regional schema injection, and syndication workflows for publishers. It boosts search presence on Google Discover and top news aggregators.",
-    image: "/products/newsbuddies.png",
-    logo: "/products/newsbuddies (1).png",
+    image: "/products/card-newsbuddies.png",
+    logo: "/products/newsbuddies.png",
     accent: "#F59E0B",
     externalUrl: "#",
     highlights: [
