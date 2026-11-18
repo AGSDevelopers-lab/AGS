@@ -14,7 +14,7 @@ const products = [
     description: "Equip students with job-ready skills through hands-on project work and career placement prep.",
     image: "/products/academix.png",
     logo: "/products/logo-academyx.png",
-    href: "/ags-academy",
+    clickable: false,
   },
   {
     id: "lumina",
@@ -23,7 +23,7 @@ const products = [
     description: "Streamline class management, lecture uploads, and student assessments on a unified LMS platform.",
     image: "/products/lumina.png",
     logo: "/products/logo-lumina.png",
-    href: "/products/lumina",
+    clickable: false,
   },
   {
     id: "stmet",
@@ -31,8 +31,8 @@ const products = [
     category: "Education",
     description: "Connect students and faculty with low-latency streaming and real-time collaboration tools.",
     image: "/products/stmet.png",
-    logo: "/products/logo-stmet.png",
-    href: "/products/stmet",
+    logo: "/products/stmet (2).png",
+    clickable: false,
   },
   {
     id: "nexus",
@@ -41,15 +41,16 @@ const products = [
     description: "Automate employee onboarding, leave tracking, attendance, and payroll on one central platform.",
     image: "/products/nexus.png",
     logo: "/products/logo-nexus.png",
-    href: "/products/nexus",
+    clickable: false,
   },
   {
     id: "lynkbeats",
-    name: "Lyncbeats",
+    name: "LynkBeats",
     category: "Media",
     description: "Track real-time story performance and editorial KPIs to optimize newsroom coverage instantly.",
     image: "/products/lynkbeats.png",
     logo: "/products/logo-lynkbeats.png",
+    clickable: true,
     href: "/products/lynkbeats",
   },
   {
@@ -59,7 +60,7 @@ const products = [
     description: "Analyze competitor channels, track audience retention, and optimize video content strategy effortlessly.",
     image: "/products/vidlens.png",
     logo: "/products/logo-vidlens.png",
-    href: "/products/vidlens",
+    clickable: false,
   },
   {
     id: "newsbuddies",
@@ -67,7 +68,8 @@ const products = [
     category: "Media",
     description: "Optimize headlines, regional metadata, and search visibility to drive organic news traffic.",
     image: "/products/newsbuddies.png",
-    logo: "/products/logo-newsbuddies.png",
+    logo: "/products/newsbuddies (1).png",
+    clickable: true,
     href: "/products/newsbuddies",
   },
 ];
@@ -165,80 +167,106 @@ export default function ProductsLandingPage() {
 
           {/* 3-Column Product Grid (7 Products precisely aligned) */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 lg:gap-8">
-            {products.map((prod) => (
-              <Link
-                key={prod.id}
-                href={prod.href}
-                className="group relative flex flex-col justify-between overflow-hidden rounded-none aspect-[4/5] min-h-[460px] sm:min-h-[500px] p-7 sm:p-9 border border-white/10 shadow-2xl transition-all duration-300 hover:border-purple-500/50 cursor-pointer block"
-              >
-                {/* Background Image */}
-                <Image
-                  src={prod.image}
-                  alt={prod.name}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                  quality={90}
-                />
+            {products.map((prod) => {
+              const CardWrapper = prod.clickable ? Link : "div";
+              const wrapperProps = prod.clickable
+                ? {
+                    href: prod.href,
+                    className:
+                      "group relative flex flex-col justify-between overflow-hidden rounded-none aspect-[4/5] min-h-[460px] sm:min-h-[500px] p-7 sm:p-9 border border-white/10 shadow-2xl transition-all duration-300 hover:border-purple-500/50 cursor-pointer block",
+                  }
+                : {
+                    className:
+                      "group relative flex flex-col justify-between overflow-hidden rounded-none aspect-[4/5] min-h-[460px] sm:min-h-[500px] p-7 sm:p-9 border border-white/10 shadow-2xl transition-all duration-300 block select-none cursor-default",
+                  };
 
-                {/* Gradient Scrim for Contrast */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/45 to-black/35 transition-opacity duration-300 group-hover:from-black/90" />
+              return (
+                <CardWrapper key={prod.id} {...wrapperProps}>
+                  {/* Background Image */}
+                  <Image
+                    src={prod.image}
+                    alt={prod.name}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className={`object-cover object-center transition-transform duration-700 ${
+                      prod.clickable ? "group-hover:scale-105" : ""
+                    }`}
+                    quality={90}
+                  />
 
-                {/* Top Row: Circular Glassmorphic Logo Badge & Category */}
-                <div className="relative z-10 flex items-center justify-between">
+                  {/* Gradient Scrim for Contrast */}
                   <div
-                    style={{ borderRadius: "9999px" }}
-                    className="flex h-13 w-13 sm:h-15 sm:w-15 items-center justify-center rounded-full bg-black/45 backdrop-blur-md border border-white/20 p-2.5 shadow-2xl transition-transform duration-300 group-hover:scale-105"
-                  >
-                    <div className="relative w-8 h-8 sm:w-9 sm:h-9">
-                      <Image
-                        src={prod.logo}
-                        alt={prod.name}
-                        fill
-                        sizes="40px"
-                        className="object-contain"
-                      />
-                    </div>
-                  </div>
+                    className={`absolute inset-0 bg-gradient-to-t from-black/95 via-black/45 to-black/35 transition-opacity duration-300 ${
+                      prod.clickable ? "group-hover:from-black/90" : ""
+                    }`}
+                  />
 
-                  <span className="text-sm sm:text-base font-normal tracking-wide text-white/90 drop-shadow">
-                    {prod.category}
-                  </span>
-                </div>
-
-                {/* Bottom Row: Name, Description & Circular Purple Arrow Button */}
-                <div className="relative z-10 mt-auto pt-8">
-                  <div className="flex items-end justify-between gap-4">
-                    <div className="max-w-[280px]">
-                      <h3 className="text-2xl sm:text-3xl font-medium text-white tracking-tight leading-tight">
-                        {prod.name}
-                      </h3>
-                      <p className="mt-2.5 text-xs sm:text-sm text-white/80 font-normal leading-relaxed line-clamp-3">
-                        {prod.description}
-                      </p>
-                    </div>
-
-                    {/* Circular Purple Arrow Button with ↗ */}
+                  {/* Top Row: Circular Glassmorphic Logo Badge & Category */}
+                  <div className="relative z-10 flex items-center justify-between">
                     <div
                       style={{ borderRadius: "9999px" }}
-                      className="flex h-11 w-11 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-full bg-[#6D28D9] group-hover:bg-[#7C3AED] text-white shadow-xl shadow-purple-950/60 transition-transform duration-300 group-hover:scale-110"
+                      className={`flex h-13 w-13 sm:h-15 sm:w-15 items-center justify-center rounded-full bg-black/45 backdrop-blur-md border border-white/20 p-2.5 shadow-2xl transition-transform duration-300 ${
+                        prod.clickable ? "group-hover:scale-105" : ""
+                      }`}
                     >
-                      <svg
-                        width="18"
-                        height="18"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2.5"
-                        className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                      <div className="relative w-8 h-8 sm:w-9 sm:h-9">
+                        <Image
+                          src={prod.logo}
+                          alt={prod.name}
+                          fill
+                          sizes="40px"
+                          className="object-contain"
+                        />
+                      </div>
+                    </div>
+
+                    <span className="text-sm sm:text-base font-normal tracking-wide text-white/90 drop-shadow">
+                      {prod.category}
+                    </span>
+                  </div>
+
+                  {/* Bottom Row: Name, Description & Circular Purple Arrow Button */}
+                  <div className="relative z-10 mt-auto pt-8">
+                    <div className="flex items-end justify-between gap-4">
+                      <div className="max-w-[280px]">
+                        <h3 className="text-2xl sm:text-3xl font-medium text-white tracking-tight leading-tight">
+                          {prod.name}
+                        </h3>
+                        <p className="mt-2.5 text-xs sm:text-sm text-white/80 font-normal leading-relaxed line-clamp-3">
+                          {prod.description}
+                        </p>
+                      </div>
+
+                      {/* Circular Purple Arrow Button with ↗ */}
+                      <div
+                        style={{ borderRadius: "9999px" }}
+                        className={`flex h-11 w-11 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-full ${
+                          prod.clickable
+                            ? "bg-[#6D28D9] group-hover:bg-[#7C3AED] text-white shadow-xl shadow-purple-950/60 transition-transform duration-300 group-hover:scale-110 cursor-pointer"
+                            : "bg-[#6D28D9]/60 text-white/70 shadow-lg cursor-default"
+                        }`}
                       >
-                        <path d="M7 17L17 7M17 7H7M17 7V17" />
-                      </svg>
+                        <svg
+                          width="18"
+                          height="18"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2.5"
+                          className={`transition-transform duration-300 ${
+                            prod.clickable
+                              ? "group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                              : ""
+                          }`}
+                        >
+                          <path d="M7 17L17 7M17 7H7M17 7V17" />
+                        </svg>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </Link>
-            ))}
+                </CardWrapper>
+              );
+            })}
           </div>
 
           {/* Centered "See more" Action Button matching Figma design */}

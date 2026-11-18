@@ -99,7 +99,7 @@ export const PRODUCTS = [
     description: "Connect students and faculty with low-latency streaming and real-time collaboration tools.",
     fullDescription: "STmet is an ultra-low-latency streaming and digital classroom environment designed for high-interactivity technical education. With multiplayer digital whiteboards and synchronized coding terminals, it replicates the intimacy of an in-person workshop.",
     image: "/products/stmet.png",
-    logo: "/products/logo-stmet.png",
+    logo: "/products/stmet (2).png",
     accent: "#7C3AED",
     highlights: [
       "Sub-Second Live Video Streaming",
@@ -192,7 +192,7 @@ export const PRODUCTS = [
     mockupImage: "/products/lynkbeats-hero.png",
     logo: "/products/logo-lynkbeats.png",
     accent: "#10B981",
-    externalUrl: "https://linkbeats.in/",
+    externalUrl: "#",
     highlights: [
       "Real-Time Reader Counts",
       "Top-Performing Story Alerts",
@@ -235,8 +235,9 @@ export const PRODUCTS = [
     description: "Optimize headlines, regional metadata, and search visibility to drive organic news traffic across syndication networks.",
     fullDescription: "Newsbuddies is a smart editorial distribution tool that automates headline variant testing, regional schema injection, and syndication workflows for publishers. It boosts search presence on Google Discover and top news aggregators.",
     image: "/products/newsbuddies.png",
-    logo: "/products/logo-newsbuddies.png",
+    logo: "/products/newsbuddies (1).png",
     accent: "#F59E0B",
+    externalUrl: "#",
     highlights: [
       "Automated Headline A/B Testing",
       "Regional Geo-Metadata Tagging",

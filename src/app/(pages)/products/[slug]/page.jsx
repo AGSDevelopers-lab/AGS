@@ -1,27 +1,39 @@
+import { notFound } from "next/navigation";
 import ProductDetailView from "@/components/ProductDetailView";
-import { PRODUCTS, getProductBySlug } from "@/data/products";
+
+const ALLOWED_SLUGS = ["lynkbeats", "newsbuddies"];
 
 export async function generateStaticParams() {
-  return PRODUCTS.map((product) => ({
-    slug: product.slug,
+  return ALLOWED_SLUGS.map((slug) => ({
+    slug,
   }));
 }
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const product = getProductBySlug(slug);
-  if (!product) {
+  const normalized = (slug || "").toLowerCase();
+  if (!ALLOWED_SLUGS.includes(normalized)) {
     return {
       title: "Product Not Found — AGS",
     };
   }
+
+  const isLynk = normalized === "lynkbeats";
   return {
-    title: `${product.name} — ${product.tagline} | AGS Products`,
-    description: product.description,
+    title: isLynk
+      ? "LynkBeats — Editorial Intelligence Platform | AGS Products"
+      : "Newsbuddies — Automated Headline & Audience Optimization | AGS Products",
+    description: isLynk
+      ? "Track story performance and editorial KPIs in real time with LynkBeats."
+      : "Optimize headlines, regional metadata, and search visibility to drive organic news traffic.",
   };
 }
 
 export default async function ProductDetailPage({ params }) {
   const { slug } = await params;
-  return <ProductDetailView slug={slug} />;
+  const normalized = (slug || "").toLowerCase();
+  if (!ALLOWED_SLUGS.includes(normalized)) {
+    notFound();
+  }
+  return <ProductDetailView slug={normalized} />;
 }
