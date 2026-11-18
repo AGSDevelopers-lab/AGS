@@ -7,13 +7,13 @@ import SlideIn from "@/components/SlideIn";
 const certificates = [
   {
     id: 1,
-    image: "/aws-certificate-1.png",
-    alt: "AWS PartnerCast - ACE 201: Best Practices for Cost Estimations for Containers - Business Completion Certificate",
+    image: "/1.png",
+    alt: "AWS Partner Accreditation Certificate - Amrut Global Solutions",
   },
   {
     id: 2,
-    image: "/aws-certificate-2.png",
-    alt: "AWS Partner: Public Sector for Sellers - Business Completion Certificate",
+    image: "/2.png",
+    alt: "AWS Certification - Amrut Global Solutions",
   },
 ];
 
@@ -206,6 +206,7 @@ export default function CertifiedExcellence() {
                             src={cert.image}
                             alt={cert.alt}
                             fill
+                            quality={95}
                             sizes="(max-width: 1024px) 82vw, 520px"
                             className="object-contain object-center"
                             priority={index < 4}
