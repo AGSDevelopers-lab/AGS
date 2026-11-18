@@ -99,7 +99,7 @@ export const PRODUCTS = [
     description: "Connect students and faculty with low-latency streaming and real-time collaboration tools.",
     fullDescription: "STmet is an ultra-low-latency streaming and digital classroom environment designed for high-interactivity technical education. With multiplayer digital whiteboards and synchronized coding terminals, it replicates the intimacy of an in-person workshop.",
     image: "/products/card-stmet.png",
-    logo: "/products/stmet.png",
+    logo: "/products/logo-stmet.png",
     accent: "#7C3AED",
     highlights: [
       "Sub-Second Live Video Streaming",

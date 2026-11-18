@@ -31,7 +31,7 @@ const products = [
     category: "Education",
     description: "Connect students and faculty with low-latency streaming and real-time collaboration tools.",
     image: "/products/card-stmet.png",
-    logo: "/products/stmet.png",
+    logo: "/products/logo-stmet.png",
     clickable: false,
   },
   {
