@@ -82,7 +82,7 @@ export default function ProductsLandingPage() {
           Background: Neon Orange and Cyan Circuitry
           Exact match to Figma reference screenshot
           ───────────────────────────────────────────────────────────── */}
-      <section className="relative z-10 w-full min-h-[460px] sm:min-h-[520px] lg:min-h-[600px] flex items-center justify-center overflow-hidden pt-28 pb-16 sm:pt-36 sm:pb-20 px-6 sm:px-10 lg:px-16">
+      <section className="relative z-10 w-full min-h-[460px] sm:min-h-[520px] lg:min-h-[600px] flex items-center justify-center overflow-hidden pt-28 pb-16 sm:pt-36 sm:pb-20 px-6 sm:px-10 lg:px-16 bg-[#07051A]">
         {/* Background Image: Neon Orange and Cyan Circuitry */}
         <Image
           src="/solutions/Neon Orange and Cyan Circuitry.png"
@@ -94,34 +94,43 @@ export default function ProductsLandingPage() {
           className="object-cover object-center transform-gpu scale-105"
         />
 
-        {/* Ambient Dark Gradient Overlays for contrast & smooth transition */}
+        {/* Ambient Dark Overlays — NO white gradient so circuit lines stay crisp to the bottom */}
+        <div className="absolute inset-0 bg-black/35 pointer-events-none" />
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "linear-gradient(180deg, rgba(8, 6, 26, 0.75) 0%, rgba(8, 6, 26, 0.35) 45%, rgba(8, 6, 26, 0.70) 80%, #FFFFFF 100%)",
+              "radial-gradient(ellipse at center, rgba(7, 5, 26, 0.15) 0%, rgba(7, 5, 26, 0.55) 100%)",
           }}
         />
 
         {/* Centered Hero Content */}
         <div className="relative z-10 max-w-3xl mx-auto text-center flex flex-col items-center">
-          <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-normal tracking-tight text-white leading-[1.12]">
+          <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-normal tracking-tight text-white leading-[1.12] drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">
             Our Products
           </h1>
 
-          <p className="mt-4 text-sm sm:text-base text-white/85 font-light max-w-xl mx-auto leading-relaxed">
-            Discover our unique portfolio of services and explore their features with satisfaction.
+          <p className="mt-4 text-sm sm:text-base text-white/90 font-light max-w-xl mx-auto leading-relaxed drop-shadow-[0_1px_8px_rgba(0,0,0,0.85)]">
+            Discover our growing suite of in-house creations crafted to solve real-world challenges.
           </p>
 
           <div className="mt-7 sm:mt-8">
             <button
               type="button"
               onClick={() => openForm()}
-              className="group inline-flex items-center gap-2.5 bg-white text-black hover:bg-neutral-100 px-7 py-3 text-[14px] font-medium transition-all duration-300 rounded-none shadow-2xl cursor-pointer hover:scale-[1.02]"
+              className="group inline-flex items-center gap-2.5 bg-white text-black hover:bg-neutral-100 px-6 py-2.5 text-sm font-normal transition-all duration-300 rounded-none shadow-lg cursor-pointer hover:scale-[1.01]"
             >
               <span>Get Started</span>
-              <span className="flex h-4 w-4 items-center justify-center text-[12px] font-bold transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                ↗
+              <span className="flex h-4 w-4 items-center justify-center shrink-0 rounded-full border border-black/80 text-black transition-transform duration-300 group-hover:rotate-45">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  className="w-2.5 h-2.5"
+                >
+                  <path d="M7 17L17 7M17 7H7M17 7V17" />
+                </svg>
               </span>
             </button>
           </div>
