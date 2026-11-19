@@ -20,7 +20,8 @@ const products = [
     description: "Equip students with job-ready skills through hands-on project work and career placement prep.",
     image: "/products/academix.png",
     logo: "/products/logo-academyx.png",
-    clickable: false,
+    clickable: true,
+    href: "/services/aws-training",
   },
   {
     id: "lumina",

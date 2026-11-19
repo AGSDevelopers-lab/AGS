@@ -1224,7 +1224,7 @@ export default function AcademixLandingPage() {
                   </div>
                   <div className="py-2.5 flex justify-between items-center">
                     <span className="text-white/80">Next Batch</span>
-                    <span className="font-medium">[Add confirmed date]</span>
+                    <span className="font-medium">Enrollment Open</span>
                   </div>
                 </div>
               </div>

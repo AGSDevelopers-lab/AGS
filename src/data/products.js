@@ -12,7 +12,7 @@ export const PRODUCTS = [
     image: "/products/academix.png",
     logo: "/products/logo-academyx.png",
     accent: "#8B5CF6",
-    directHref: "/ags-academy",
+    directHref: "/services/aws-training",
     highlights: [
       "120+ Live Practical Hours",
       "13 AWS-Aligned Modules",

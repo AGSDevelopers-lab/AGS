@@ -120,7 +120,7 @@ export default function ProductDetailView({ slug }) {
 
   // Redirect academix directly to its dedicated academy landing page
   if (normalizedSlug === "academix") {
-    redirect("/ags-academy");
+    redirect("/services/aws-training");
   }
 
   // Fallback if slug not found in map
