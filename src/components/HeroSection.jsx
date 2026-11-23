@@ -133,7 +133,7 @@ export default function HeroSection() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % totalSlides);
-    }, 7000);
+    }, 8500);
 
     return () => clearInterval(timer);
   }, [totalSlides]);
