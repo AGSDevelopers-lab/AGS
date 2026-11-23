@@ -127,21 +127,42 @@ const heroSlides = [
 
 export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const { openForm } = useCtaForm();
 
   const totalSlides = heroSlides.length;
 
+  const handlePrev = (e) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
+  };
+
+  const handleNext = (e) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    setCurrentSlide((prev) => (prev + 1) % totalSlides);
+  };
+
   useEffect(() => {
+    if (isPaused) return;
+
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % totalSlides);
     }, 8500);
 
     return () => clearInterval(timer);
-  }, [currentSlide, totalSlides]);
+  }, [currentSlide, totalSlides, isPaused]);
 
   return (
     <section
       id="home"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
       className="group relative z-10 w-full min-h-[520px] sm:min-h-[640px] lg:min-h-[680px] h-[100dvh] max-h-[1200px] overflow-hidden bg-[#07051A]"
     >
       {/* Background Slides */}
@@ -150,7 +171,7 @@ export default function HeroSection() {
         return (
           <div
             key={slide.id}
-            className={`absolute inset-0 transition-opacity duration-[2000ms] ease-in-out will-change-[opacity] ${
+            className={`absolute inset-0 transition-opacity duration-700 ease-in-out will-change-[opacity] ${
               isActive ? "opacity-100 z-10 pointer-events-auto" : "opacity-0 z-0 pointer-events-none"
             }`}
           >
@@ -158,7 +179,7 @@ export default function HeroSection() {
               src={slide.bgImage}
               alt={slide.alt}
               fill
-              priority={index <= 1}
+              priority
               sizes="100vw"
               className={`object-cover ${
                 slide.isProductHero ? "object-right sm:object-center lg:object-right" : "object-center"
@@ -193,7 +214,7 @@ export default function HeroSection() {
             return (
               <div
                 key={slide.id}
-                className={`absolute inset-x-0 top-1/2 -translate-y-1/2 flex flex-col items-start justify-center transition-all duration-[1400ms] ease-in-out will-change-[opacity,transform] ${
+                className={`absolute inset-x-0 top-1/2 -translate-y-1/2 flex flex-col items-start justify-center transition-all duration-500 ease-out will-change-[opacity,transform] ${
                   isActive
                     ? "opacity-100 translate-y-[-50%] pointer-events-auto z-10"
                     : "opacity-0 translate-y-[-48%] pointer-events-none z-0"
@@ -373,13 +394,13 @@ export default function HeroSection() {
         </div>
       </div>
       {/* Bottom-Right Arrow Navigation Controls (Revealed only on hover) */}
-      <div className="absolute bottom-6 right-6 sm:bottom-8 sm:right-10 lg:bottom-10 lg:right-16 z-30 flex items-center gap-2.5 sm:gap-3 opacity-0 translate-y-2 pointer-events-none transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto">
+      <div className="absolute bottom-6 right-6 sm:bottom-8 sm:right-10 lg:bottom-10 lg:right-16 z-40 flex items-center gap-2.5 sm:gap-3 opacity-0 translate-y-2 pointer-events-none transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto">
         {/* Previous Slide Button */}
         <button
           type="button"
-          onClick={() => setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides)}
+          onClick={handlePrev}
           aria-label="Previous slide"
-          className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-white/20 bg-black/60 text-white backdrop-blur-md shadow-xl transition-all duration-300 hover:bg-white hover:text-black hover:border-white hover:scale-105 active:scale-95 cursor-pointer"
+          className="pointer-events-auto flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-white/20 bg-black/60 text-white backdrop-blur-md shadow-xl transition-all duration-200 hover:bg-white hover:text-black hover:border-white active:scale-90 active:opacity-80 cursor-pointer select-none"
         >
           <svg
             viewBox="0 0 24 24"
@@ -388,7 +409,7 @@ export default function HeroSection() {
             strokeWidth="2.2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="w-4 h-4 sm:w-4.5 sm:h-4.5"
+            className="w-4 h-4 sm:w-4.5 sm:h-4.5 pointer-events-none"
           >
             <path d="M15 18l-6-6 6-6" />
           </svg>
@@ -397,9 +418,9 @@ export default function HeroSection() {
         {/* Next Slide Button */}
         <button
           type="button"
-          onClick={() => setCurrentSlide((prev) => (prev + 1) % totalSlides)}
+          onClick={handleNext}
           aria-label="Next slide"
-          className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-white/20 bg-black/60 text-white backdrop-blur-md shadow-xl transition-all duration-300 hover:bg-white hover:text-black hover:border-white hover:scale-105 active:scale-95 cursor-pointer"
+          className="pointer-events-auto flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-white/20 bg-black/60 text-white backdrop-blur-md shadow-xl transition-all duration-200 hover:bg-white hover:text-black hover:border-white active:scale-90 active:opacity-80 cursor-pointer select-none"
         >
           <svg
             viewBox="0 0 24 24"
@@ -408,7 +429,7 @@ export default function HeroSection() {
             strokeWidth="2.2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="w-4 h-4 sm:w-4.5 sm:h-4.5"
+            className="w-4 h-4 sm:w-4.5 sm:h-4.5 pointer-events-none"
           >
             <path d="M9 18l6-6-6-6" />
           </svg>
