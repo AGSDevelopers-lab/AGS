@@ -17,7 +17,7 @@ const PRODUCT_HEROES = {
   lynkbeats: {
     title: "LynkBeats",
     subtitleLine1: "is almost here.",
-    badge: "LAUNCHING SOON",
+    badge: "NOW FEATURING",
     badgeDotColor: "#EED616",
     bgImage: "/AGS Landing Page Images/LynkBeats Tablet on Abstract Gradient.png",
     alt: "LynkBeats - Editorial Intelligence Platform",
@@ -49,7 +49,7 @@ const PRODUCT_HEROES = {
   vidlens: {
     title: "VidLens",
     subtitleLine1: "is almost here.",
-    badge: "LAUNCHING SOON",
+    badge: "NOW FEATURING",
     badgeDotColor: "#EED616",
     bgImage: "/AGS Landing Page Images/VidLens Laptop on a Futuristic Gradient.png",
     alt: "VidLens - Video Intelligence That Drives Results",
