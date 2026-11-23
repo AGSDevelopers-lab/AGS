@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useCtaForm } from "@/components/CtaFormProvider";
 
 const heroSlides = [
@@ -56,6 +57,7 @@ const heroSlides = [
       </>
     ),
     buttonText: "Know more",
+    href: "/aws-partner",
   },
   {
     id: 4,
@@ -337,19 +339,33 @@ export default function HeroSection() {
 
                 {/* CTA Button */}
                 <div className="mt-7 sm:mt-8">
-                  <button
-                    suppressHydrationWarning
-                    type="button"
-                    onClick={() => openForm()}
-                    className="group inline-flex items-center gap-3.5 rounded-none bg-white px-6 py-3 sm:px-7 sm:py-3.5 text-sm sm:text-base font-medium text-black transition-all duration-300 hover:bg-white/90 hover:scale-[1.01] shrink-0 whitespace-nowrap cursor-pointer shadow-lg"
-                  >
-                    <span>{slide.buttonText || "Get Started"}</span>
-                    <span className="flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center shrink-0 rounded-full border border-black/70 text-black transition-transform duration-300 group-hover:rotate-45">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" className="w-3 h-3 sm:w-3.5 sm:h-3.5">
-                        <path d="M7 17L17 7H7M17 7V17" />
-                      </svg>
-                    </span>
-                  </button>
+                  {slide.href ? (
+                    <Link
+                      href={slide.href}
+                      className="group inline-flex items-center gap-3.5 rounded-none bg-white px-6 py-3 sm:px-7 sm:py-3.5 text-sm sm:text-base font-medium text-black transition-all duration-300 hover:bg-white/90 hover:scale-[1.01] shrink-0 whitespace-nowrap cursor-pointer shadow-lg"
+                    >
+                      <span>{slide.buttonText || "Know more"}</span>
+                      <span className="flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center shrink-0 rounded-full border border-black/70 text-black transition-transform duration-300 group-hover:rotate-45">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" className="w-3 h-3 sm:w-3.5 sm:h-3.5">
+                          <path d="M7 17L17 7H7M17 7V17" />
+                        </svg>
+                      </span>
+                    </Link>
+                  ) : (
+                    <button
+                      suppressHydrationWarning
+                      type="button"
+                      onClick={() => openForm()}
+                      className="group inline-flex items-center gap-3.5 rounded-none bg-white px-6 py-3 sm:px-7 sm:py-3.5 text-sm sm:text-base font-medium text-black transition-all duration-300 hover:bg-white/90 hover:scale-[1.01] shrink-0 whitespace-nowrap cursor-pointer shadow-lg"
+                    >
+                      <span>{slide.buttonText || "Get Started"}</span>
+                      <span className="flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center shrink-0 rounded-full border border-black/70 text-black transition-transform duration-300 group-hover:rotate-45">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" className="w-3 h-3 sm:w-3.5 sm:h-3.5">
+                          <path d="M7 17L17 7H7M17 7V17" />
+                        </svg>
+                      </span>
+                    </button>
+                  )}
                 </div>
               </div>
             );
