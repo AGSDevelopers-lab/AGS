@@ -15,14 +15,14 @@ const heroSlides = [
     title: "LynkBeats",
     subtitleLine1: "is here.",
     descriptionLine1: "Track story performance and editorial KPIs in real time.",
-    descriptionLine2: "Get early access when we launch.",
+    descriptionLine2: "Empower your newsroom with real-time editorial intelligence.",
     features: [
       "Real-time story tracking",
       "Editorial KPI benchmarking",
       "Traffic source analysis",
       "AI audience intelligence",
     ],
-    isWaitlist: true,
+    buttonText: "Get Started",
   },
   {
     id: 2,
@@ -34,14 +34,14 @@ const heroSlides = [
     title: "VidLens",
     subtitleLine1: "is here.",
     descriptionLine1: "Paste any channel. See why videos win and grow.",
-    descriptionLine2: "Get early access when we launch.",
+    descriptionLine2: "Scale your audience with AI-powered video analytics.",
     features: [
       "Views & growth tracking",
       "Competitor benchmarking",
       "Keyword discovery",
       "AI-powered insights",
     ],
-    isWaitlist: true,
+    buttonText: "Get Started",
   },
   {
     id: 3,
@@ -125,7 +125,6 @@ const heroSlides = [
 
 export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [emailInputs, setEmailInputs] = useState({});
   const { openForm } = useCtaForm();
 
   const totalSlides = heroSlides.length;
@@ -336,68 +335,22 @@ export default function HeroSection() {
                   </div>
                 )}
 
-                {/* CTA Form: 2 Separate Boxes for Waitlist vs Standard Button */}
-                {slide.isWaitlist ? (
-                  <form
+                {/* CTA Button */}
+                <div className="mt-7 sm:mt-8">
+                  <button
                     suppressHydrationWarning
-                    onSubmit={(e) => {
-                      e.preventDefault();
-                      openForm({ email: emailInputs[slide.id] || "" });
-                    }}
-                    className="mt-7 sm:mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full max-w-[560px]"
+                    type="button"
+                    onClick={() => openForm()}
+                    className="group inline-flex items-center gap-3.5 rounded-none bg-white px-6 py-3 sm:px-7 sm:py-3.5 text-sm sm:text-base font-medium text-black transition-all duration-300 hover:bg-white/90 hover:scale-[1.01] shrink-0 whitespace-nowrap cursor-pointer shadow-lg"
                   >
-                    {/* Box 1: Email Input */}
-                    <input
-                      suppressHydrationWarning
-                      type="email"
-                      placeholder="Your work email"
-                      autoComplete="email"
-                      data-lpignore="true"
-                      data-1p-ignore="true"
-                      value={emailInputs[slide.id] || ""}
-                      onChange={(e) =>
-                        setEmailInputs({ ...emailInputs, [slide.id]: e.target.value })
-                      }
-                      className="w-full sm:w-[220px] md:w-[240px] bg-black/65 sm:bg-black/40 border border-white/40 px-4 py-3 text-sm text-white placeholder-white/60 outline-none rounded-none transition-colors focus:border-white/80 font-normal backdrop-blur-md"
-                    />
-
-                    {/* Box 2: Button */}
-                    <button
-                      suppressHydrationWarning
-                      type="submit"
-                      className="group inline-flex items-center justify-center gap-3 bg-white px-5 sm:px-6 py-3 text-sm font-medium text-black rounded-none transition-all duration-300 hover:bg-white/90 hover:scale-[1.01] shrink-0 cursor-pointer whitespace-nowrap"
-                    >
-                      <span>Notify me at launch</span>
-                      <span className="flex h-5 w-5 items-center justify-center shrink-0 rounded-full border border-black/80 text-black transition-transform duration-300 group-hover:rotate-45">
-                        <svg
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2.5"
-                          className="w-3 h-3"
-                        >
-                          <path d="M7 17L17 7M17 7H7M17 7V17" />
-                        </svg>
-                      </span>
-                    </button>
-                  </form>
-                ) : (
-                  <div className="mt-7 sm:mt-8">
-                    <button
-                      suppressHydrationWarning
-                      type="button"
-                      onClick={() => openForm()}
-                      className="group inline-flex items-center gap-3.5 rounded-none bg-white px-6 py-3 sm:px-7 sm:py-3.5 text-sm sm:text-base font-medium text-black transition-all duration-300 hover:bg-white/90 hover:scale-[1.01] shrink-0 whitespace-nowrap"
-                    >
-                      <span>{slide.buttonText}</span>
-                      <span className="flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center shrink-0 rounded-full border border-black/70 text-black transition-transform duration-300 group-hover:rotate-45">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" className="w-3 h-3 sm:w-3.5 sm:h-3.5">
-                          <path d="M7 17L17 7M17 7H7M17 7V17" />
-                        </svg>
-                      </span>
-                    </button>
-                  </div>
-                )}
+                    <span>{slide.buttonText || "Get Started"}</span>
+                    <span className="flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center shrink-0 rounded-full border border-black/70 text-black transition-transform duration-300 group-hover:rotate-45">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" className="w-3 h-3 sm:w-3.5 sm:h-3.5">
+                        <path d="M7 17L17 7H7M17 7V17" />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
               </div>
             );
           })}
