@@ -1,39 +1,50 @@
-const testimonials = [
+"use client";
+
+import Image from "next/image";
+import SlideIn from "@/components/SlideIn";
+
+const testimonialsList = [
   {
     name: "Ankit Ghosh",
-    role: "Founder, Alfa Media",
+    role: "Founder of Molifera Media",
+    avatar: "/testimonials/ankit.png",
     quote:
-      "AGS gave our brand a much stronger digital identity. The website feels premium, performs smoothly, and finally reflects the quality of our business.",
+      "Very professional company. Assisted my channel with utmost care and support. I recommend wholeheartedly.",
   },
   {
-    name: "James Mitchell",
-    role: "Marketing Director, Hartwell Digital",
+    name: "Nikhil Sharma",
+    role: "Founder of TotoJan",
+    avatar: "/testimonials/nikhil.png",
     quote:
-      "The team understood our brief from day one. The site launch was smooth, and we've seen a steady increase in inbound enquiries since going live.",
+      "Working with AGS transformed our taxi booking platform into a seamless, reliable experience that our drivers and riders love every day.",
   },
   {
-    name: "Abhirup Mukhopadhyay",
-    role: "Founder, Lifestyle Commerce Brand",
+    name: "Madhumita Roy",
+    role: "Founder of Dabur",
+    avatar: "/testimonials/madhumita.png",
     quote:
-      "They created a clean and conversion-focused experience for our brand. The final output was not only beautiful but also practical for business growth.",
+      "The engineering standard and attention to detail delivered by AGS exceeded our expectations across every phase of digital rollout.",
   },
   {
-    name: "Sarah Chen",
-    role: "Co-founder, Bloom & Bridge Co.",
+    name: "Sayan Dutta",
+    role: "Full Stack Development",
+    avatar: "/testimonials/sayan.png",
     quote:
-      "AGS rebuilt our storefront with a focus on speed and clarity. Our bounce rate dropped within the first month, and checkout feels much smoother now.",
+      "From architecture to deployment, AGS delivered robust, highly scalable cloud infrastructure with zero downtime and exceptional speed.",
   },
   {
-    name: "Priya Chatterjee",
-    role: "Director, Education Venture",
+    name: "Piyal Sen",
+    role: "UI/UX Designer",
+    avatar: "/testimonials/piyal.png",
     quote:
-      "Working with AGS felt structured and professional throughout. They listened carefully, communicated clearly, and delivered exactly what we needed.",
+      "The design system and intuitive UX created by the team elevated our product usability and customer engagement significantly.",
   },
   {
-    name: "Marcus Weber",
-    role: "Head of Digital, Klein & Partners",
+    name: "Rizwan Modak",
+    role: "Web Developer",
+    avatar: "/testimonials/rizwan.png",
     quote:
-      "Professional, responsive, and detail-oriented. They handled our requirements carefully and delivered a polished website we were confident launching.",
+      "Outstanding collaboration and technical expertise. The clean code architecture made scaling and maintenance effortless.",
   },
 ];
 
@@ -50,54 +61,71 @@ function QuoteIcon({ className = "" }) {
   );
 }
 
-function TestimonialCard({ item }) {
-  return (
-    <article className="group relative min-h-50 overflow-hidden border border-white/6 bg-white/4 p-5 transition duration-500 hover:-translate-y-1 hover:shadow-[0_18px_30px_-22px_rgba(255,255,255,0.42)] sm:min-h-[200px]">
-      <div className="pointer-events-none absolute left-0 top-0 h-px w-[42%] bg-[linear-gradient(90deg,rgba(255,255,255,0.82),rgba(255,255,255,0.22),rgba(255,255,255,0))]" />
-      <div className="pointer-events-none absolute left-0 top-0 h-14 w-px bg-[linear-gradient(180deg,rgba(255,255,255,0.82),rgba(255,255,255,0.2),rgba(255,255,255,0))]" />
-      <div className="pointer-events-none absolute inset-x-5 bottom-0 h-8 rounded-full bg-white/0 blur-2xl transition duration-500 group-hover:bg-white/30" />
-      <div className="relative z-10 flex items-start justify-between gap-4">
-        <div>
-          <h3 className="text-[1.5rem] font-medium text-white">{item.name}</h3>
-          <p className="mt-0.5 text-[0.52rem] uppercase tracking-[0.08em] text-white/45">
-            {item.role}
-          </p>
-        </div>
-        <QuoteIcon className="h-7 w-7 text-white/28" />
-      </div>
-
-      <p className="relative z-10 mt-6 max-w-[320px] text-[0.82rem] leading-[1.75] text-white/62">
-        {item.quote}
-      </p>
-    </article>
-  );
-}
-
 export default function Testimonials() {
   return (
-    <section className="relative container mx-auto z-10 -mt-2 w-full overflow-hidden pb-0 pt-0 sm:-mt-4">
-      <div className="relative w-full bg-transparent px-6 py-4 sm:px-8 sm:py-6 lg:px-26 lg:py-8">
-        <div className="pointer-events-none absolute right-[8%] top-[22%] h-[28rem] w-[28rem] text-white/[0.07]">
-          <QuoteIcon className="h-full w-full" />
-        </div>
+    <section
+      id="testimonials"
+      className="relative z-10 w-full bg-[#080B13] py-16 sm:py-20 lg:py-28 text-white overflow-hidden border-t border-white/5"
+    >
+      {/* Subtle large quote watermark in background */}
+      <div className="pointer-events-none absolute right-[5%] top-[15%] h-[400px] w-[400px] text-white/[0.03] select-none">
+        <QuoteIcon className="h-full w-full" />
+      </div>
 
-        <div className="relative w-full px-0 py-3 sm:py-4">
-          <div className="max-w-[700px]">
-            <h2 className="bg-[linear-gradient(90deg,#9795FF_0%,#FFFFFF_42%,#FFFFFF_59%,#BE9FFF_100%)] bg-clip-text pb-2 pr-2 text-[2.8rem] leading-[1.08] font-normal tracking-[-0.06em] text-transparent sm:text-[4rem] lg:text-[4.9rem]">
-              What they say about us
-            </h2>
-            <p className="mt-5 w-full text-[1rem] leading-[1.75] text-white/78">
-              Discover what our clients and partners have to say about their
-              experiences working with us and how our services have helped their
-              businesses grow and succeed.
-            </p>
-          </div>
+      <div className="relative z-10 mx-auto w-full max-w-[1380px] px-6 sm:px-12 lg:px-16">
+        {/* Header: What they say about us */}
+        <SlideIn from="left" distance={30} className="max-w-2xl mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl lg:text-[54px] font-normal tracking-tight text-white leading-[1.12]">
+            What they say{" "}
+            <span className="text-[#8B5CF6] font-normal">about us</span>
+          </h2>
+          <p className="mt-4 text-sm sm:text-base text-white/60 font-light leading-relaxed">
+            Discover what our clients and partners have to say about their experiences working with us and how our services have helped their businesses grow and succeed.
+          </p>
+        </SlideIn>
 
-          <div className="relative mt-6 grid grid-cols-1 gap-4 sm:mt-8 md:grid-cols-2 xl:grid-cols-3">
-            {testimonials.map((item) => (
-              <TestimonialCard key={item.name} item={item} />
-            ))}
-          </div>
+        {/* 3x2 Grid of Testimonial Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
+          {testimonialsList.map((item, index) => (
+            <SlideIn
+              key={item.name}
+              from={index % 2 === 0 ? "left" : "right"}
+              distance={20 + (index % 3) * 10}
+            >
+              <article className="group relative flex flex-col justify-between rounded-xl border border-white/10 bg-white/[0.04] p-6 sm:p-7 backdrop-blur-md transition-all duration-300 hover:border-white/20 hover:bg-white/[0.07] hover:-translate-y-1 h-full shadow-lg">
+                <div>
+                  {/* Top: Avatar, Name, Role, Quote Icon */}
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="flex items-center gap-3.5">
+                      <div className="relative h-12 w-12 rounded-full overflow-hidden border border-white/20 shrink-0 bg-white/10">
+                        <Image
+                          src={item.avatar}
+                          alt={item.name}
+                          fill
+                          className="object-cover object-center"
+                        />
+                      </div>
+                      <div className="flex flex-col">
+                        <h3 className="text-base sm:text-lg font-medium text-white tracking-tight leading-snug">
+                          {item.name}
+                        </h3>
+                        <p className="text-xs text-white/50 font-light mt-0.5">
+                          {item.role}
+                        </p>
+                      </div>
+                    </div>
+
+                    <QuoteIcon className="h-6 w-6 text-white/25 shrink-0" />
+                  </div>
+
+                  {/* Quote Paragraph */}
+                  <p className="mt-5 text-xs sm:text-sm text-white/70 font-light leading-relaxed">
+                    {item.quote}
+                  </p>
+                </div>
+              </article>
+            </SlideIn>
+          ))}
         </div>
       </div>
     </section>

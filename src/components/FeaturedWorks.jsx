@@ -1,26 +1,28 @@
+"use client";
+
 import Link from "next/link";
+import SlideIn from "@/components/SlideIn";
 
 const works = [
   {
     name: "Molifera Media",
     slug: "molifera-media",
     label: "Website Development",
-    blurb:
-      "Your 360° partner for strategy, marketing, and brand growth.",
+    blurb: "Your 360° partner for strategy, marketing, and brand growth.",
     description:
-      "We transform brands through innovative design, strategic marketing, and creative storytelling that captivate audiences and drive measurable results.",
-    image: "/Portfolio.png",
+      "Your 360° marketing partner—from strategy to execution, driving growth across digital and offline channels.",
+    image: "/showcase/molifera-media.png",
     href: "https://www.moliferamedia.com/",
   },
   {
     name: "Mangal Materials",
     slug: "mangal-materials",
-    label: "App Redesign",
+    label: "App Development",
     blurb:
-      "It is your one-stop destination for all essential items for every spiritual ritual.",
+      "It's your one-stop destination for goddess idols, puja samagri, and spiritual essentials.",
     description:
-      "Mangal Materials provides goddess idols and all essential items for every spiritual ritual.",
-    image: "/product-2.png",
+      "Mangal Materials provides goddess idols, puja samagri, and all essential items for every spiritual ritual.",
+    image: "/showcase/mangal-materials.png",
     href: "https://www.figma.com/proto/xNnhifFuOzwF3uouIYKQWC/Mangal-Materials-Case-study?node-id=11-17&t=a8hh5O46d2GbS3ju-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
   },
   {
@@ -28,42 +30,41 @@ const works = [
     slug: "totojan",
     label: "App Development",
     blurb:
-      "TotoJan makes taxi rides simple. Book your ride anytime, anywhere.",
+      "TotoJan makes toto rides simple—book your ride anytime, anywhere.",
     description:
       "TotoJan lets you book toto rides instantly for smooth and affordable local travel.",
-    image: "/product-4.png",
+    image: "/showcase/totojan-ride.png",
     href: "https://www.figma.com/proto/NBOI7DXn8ug8hMkQB6B7Do/Totojan-Case-study?node-id=1-157&t=xpe8bxWQX9I6tZ2H-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
   },
   {
     name: "Dhunseri",
     slug: "dhunseri",
-    label: "Website Redesign",
+    label: "Website Development",
     blurb:
-      "It is engaged in the manufacturing and sale of premium tea.",
+      "It's engaged in the manufacturing and sale of premium tea with years.",
     description:
       "Dhunseri Tea & Industries Limited is a trusted name in tea manufacturing and distribution.",
-    image: "/product-3.png",
-    href: "https://www.figma.com/proto/D9F8w0qbj3yeX1WwhjQTrT/Dhunseri-Case-Study?node-id=1-2&t=zLHzFULkEWQlHTgp-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
+    image: "/showcase/dhunseri-tea.png",
+    href: "https://dhunseritea.com/",
   },
 ];
 
 function PortfolioButton() {
   return (
-    <Link 
+    <Link
       href="/portfolio"
-      className="group inline-flex items-center gap-3 bg-white px-5 py-3 text-sm font-medium text-black transition hover:bg-white/90 rounded-none"
+      className="group inline-flex items-center gap-2.5 rounded-full border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 shadow-sm transition-all duration-300 hover:border-gray-400 hover:bg-gray-50"
     >
       <span>All Portfolio</span>
-      <span className="flex h-4 w-4 items-center justify-center rounded-none border border-black text-[9px] transition-transform duration-500 group-hover:rotate-45">
+      <span className="flex h-5 w-5 items-center justify-center rounded-full border border-gray-300 text-gray-700 transition-transform duration-300 group-hover:rotate-45">
         <svg
-          width="9"
-          height="9"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
           strokeWidth="2"
+          className="h-3 w-3"
         >
-          <path d="M7 17L17 7M17 7H8M17 7v9" />
+          <path d="M7 17L17 7M17 7H7M17 7V17" />
         </svg>
       </span>
     </Link>
@@ -72,66 +73,65 @@ function PortfolioButton() {
 
 function WorkCard({ work }) {
   return (
-    <article className="group relative overflow-hidden border border-white/8 bg-transparent">
-      <div className="grid">
-        <div className="relative grid min-h-[152px] grid-cols-[1.18fr_0.82fr] overflow-hidden transition duration-500 sm:grid-cols-[1.05fr_0.95fr]">
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,#E6DBFF_0%,#F6F6F6_44%,#D8D7FF_100%)] transition duration-500 group-hover:opacity-0" />
-          <div className="absolute inset-0 bg-black/0 backdrop-blur-0 transition duration-500 group-hover:bg-black/55 group-hover:backdrop-blur-md" />
-          <div className="relative z-10 flex flex-col justify-between p-3 text-black transition duration-500 group-hover:text-white sm:p-6">
-            <div>
-              <span className="inline-flex rounded-full border border-black/10 bg-black/5 px-2.5 py-1 text-[0.5rem] font-medium uppercase tracking-[0.08em] text-black/55 transition duration-500 group-hover:border-white/20 group-hover:bg-white/10 group-hover:text-white/70">
-                {work.label}
-              </span>
-              <Link
-                href={`/portfolio/${work.slug}`}
-                className="mt-3 block text-[1.7rem] leading-none font-medium tracking-[-0.05em]"
-              >
-                {work.name}
-              </Link>
-              <p className="mt-3 max-w-[290px] text-[0.78rem] leading-[1.65] text-black/80 transition duration-500 group-hover:text-white/72 sm:max-w-[260px]">
-                {work.blurb}
-              </p>
-            </div>
-          </div>
-
-          <div className="relative z-10 overflow-hidden">
+    <article className="group flex flex-col overflow-hidden bg-transparent">
+      {/* Top Banner Card with Gradient & Project Mockup */}
+      <div className="relative grid min-h-[200px] sm:min-h-[220px] grid-cols-[1.15fr_0.85fr] overflow-hidden rounded-xl border border-gray-200/80 bg-[linear-gradient(90deg,#EBE6FF_0%,#F6F5FE_50%,#DFD9FF_100%)] p-5 sm:p-6 transition-all duration-300 hover:shadow-lg">
+        {/* Left text inside preview banner */}
+        <div className="relative z-10 flex flex-col justify-between pr-3">
+          <div>
+            <span className="inline-flex rounded-full border border-purple-300/80 bg-white/70 px-3 py-1 text-[11px] font-medium text-purple-700">
+              {work.label}
+            </span>
             <Link
               href={`/portfolio/${work.slug}`}
-              className="absolute inset-3 bg-contain bg-right bg-no-repeat transition duration-500 group-hover:scale-[1.03]"
-              style={{ backgroundImage: `url(${work.image})` }}
-            />
-            <a
-              href={work.href}
-              target="_blank"
-              rel="noreferrer"
-              title="View Figma Prototype"
-              className="absolute right-3 top-3 flex h-6 w-6 items-center justify-center rounded-none bg-white text-black hover:bg-white/80 transition-colors shadow-md"
+              className="mt-3 block text-xl sm:text-2xl font-bold tracking-tight text-gray-950 transition-colors group-hover:text-purple-700"
             >
-              <svg
-                width="11"
-                height="11"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-              >
-                <path d="M7 17L17 7M17 7H8M17 7v9" />
-              </svg>
-            </a>
+              {work.name}
+            </Link>
+            <p className="mt-2 text-xs sm:text-sm text-gray-600 leading-relaxed font-light">
+              {work.blurb}
+            </p>
           </div>
         </div>
 
-        <div className="min-h-[88px] bg-transparent px-5 py-4 sm:px-6">
+        {/* Right preview artwork + Arrow pill */}
+        <div className="relative z-10 flex items-center justify-end overflow-hidden">
           <Link
             href={`/portfolio/${work.slug}`}
-            className="text-[1.45rem] leading-none font-medium tracking-[-0.04em] text-white hover:text-white/80 transition-colors"
+            className="absolute inset-0 bg-contain bg-right bg-no-repeat transition-transform duration-500 group-hover:scale-105"
+            style={{ backgroundImage: `url(${work.image})` }}
+          />
+          <a
+            href={work.href}
+            target="_blank"
+            rel="noreferrer"
+            title={`View ${work.name}`}
+            className="absolute right-0 top-0 flex h-8 w-8 items-center justify-center rounded-full bg-white/90 text-gray-800 shadow-md backdrop-blur-sm transition-transform duration-300 hover:scale-110"
           >
-            {work.name}
-          </Link>
-          <p className="mt-3 max-w-[400px] text-[0.85rem] leading-[1.72] text-white/70">
-            {work.description}
-          </p>
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.2"
+              className="h-3.5 w-3.5"
+            >
+              <path d="M7 17L17 7M17 7H7M17 7V17" />
+            </svg>
+          </a>
         </div>
+      </div>
+
+      {/* Bottom Description matching Figma Slice 5 */}
+      <div className="pt-4 pb-2">
+        <Link
+          href={`/portfolio/${work.slug}`}
+          className="text-xl sm:text-2xl font-medium tracking-tight text-gray-950 transition-colors hover:text-[#8B5CF6]"
+        >
+          {work.name}
+        </Link>
+        <p className="mt-2 text-xs sm:text-sm text-gray-500 leading-relaxed font-light">
+          {work.description}
+        </p>
       </div>
     </article>
   );
@@ -139,30 +139,38 @@ function WorkCard({ work }) {
 
 export default function FeaturedWorks() {
   return (
-    <section id="portfolio" className="relative z-10 w-full overflow-hidden pb-12 pt-8 scroll-mt-20 sm:pb-20 sm:pt-12">
-      <div className="relative w-full px-6 sm:px-8 lg:px-26">
-        <div className="relative mx-auto max-w-[1280px] overflow-hidden rounded-none px-4 py-4 sm:px-6 sm:py-6 lg:px-8 lg:py-8">
-          <div className="relative flex flex-col gap-5 pb-4 sm:gap-6 sm:pb-6 md:flex-row md:items-start md:justify-between">
-            <div className="max-w-[720px]">
-              <h2 className="bg-[linear-gradient(90deg,#9795FF_0%,#FFFFFF_42%,#FFFFFF_59%,#BE9FFF_100%)] bg-clip-text pb-2 pr-2 text-[2.8rem] leading-[1.08] font-normal tracking-[-0.06em] text-transparent sm:text-[4rem] lg:text-[4.9rem]">
-                Featured Works
-              </h2>
-              <p className="mt-5 w-full text-[1rem] leading-[1.75] text-white/78">
-                Explore our range of high-quality products crafted with care
-                and expertise.
-              </p>
-            </div>
+    <section
+      id="portfolio"
+      className="relative z-10 w-full bg-[#FAF9FF] py-16 sm:py-20 lg:py-28 text-gray-950 overflow-hidden"
+    >
+      <div className="mx-auto w-full max-w-[1380px] px-6 sm:px-12 lg:px-16">
+        {/* Header: Title + Subtitle + All Portfolio Button */}
+        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between mb-12 sm:mb-16">
+          <SlideIn from="left" distance={30} className="max-w-2xl">
+            <h2 className="text-3xl sm:text-4xl lg:text-[54px] font-normal tracking-tight text-gray-950 leading-[1.12]">
+              Featured Works
+            </h2>
+            <p className="mt-4 text-sm sm:text-base text-gray-500 font-light leading-relaxed">
+              Delivering excellence across the digital landscape with bespoke development tailored to industry leaders.
+            </p>
+          </SlideIn>
 
-            <div className="lg:pt-[5.9rem]">
-              <PortfolioButton />
-            </div>
-          </div>
+          <SlideIn from="right" distance={20} className="shrink-0">
+            <PortfolioButton />
+          </SlideIn>
+        </div>
 
-          <div className="relative grid grid-cols-1 gap-4 lg:grid-cols-2">
-            {works.map((work) => (
-              <WorkCard key={work.name} work={work} />
-            ))}
-          </div>
+        {/* 2x2 Grid of Featured Works */}
+        <div className="grid grid-cols-1 gap-8 sm:gap-10 lg:grid-cols-2">
+          {works.map((work, index) => (
+            <SlideIn
+              key={work.name}
+              from={index % 2 === 0 ? "left" : "right"}
+              distance={25}
+            >
+              <WorkCard work={work} />
+            </SlideIn>
+          ))}
         </div>
       </div>
     </section>
