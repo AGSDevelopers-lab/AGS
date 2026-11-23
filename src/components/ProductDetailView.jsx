@@ -51,7 +51,7 @@ const PRODUCT_HEROES = {
     subtitleLine1: "is almost here.",
     badge: "NOW FEATURING",
     badgeDotColor: "#EED616",
-    bgImage: "/AGS Landing Page Images/VidLens Laptop on a Futuristic Gradient.png",
+    bgImage: "/AGS Landing Page Images/vidlens-hero.png",
     alt: "VidLens - Video Intelligence That Drives Results",
     descriptionLine1: "Paste any channel. See why videos win and grow.",
     descriptionLine2: "Get early access when we launch.",

@@ -1,7 +1,7 @@
 import { notFound, redirect } from "next/navigation";
 import ProductDetailView from "@/components/ProductDetailView";
 
-const ALLOWED_SLUGS = ["lynkbeats", "newsbuddies"];
+const ALLOWED_SLUGS = ["lynkbeats", "newsbuddies", "vidlens"];
 
 export async function generateStaticParams() {
   return [...ALLOWED_SLUGS, "academix"].map((slug) => ({
@@ -22,6 +22,13 @@ export async function generateMetadata({ params }) {
   if (!ALLOWED_SLUGS.includes(normalized)) {
     return {
       title: "Solution Not Found — AGS",
+    };
+  }
+
+  if (normalized === "vidlens") {
+    return {
+      title: "VidLens — Video Intelligence Platform | AGS Solutions",
+      description: "Analyze competitor channels, track audience retention, and optimize video content strategy effortlessly with VidLens.",
     };
   }
 

@@ -143,10 +143,10 @@ export const PRODUCTS = [
     description: "Paste any channel. See why videos win and grow. Get early access when we launch.",
     fullDescription: "VidLens is an AI-powered video analytics and intelligence platform. By reverse-engineering high-performing channels, analyzing retention decay curves, and predicting audience topic interest, VidLens gives media companies and creators an unfair competitive advantage.",
     image: "/products/vidlens.png",
-    mockupImage: "/products/vidlens-hero.png",
+    mockupImage: "/AGS Landing Page Images/vidlens-hero.png",
     logo: "/products/logo-vidlens.png",
     accent: "#EC4899",
-    externalUrl: "https://vidlens.in/",
+    externalUrl: "#",
     highlights: [
       "Views & Growth Tracking",
       "Competitor Benchmarking",

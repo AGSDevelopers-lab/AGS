@@ -56,12 +56,13 @@ const products = [
   },
   {
     id: "vidlens",
-    name: "Vidlens",
+    name: "VidLens",
     category: "Media",
     description: "Analyze competitor channels, track audience retention, and optimize video content strategy effortlessly.",
     image: "/products/vidlens.png",
     logo: "/products/logo-vidlens.png",
-    clickable: false,
+    clickable: true,
+    href: "/products/vidlens",
   },
   {
     id: "newsbuddies",
