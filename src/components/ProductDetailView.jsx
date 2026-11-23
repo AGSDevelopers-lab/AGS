@@ -221,6 +221,7 @@ export default function ProductDetailView({ slug }) {
 
             {/* Waitlist Form: 2 Separate Boxes */}
             <form
+              suppressHydrationWarning
               onSubmit={(e) => {
                 e.preventDefault();
                 openForm({ email: emailInput });
@@ -229,8 +230,12 @@ export default function ProductDetailView({ slug }) {
             >
               {/* Box 1: Email Input */}
               <input
+                suppressHydrationWarning
                 type="email"
                 placeholder="Your work email"
+                autoComplete="email"
+                data-lpignore="true"
+                data-1p-ignore="true"
                 value={emailInput}
                 onChange={(e) => setEmailInput(e.target.value)}
                 className="w-full sm:w-[220px] md:w-[240px] bg-black/65 sm:bg-black/40 border border-white/40 px-4 py-3 text-sm text-white placeholder-white/60 outline-none rounded-none transition-colors focus:border-white/80 font-normal backdrop-blur-md"
@@ -238,6 +243,7 @@ export default function ProductDetailView({ slug }) {
 
               {/* Box 2: Button */}
               <button
+                suppressHydrationWarning
                 type="submit"
                 className="group inline-flex items-center justify-center gap-3 bg-white px-5 sm:px-6 py-3 text-sm font-medium text-black rounded-none transition-all duration-300 hover:bg-white/90 hover:scale-[1.01] shrink-0 cursor-pointer whitespace-nowrap"
               >

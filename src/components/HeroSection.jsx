@@ -339,6 +339,7 @@ export default function HeroSection() {
                 {/* CTA Form: 2 Separate Boxes for Waitlist vs Standard Button */}
                 {slide.isWaitlist ? (
                   <form
+                    suppressHydrationWarning
                     onSubmit={(e) => {
                       e.preventDefault();
                       openForm({ email: emailInputs[slide.id] || "" });
@@ -347,8 +348,12 @@ export default function HeroSection() {
                   >
                     {/* Box 1: Email Input */}
                     <input
+                      suppressHydrationWarning
                       type="email"
                       placeholder="Your work email"
+                      autoComplete="email"
+                      data-lpignore="true"
+                      data-1p-ignore="true"
                       value={emailInputs[slide.id] || ""}
                       onChange={(e) =>
                         setEmailInputs({ ...emailInputs, [slide.id]: e.target.value })
@@ -358,6 +363,7 @@ export default function HeroSection() {
 
                     {/* Box 2: Button */}
                     <button
+                      suppressHydrationWarning
                       type="submit"
                       className="group inline-flex items-center justify-center gap-3 bg-white px-5 sm:px-6 py-3 text-sm font-medium text-black rounded-none transition-all duration-300 hover:bg-white/90 hover:scale-[1.01] shrink-0 cursor-pointer whitespace-nowrap"
                     >
@@ -378,6 +384,7 @@ export default function HeroSection() {
                 ) : (
                   <div className="mt-7 sm:mt-8">
                     <button
+                      suppressHydrationWarning
                       type="button"
                       onClick={() => openForm()}
                       className="group inline-flex items-center gap-3.5 rounded-none bg-white px-6 py-3 sm:px-7 sm:py-3.5 text-sm sm:text-base font-medium text-black transition-all duration-300 hover:bg-white/90 hover:scale-[1.01] shrink-0 whitespace-nowrap"

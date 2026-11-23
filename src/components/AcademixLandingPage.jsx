@@ -752,6 +752,7 @@ export default function AcademixLandingPage() {
                       Full Name
                     </label>
                     <input
+                      suppressHydrationWarning
                       type="text"
                       required
                       placeholder="Your full name"
@@ -765,6 +766,7 @@ export default function AcademixLandingPage() {
                       Mobile Number
                     </label>
                     <input
+                      suppressHydrationWarning
                       type="tel"
                       required
                       placeholder="Your mobile number"
@@ -781,6 +783,7 @@ export default function AcademixLandingPage() {
                       Email
                     </label>
                     <input
+                      suppressHydrationWarning
                       type="email"
                       required
                       placeholder="you@example.com"

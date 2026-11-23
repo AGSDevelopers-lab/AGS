@@ -243,6 +243,7 @@ function CtaFormModal({ isOpen, config, onClose }) {
                 <span className="text-[0.72rem] uppercase tracking-[0.18em] text-white/45">Name</span>
               </div>
               <input
+                suppressHydrationWarning
                 type="text"
                 name="name"
                 value={formData.name}
@@ -262,6 +263,7 @@ function CtaFormModal({ isOpen, config, onClose }) {
                 <span className="text-[0.72rem] uppercase tracking-[0.18em] text-white/45">Email address</span>
               </div>
               <input
+                suppressHydrationWarning
                 type="email"
                 name="email"
                 value={formData.email}
@@ -281,6 +283,7 @@ function CtaFormModal({ isOpen, config, onClose }) {
                 <span className="text-[0.72rem] uppercase tracking-[0.18em] text-white/45">Phone number</span>
               </div>
               <input
+                suppressHydrationWarning
                 type="tel"
                 name="phone"
                 value={formData.phone}
@@ -300,6 +303,7 @@ function CtaFormModal({ isOpen, config, onClose }) {
                 <span className="text-[0.72rem] uppercase tracking-[0.18em] text-white/45">Service needed</span>
               </div>
               <select
+                suppressHydrationWarning
                 name="service"
                 value={formData.service}
                 onChange={handleChange}
@@ -327,6 +331,7 @@ function CtaFormModal({ isOpen, config, onClose }) {
                 <span className="text-[0.72rem] uppercase tracking-[0.18em] text-white/45">Project details</span>
               </div>
               <textarea
+                suppressHydrationWarning
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
@@ -351,6 +356,7 @@ function CtaFormModal({ isOpen, config, onClose }) {
                 We&apos;ll respond within 24 hours.
               </p>
               <button
+                suppressHydrationWarning
                 type="submit"
                 disabled={isSubmitting}
                 className="group flex items-center space-x-3 border border-white bg-white px-6 py-3 font-semibold text-black transition-all duration-700 hover:bg-transparent hover:text-white disabled:opacity-60 disabled:hover:bg-white disabled:hover:text-black"

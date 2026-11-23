@@ -352,10 +352,11 @@ export default function ContactPage() {
                 </div>
               )}
 
-              <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-7">
+              <form suppressHydrationWarning onSubmit={handleSubmit} className="space-y-6 sm:space-y-7">
                 {/* 1. Name */}
                 <div>
                   <input
+                    suppressHydrationWarning
                     type="text"
                     name="name"
                     value={formData.name}
@@ -370,6 +371,7 @@ export default function ContactPage() {
                 {/* 2. Email */}
                 <div>
                   <input
+                    suppressHydrationWarning
                     type="email"
                     name="email"
                     value={formData.email}
@@ -384,6 +386,7 @@ export default function ContactPage() {
                 {/* 3. Phone */}
                 <div>
                   <input
+                    suppressHydrationWarning
                     type="tel"
                     name="phone"
                     value={formData.phone}
@@ -397,6 +400,7 @@ export default function ContactPage() {
                 {/* 4. Subject */}
                 <div>
                   <input
+                    suppressHydrationWarning
                     type="text"
                     name="subject"
                     value={formData.subject}
@@ -410,6 +414,7 @@ export default function ContactPage() {
                 {/* 5. Message */}
                 <div>
                   <textarea
+                    suppressHydrationWarning
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
@@ -425,6 +430,7 @@ export default function ContactPage() {
                 <div className="pt-2">
                   <label className="flex items-center gap-3 cursor-pointer select-none">
                     <input
+                      suppressHydrationWarning
                       type="checkbox"
                       checked={agreed}
                       onChange={(e) => setAgreed(e.target.checked)}
