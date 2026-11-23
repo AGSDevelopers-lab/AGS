@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import SlideIn from "@/components/SlideIn";
 
@@ -7,42 +8,48 @@ const testimonialsList = [
   {
     name: "Ankit Ghosh",
     role: "Founder of Molifera Media",
-    avatar: "/testimonials/ankit.png",
+    avatar: "/Academy/User Image (4).png",
+    fallbackAvatar: "/testimonials/user-4.png",
     quote:
       "Very professional company. Assisted my channel with utmost care and support. I recommend wholeheartedly.",
   },
   {
     name: "Nikhil Sharma",
     role: "Founder of TotoJan",
-    avatar: "/testimonials/nikhil.png",
+    avatar: "/Academy/User Image (1).png",
+    fallbackAvatar: "/testimonials/user-1.png",
     quote:
       "Working with AGS transformed our taxi booking platform into a seamless, reliable experience that our drivers and riders love every day.",
   },
   {
     name: "Madhumita Roy",
     role: "Founder of Dabur",
-    avatar: "/testimonials/madhumita.png",
+    avatar: "/Academy/User Image.png",
+    fallbackAvatar: "/testimonials/user-0.png",
     quote:
       "The engineering standard and attention to detail delivered by AGS exceeded our expectations across every phase of digital rollout.",
   },
   {
     name: "Sayan Dutta",
     role: "Full Stack Development",
-    avatar: "/testimonials/sayan.png",
+    avatar: "/Academy/User Image (3).png",
+    fallbackAvatar: "/testimonials/user-3.png",
     quote:
       "From architecture to deployment, AGS delivered robust, highly scalable cloud infrastructure with zero downtime and exceptional speed.",
   },
   {
     name: "Piyal Sen",
     role: "UI/UX Designer",
-    avatar: "/testimonials/piyal.png",
+    avatar: "/Academy/User Image (2).png",
+    fallbackAvatar: "/testimonials/user-2.png",
     quote:
       "The design system and intuitive UX created by the team elevated our product usability and customer engagement significantly.",
   },
   {
     name: "Rizwan Modak",
     role: "Web Developer",
-    avatar: "/testimonials/rizwan.png",
+    avatar: "/Academy/User Image (1).png",
+    fallbackAvatar: "/testimonials/user-1.png",
     quote:
       "Outstanding collaboration and technical expertise. The clean code architecture made scaling and maintenance effortless.",
   },
@@ -58,6 +65,25 @@ function QuoteIcon({ className = "" }) {
     >
       <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
     </svg>
+  );
+}
+
+function TestimonialAvatar({ item }) {
+  const [src, setSrc] = useState(item.avatar);
+  return (
+    <Image
+      src={src}
+      alt={item.name}
+      fill
+      unoptimized
+      sizes="48px"
+      onError={() => {
+        if (item.fallbackAvatar && src !== item.fallbackAvatar) {
+          setSrc(item.fallbackAvatar);
+        }
+      }}
+      className="object-cover object-center"
+    />
   );
 }
 
@@ -98,12 +124,7 @@ export default function Desktop3Testimonials() {
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex items-center gap-3.5">
                       <div className="relative h-12 w-12 rounded-full overflow-hidden border border-white/20 shrink-0 bg-white/10">
-                        <Image
-                          src={item.avatar}
-                          alt={item.name}
-                          fill
-                          className="object-cover object-center"
-                        />
+                        <TestimonialAvatar item={item} />
                       </div>
                       <div className="flex flex-col">
                         <h3 className="text-base sm:text-lg font-medium text-white tracking-tight leading-snug">

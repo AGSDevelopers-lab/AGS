@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import SlideIn from "@/components/SlideIn";
@@ -41,6 +42,8 @@ const learnMetrics = [
 ];
 
 export default function LearnAboutUsSection() {
+  const [imgSrc, setImgSrc] = useState("/AGS Landing Page Images/Container (6).png");
+
   return (
     <section
       id="about"
@@ -50,18 +53,18 @@ export default function LearnAboutUsSection() {
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
           {/* Left Column: Container (6) Asymmetrical Shaped Image */}
           <div className="lg:col-span-5 flex justify-center lg:justify-start">
-            <SlideIn from="left" distance={35}>
-              <div className="relative w-full max-w-[460px] sm:max-w-[500px] aspect-[500/550] shrink-0 drop-shadow-2xl">
-                <Image
-                  src="/container-learn-about-us.png"
-                  alt="Learn About us - AGS Team"
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 460px, 500px"
-                  priority
-                  className="object-contain object-center"
-                />
-              </div>
-            </SlideIn>
+            <div className="relative w-full max-w-[460px] sm:max-w-[500px] flex items-center justify-center">
+              <Image
+                src={imgSrc}
+                alt="Learn About us - AGS Team"
+                width={540}
+                height={590}
+                priority
+                unoptimized
+                onError={() => setImgSrc("/container-learn-about-us.png")}
+                className="w-full h-auto max-w-[480px] object-contain drop-shadow-2xl transition-transform duration-500 hover:scale-[1.02]"
+              />
+            </div>
           </div>
 
           {/* Right Column: Content + 2x2 Feature Cards + Button */}

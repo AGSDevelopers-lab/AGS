@@ -1,37 +1,54 @@
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
+
 const testimonials = [
   {
     name: "Ankit Ghosh",
     role: "Founder, Alfa Media",
+    avatar: "/Academy/User Image (4).png",
+    fallbackAvatar: "/testimonials/user-4.png",
     quote:
       "AGS gave our brand a much stronger digital identity. The website feels premium, performs smoothly, and finally reflects the quality of our business.",
   },
   {
     name: "James Mitchell",
     role: "Marketing Director, Hartwell Digital",
+    avatar: "/Academy/User Image (1).png",
+    fallbackAvatar: "/testimonials/user-1.png",
     quote:
       "The team understood our brief from day one. The site launch was smooth, and we've seen a steady increase in inbound enquiries since going live.",
   },
   {
     name: "Abhirup Mukhopadhyay",
     role: "Founder, Lifestyle Commerce Brand",
+    avatar: "/Academy/User Image.png",
+    fallbackAvatar: "/testimonials/user-0.png",
     quote:
       "They created a clean and conversion-focused experience for our brand. The final output was not only beautiful but also practical for business growth.",
   },
   {
     name: "Sarah Chen",
     role: "Co-founder, Bloom & Bridge Co.",
+    avatar: "/Academy/User Image (3).png",
+    fallbackAvatar: "/testimonials/user-3.png",
     quote:
       "AGS rebuilt our storefront with a focus on speed and clarity. Our bounce rate dropped within the first month, and checkout feels much smoother now.",
   },
   {
     name: "Priya Chatterjee",
     role: "Director, Education Venture",
+    avatar: "/Academy/User Image (2).png",
+    fallbackAvatar: "/testimonials/user-2.png",
     quote:
       "Working with AGS felt structured and professional throughout. They listened carefully, communicated clearly, and delivered exactly what we needed.",
   },
   {
     name: "Marcus Weber",
     role: "Head of Digital, Klein & Partners",
+    avatar: "/Academy/User Image (1).png",
+    fallbackAvatar: "/testimonials/user-1.png",
     quote:
       "Professional, responsive, and detail-oriented. They handled our requirements carefully and delivered a polished website we were confident launching.",
   },
@@ -50,6 +67,25 @@ function QuoteIcon({ className = "" }) {
   );
 }
 
+function TestimonialAvatar({ item }) {
+  const [src, setSrc] = useState(item.avatar);
+  return (
+    <Image
+      src={src}
+      alt={item.name}
+      fill
+      unoptimized
+      sizes="44px"
+      onError={() => {
+        if (item.fallbackAvatar && src !== item.fallbackAvatar) {
+          setSrc(item.fallbackAvatar);
+        }
+      }}
+      className="object-cover object-center"
+    />
+  );
+}
+
 function TestimonialCard({ item }) {
   return (
     <article className="group relative min-h-50 overflow-hidden border border-white/6 bg-white/4 p-5 transition duration-500 hover:-translate-y-1 hover:shadow-[0_18px_30px_-22px_rgba(255,255,255,0.42)] sm:min-h-[200px]">
@@ -57,13 +93,18 @@ function TestimonialCard({ item }) {
       <div className="pointer-events-none absolute left-0 top-0 h-14 w-px bg-[linear-gradient(180deg,rgba(255,255,255,0.82),rgba(255,255,255,0.2),rgba(255,255,255,0))]" />
       <div className="pointer-events-none absolute inset-x-5 bottom-0 h-8 rounded-full bg-white/0 blur-2xl transition duration-500 group-hover:bg-white/30" />
       <div className="relative z-10 flex items-start justify-between gap-4">
-        <div>
-          <h3 className="text-[1.5rem] font-medium text-white">{item.name}</h3>
-          <p className="mt-0.5 text-[0.52rem] uppercase tracking-[0.08em] text-white/45">
-            {item.role}
-          </p>
+        <div className="flex items-center gap-3">
+          <div className="relative h-11 w-11 rounded-full overflow-hidden border border-white/20 shrink-0 bg-white/10">
+            <TestimonialAvatar item={item} />
+          </div>
+          <div>
+            <h3 className="text-[1.25rem] font-medium text-white">{item.name}</h3>
+            <p className="mt-0.5 text-[0.52rem] uppercase tracking-[0.08em] text-white/45">
+              {item.role}
+            </p>
+          </div>
         </div>
-        <QuoteIcon className="h-7 w-7 text-white/28" />
+        <QuoteIcon className="h-6 w-6 text-white/28 shrink-0" />
       </div>
 
       <p className="relative z-10 mt-6 max-w-[320px] text-[0.82rem] leading-[1.75] text-white/62">
