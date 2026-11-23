@@ -13,7 +13,7 @@ const heroSlides = [
     bgImage: "/AGS Landing Page Images/LynkBeats Tablet on Abstract Gradient.png",
     alt: "LynkBeats - Editorial Intelligence Platform",
     title: "LynkBeats",
-    subtitleLine1: "is almost here.",
+    subtitleLine1: "is here.",
     descriptionLine1: "Track story performance and editorial KPIs in real time.",
     descriptionLine2: "Get early access when we launch.",
     features: [
@@ -32,7 +32,7 @@ const heroSlides = [
     bgImage: "/AGS Landing Page Images/VidLens Laptop on a Futuristic Gradient.png",
     alt: "VidLens - Video Intelligence That Drives Results",
     title: "VidLens",
-    subtitleLine1: "is almost here.",
+    subtitleLine1: "is here.",
     descriptionLine1: "Paste any channel. See why videos win and grow.",
     descriptionLine2: "Get early access when we launch.",
     features: [

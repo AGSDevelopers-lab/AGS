@@ -16,7 +16,7 @@ import Footer from "@/components/Footer";
 const PRODUCT_HEROES = {
   lynkbeats: {
     title: "LynkBeats",
-    subtitleLine1: "is almost here.",
+    subtitleLine1: "is here.",
     badge: "NOW FEATURING",
     badgeDotColor: "#EED616",
     bgImage: "/AGS Landing Page Images/LynkBeats Tablet on Abstract Gradient.png",
@@ -32,7 +32,7 @@ const PRODUCT_HEROES = {
   },
   newsbuddies: {
     title: "Newsbuddies",
-    subtitleLine1: "is almost here.",
+    subtitleLine1: "is here.",
     badge: "LAUNCHING SOON",
     badgeDotColor: "#EED616",
     bgImage: "/image5.png",
@@ -48,7 +48,7 @@ const PRODUCT_HEROES = {
   },
   vidlens: {
     title: "VidLens",
-    subtitleLine1: "is almost here.",
+    subtitleLine1: "is here.",
     badge: "NOW FEATURING",
     badgeDotColor: "#EED616",
     bgImage: "/AGS Landing Page Images/vidlens-hero.png",
@@ -64,7 +64,7 @@ const PRODUCT_HEROES = {
   },
   lumina: {
     title: "Lumina",
-    subtitleLine1: "is almost here.",
+    subtitleLine1: "is here.",
     badge: "ENTERPRISE READY",
     badgeDotColor: "#818CF8",
     bgImage: "/products/lumina.png",
@@ -80,7 +80,7 @@ const PRODUCT_HEROES = {
   },
   stmet: {
     title: "STmet",
-    subtitleLine1: "is almost here.",
+    subtitleLine1: "is here.",
     badge: "ENTERPRISE READY",
     badgeDotColor: "#C084FC",
     bgImage: "/products/stmet.png",
@@ -96,7 +96,7 @@ const PRODUCT_HEROES = {
   },
   nexus: {
     title: "Nexus",
-    subtitleLine1: "is almost here.",
+    subtitleLine1: "is here.",
     badge: "ENTERPRISE READY",
     badgeDotColor: "#60A5FA",
     bgImage: "/products/nexus.png",
@@ -126,7 +126,7 @@ export default function ProductDetailView({ slug }) {
   // Fallback if slug not found in map
   const heroData = PRODUCT_HEROES[normalizedSlug] || {
     title: normalizedSlug.charAt(0).toUpperCase() + normalizedSlug.slice(1),
-    subtitleLine1: "is almost here.",
+    subtitleLine1: "is here.",
     badge: "LAUNCHING SOON",
     badgeDotColor: "#EED616",
     bgImage: "/AGS Landing Page Images/LynkBeats Tablet on Abstract Gradient.png",
