@@ -165,13 +165,20 @@ export default function HeroSection() {
       onMouseLeave={() => setIsPaused(false)}
       className="group relative z-10 w-full min-h-[520px] sm:min-h-[640px] lg:min-h-[680px] h-[100dvh] max-h-[1200px] overflow-hidden bg-[#07051A]"
     >
+      {/* Hidden eager preloader for all slide images to guarantee zero-latency switching */}
+      <div className="hidden" aria-hidden="true">
+        {heroSlides.map((s) => (
+          <img key={s.id} src={s.bgImage} alt="" fetchPriority="high" loading="eager" />
+        ))}
+      </div>
+
       {/* Background Slides */}
       {heroSlides.map((slide, index) => {
         const isActive = index === currentSlide;
         return (
           <div
             key={slide.id}
-            className={`absolute inset-0 transition-opacity duration-700 ease-in-out will-change-[opacity] ${
+            className={`absolute inset-0 transition-opacity duration-200 ease-out will-change-[opacity] ${
               isActive ? "opacity-100 z-10 pointer-events-auto" : "opacity-0 z-0 pointer-events-none"
             }`}
           >
@@ -180,6 +187,7 @@ export default function HeroSection() {
               alt={slide.alt}
               fill
               priority
+              unoptimized
               sizes="100vw"
               className={`object-cover ${
                 slide.isProductHero ? "object-right sm:object-center lg:object-right" : "object-center"
@@ -214,7 +222,7 @@ export default function HeroSection() {
             return (
               <div
                 key={slide.id}
-                className={`absolute inset-x-0 top-1/2 -translate-y-1/2 flex flex-col items-start justify-center transition-all duration-500 ease-out will-change-[opacity,transform] ${
+                className={`absolute inset-x-0 top-1/2 -translate-y-1/2 flex flex-col items-start justify-center transition-all duration-200 ease-out will-change-[opacity,transform] ${
                   isActive
                     ? "opacity-100 translate-y-[-50%] pointer-events-auto z-10"
                     : "opacity-0 translate-y-[-48%] pointer-events-none z-0"
