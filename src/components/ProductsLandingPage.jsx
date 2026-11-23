@@ -295,7 +295,7 @@ export default function ProductsLandingPage() {
       {/* ─────────────────────────────────────────────────────────────
           4. GLOBAL FOOTER
           ───────────────────────────────────────────────────────────── */}
-      <Footer />
+      <Footer contactEmail="it-support@amrutglobalsolutions.com" />
     </main>
   );
 }

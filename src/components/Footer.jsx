@@ -76,11 +76,21 @@ const SOCIAL_LINKS = [
   },
 ];
 
-export default function Footer() {
+export default function Footer({ contactEmail: customEmail }) {
   const pathname = usePathname();
   const footerRef = useRef(null);
   const columnsRef = useRef(null);
   const bottomBarRef = useRef(null);
+
+  const isProductPage =
+    pathname?.startsWith("/products") ||
+    pathname?.startsWith("/solutions");
+
+  const emailToDisplay =
+    customEmail ||
+    (isProductPage
+      ? "it-support@amrutglobalsolutions.com"
+      : "contact@amrutglobalsolutions.com");
 
   useGSAP(
     () => {
@@ -133,10 +143,10 @@ export default function Footer() {
       className="relative w-full bg-[#0C0E1A] text-white border-t border-white/5 pt-10 sm:pt-14 pb-8"
     >
       <div className="mx-auto max-w-[1380px] px-6 sm:px-8 lg:px-14">
-        {/* Main 3-column Links Section matching Figma */}
+        {/* Main 4-column Links Section */}
         <div
           ref={columnsRef}
-          className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-[1.8fr_1fr_1fr] lg:gap-20 pb-8 sm:pb-10"
+          className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1.2fr] lg:gap-14 pb-8 sm:pb-10"
         >
           {/* Col 1: AGS Logo + Tagline + MSME Registered Badge */}
           <div className="max-w-[420px]">
@@ -210,6 +220,49 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+            </ul>
+          </div>
+
+          {/* Col 4: Contact / Product Support */}
+          <div>
+            <h3 className="text-base font-semibold text-white tracking-wide">
+              {isProductPage ? "Product Support" : "Contact"}
+            </h3>
+            <ul className="mt-5 space-y-3.5">
+              <li>
+                <a
+                  href={`mailto:${emailToDisplay}`}
+                  className="text-[14px] sm:text-[15px] text-white/60 transition-colors hover:text-white break-all flex items-start gap-2.5"
+                >
+                  <span className="mt-1 text-white/40 shrink-0">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                      <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                  </span>
+                  <span>{emailToDisplay}</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://wa.me/919038130595"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-[14px] sm:text-[15px] text-white/60 transition-colors hover:text-white flex items-center gap-2.5"
+                >
+                  <span className="text-white/40 shrink-0">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12.04 2C6.55 2 2.1 6.45 2.1 11.94c0 1.75.46 3.46 1.33 4.97L2 22l5.24-1.37a9.9 9.9 0 0 0 4.8 1.23h.01c5.48 0 9.93-4.45 9.93-9.94A9.94 9.94 0 0 0 12.04 2zm0 18.08h-.01a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3.11.81.83-3.03-.2-.31a8.1 8.1 0 0 1-1.25-4.3c0-4.47 3.64-8.13 8.12-8.13a8.13 8.13 0 0 1 .05 16.27zm4.46-6.05c-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.03-.38-1.96-1.21-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.79-.2-.47-.4-.4-.54-.4h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.31.98 2.47c.12.16 1.68 2.57 4.08 3.61.57.25 1.01.4 1.36.51.57.18 1.08.15 1.49.09.45-.07 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28z" />
+                    </svg>
+                  </span>
+                  <span>+91 90381 30595</span>
+                </a>
+              </li>
+              <li>
+                <span className="text-[14px] sm:text-[15px] text-white/50 block">
+                  Newtown, Kolkata, WB 700161
+                </span>
+              </li>
             </ul>
           </div>
         </div>

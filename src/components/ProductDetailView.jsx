@@ -297,7 +297,7 @@ export default function ProductDetailView({ slug }) {
       {/* ─────────────────────────────────────────────────────────────
           8. FULL COMPREHENSIVE FOOTER
           ───────────────────────────────────────────────────────────── */}
-      <Footer />
+      <Footer contactEmail="it-support@amrutglobalsolutions.com" />
     </main>
   );
 }
