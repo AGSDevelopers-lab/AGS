@@ -90,7 +90,7 @@ export default function Footer({ contactEmail: customEmail }) {
     customEmail ||
     (isProductPage
       ? "it-support@amrutglobalsolutions.com"
-      : "contact@amrutglobalsolutions.com");
+      : "hello@amrutglobalsolutions.com");
 
   useGSAP(
     () => {

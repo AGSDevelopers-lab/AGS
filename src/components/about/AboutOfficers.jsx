@@ -24,7 +24,7 @@ export const PRESERVED_OFFICERS = [
     image: "/ags about page/suman ghosh.png",
     linkedin: "https://www.linkedin.com/company/the-ags/",
     twitter: "https://x.com/",
-    email: "mailto:contact@amrutglobalsolutions.com",
+    email: "mailto:hello@amrutglobalsolutions.com",
   },
   {
     name: "Priyanka Roy",
@@ -33,7 +33,7 @@ export const PRESERVED_OFFICERS = [
     image: "/ags about page/priyanka roy .png",
     linkedin: "https://www.linkedin.com/company/the-ags/",
     twitter: "https://x.com/",
-    email: "mailto:contact@amrutglobalsolutions.com",
+    email: "mailto:hello@amrutglobalsolutions.com",
   },
   {
     name: "Deep Singha",
@@ -42,7 +42,7 @@ export const PRESERVED_OFFICERS = [
     image: "/ags about page/Deep Singha.png",
     linkedin: "https://www.linkedin.com/company/the-ags/",
     twitter: "https://x.com/",
-    email: "mailto:contact@amrutglobalsolutions.com",
+    email: "mailto:hello@amrutglobalsolutions.com",
   },
 ];
 

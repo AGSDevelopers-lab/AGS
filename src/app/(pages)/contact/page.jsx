@@ -250,10 +250,10 @@ export default function ContactPage() {
                       Email Us
                     </h3>
                     <a
-                      href="mailto:hello@ags.digital"
+                      href="mailto:hello@amrutglobalsolutions.com"
                       className="text-[#555E70] hover:text-[#854CFF] transition-colors text-[14.5px] sm:text-[15px] font-light mt-1 block"
                     >
-                      hello@ags.digital
+                      hello@amrutglobalsolutions.com
                     </a>
                   </div>
                 </div>
