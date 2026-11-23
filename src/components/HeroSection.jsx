@@ -137,12 +137,12 @@ export default function HeroSection() {
     }, 8500);
 
     return () => clearInterval(timer);
-  }, [totalSlides]);
+  }, [currentSlide, totalSlides]);
 
   return (
     <section
       id="home"
-      className="relative z-10 w-full min-h-[520px] sm:min-h-[640px] lg:min-h-[680px] h-[100dvh] max-h-[1200px] overflow-hidden bg-[#07051A]"
+      className="group relative z-10 w-full min-h-[520px] sm:min-h-[640px] lg:min-h-[680px] h-[100dvh] max-h-[1200px] overflow-hidden bg-[#07051A]"
     >
       {/* Background Slides */}
       {heroSlides.map((slide, index) => {
@@ -371,6 +371,48 @@ export default function HeroSection() {
             );
           })}
         </div>
+      </div>
+      {/* Bottom-Right Arrow Navigation Controls (Revealed only on hover) */}
+      <div className="absolute bottom-6 right-6 sm:bottom-8 sm:right-10 lg:bottom-10 lg:right-16 z-30 flex items-center gap-2.5 sm:gap-3 opacity-0 translate-y-2 pointer-events-none transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto">
+        {/* Previous Slide Button */}
+        <button
+          type="button"
+          onClick={() => setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides)}
+          aria-label="Previous slide"
+          className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-white/20 bg-black/60 text-white backdrop-blur-md shadow-xl transition-all duration-300 hover:bg-white hover:text-black hover:border-white hover:scale-105 active:scale-95 cursor-pointer"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="w-4 h-4 sm:w-4.5 sm:h-4.5"
+          >
+            <path d="M15 18l-6-6 6-6" />
+          </svg>
+        </button>
+
+        {/* Next Slide Button */}
+        <button
+          type="button"
+          onClick={() => setCurrentSlide((prev) => (prev + 1) % totalSlides)}
+          aria-label="Next slide"
+          className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-white/20 bg-black/60 text-white backdrop-blur-md shadow-xl transition-all duration-300 hover:bg-white hover:text-black hover:border-white hover:scale-105 active:scale-95 cursor-pointer"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="w-4 h-4 sm:w-4.5 sm:h-4.5"
+          >
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </button>
       </div>
     </section>
   );
