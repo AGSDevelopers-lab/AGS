@@ -133,7 +133,7 @@ export default function HeroSection() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % totalSlides);
-    }, 5000);
+    }, 7000);
 
     return () => clearInterval(timer);
   }, [totalSlides]);
@@ -149,15 +149,15 @@ export default function HeroSection() {
         return (
           <div
             key={slide.id}
-            className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
-              isActive ? "opacity-100 z-10 pointer-events-auto visible" : "opacity-0 z-0 pointer-events-none invisible"
+            className={`absolute inset-0 transition-opacity duration-[2000ms] ease-in-out will-change-[opacity] ${
+              isActive ? "opacity-100 z-10 pointer-events-auto" : "opacity-0 z-0 pointer-events-none"
             }`}
           >
             <Image
               src={slide.bgImage}
               alt={slide.alt}
               fill
-              priority={index === 0}
+              priority={index <= 1}
               sizes="100vw"
               className={`object-cover ${
                 slide.isProductHero ? "object-right sm:object-center lg:object-right" : "object-center"
@@ -192,10 +192,10 @@ export default function HeroSection() {
             return (
               <div
                 key={slide.id}
-                className={`absolute inset-x-0 top-1/2 -translate-y-1/2 flex flex-col items-start justify-center transition-all duration-700 ease-in-out ${
+                className={`absolute inset-x-0 top-1/2 -translate-y-1/2 flex flex-col items-start justify-center transition-all duration-[1400ms] ease-in-out will-change-[opacity,transform] ${
                   isActive
-                    ? "opacity-100 translate-y-[-50%] pointer-events-auto z-10 visible"
-                    : "opacity-0 translate-y-[-46%] pointer-events-none z-0 invisible"
+                    ? "opacity-100 translate-y-[-50%] pointer-events-auto z-10"
+                    : "opacity-0 translate-y-[-48%] pointer-events-none z-0"
                 }`}
               >
                 {/* Badge: Yellow glowing dot + LAUNCHING SOON for products / slim box for partnership */}
