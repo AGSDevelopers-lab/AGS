@@ -2,6 +2,8 @@
 
 import { useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -11,6 +13,8 @@ if (typeof window !== "undefined") {
 }
 
 export default function AwsEcosystemBanner() {
+  const pathname = usePathname();
+  const isAwsPartnerPage = pathname === "/aws-partner";
   const sectionRef = useRef(null);
   const contentRef = useRef(null);
   const artworkRef = useRef(null);
@@ -78,8 +82,35 @@ export default function AwsEcosystemBanner() {
   return (
     <section
       ref={sectionRef}
-      className="relative z-10 w-full min-h-[380px] sm:min-h-[380px] lg:min-h-[420px] bg-[#050414] py-10 sm:py-12 lg:py-14 text-white overflow-hidden border-t border-gray-100 flex items-center"
+      className={`group relative z-10 w-full min-h-[380px] sm:min-h-[380px] lg:min-h-[420px] bg-[#050414] py-10 sm:py-12 lg:py-14 text-white overflow-hidden border-t border-gray-100 flex items-center transition-colors duration-500 ${!isAwsPartnerPage ? "cursor-pointer hover:bg-[#07061d]" : ""}`}
     >
+      
+      {/* Redirect Link to AWS Partner Page */}
+      {!isAwsPartnerPage && (
+        <Link
+          href="/aws-partner"
+          className="absolute inset-0 z-20 cursor-pointer"
+          aria-label="View AWS Partner details"
+        />
+      )}
+
+      {/* Floating Small Arrow that appears on hover */}
+      {!isAwsPartnerPage && (
+        <div className="pointer-events-none absolute top-6 right-6 sm:top-8 sm:right-10 lg:top-10 lg:right-16 z-30 flex items-center justify-center">
+          <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-white/20 bg-black/50 backdrop-blur-md text-white shadow-xl opacity-0 translate-y-2 scale-90 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-y-0 group-hover:scale-100 group-hover:bg-white group-hover:text-black group-hover:border-white">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.2"
+              className="h-4 w-4 sm:h-5 sm:w-5 transition-transform duration-300 group-hover:rotate-45"
+            >
+              <path d="M7 17L17 7H7M17 7V17" />
+            </svg>
+          </div>
+        </div>
+      )}
+
       {/* Background Layer: Cloud Hologram Background Image coming from right */}
       <div
         ref={artworkRef}
@@ -112,8 +143,21 @@ export default function AwsEcosystemBanner() {
             Partnership Announcement
           </span>
 
-          <h2 className="mt-2.5 sm:mt-3 text-2xl sm:text-3xl md:text-4xl lg:text-[47.1px] font-normal tracking-tight text-white leading-tight lg:leading-[72px] whitespace-normal sm:whitespace-nowrap drop-shadow-[0_2px_14px_rgba(0,0,0,0.95)]">
-            We Are Officially AWS Partner
+          <h2 className="mt-2.5 sm:mt-3 text-2xl sm:text-3xl md:text-4xl lg:text-[47.1px] font-normal tracking-tight text-white leading-tight lg:leading-[72px] whitespace-normal sm:whitespace-nowrap drop-shadow-[0_2px_14px_rgba(0,0,0,0.95)] flex items-center gap-3">
+            <span>We Are Officially AWS Partner</span>
+            {!isAwsPartnerPage && (
+              <span className="inline-flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 group-hover:bg-white group-hover:text-black shrink-0">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.2"
+                  className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-300 group-hover:rotate-45"
+                >
+                  <path d="M7 17L17 7H7M17 7V17" />
+                </svg>
+              </span>
+            )}
           </h2>
 
           <p className="mt-1 sm:mt-2 text-base sm:text-xl lg:text-[28px] font-normal text-white leading-snug lg:leading-[48px] whitespace-normal sm:whitespace-nowrap drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">
