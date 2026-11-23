@@ -146,7 +146,7 @@ export default function Footer({ contactEmail: customEmail }) {
         {/* Main 4-column Links Section */}
         <div
           ref={columnsRef}
-          className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1.2fr] lg:gap-14 pb-8 sm:pb-10"
+          className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-[1.35fr_0.9fr_0.9fr_1.45fr] lg:gap-10 xl:gap-14 pb-8 sm:pb-10"
         >
           {/* Col 1: AGS Logo + Tagline + MSME Registered Badge */}
           <div className="max-w-[420px]">
@@ -232,15 +232,15 @@ export default function Footer({ contactEmail: customEmail }) {
               <li>
                 <a
                   href={`mailto:${emailToDisplay}`}
-                  className="text-[14px] sm:text-[15px] text-white/60 transition-colors hover:text-white break-all flex items-start gap-2.5"
+                  className="group flex items-center gap-2.5 text-[13.5px] sm:text-[14px] lg:text-[14.5px] text-white/60 transition-colors hover:text-white whitespace-nowrap"
                 >
-                  <span className="mt-1 text-white/40 shrink-0">
+                  <span className="text-white/40 shrink-0 transition-colors group-hover:text-white/80">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                       <polyline points="22,6 12,13 2,6" />
                     </svg>
                   </span>
-                  <span>{emailToDisplay}</span>
+                  <span className="whitespace-nowrap select-all">{emailToDisplay}</span>
                 </a>
               </li>
               <li>
