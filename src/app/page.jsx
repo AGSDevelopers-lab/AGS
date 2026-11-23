@@ -1,13 +1,13 @@
-import Desktop3Hero from "@/components/Desktop3Hero";
+import HeroSection from "@/components/HeroSection";
 import ClientsSection from "@/components/ClientsSection";
-import LearnAboutUsSection from "@/components/LearnAboutUsSection";
-import YourNeedsExpertiseSection from "@/components/YourNeedsExpertiseSection";
+import AboutMetricsSection from "@/components/AboutMetricsSection";
+import DigitalExcellenceSection from "@/components/DigitalExcellenceSection";
 import AwsEcosystemBanner from "@/components/AwsEcosystemBanner";
-import InHouseProductsSection from "@/components/InHouseProductsSection";
+import InnovativeProductsSection from "@/components/InnovativeProductsSection";
 import AWSTraining from "@/components/AWSTraining";
 import CertifiedExcellence from "@/components/CertifiedExcellence";
-import FeaturedWorks from "@/components/FeaturedWorks";
-import Testimonials from "@/components/Testimonials";
+import CreationsShowcaseSection from "@/components/CreationsShowcaseSection";
+import HappyCustomersSection from "@/components/HappyCustomersSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import ScrollTriggerRefresh from "@/components/ScrollTriggerRefresh";
@@ -20,43 +20,40 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <main className="relative flex min-h-screen flex-col overflow-x-hidden bg-[#030614]">
+    <main className="relative flex min-h-screen flex-col overflow-x-hidden bg-black">
       <ScrollTriggerRefresh />
+      {/* 1. Full-Width Hero Section (7-Slide Immersive Background Transitions matching Figma) */}
+      <HeroSection />
 
-      {/* 1. Full-Width AWS Partnership Announcement Hero Section (matching Desktop - 3.png) */}
-      <Desktop3Hero />
+      {/* Solid White Block: Clients, About, Digital Excellence */}
+      <div className="relative w-full bg-white">
+        <ClientsSection />
+        <AboutMetricsSection />
+        <DigitalExcellenceSection />
+      </div>
 
-      {/* 2. Client Brand Partners Strip (White Background) */}
-      <ClientsSection />
-
-      {/* 3. Who We Are / Learn About us (Dark Theme with Container (6) & 2x2 Metric Cards) */}
-      <LearnAboutUsSection />
-
-      {/* 4. Your Needs, Our Expertise (White Theme with 6 Interactive Numbered Services) */}
-      <YourNeedsExpertiseSection />
-
-      {/* 5. AWS Cloud Ecosystem Banner (In Association with Redington Limited) */}
+      {/* 5. AWS Cloud Ecosystem Banner (Dark Background with Glowing Cloud Hologram) */}
       <AwsEcosystemBanner />
 
-      {/* 6. Our In House Products (White Theme with Forumlyy, ADX, Hotel OS, MedicAI) */}
-      <InHouseProductsSection />
-
-      {/* 7. AWS-Accredited Training & Digital Badges (White Theme with Continuous Moving Badges) */}
+      {/* 6. AWS-Accredited Training & Digital Badges (Moving Carousel from carousel certificates .png) */}
       <AWSTraining />
 
-      {/* 8. Certified Excellence (Dark Theme with Interactive Certificate Carousel) */}
+      {/* 7. Innovative Digital Products (Dark Theme with Academix, Lumina, STmet Cards) */}
+      <InnovativeProductsSection />
+
+      {/* 8. Certified Excellence (White Background with Interactive Certificate Carousel) */}
       <CertifiedExcellence />
 
-      {/* 9. Featured Works (White Theme with All Portfolio CTA & 4 Project Cards) */}
-      <FeaturedWorks />
+      {/* 9. Empowering Businesses To Achieve Goals (Portfolio Showcase with Molifera Media) */}
+      <CreationsShowcaseSection />
 
-      {/* 10. What they say about us (Dark Theme with 6 Testimonial Cards & Avatars) */}
-      <Testimonials />
+      {/* 10. Testimonials / Happy Customers (White Background with 4.9 Rating & Reviews) */}
+      <HappyCustomersSection />
 
-      {/* 11. Let's work with Us (CTA Section) */}
+      {/* 11. CTA Banner */}
       <CTASection />
 
-      {/* 12. Full Comprehensive Footer */}
+      {/* 12. Full Comprehensive Footer matching Figma Frame 1597884149 */}
       <Footer />
     </main>
   );
