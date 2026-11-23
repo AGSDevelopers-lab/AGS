@@ -94,23 +94,6 @@ export default function AwsEcosystemBanner() {
         />
       )}
 
-      {/* Floating Small Arrow that appears on hover */}
-      {!isAwsPartnerPage && (
-        <div className="pointer-events-none absolute top-6 right-6 sm:top-8 sm:right-10 lg:top-10 lg:right-16 z-30 flex items-center justify-center">
-          <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-white/20 bg-black/50 backdrop-blur-md text-white shadow-xl opacity-0 translate-y-2 scale-90 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-y-0 group-hover:scale-100 group-hover:bg-white group-hover:text-black group-hover:border-white">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.2"
-              className="h-4 w-4 sm:h-5 sm:w-5 transition-transform duration-300 group-hover:rotate-45"
-            >
-              <path d="M7 17L17 7H7M17 7V17" />
-            </svg>
-          </div>
-        </div>
-      )}
-
       {/* Background Layer: Cloud Hologram Background Image coming from right */}
       <div
         ref={artworkRef}
