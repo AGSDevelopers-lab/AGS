@@ -1,15 +1,14 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
 import { useCtaForm } from "@/components/CtaFormProvider";
+import { DigitalExcellence } from "@/components/DigitalExcellenceSection";
 import SlideIn from "@/components/SlideIn";
 
 if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger, useGSAP);
+  gsap.registerPlugin(ScrollTrigger);
 }
 
 function AlternatingMetricsRow() {
@@ -171,145 +170,19 @@ function AlternatingMetricsRow() {
 
 export default function AboutBusinessGrowth() {
   const { openForm } = useCtaForm();
-  const root = useRef(null);
-
-  useGSAP(
-    () => {
-      const lines = gsap.utils.toArray("[data-line]");
-      const logo = root.current?.querySelector("[data-logo]");
-      const mm = gsap.matchMedia();
-
-      mm.add("(prefers-reduced-motion: reduce)", () => {
-        gsap.set(lines, { x: 0, autoAlpha: 1, color: "#000" });
-        if (logo) gsap.set(logo, { autoAlpha: 0.9, x: 0 });
-      });
-
-      mm.add("(prefers-reduced-motion: no-preference)", () => {
-        const isMobile = window.innerWidth < 768;
-        const dist = isMobile ? 35 : 70;
-
-        gsap.set(lines, {
-          x: (_, el) => (el.dataset.from === "right" ? dist : -dist),
-          autoAlpha: 0,
-          color: "#9ca3af",
-        });
-
-        if (logo) {
-          gsap.set(logo, { autoAlpha: 0.3, x: -20 });
-        }
-
-        const st = ScrollTrigger.create({
-          trigger: root.current,
-          start: "top 75%",
-          once: true,
-          onEnter: () => {
-            gsap.to(lines, {
-              x: 0,
-              autoAlpha: 1,
-              color: "#000",
-              duration: 1.2,
-              ease: "power3.out",
-              stagger: 0.1,
-            });
-            if (logo) {
-              gsap.to(logo, {
-                x: 0,
-                autoAlpha: 0.9,
-                duration: 1.4,
-                ease: "power2.out",
-              });
-            }
-          },
-        });
-
-        if (st.progress > 0) {
-          gsap.set(lines, { x: 0, autoAlpha: 1, color: "#000" });
-          if (logo) gsap.set(logo, { autoAlpha: 0.9, x: 0 });
-        }
-      });
-
-      return () => mm.revert();
-    },
-    { scope: root }
-  );
 
   return (
     <section className="relative w-full bg-white overflow-hidden pt-6 sm:pt-8 lg:pt-10 pb-12 sm:pb-16 lg:pb-20">
-      {/* ── PART A: Centered Kinetic Typography & Monogram matching Picture7.png ── */}
-      <div
-        ref={root}
-        className="relative flex items-center justify-center overflow-x-clip bg-white py-6 sm:py-10 lg:py-14"
-      >
-        <div className="relative z-10 mx-auto flex items-center justify-center px-4 sm:px-6 md:px-8 max-w-[1440px]">
-          {/* Left: Outline AGS Monogram Watermark on the side matching design */}
-          <div
-            data-logo
-            className="relative shrink-0 w-[36px] xs:w-[46px] sm:w-[65px] md:w-[85px] lg:w-[110px] xl:w-[125px] aspect-[140/409] select-none mr-3 xs:mr-4 sm:mr-7 md:mr-10 lg:mr-14 xl:mr-16"
-          >
-            <Image
-              src="/ags-monogram-hd.png"
-              alt="AGS Monogram"
-              fill
-              sizes="(max-width: 640px) 46px, (max-width: 1024px) 85px, 125px"
-              className="object-contain object-center opacity-90"
-              priority
-            />
-          </div>
-
-          {/* Right: 3-Line Kinetic Typography */}
-          <div className="flex flex-col items-start font-sans text-[30px] xs:text-[38px] sm:text-[54px] md:text-[72px] lg:text-[92px] xl:text-[104px] font-normal leading-[1.08] tracking-[-0.03em] text-black">
-            {/* Line 1: Fuel Your + Pill Arrow Button */}
-            <div
-              data-line
-              data-from="left"
-              className="flex items-center gap-2 xs:gap-2.5 sm:gap-3.5 md:gap-4 lg:gap-5"
-            >
-              <span>Fuel Your</span>
-              <span className="flex h-[24px] xs:h-[28px] sm:h-[36px] md:h-[45px] lg:h-[54px] xl:h-[62px] w-[44px] xs:w-[54px] sm:w-[70px] md:w-[88px] lg:w-[110px] xl:w-[126px] items-center justify-center rounded-full border border-[#8B5CF6]/70 shrink-0">
-                <svg
-                  className="w-3 h-3 xs:w-3.5 xs:h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 text-[#8B5CF6]"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M7 17L17 7M17 7H7M17 7V17" />
-                </svg>
-              </span>
-            </div>
-
-            {/* Line 2: Team Image (strictly rectangular, rounded-none) tucked cleanly beside Business */}
-            <div
-              data-line
-              data-from="right"
-              className="flex items-center gap-2 xs:gap-2.5 sm:gap-3.5 md:gap-4 lg:gap-5"
-            >
-              <div className="relative shrink-0 overflow-hidden rounded-none shadow-none w-[42px] xs:w-[54px] sm:w-[74px] md:w-[98px] lg:w-[125px] xl:w-[145px] h-[27px] xs:h-[35px] sm:h-[48px] md:h-[63px] lg:h-[80px] xl:h-[94px]">
-                <Image
-                  src="/figma-exports/Markeo.png"
-                  alt="Business Team"
-                  fill
-                  sizes="(max-width: 640px) 54px, (max-width: 1024px) 98px, 145px"
-                  className="object-cover object-center rounded-none"
-                  priority
-                />
-              </div>
-              <span>Business</span>
-            </div>
-
-            {/* Line 3: Expansion (Indented slightly so it aligns under Business) */}
-            <div
-              data-line
-              data-from="left"
-              className="pl-[10px] sm:pl-[16px] md:pl-[20px] lg:pl-[24px]"
-            >
-              Expansion
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* ── PART A: Centered Kinetic Typography & Monogram matching Homepage DigitalExcellence ── */}
+      <DigitalExcellence
+        line1Text="Fuel Your"
+        line2Text="Business"
+        line3Text="Expansion"
+        imageAlt="Business Team"
+        className="py-6 sm:py-10 lg:py-14"
+        line1IndentClass="pl-[0.98em]"
+        line3IndentClass="pl-[0.98em]"
+      />
 
       {/* ── PART B: 4-Column Alternating Staggered Metrics Row (Matching Video Reference) ── */}
       <div className="mx-auto max-w-[1380px] px-6 sm:px-10 lg:px-14">

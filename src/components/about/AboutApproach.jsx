@@ -86,10 +86,11 @@ export default function AboutApproach() {
           <div ref={imageColRef} className="w-full">
             <div className="relative w-full aspect-[630/464] max-w-[580px] mx-auto lg:mx-0 overflow-hidden rounded-none">
               <Image
-                src="/ags about page/Our approach.png"
+                src="/GettyImages-2193065392.jpg.jpeg"
                 alt="AGS Team Collaborating around Laptop"
                 fill
                 sizes="(max-width: 1024px) 100vw, 580px"
+                quality={90}
                 className="object-cover object-center"
                 priority
               />

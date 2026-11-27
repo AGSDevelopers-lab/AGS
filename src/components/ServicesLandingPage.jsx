@@ -10,7 +10,6 @@ import { useGSAP } from "@gsap/react";
 import { useCtaForm } from "@/components/CtaFormProvider";
 import Footer from "@/components/Footer";
 import container6 from "../../public/services/container-6.png";
-import smarterTechTeam from "../../public/services/smarter-tech-team.png";
 import satisfactionTeam from "../../public/services/satisfaction-team-clean.png";
 import heroBg from "../../public/services/hero-bg.png";
 import tabFullStack from "../../public/services/tab-full-stack.png";
@@ -530,11 +529,12 @@ export default function ServicesLandingPage() {
           <div ref={sec3ImageRef} className="w-full lg:w-[550px] max-w-[550px] flex-shrink-0 will-change-transform flex flex-col gap-6">
             {/* Top: 3 colleagues photo */}
             <Image
-              src={smarterTechTeam}
+              src="/GettyImages-2193065392.jpg.jpeg"
               alt="Team collaboration"
-              width={1004}
-              height={708}
-              unoptimized
+              width={2121}
+              height={1414}
+              sizes="(max-width: 1024px) 100vw, 550px"
+              quality={90}
               priority
               className="w-full h-auto object-cover rounded-none"
             />

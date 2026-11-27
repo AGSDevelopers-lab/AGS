@@ -108,7 +108,7 @@ const heroSlides = [
   {
     id: 8,
     type: "ecommerce",
-    bgImage: "/image6.png",
+    bgImage: "/Perfect-Credit-Card-for-Your-Lifestyle-Feature.jpg.jpeg",
     alt: "eCommerce Solutions for Growing Brands",
     titleLine1: "eCommerce Solutions",
     titleLine2: "for Growing Brands",

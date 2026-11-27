@@ -158,10 +158,11 @@ export default function AboutDigitalExperiences() {
             {/* Lower Image (Calibrated aspect ratio so bottom edge aligns flush with bottom of right column) */}
             <div className="mt-6 sm:mt-8 relative w-full aspect-[604/415] rounded-none overflow-hidden shadow-sm bg-gray-100">
               <Image
-                src="/ags about page/building digital experience.png"
+                src="/how-to-learn-data-analytics-scaled.jpg.jpeg"
                 alt="Reviewing Analytics and Charts at Desk"
                 fill
                 sizes="(max-width: 1024px) 100vw, 604px"
+                quality={90}
                 className="object-cover object-center"
                 priority
               />
