@@ -146,7 +146,7 @@ export const PRODUCTS = [
     mockupImage: "/AGS Products 1 (1).png",
     logo: "/products/logo-vidlens.png",
     accent: "#EC4899",
-    externalUrl: "#",
+    externalUrl: "https://vidlens.in/",
     highlights: [
       "Views & Growth Tracking",
       "Competitor Benchmarking",
@@ -192,7 +192,7 @@ export const PRODUCTS = [
     mockupImage: "/AGS Products 1.png",
     logo: "/products/logo-lynkbeats.png",
     accent: "#10B981",
-    externalUrl: "#",
+    externalUrl: "https://linkbeats.in/",
     highlights: [
       "Real-Time Reader Counts",
       "Top-Performing Story Alerts",

@@ -18,7 +18,7 @@ const PRODUCT_CONFIGS = {
     heroImage: "/AGS Products 1 (1).png",
     heroAlt: "VidLens platform preview on laptop",
     exploreLabel: "Explore VidLens",
-    exploreHref: "#vidlens-features",
+    exploreHref: "https://vidlens.in/",
     metaRows: [
       { label: "Built by", value: "AGS" },
       { label: "For", value: "YouTube creators" },
@@ -109,7 +109,7 @@ const PRODUCT_CONFIGS = {
       headingLine1: "Don’t Just Publish Stories.",
       headingLine2: "Understand Their Impact.",
       secondaryLabel: "Explore LynkBeats",
-      secondaryHref: "/products/lynkbeats",
+      secondaryHref: "https://linkbeats.in/",
     },
   },
   lynkbeats: {
@@ -121,7 +121,7 @@ const PRODUCT_CONFIGS = {
     heroImage: "/AGS Products 1.png",
     heroAlt: "LynkBeats live newsroom telemetry preview on laptop",
     exploreLabel: "Explore LynkBeats",
-    exploreHref: "#lynkbeats-features",
+    exploreHref: "https://linkbeats.in/",
     metaRows: [
       { label: "Built by", value: "AGS" },
       { label: "For", value: "Media organisations" },
@@ -204,7 +204,7 @@ const PRODUCT_CONFIGS = {
       headingLine1: "Don’t Just Publish Stories.",
       headingLine2: "Understand Their Impact.",
       secondaryLabel: "Explore LynkBeats",
-      secondaryHref: "#lynkbeats-features",
+      secondaryHref: "https://linkbeats.in/",
     },
   },
 };
@@ -230,9 +230,24 @@ function EnquireButton({ onClick }) {
 }
 
 function ExploreButton({ href, label }) {
+  const isExternal = /^https?:\/\//i.test(href);
   const isAnchor = href.startsWith("#");
   const className =
     "inline-flex h-[49px] min-w-[160px] items-center justify-center border border-[#14101F] bg-white px-7 text-[14px] font-medium text-[#14101F] rounded-none transition-colors duration-200 hover:bg-[#14101F] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7A3CFF] whitespace-nowrap";
+
+  if (isExternal) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={className}
+      >
+        <span>{label}</span>
+        <span className="sr-only"> (opens in new tab)</span>
+      </a>
+    );
+  }
 
   if (isAnchor) {
     return (
