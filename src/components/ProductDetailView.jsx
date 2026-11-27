@@ -12,6 +12,7 @@ import CreationsShowcaseSection from "@/components/CreationsShowcaseSection";
 import HappyCustomersSection from "@/components/HappyCustomersSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
+import FigmaProductDetailPage from "@/components/FigmaProductDetailPage";
 
 const PRODUCT_HEROES = {
   lynkbeats: {
@@ -121,6 +122,11 @@ export default function ProductDetailView({ slug }) {
   // Redirect academix directly to its dedicated academy landing page
   if (normalizedSlug === "academix") {
     redirect("/services/aws-training");
+  }
+
+  // Dedicated Figma layouts for VidLens and LynkBeats
+  if (normalizedSlug === "vidlens" || normalizedSlug === "lynkbeats") {
+    return <FigmaProductDetailPage slug={normalizedSlug} />;
   }
 
   // Fallback if slug not found in map

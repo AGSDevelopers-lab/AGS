@@ -11,6 +11,9 @@ import {
 import { useRouter } from "next/navigation";
 
 const SERVICE_OPTIONS = [
+  "VidLens",
+  "LynkBeats",
+  "Newsbuddies",
   "Web Development",
   "UI/UX Design",
   "Branding",

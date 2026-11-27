@@ -24,6 +24,7 @@ const heroSlides = [
       "AI audience intelligence",
     ],
     buttonText: "Get Started",
+    href: "/products/lynkbeats",
   },
   {
     id: 2,
@@ -43,6 +44,7 @@ const heroSlides = [
       "AI-powered insights",
     ],
     buttonText: "Get Started",
+    href: "/products/vidlens",
   },
   {
     id: 3,

@@ -14,17 +14,14 @@ function CTAButton() {
       onClick={() => openForm()}
     >
       <span>Know More</span>
-      <span className="flex h-5 w-5 sm:h-5.5 sm:w-5.5 items-center justify-center shrink-0 rounded-full border border-black/80 text-black transition-transform duration-300 group-hover:rotate-45">
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2.2"
-          className="w-3 h-3 sm:w-3.5 sm:h-3.5"
-        >
-          <path d="M7 17L17 7M17 7H7M17 7V17" />
-        </svg>
-      </span>
+      <Image
+        src="/contact/uil_arrow-up.png"
+        alt=""
+        width={20}
+        height={20}
+        unoptimized
+        className="h-5 w-5 shrink-0 transition-transform duration-300 group-hover:rotate-45"
+      />
     </button>
   );
 }
